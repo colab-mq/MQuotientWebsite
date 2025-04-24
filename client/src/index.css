@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --primary: 210 100% 40%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 9 100% 59%;
+  --secondary-foreground: 210 40% 98%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222 47% 11%;
+  --destructive: 0 100% 50%;
+  --destructive-foreground: 210 40% 98%;
+  --ring: 215 20.2% 65.1%;
+  --radius: 0.5rem;
+  --chart-1: 210 100% 40%;
+  --chart-2: 9 100% 59%;
+  --chart-3: 204 70% 53%;
+  --chart-4: 150 60% 49%;
+  --chart-5: 43 96% 50%;
+}
+
+.dark {
+  --background: 222 47% 11%;
+  --foreground: 213 31% 91%;
+  --muted: 223 47% 11%;
+  --muted-foreground: 215.4 16.3% 56.9%;
+  --popover: 222 47% 11%;
+  --popover-foreground: 213 31% 91%;
+  --card: 222 47% 11%;
+  --card-foreground: 213 31% 91%;
+  --border: 216 34% 17%;
+  --input: 216 34% 17%;
+  --primary: 210 100% 40%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 9 100% 59%;
+  --secondary-foreground: 210 40% 98%;
+  --accent: 216 34% 17%;
+  --accent-foreground: 213 31% 91%;
+  --destructive: 0 63% 31%;
+  --destructive-foreground: 210 40% 98%;
+  --ring: 216 34% 17%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+}
+
+.section-title {
+  @apply text-3xl md:text-4xl font-bold mb-4;
+}
+
+.section-subtitle {
+  @apply text-lg md:text-xl mb-8 text-muted-foreground;
+}
+
+.section-heading {
+  @apply text-center mb-16;
+}
+
+.section-divider {
+  @apply w-24 h-1 bg-secondary mx-auto;
+}
+
+@layer components {
+  .nav-link {
+    @apply font-medium text-foreground hover:text-primary transition duration-300;
+  }
+
+  .nav-link-mobile {
+    @apply block px-3 py-2 rounded-md text-base font-medium text-foreground hover:text-primary hover:bg-muted transition duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground font-medium px-6 py-3 rounded-md shadow-lg hover:bg-primary/90 transition duration-300 text-center;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground font-medium px-6 py-3 rounded-md shadow-lg hover:bg-secondary/90 transition duration-300 text-center;
+  }
+
+  .btn-outline {
+    @apply bg-background text-primary font-medium px-6 py-3 rounded-md shadow-lg hover:bg-muted transition duration-300 text-center;
+  }
+
+  .service-card {
+    @apply bg-background rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-2 p-6;
+  }
+
+  .service-icon {
+    @apply flex items-center justify-center h-16 w-16 rounded-lg bg-primary/20 text-primary text-2xl mb-6;
+  }
+
+  .service-title {
+    @apply text-xl font-semibold mb-4;
+  }
+
+  .service-link {
+    @apply inline-block font-medium text-primary hover:text-primary/90 transition duration-300;
+  }
+
+  .process-step {
+    @apply relative bg-muted rounded-lg p-6 h-full;
+  }
+
+  .process-number {
+    @apply flex items-center justify-center h-16 w-16 rounded-full bg-primary text-primary-foreground text-2xl mb-6 font-bold;
+  }
+
+  .team-card {
+    @apply bg-background rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-2 p-6;
+  }
+
+  .team-image {
+    @apply inline-block rounded-full overflow-hidden h-32 w-32 bg-muted mb-4;
+  }
+
+  .contact-icon {
+    @apply flex-shrink-0 h-10 w-10 rounded-full bg-primary/20 text-primary flex items-center justify-center mr-4;
+  }
+
+  .feature-check {
+    @apply flex items-center;
+  }
+
+  .feature-check-icon {
+    @apply bg-muted p-2 rounded-full mr-3;
+  }
+}
