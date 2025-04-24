@@ -247,6 +247,26 @@ node scripts/db-snapshot.js import
 
 ### Deployment Options
 
+#### Automated Deployment Script
+
+The project includes a deployment script that automates the entire deployment process:
+
+```bash
+# Deploy to production
+./scripts/deploy.sh
+
+# Deploy to staging
+./scripts/deploy.sh staging
+```
+
+This script will:
+1. Load environment variables from `.env` files
+2. Install dependencies
+3. Build the application
+4. Run database migrations
+5. Start or restart the application using the appropriate method
+   (systemd, PM2, Docker, or direct Node.js process)
+
 #### GitHub Pages Deployment (Frontend Only)
 
 The project includes a custom GitHub Pages deployment script:
@@ -305,6 +325,31 @@ sudo cp server-config/mquotient.service /etc/systemd/system/
 sudo systemctl enable mquotient.service
 sudo systemctl start mquotient.service
 ```
+
+#### Docker Deployment
+
+The project includes Docker and Docker Compose configuration for containerized deployment:
+
+1. **Dockerfile**: Multi-stage build process for optimized container image
+2. **docker-compose.yml**: Orchestrates the application with PostgreSQL database
+
+To deploy using Docker:
+
+```bash
+# Build and start the containers
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Apply database migrations
+docker-compose exec app npm run db:push
+
+# Stop the application
+docker-compose down
+```
+
+For production, you may want to modify the Docker Compose file to use environment variables or Docker secrets for sensitive information.
 
 ### Adding New Pages
 

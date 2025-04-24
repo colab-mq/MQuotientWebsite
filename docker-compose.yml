@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/mquotient
+    depends_on:
+      - db
+    networks:
+      - mquotient-network
+    restart: unless-stopped
+
+  db:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=mquotient
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - mquotient-network
+    restart: unless-stopped
+
+  # Uncomment to enable database admin panel
+  # pgadmin:
+  #   image: dpage/pgadmin4
+  #   ports:
+  #     - "8080:80"
+  #   environment:
+  #     - PGADMIN_DEFAULT_EMAIL=admin@mquotient.net
+  #     - PGADMIN_DEFAULT_PASSWORD=admin
+  #   volumes:
+  #     - pgadmin-data:/var/lib/pgadmin
+  #   networks:
+  #     - mquotient-network
+  #   depends_on:
+  #     - db
+  #   restart: unless-stopped
+
+networks:
+  mquotient-network:
+    driver: bridge
+
+volumes:
+  postgres-data:
+  # pgadmin-data:
