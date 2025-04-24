@@ -5,6 +5,7 @@ import { z } from "zod";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import { motion } from "framer-motion";
 import { 
   Form, 
   FormControl, 
@@ -17,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { FaMapMarkerAlt, FaEnvelope, FaGlobe, FaCheck } from "react-icons/fa";
+import { Send, ArrowRight } from "lucide-react";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, {
@@ -88,70 +90,114 @@ const ContactSection = () => {
     "Implementation & Support"
   ];
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
   return (
-    <section id="contact" className="py-16 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 bg-background relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 z-0" />
+      <div className="absolute top-40 left-0 w-96 h-96 bg-primary/5 rounded-full filter blur-3xl" />
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-secondary/5 rounded-full filter blur-3xl" />
+      
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="section-heading">
-          <h2 className="section-title">Get In Touch</h2>
+          <h2 className="section-title">
+            Get In <span className="gradient-text">Touch</span>
+          </h2>
           <div className="section-divider"></div>
           <p className="section-subtitle max-w-3xl mx-auto">
             Ready to start your digital transformation journey? Contact us to discuss how our automation solutions can help your business.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
-            <div className="mb-8">
-              <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
-              <div className="space-y-4">
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={containerVariants}
+        >
+          <motion.div variants={itemVariants}>
+            <div className="mb-10">
+              <h3 className="text-2xl font-semibold mb-6 relative inline-block">
+                <span className="relative z-10">Contact Information</span>
+                <span className="absolute bottom-0 left-0 w-full h-1 bg-primary/20 rounded-full"></span>
+              </h3>
+              <div className="space-y-5">
                 <div className="flex items-start">
-                  <div className="contact-icon">
-                    <FaMapMarkerAlt />
+                  <div className="bg-background text-primary h-10 w-10 rounded-full flex items-center justify-center shadow-sm border border-border mr-4 flex-shrink-0 mt-0.5">
+                    <FaMapMarkerAlt className="h-4 w-4" />
                   </div>
                   <div>
-                    <h4 className="font-semibold">Address</h4>
-                    <p>53/16, Richmond Road, Bangalore - 560025, India</p>
+                    <h4 className="font-semibold text-lg">Address</h4>
+                    <p className="text-foreground/80">53/16, Richmond Road, Bangalore - 560025, India</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <div className="contact-icon">
-                    <FaEnvelope />
+                  <div className="bg-background text-primary h-10 w-10 rounded-full flex items-center justify-center shadow-sm border border-border mr-4 flex-shrink-0 mt-0.5">
+                    <FaEnvelope className="h-4 w-4" />
                   </div>
                   <div>
-                    <h4 className="font-semibold">Email</h4>
-                    <p>rishi@mquotient.net</p>
+                    <h4 className="font-semibold text-lg">Email</h4>
+                    <p className="text-foreground/80">rishi@mquotient.net</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <div className="contact-icon">
-                    <FaGlobe />
+                  <div className="bg-background text-primary h-10 w-10 rounded-full flex items-center justify-center shadow-sm border border-border mr-4 flex-shrink-0 mt-0.5">
+                    <FaGlobe className="h-4 w-4" />
                   </div>
                   <div>
-                    <h4 className="font-semibold">Website</h4>
-                    <p>www.mquotient.net</p>
+                    <h4 className="font-semibold text-lg">Website</h4>
+                    <p className="text-foreground/80">www.mquotient.net</p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold mb-6">Our Services</h3>
+              <h3 className="text-2xl font-semibold mb-6 relative inline-block">
+                <span className="relative z-10">Our Services</span>
+                <span className="absolute bottom-0 left-0 w-full h-1 bg-primary/20 rounded-full"></span>
+              </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {services.map((service, index) => (
-                  <div key={index} className="feature-check">
-                    <div className="feature-check-icon">
-                      <FaCheck className="text-green-500 text-xs" />
+                  <div key={index} className="flex items-center group">
+                    <div className="flex-shrink-0 h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center mr-3 group-hover:bg-primary/20 transition-all duration-300">
+                      <FaCheck className="text-primary h-3 w-3" />
                     </div>
-                    <span>{service}</span>
+                    <span className="text-foreground/80">{service}</span>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div>
-            <div className="bg-muted rounded-lg p-8">
-              <h3 className="text-2xl font-semibold mb-6">Send Us a Message</h3>
+          <motion.div variants={itemVariants}>
+            <div className="bg-background border border-border rounded-xl p-8 shadow-sm">
+              <h3 className="text-2xl font-semibold mb-6 relative inline-block">
+                <span className="relative z-10">Send Us a Message</span>
+                <span className="absolute bottom-0 left-0 w-full h-1 bg-primary/20 rounded-full"></span>
+              </h3>
               
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -163,7 +209,11 @@ const ContactSection = () => {
                         <FormItem>
                           <FormLabel>Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your name" {...field} />
+                            <Input 
+                              placeholder="Your name" 
+                              className="rounded-lg border-border focus:border-primary/50" 
+                              {...field} 
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -176,7 +226,11 @@ const ContactSection = () => {
                         <FormItem>
                           <FormLabel>Email</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your email" {...field} />
+                            <Input 
+                              placeholder="Your email" 
+                              className="rounded-lg border-border focus:border-primary/50" 
+                              {...field} 
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -191,7 +245,11 @@ const ContactSection = () => {
                       <FormItem>
                         <FormLabel>Company</FormLabel>
                         <FormControl>
-                          <Input placeholder="Your company (optional)" {...field} />
+                          <Input 
+                            placeholder="Your company (optional)" 
+                            className="rounded-lg border-border focus:border-primary/50" 
+                            {...field} 
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -205,7 +263,11 @@ const ContactSection = () => {
                       <FormItem>
                         <FormLabel>Subject</FormLabel>
                         <FormControl>
-                          <Input placeholder="Subject of your message" {...field} />
+                          <Input 
+                            placeholder="Subject of your message" 
+                            className="rounded-lg border-border focus:border-primary/50" 
+                            {...field} 
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -221,7 +283,7 @@ const ContactSection = () => {
                         <FormControl>
                           <Textarea 
                             placeholder="Your message" 
-                            className="resize-none" 
+                            className="resize-none rounded-lg border-border focus:border-primary/50" 
                             rows={4} 
                             {...field} 
                           />
@@ -233,16 +295,20 @@ const ContactSection = () => {
                   
                   <Button 
                     type="submit" 
-                    className="w-full" 
+                    className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {isSubmitting ? (
+                      <>Sending... <Send className="ml-2 h-4 w-4 animate-pulse" /></>
+                    ) : (
+                      <>Send Message <ArrowRight className="ml-2 h-4 w-4" /></>
+                    )}
                   </Button>
                 </form>
               </Form>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
