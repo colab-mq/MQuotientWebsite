@@ -6,122 +6,101 @@
  * Backend functionality (like the contact form) would need to be connected to an external API.
  */
 
-import { exec } from 'child_process';
-import * as fs from 'fs';
-import * as path from 'path';
+import { execSync } from 'child_process';
+import fs from 'fs';
+import path from 'path';
 
 // Configuration
-const basePath = '/mquotient-website/'; // Change this to match your GitHub repository name
-const buildDir = 'dist';
-const temporaryBranch = 'gh-pages-temp';
+const config = {
+  branch: 'gh-pages',
+  buildCommand: 'npm run build',
+  distFolder: 'dist',
+  repoUrl: null,  // Will be populated from Git config
+  commit: {
+    message: `Deploy: ${new Date().toISOString()}`
+  }
+};
 
-console.log('🚀 Starting GitHub Pages deployment process...');
+// Get the repository URL from git config
+try {
+  config.repoUrl = execSync('git config --get remote.origin.url').toString().trim();
+  console.log(`Repository URL: ${config.repoUrl}`);
+} catch (error) {
+  console.error('Error getting repository URL:', error.message);
+  console.error('Make sure you have Git installed and this is a Git repository.');
+  process.exit(1);
+}
 
-// Step 1: Build the frontend with the correct base path
-console.log('📦 Building frontend with GitHub Pages base path...');
-exec(`vite build --base=${basePath}`, (error, stdout, stderr) => {
-  if (error) {
-    console.error(`❌ Build failed: ${error.message}`);
-    return;
+// Main deployment function
+async function deploy() {
+  console.log('Starting deployment to GitHub Pages...');
+
+  // Step 1: Build the project
+  console.log('\n📦 Building the project...');
+  try {
+    execSync(config.buildCommand, { stdio: 'inherit' });
+  } catch (error) {
+    console.error('❌ Build failed:', error.message);
+    process.exit(1);
+  }
+  console.log('✅ Build successful!');
+
+  // Step 2: Verify the dist folder exists
+  if (!fs.existsSync(config.distFolder)) {
+    console.error(`❌ Distribution folder '${config.distFolder}' not found!`);
+    process.exit(1);
+  }
+
+  // Step 3: Create a .nojekyll file to bypass Jekyll processing
+  fs.writeFileSync(path.join(config.distFolder, '.nojekyll'), '');
+
+  // Step 4: Initialize git in the dist folder and push to gh-pages branch
+  console.log('\n🚀 Deploying to GitHub Pages...');
+  try {
+    const commands = [
+      `cd ${config.distFolder}`,
+      'git init',
+      'git add -A',
+      `git commit -m "${config.commit.message}"`,
+      `git push -f ${config.repoUrl} HEAD:${config.branch}`,
+      'rm -rf .git'
+    ];
+    
+    execSync(commands.join(' && '), { stdio: 'inherit' });
+  } catch (error) {
+    console.error('❌ Deployment failed:', error.message);
+    process.exit(1);
+  }
+
+  console.log('\n✨ Deployment successful!');
+  console.log('🌎 Your site should be available soon at: ');
+  
+  // Extract username and repo name from the repo URL
+  try {
+    let match;
+    if (config.repoUrl.includes('github.com')) {
+      // For HTTPS URLs: https://github.com/username/repo.git
+      match = config.repoUrl.match(/github\.com[:/]([^/]+)\/([^/.]+)/);
+    } else {
+      // For SSH URLs: git@github.com:username/repo.git
+      match = config.repoUrl.match(/github\.com[:/]([^/]+)\/([^/.]+)/);
+    }
+    
+    if (match) {
+      const [, username, repo] = match;
+      console.log(`    https://${username}.github.io/${repo}/`);
+    } else {
+      console.log('    Check your GitHub Pages settings for the URL');
+    }
+  } catch (error) {
+    console.log('    Check your GitHub Pages settings for the URL');
   }
   
-  console.log(stdout);
-  
-  // Step 2: Create a static version of the API responses
-  console.log('🔄 Creating static API mock data...');
-  
-  // Create a mock API folder
-  const mockApiDir = path.join(buildDir, 'api');
-  if (!fs.existsSync(mockApiDir)) {
-    fs.mkdirSync(mockApiDir, { recursive: true });
-  }
-  
-  // Create a static mock response for the contact form
-  const contactApiResponse = {
-    success: true,
-    message: "Thank you for your message! This is a static demo. In the actual site, your message would be sent to our team.",
-  };
-  
-  fs.writeFileSync(
-    path.join(mockApiDir, 'contact.json'), 
-    JSON.stringify(contactApiResponse, null, 2)
-  );
-  
-  // Step 3: Create a special 404.html file that redirects to index.html for SPA routing
-  console.log('📄 Creating SPA redirect for GitHub Pages...');
-  const redirectHtml = `
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>MQuotient Business Services</title>
-  <script type="text/javascript">
-    // Single Page Apps for GitHub Pages
-    // MIT License
-    // https://github.com/rafgraph/spa-github-pages
-    var pathSegmentsToKeep = 1;
+  console.log('\n⚠️ Note: It may take a few minutes for changes to appear on GitHub Pages.');
+}
 
-    var l = window.location;
-    l.replace(
-      l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-      l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-      l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-      (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-      l.hash
-    );
-  </script>
-</head>
-<body>
-  Redirecting to MQuotient Business Services website...
-</body>
-</html>
-  `;
-  
-  fs.writeFileSync(path.join(buildDir, '404.html'), redirectHtml);
-  
-  // Update index.html to handle the redirect
-  const indexPath = path.join(buildDir, 'index.html');
-  let indexHtml = fs.readFileSync(indexPath, 'utf8');
-  
-  const redirectScript = `
-  <script type="text/javascript">
-    // Single Page Apps for GitHub Pages
-    // https://github.com/rafgraph/spa-github-pages
-    (function(l) {
-      if (l.search[1] === '/' ) {
-        var decoded = l.search.slice(1).split('&').map(function(s) { 
-          return s.replace(/~and~/g, '&')
-        }).join('?');
-        window.history.replaceState(null, null,
-            l.pathname.slice(0, -1) + decoded + l.hash
-        );
-      }
-    }(window.location))
-  </script>
-  `;
-  
-  indexHtml = indexHtml.replace('</head>', redirectScript + '</head>');
-  fs.writeFileSync(indexPath, indexHtml);
-  
-  // Step 4: Provide instructions for manual deployment
-  console.log('\n✅ Build completed successfully!');
-  console.log('\nTo deploy to GitHub Pages:');
-  console.log('\n1. Create a new branch for GitHub Pages:');
-  console.log(`   git checkout -b ${temporaryBranch}`);
-  
-  console.log('\n2. Add the built files:');
-  console.log(`   git add ${buildDir} -f`);
-  
-  console.log('\n3. Commit the changes:');
-  console.log('   git commit -m "Deploy to GitHub Pages"');
-  
-  console.log('\n4. Push to GitHub:');
-  console.log(`   git subtree push --prefix ${buildDir} origin gh-pages`);
-  
-  console.log('\n5. Clean up:');
-  console.log('   git checkout main');
-  console.log(`   git branch -D ${temporaryBranch}`);
-  
-  console.log('\nAlternatively, you can use GitHub Actions for automated deployment.');
-  console.log('See: https://github.com/marketplace/actions/deploy-to-github-pages\n');
+// Run the deployment
+deploy().catch(error => {
+  console.error('Deployment error:', error);
+  process.exit(1);
 });

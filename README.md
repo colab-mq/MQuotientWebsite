@@ -229,6 +229,22 @@ The project is also set up for easy deployment on Replit.
 - Modify the database schema in `shared/schema.ts`
 - Run `npm run db:push` to apply schema changes
 
+The project includes several database utility scripts:
+
+```bash
+# Check database connection
+node scripts/db-operations.js check
+
+# Show database tables
+node scripts/db-operations.js tables
+
+# Create a database backup/snapshot
+node scripts/db-snapshot.js export
+
+# Restore data from snapshots
+node scripts/db-snapshot.js import
+```
+
 ### Adding New Pages
 
 1. Create a new page component in `client/src/pages/`

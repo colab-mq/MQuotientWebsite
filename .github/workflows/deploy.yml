@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy MQuotient Website
 
 on:
   push:
@@ -6,30 +6,42 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v3
-      
+        
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: '18'
           cache: 'npm'
           
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm ci
         
-      - name: Build for GitHub Pages
-        run: npm run build -- --base=/mquotient-website/
+      - name: Build
+        run: npm run build
         
-      - name: Create 404.html for SPA routing
-        run: |
-          cp dist/index.html dist/404.html
-          
+      # For static frontend deployment to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist
-          branch: gh-pages
+          
+      # Uncomment for full-stack deployment on your preferred platform
+      # - name: Deploy to Production Server
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: ${{ secrets.SERVER_HOST }}
+      #     username: ${{ secrets.SERVER_USERNAME }}
+      #     key: ${{ secrets.SERVER_KEY }}
+      #     port: ${{ secrets.SERVER_PORT }}
+      #     script: |
+      #       cd /path/to/deployment
+      #       git pull
+      #       npm ci
+      #       npm run build
+      #       pm2 restart mquotient-website
