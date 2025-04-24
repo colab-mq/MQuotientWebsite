@@ -74,14 +74,13 @@ const HeroSection = () => {
             className="md:w-1/2 flex justify-center"
             variants={itemVariants}
           >
-            <div className="relative">
+            <div className="relative w-full max-w-md mx-auto">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-xl blur-sm opacity-20"></div>
               <img 
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
                 alt="Digital Transformation" 
-                className="relative rounded-xl shadow-lg max-w-full h-auto z-10" 
-                width="600" 
-                height="400"
+                className="relative rounded-xl shadow-lg w-full h-auto z-10 object-cover" 
+                style={{ maxHeight: "400px" }}
               />
             </div>
           </motion.div>
