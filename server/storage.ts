@@ -1,4 +1,6 @@
 import { users, type User, type InsertUser, contactMessages, type ContactMessage, type InsertContactMessage } from "@shared/schema";
+import { db } from "./db";
+import { eq } from "drizzle-orm";
 
 export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
@@ -8,50 +10,34 @@ export interface IStorage {
   getContactMessages(): Promise<ContactMessage[]>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<number, User>;
-  private contactMessages: Map<number, ContactMessage>;
-  private userCurrentId: number;
-  private messageCurrentId: number;
-
-  constructor() {
-    this.users = new Map();
-    this.contactMessages = new Map();
-    this.userCurrentId = 1;
-    this.messageCurrentId = 1;
-  }
-
+export class DatabaseStorage implements IStorage {
   async getUser(id: number): Promise<User | undefined> {
-    return this.users.get(id);
+    const result = await db.select().from(users).where(eq(users.id, id));
+    return result.length > 0 ? result[0] : undefined;
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+    const result = await db.select().from(users).where(eq(users.username, username));
+    return result.length > 0 ? result[0] : undefined;
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const id = this.userCurrentId++;
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
+    const result = await db.insert(users).values(insertUser).returning();
+    return result[0];
   }
 
   async createContactMessage(insertMessage: InsertContactMessage): Promise<ContactMessage> {
-    const id = this.messageCurrentId++;
-    const message: ContactMessage = { 
-      ...insertMessage, 
-      id, 
-      createdAt: new Date().toISOString() 
-    };
-    this.contactMessages.set(id, message);
-    return message;
+    const result = await db.insert(contactMessages).values({
+      ...insertMessage,
+      createdAt: new Date().toISOString()
+    }).returning();
+    
+    return result[0];
   }
 
   async getContactMessages(): Promise<ContactMessage[]> {
-    return Array.from(this.contactMessages.values());
+    return await db.select().from(contactMessages).orderBy(contactMessages.id);
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();
