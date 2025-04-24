@@ -245,6 +245,67 @@ node scripts/db-snapshot.js export
 node scripts/db-snapshot.js import
 ```
 
+### Deployment Options
+
+#### GitHub Pages Deployment (Frontend Only)
+
+The project includes a custom GitHub Pages deployment script:
+
+```bash
+# Deploy frontend to GitHub Pages
+node gh-pages-deploy.js
+```
+
+This will build the project and deploy the static frontend to the `gh-pages` branch. Note that GitHub Pages only supports static content, so the backend API will not be available.
+
+#### Netlify Deployment (Full Stack)
+
+The project includes a `netlify.toml` configuration file for easy deployment on Netlify:
+
+1. Push your code to a GitHub repository
+2. Login to Netlify and create a new site from your GitHub repository
+3. Configure environment variables (important!):
+   - DATABASE_URL: Your PostgreSQL connection string
+
+Netlify can host both the frontend and the serverless backend functions, providing a complete solution for the MQuotient website.
+
+#### Traditional Server Deployment
+
+For deployment on a traditional VPS or dedicated server, we've included configuration files in the `server-config/` directory:
+
+1. **NGINX Configuration** (`nginx.conf`):
+   - Handles SSL termination, HTTP to HTTPS redirection
+   - Serves static assets and proxies API requests to the Node.js server
+   - Includes security headers and performance optimizations
+
+2. **Systemd Service** (`mquotient.service`):
+   - Runs the Node.js application as a system service
+   - Handles automatic restarts and logging
+
+3. **PM2 Configuration** (`ecosystem.config.js`):
+   - Alternative to systemd for process management
+   - Supports clustering for improved performance
+
+To deploy on a traditional server:
+```bash
+# Build the application
+npm run build
+
+# Copy files to your server
+scp -r dist/ user@server:/var/www/mquotient/
+
+# Configure NGINX
+sudo cp server-config/nginx.conf /etc/nginx/sites-available/mquotient
+sudo ln -s /etc/nginx/sites-available/mquotient /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl reload nginx
+
+# Setup systemd service
+sudo cp server-config/mquotient.service /etc/systemd/system/
+sudo systemctl enable mquotient.service
+sudo systemctl start mquotient.service
+```
+
 ### Adding New Pages
 
 1. Create a new page component in `client/src/pages/`
