@@ -1,0 +1,33 @@
+# Netlify configuration file
+# This file provides configuration for deploying to Netlify
+
+[build]
+  # The directory to publish (relative to root of your repo)
+  publish = "dist/"
+  
+  # Default build command
+  command = "npm run build"
+
+# For SPA routing - redirects all paths to index.html to be handled by the client-side router
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Set environment variables - use Netlify UI to set sensitive variables like DATABASE_URL
+[build.environment]
+  NODE_VERSION = "18"
+
+# For the full static frontend-only version (no backend API)
+# Uncomment and modify these settings if deploying a static version
+
+# [context.production]
+#   command = "npm run build -- --base=/"
+
+# [context.branch-deploy]
+#   command = "npm run build -- --base=/branch-deploy/"
+
+# Instructions for setting up database connection:
+# 1. Create a PostgreSQL database (e.g., using Supabase, Neon, etc.)
+# 2. In Netlify UI, go to Site settings > Environment variables
+# 3. Add the DATABASE_URL environment variable with your database connection string
