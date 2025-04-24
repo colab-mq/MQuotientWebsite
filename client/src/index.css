@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 :root {
   --background: 0 0% 100%;
   --foreground: 222 47% 11%;
@@ -13,18 +15,22 @@
   --card-foreground: 222 47% 11%;
   --border: 214.3 31.8% 91.4%;
   --input: 214.3 31.8% 91.4%;
-  --primary: 210 100% 40%;
-  --primary-foreground: 210 40% 98%;
-  --secondary: 9 100% 59%;
-  --secondary-foreground: 210 40% 98%;
+  --primary: 336 80% 46%; /* Pink/magenta for 'm' in MQuotient */
+  --primary-dark: 336 80% 40%;
+  --primary-light: 336 80% 52%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 196 76% 52%; /* Teal for 'quotient' in MQuotient */
+  --secondary-dark: 196 76% 46%;
+  --secondary-light: 196 76% 58%;
+  --secondary-foreground: 0 0% 100%;
   --accent: 210 40% 96.1%;
   --accent-foreground: 222 47% 11%;
   --destructive: 0 100% 50%;
   --destructive-foreground: 210 40% 98%;
   --ring: 215 20.2% 65.1%;
-  --radius: 0.5rem;
-  --chart-1: 210 100% 40%;
-  --chart-2: 9 100% 59%;
+  --radius: 0.75rem;
+  --chart-1: 336 80% 46%;
+  --chart-2: 196 76% 52%;
   --chart-3: 204 70% 53%;
   --chart-4: 150 60% 49%;
   --chart-5: 43 96% 50%;
@@ -41,16 +47,20 @@
   --card-foreground: 213 31% 91%;
   --border: 216 34% 17%;
   --input: 216 34% 17%;
-  --primary: 210 100% 40%;
-  --primary-foreground: 210 40% 98%;
-  --secondary: 9 100% 59%;
-  --secondary-foreground: 210 40% 98%;
+  --primary: 336 80% 56%;
+  --primary-dark: 336 80% 50%;
+  --primary-light: 336 80% 62%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 196 76% 60%;
+  --secondary-dark: 196 76% 54%;
+  --secondary-light: 196 76% 66%;
+  --secondary-foreground: 0 0% 100%;
   --accent: 216 34% 17%;
   --accent-foreground: 213 31% 91%;
   --destructive: 0 63% 31%;
   --destructive-foreground: 210 40% 98%;
   --ring: 216 34% 17%;
-  --radius: 0.5rem;
+  --radius: 0.75rem;
 }
 
 @layer base {
@@ -60,11 +70,12 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
+    @apply font-semibold tracking-tight;
+    font-family: 'Inter', sans-serif;
   }
 }
 
@@ -72,49 +83,40 @@
   @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
 }
 
-.section-title {
-  @apply text-3xl md:text-4xl font-bold mb-4;
-}
-
-.section-subtitle {
-  @apply text-lg md:text-xl mb-8 text-muted-foreground;
-}
-
-.section-heading {
-  @apply text-center mb-16;
-}
-
-.section-divider {
-  @apply w-24 h-1 bg-secondary mx-auto;
-}
-
 @layer components {
+  /* Navigation */
   .nav-link {
-    @apply font-medium text-foreground hover:text-primary transition duration-300;
+    @apply font-medium text-foreground hover:text-primary transition-colors duration-200;
   }
 
   .nav-link-mobile {
-    @apply block px-3 py-2 rounded-md text-base font-medium text-foreground hover:text-primary hover:bg-muted transition duration-300;
+    @apply block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200;
   }
 
+  /* Buttons */
   .btn-primary {
-    @apply bg-primary text-primary-foreground font-medium px-6 py-3 rounded-md shadow-lg hover:bg-primary/90 transition duration-300 text-center;
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors duration-200 
+      bg-gradient-to-r from-primary to-secondary text-white hover:opacity-90 px-6 py-3 shadow-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
   }
 
   .btn-secondary {
-    @apply bg-secondary text-secondary-foreground font-medium px-6 py-3 rounded-md shadow-lg hover:bg-secondary/90 transition duration-300 text-center;
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors duration-200
+      bg-secondary text-white hover:bg-secondary-dark px-6 py-3 shadow-md focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2;
   }
 
   .btn-outline {
-    @apply bg-background text-primary font-medium px-6 py-3 rounded-md shadow-lg hover:bg-muted transition duration-300 text-center;
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors duration-200
+      border border-primary text-primary hover:bg-primary/10 px-6 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
   }
 
+  /* Cards */
   .service-card {
-    @apply bg-background rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-2 p-6;
+    @apply bg-background rounded-xl shadow-sm border border-border overflow-hidden transition-all duration-300 
+      hover:shadow-md hover:border-primary/20 p-6 relative;
   }
 
   .service-icon {
-    @apply flex items-center justify-center h-16 w-16 rounded-lg bg-primary/20 text-primary text-2xl mb-6;
+    @apply flex items-center justify-center h-16 w-16 rounded-xl bg-primary/10 text-primary text-2xl mb-6;
   }
 
   .service-title {
@@ -122,27 +124,32 @@
   }
 
   .service-link {
-    @apply inline-block font-medium text-primary hover:text-primary/90 transition duration-300;
+    @apply inline-flex items-center font-medium text-primary hover:text-primary-dark transition-colors duration-200;
   }
 
+  /* Process */
   .process-step {
-    @apply relative bg-muted rounded-lg p-6 h-full;
+    @apply relative bg-muted rounded-xl p-6 h-full border border-border hover:border-primary/20 transition-all duration-300;
   }
 
   .process-number {
-    @apply flex items-center justify-center h-16 w-16 rounded-full bg-primary text-primary-foreground text-2xl mb-6 font-bold;
+    @apply flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-r from-primary to-secondary 
+      text-white text-2xl mb-6 font-bold shadow-md;
   }
 
+  /* Team */
   .team-card {
-    @apply bg-background rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-2 p-6;
+    @apply bg-background rounded-xl shadow-sm border border-border overflow-hidden transition-all duration-300 
+      hover:shadow-md hover:border-primary/20 p-6;
   }
 
   .team-image {
-    @apply inline-block rounded-full overflow-hidden h-32 w-32 bg-muted mb-4;
+    @apply inline-block rounded-full overflow-hidden h-32 w-32 bg-muted mb-4 ring-4 ring-primary/10;
   }
 
+  /* Contact */
   .contact-icon {
-    @apply flex-shrink-0 h-10 w-10 rounded-full bg-primary/20 text-primary flex items-center justify-center mr-4;
+    @apply flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-4;
   }
 
   .feature-check {
@@ -150,6 +157,23 @@
   }
 
   .feature-check-icon {
-    @apply bg-muted p-2 rounded-full mr-3;
+    @apply bg-primary/10 p-2 rounded-full mr-3 text-primary;
+  }
+
+  /* Section styling */
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-4 tracking-tight;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl mb-8 text-muted-foreground leading-relaxed;
+  }
+
+  .section-heading {
+    @apply text-center mb-16;
+  }
+
+  .section-divider {
+    @apply w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full;
   }
 }
