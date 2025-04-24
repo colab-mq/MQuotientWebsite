@@ -269,14 +269,21 @@ This script will:
 
 #### GitHub Pages Deployment (Frontend Only)
 
-The project includes a custom GitHub Pages deployment script:
+The project includes a custom GitHub Pages deployment script that uses token-based authentication:
 
 ```bash
-# Deploy frontend to GitHub Pages
+# First, set your GitHub Personal Access Token as an environment variable
+export GITHUB_TOKEN=your_personal_access_token
+
+# Then deploy frontend to GitHub Pages
 node gh-pages-deploy.js
 ```
 
+You can create a Personal Access Token at https://github.com/settings/tokens with the "repo" scope.
+
 This will build the project and deploy the static frontend to the `gh-pages` branch. Note that GitHub Pages only supports static content, so the backend API will not be available.
+
+When using GitHub Actions for automated deployment (in `.github/workflows/deploy.yml`), the token is provided automatically by the GitHub Actions environment.
 
 #### Netlify Deployment (Full Stack)
 

@@ -30,6 +30,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist
+          token: ${{ secrets.GITHUB_TOKEN }}
           
       # Uncomment for full-stack deployment on your preferred platform
       # - name: Deploy to Production Server

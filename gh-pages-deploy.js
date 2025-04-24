@@ -56,13 +56,47 @@ async function deploy() {
 
   // Step 4: Initialize git in the dist folder and push to gh-pages branch
   console.log('\n🚀 Deploying to GitHub Pages...');
+  
+  // Check for GitHub token
+  const githubToken = process.env.GITHUB_TOKEN;
+  if (!githubToken) {
+    console.error('❌ GitHub Token not found!');
+    console.error('Please set the GITHUB_TOKEN environment variable:');
+    console.error('  export GITHUB_TOKEN=your_token_here');
+    console.error('\nYou can create a Personal Access Token at:');
+    console.error('  https://github.com/settings/tokens (with "repo" scope)');
+    process.exit(1);
+  }
+  
   try {
+    // Extract repo information for constructing the authenticated URL
+    let repoInfo = { owner: '', repo: '' };
+    
+    if (config.repoUrl.includes('github.com')) {
+      // For HTTPS URLs: https://github.com/username/repo.git
+      const match = config.repoUrl.match(/github\.com[:/]([^/]+)\/([^/.]+)/);
+      if (match) {
+        repoInfo.owner = match[1];
+        repoInfo.repo = match[2];
+      }
+    }
+    
+    if (!repoInfo.owner || !repoInfo.repo) {
+      console.error('❌ Could not parse repository information from URL');
+      process.exit(1);
+    }
+    
+    // Create URL with token authentication
+    const authenticatedRepoUrl = `https://${githubToken}@github.com/${repoInfo.owner}/${repoInfo.repo}.git`;
+    
     const commands = [
       `cd ${config.distFolder}`,
       'git init',
       'git add -A',
+      `git config user.name "GitHub Actions"`,
+      `git config user.email "actions@github.com"`,
       `git commit -m "${config.commit.message}"`,
-      `git push -f ${config.repoUrl} HEAD:${config.branch}`,
+      `git push -f "${authenticatedRepoUrl}" HEAD:${config.branch}`,
       'rm -rf .git'
     ];
     
