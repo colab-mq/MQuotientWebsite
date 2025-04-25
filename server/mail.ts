@@ -12,16 +12,28 @@ export interface EmailConfig {
 // Define environment variables for email configuration
 const EMAIL_USER = process.env.EMAIL_USER;
 const EMAIL_APP_PASSWORD = process.env.EMAIL_APP_PASSWORD;
-const CONTACT_EMAIL_RECIPIENTS = process.env.CONTACT_EMAIL_RECIPIENTS?.split(',') || [];
-const CAREERS_EMAIL_RECIPIENTS = process.env.CAREERS_EMAIL_RECIPIENTS?.split(',') || [];
+const CONTACT_EMAIL_RECIPIENTS = process.env.CONTACT_EMAIL_RECIPIENTS?.split(',') || ['recipient@example.com'];
+const CAREERS_EMAIL_RECIPIENTS = process.env.CAREERS_EMAIL_RECIPIENTS?.split(',') || ['recipient@example.com'];
 
-// Create transporter
+// Create a mock transporter for development if credentials aren't available
 const createTransporter = () => {
   if (!EMAIL_USER || !EMAIL_APP_PASSWORD) {
-    console.warn('Email credentials not set. Email sending will be disabled.');
-    return null;
+    console.warn('Email credentials not set. Using mock email service.');
+    
+    // Create a mock transporter that logs emails instead of sending them
+    return {
+      sendMail: async (mailOptions: any) => {
+        console.log('MOCK EMAIL SENT:');
+        console.log('From:', mailOptions.from);
+        console.log('To:', mailOptions.to);
+        console.log('Subject:', mailOptions.subject);
+        console.log('Content:', mailOptions.text || 'HTML Email');
+        return { messageId: 'mock-email-id-' + Date.now() };
+      }
+    };
   }
 
+  // Use real transporter if credentials are available
   return nodemailer.createTransport({
     service: 'gmail',
     auth: {

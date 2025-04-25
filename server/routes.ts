@@ -51,42 +51,61 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission endpoint
   app.post("/api/contact", async (req: Request, res: Response) => {
     try {
-      const validatedData = insertContactMessageSchema.parse(req.body);
-      const savedMessage = await storage.createContactMessage(validatedData);
+      console.log('Contact form submission received:', req.body);
       
-      // Send email notification
+      let validatedData;
       try {
-        await mailService.sendContactNotification({
+        validatedData = insertContactMessageSchema.parse(req.body);
+      } catch (zodError) {
+        if (zodError instanceof ZodError) {
+          const validationError = fromZodError(zodError);
+          return res.status(400).json({ 
+            success: false, 
+            message: validationError.message || "Invalid form data"
+          });
+        }
+        throw zodError;
+      }
+      
+      // Save to database
+      let savedMessage;
+      try {
+        savedMessage = await storage.createContactMessage(validatedData);
+        console.log('Contact message saved to database:', savedMessage);
+      } catch (dbError) {
+        console.error('Database error saving contact message:', dbError);
+        return res.status(500).json({ 
+          success: false, 
+          message: "Failed to save your message. Please try again later."
+        });
+      }
+      
+      // Send email notification - continue even if it fails
+      try {
+        const emailSent = await mailService.sendContactNotification({
           name: validatedData.name,
           email: validatedData.email,
           company: validatedData.company || undefined,
           subject: validatedData.subject,
           message: validatedData.message
         });
+        console.log('Email notification sent:', emailSent);
       } catch (emailError) {
         console.error('Failed to send email notification:', emailError);
         // Continue execution even if email fails
       }
       
-      res.status(201).json({ 
+      return res.status(201).json({ 
         success: true, 
         message: "Thank you for your message! We will get back to you soon.",
         data: savedMessage 
       });
     } catch (error) {
-      if (error instanceof ZodError) {
-        const validationError = fromZodError(error);
-        res.status(400).json({ 
-          success: false, 
-          message: validationError.message || "Invalid form data"
-        });
-      } else {
-        console.error('Error processing contact form:', error);
-        res.status(500).json({ 
-          success: false, 
-          message: "An unexpected error occurred"
-        });
-      }
+      console.error('Unexpected error processing contact form:', error);
+      return res.status(500).json({ 
+        success: false, 
+        message: "An unexpected error occurred processing your request."
+      });
     }
   });
 
@@ -143,27 +162,53 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Submit career application with resume upload
   app.post("/api/careers/apply", upload.single('resume'), async (req: Request, res: Response) => {
     try {
+      console.log('Career application received:', req.body);
+      
       // Get file details
       const resumeFile = req.file;
       const formData = req.body;
+      
+      console.log('Resume file:', resumeFile ? resumeFile.originalname : 'No resume uploaded');
 
       // Validate form data
-      const validatedData = insertCareerApplicationSchema.parse({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        position: formData.position,
-        message: formData.message,
-        resumeFilename: resumeFile ? resumeFile.originalname : undefined,
-        resumePath: resumeFile ? resumeFile.path : undefined
-      });
+      let validatedData;
+      try {
+        validatedData = insertCareerApplicationSchema.parse({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          position: formData.position,
+          message: formData.message,
+          resumeFilename: resumeFile ? resumeFile.originalname : undefined,
+          resumePath: resumeFile ? resumeFile.path : undefined
+        });
+      } catch (zodError) {
+        if (zodError instanceof ZodError) {
+          const validationError = fromZodError(zodError);
+          return res.status(400).json({
+            success: false,
+            message: validationError.message || "Invalid application data"
+          });
+        }
+        throw zodError;
+      }
 
       // Save application to database
-      const savedApplication = await storage.createCareerApplication(validatedData);
-
-      // Send email notification
+      let savedApplication;
       try {
-        await mailService.sendCareerApplicationNotification({
+        savedApplication = await storage.createCareerApplication(validatedData);
+        console.log('Career application saved to database:', savedApplication);
+      } catch (dbError) {
+        console.error('Database error saving career application:', dbError);
+        return res.status(500).json({
+          success: false,
+          message: "Failed to save your application. Please try again later."
+        });
+      }
+
+      // Send email notification - continue even if it fails
+      try {
+        const emailSent = await mailService.sendCareerApplicationNotification({
           name: validatedData.name,
           email: validatedData.email,
           phone: validatedData.phone,
@@ -171,35 +216,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
           message: validatedData.message,
           resumeFilename: resumeFile?.originalname
         });
+        console.log('Career application email notification sent:', emailSent);
       } catch (emailError) {
         console.error('Failed to send career application email notification:', emailError);
         // Continue execution even if email fails
       }
 
-      res.status(201).json({
+      return res.status(201).json({
         success: true,
         message: "Thank you for your application! We will review it and contact you soon.",
         data: savedApplication
       });
     } catch (error) {
-      if (error instanceof ZodError) {
-        const validationError = fromZodError(error);
-        res.status(400).json({
-          success: false,
-          message: validationError.message || "Invalid application data"
-        });
-      } else if (error instanceof Error) {
-        console.error('Error processing career application:', error);
-        res.status(500).json({
-          success: false,
-          message: error.message || "An unexpected error occurred"
-        });
-      } else {
-        res.status(500).json({
-          success: false,
-          message: "An unexpected error occurred"
-        });
-      }
+      console.error('Unexpected error processing career application:', error);
+      return res.status(500).json({
+        success: false,
+        message: "An unexpected error occurred processing your application."
+      });
     }
   });
 
