@@ -77,6 +77,16 @@ const MobileNav = ({ isOpen, closeMenu }: MobileNavProps) => {
             
             <motion.div variants={itemVariants}>
               <Link 
+                href="/careers" 
+                onClick={closeMenu} 
+                className={`block py-2 px-3 rounded-md text-base font-medium transition-colors ${location === '/careers' ? 'bg-primary/10 text-primary' : 'hover:bg-muted'}`}
+              >
+                Careers
+              </Link>
+            </motion.div>
+            
+            <motion.div variants={itemVariants}>
+              <Link 
                 href="/contact" 
                 onClick={closeMenu} 
                 className="block px-3 py-2 rounded-md text-base font-medium bg-gradient-to-r from-primary to-secondary text-white hover:opacity-90 transition-opacity mt-2 text-center"

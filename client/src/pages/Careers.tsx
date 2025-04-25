@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { apiRequest } from "@/lib/queryClient";
-import { JobListing } from "../types/careers";
+import { JobListing } from "@/types/careers";
 import JobListingCard from "@/components/careers/JobListingCard";
 import JobDetails from "@/components/careers/JobDetails";
 import ApplicationForm from "@/components/careers/ApplicationForm";
