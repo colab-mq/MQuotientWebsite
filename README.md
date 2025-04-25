@@ -259,15 +259,26 @@ The project includes a deployment script that automates the entire deployment pr
 
 # Deploy to staging
 ./scripts/deploy.sh staging
+
+# Show all deployment options
+./scripts/deploy.sh --help
+
+# Deploy without rebuilding images
+./scripts/deploy.sh --skip-build
+
+# Deploy without database backup
+./scripts/deploy.sh --skip-backup
 ```
 
 This script will:
-1. Load environment variables from `.env` files
-2. Install dependencies
-3. Build the application
-4. Run database migrations
-5. Start or restart the application using the appropriate method
-   (systemd, PM2, Docker, or direct Node.js process)
+1. Load environment variables from environment-specific `.env` files (e.g., `.env.production`)
+2. Create a database backup before changes
+3. Pull the latest code changes if using Git
+4. Build and start Docker containers
+5. Run database schema migrations
+6. Verify the deployment is successful
+
+The script provides detailed instructions and will create sample environment files if they don't exist.
 
 #### GitHub Pages Deployment (Frontend Only)
 
@@ -342,23 +353,46 @@ The project includes Docker and Docker Compose configuration for containerized d
 1. **Dockerfile**: Multi-stage build process for optimized container image
 2. **docker-compose.yml**: Orchestrates the application with PostgreSQL database
 
-To deploy using Docker:
+To deploy using Docker, we provide a convenient script:
+
+```bash
+# Build and start the containers with helper script
+./scripts/docker-start.sh --rebuild
+
+# Or for production (run in background)
+./scripts/docker-start.sh --detach --rebuild
+
+# Specify a custom env file
+./scripts/docker-start.sh --env production.env --rebuild
+```
+
+The script will create a sample `.env` file with default values that you should update with your real credentials:
+
+```
+# Email configuration (required for sending notifications)
+EMAIL_USER=your-email@gmail.com
+EMAIL_APP_PASSWORD=your-app-password
+CONTACT_EMAIL_RECIPIENTS=contact@mquotient.net
+CAREERS_EMAIL_RECIPIENTS=careers@mquotient.net
+```
+
+You can also run Docker Compose commands directly:
 
 ```bash
 # Build and start the containers
-docker-compose up -d
+docker compose up -d
 
 # View logs
-docker-compose logs -f
+docker compose logs -f
 
 # Apply database migrations
-docker-compose exec app npm run db:push
+docker compose exec app npm run db:push
 
 # Stop the application
-docker-compose down
+docker compose down
 ```
 
-For production, you may want to modify the Docker Compose file to use environment variables or Docker secrets for sensitive information.
+For security, the Docker setup supports environment variables for all sensitive information.
 
 ### Adding New Pages
 

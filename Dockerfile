@@ -26,15 +26,13 @@ WORKDIR /app
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package*.json ./
-COPY --from=builder /app/uploads ./uploads
-COPY --from=builder /app/client/dist ./client/dist
+# Ensure these directories exist with proper permissions
+RUN mkdir -p uploads && chmod 777 uploads
+RUN mkdir -p client/dist
 
 # Set environment variables
 ENV NODE_ENV=production
 ENV PORT=5000
-
-# Make uploads directory writable
-RUN mkdir -p uploads && chmod 777 uploads
 
 # Expose port
 EXPOSE 5000

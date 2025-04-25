@@ -61,15 +61,15 @@ echo "Starting MQuotient website Docker environment..."
 if [ "$REBUILD" = true ]; then
   echo "Rebuilding Docker images from scratch..."
   if [ "$DETACH" = true ]; then
-    docker-compose --env-file "$ENV_FILE" up --build -d
+    docker compose --env-file "$ENV_FILE" up --build -d
   else
-    docker-compose --env-file "$ENV_FILE" up --build
+    docker compose --env-file "$ENV_FILE" up --build
   fi
 else
   if [ "$DETACH" = true ]; then
-    docker-compose --env-file "$ENV_FILE" up -d
+    docker compose --env-file "$ENV_FILE" up -d
   else
-    docker-compose --env-file "$ENV_FILE" up
+    docker compose --env-file "$ENV_FILE" up
   fi
 fi
 
