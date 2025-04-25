@@ -2,24 +2,22 @@ import { FaCheck } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const AboutSection = () => {
-  const leaders = [
+  // Company values instead of leadership
+  const companyValues = [
     {
-      name: "Rishi Behal",
-      position: "Managing Director",
-      bio: "Leading MQuotient's strategic vision and growth initiatives, with extensive experience in technology consulting and digital transformation.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+      title: "Excellence",
+      description: "We strive for excellence in everything we do, from client communication to solution delivery.",
+      icon: "🌟"
     },
     {
-      name: "Technical Leadership",
-      position: "CTO",
-      bio: "Guiding our technical strategy and innovation efforts, ensuring we deliver cutting-edge automation solutions to our clients.",
-      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+      title: "Innovation",
+      description: "We continuously explore new technologies and approaches to provide cutting-edge solutions.",
+      icon: "💡"
     },
     {
-      name: "Operations Leadership",
-      position: "COO",
-      bio: "Overseeing day-to-day operations and ensuring smooth delivery of client projects with excellence and efficiency.",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+      title: "Integrity",
+      description: "We operate with honesty, transparency, and ethical business practices in all our dealings.",
+      icon: "🔒"
     }
   ];
 
@@ -136,7 +134,7 @@ const AboutSection = () => {
           </motion.div>
         </motion.div>
 
-        {/* Leadership */}
+        {/* Company Values */}
         <motion.div 
           className="mt-32"
           initial="hidden"
@@ -146,7 +144,7 @@ const AboutSection = () => {
         >
           <motion.div className="text-center mb-12" variants={itemVariants}>
             <h3 className="text-2xl font-bold mb-2">
-              Our <span className="gradient-text">Leadership</span>
+              Our <span className="gradient-text">Values</span>
             </h3>
             <div className="section-divider"></div>
           </motion.div>
@@ -155,25 +153,20 @@ const AboutSection = () => {
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
             variants={containerVariants}
           >
-            {leaders.map((leader, index) => (
+            {companyValues.map((value, index) => (
               <motion.div 
                 key={index} 
-                className="team-card group"
+                className="bg-background rounded-xl shadow-sm border border-border p-8 hover:border-primary/20 hover:shadow-md transition-all duration-300"
                 variants={itemVariants}
               >
                 <div className="text-center mb-6">
-                  <div className="team-image mx-auto">
-                    <img 
-                      src={leader.image} 
-                      alt={leader.name} 
-                      className="h-full w-full object-cover"
-                    />
+                  <div className="mx-auto h-16 w-16 flex items-center justify-center text-4xl bg-primary/10 rounded-full">
+                    {value.icon}
                   </div>
-                  <h4 className="font-semibold text-xl mt-4 mb-1">{leader.name}</h4>
-                  <p className="text-muted-foreground">{leader.position}</p>
+                  <h4 className="font-semibold text-xl mt-4 mb-1">{value.title}</h4>
                 </div>
                 <p className="text-center text-foreground/80 leading-relaxed">
-                  {leader.bio}
+                  {value.description}
                 </p>
               </motion.div>
             ))}

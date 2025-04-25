@@ -1,14 +1,37 @@
-import { FaQuoteLeft } from "react-icons/fa";
 import { TagIcon, CalendarIcon, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 
+// Use static paths for the images
+const ingramLogo = "/attached_assets/Ingram_Micro_logo_new.svg.png";
+const pbPartnersLogo = "/attached_assets/pb_life_1665575605.png";
+const firstsourceLogo = "/attached_assets/Firstsource-Solutions-600px-logo.jpg";
+const infosysLogo = "/attached_assets/Infosys_logo.svg.png";
+const mquotientLogo = "/attached_assets/mquotient LOGO.png";
+const turtlemintLogo = "/attached_assets/turtlemintlogo.jpeg";
+
 const ClientsSection = () => {
   const clients = [
-    "Ingram Micro",
-    "Trustmarque",
-    "Camelot",
-    "SWAST"
+    {
+      name: "Ingram Micro",
+      logo: ingramLogo
+    },
+    {
+      name: "PB Partners",
+      logo: pbPartnersLogo
+    },
+    {
+      name: "Firstsource",
+      logo: firstsourceLogo
+    },
+    {
+      name: "Infosys",
+      logo: infosysLogo
+    },
+    {
+      name: "Turtlemint",
+      logo: turtlemintLogo
+    }
   ];
 
   const caseStudies = [
@@ -26,20 +49,7 @@ const ClientsSection = () => {
     }
   ];
 
-  const testimonials = [
-    {
-      quote: "MQuotient delivered an exceptional RPA solution that automated our meter reading process, saving us countless hours of manual work and virtually eliminating errors. Their expertise and professionalism were evident throughout the project.",
-      name: "Simon Hill",
-      position: "Business Development Manager, Ingram Micro UK",
-      initials: "SH"
-    },
-    {
-      quote: "Working with MQuotient on our Power Platform tool enhancement project was a great experience. Their team understood our requirements perfectly and delivered a solution that exceeded our expectations.",
-      name: "Client Testimonial",
-      position: "Project Manager, Technology Company",
-      initials: "TM"
-    }
-  ];
+
 
   // Animation variants
   const containerVariants = {
@@ -82,7 +92,7 @@ const ClientsSection = () => {
         </div>
 
         <motion.div 
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -91,10 +101,15 @@ const ClientsSection = () => {
           {clients.map((client, index) => (
             <motion.div 
               key={index} 
-              className="flex items-center justify-center p-6 bg-background rounded-xl shadow-sm border border-border hover:border-primary/20 transition-all duration-300"
+              className="flex items-center justify-center p-6 bg-background rounded-xl shadow-sm border border-border hover:border-primary/20 transition-all duration-300 h-32"
               variants={itemVariants}
             >
-              <p className="font-bold text-xl">{client}</p>
+              <img 
+                src={client.logo} 
+                alt={client.name} 
+                className="max-h-full max-w-full object-contain"
+                title={client.name}
+              />
             </motion.div>
           ))}
         </motion.div>
@@ -148,65 +163,18 @@ const ClientsSection = () => {
           </motion.div>
         </motion.div>
 
-        {/* Testimonials */}
+        {/* Call to Action */}
         <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
+          className="mt-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
         >
-          <motion.div className="text-center mb-12" variants={itemVariants}>
-            <h3 className="text-2xl font-bold mb-2">
-              What Our <span className="gradient-text">Clients Say</span>
-            </h3>
-            <div className="section-divider"></div>
-          </motion.div>
-
-          <motion.div 
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8"
-            variants={containerVariants}
-          >
-            {testimonials.map((testimonial, index) => (
-              <motion.div 
-                key={index} 
-                className="bg-background rounded-xl shadow-sm border border-border p-8 relative hover:border-primary/20 hover:shadow-md transition-all duration-300"
-                variants={itemVariants}
-              >
-                <div className="text-primary/10 text-6xl absolute top-6 left-6">
-                  <FaQuoteLeft />
-                </div>
-                <div className="relative z-10">
-                  <p className="italic mb-8 text-foreground/80 leading-relaxed pt-8">
-                    "{testimonial.quote}"
-                  </p>
-                  <div className="flex items-center">
-                    <div className="mr-4">
-                      <div className="h-12 w-12 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white">
-                        <span className="font-bold">{testimonial.initials}</span>
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold">{testimonial.name}</h4>
-                      <p className="text-muted-foreground text-sm">{testimonial.position}</p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-          
-          <motion.div 
-            className="mt-16 text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-          >
-            <Link href="/contact" className="btn-primary inline-flex items-center">
-              Work With Us
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </motion.div>
+          <Link href="/contact" className="btn-primary inline-flex items-center">
+            Work With Us
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
         </motion.div>
       </div>
     </section>
