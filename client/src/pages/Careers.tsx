@@ -63,7 +63,7 @@ const Careers = () => {
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Join Our Team</h1>
           <p className="text-xl max-w-3xl">
             We're looking for exceptional talent to help us build innovative solutions. 
-            Explore our open positions and become part of the MQuotient family.
+            Explore our open positions and become part of the mquotient family.
           </p>
         </div>
       </div>

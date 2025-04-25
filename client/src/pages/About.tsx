@@ -28,7 +28,7 @@ const About = () => {
     {
       name: "Rishi Behal",
       position: "Managing Director",
-      bio: "Leading MQuotient's strategic vision and growth initiatives, with extensive experience in technology consulting and digital transformation.",
+      bio: "Leading mquotient's strategic vision and growth initiatives, with extensive experience in technology consulting and digital transformation.",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
     },
     {
@@ -84,7 +84,7 @@ const About = () => {
                 variants={itemVariants}
                 className="text-4xl md:text-5xl font-bold mb-6"
               >
-                About <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">MQuotient</span>
+                About <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">mquotient</span>
               </motion.h1>
               <motion.p 
                 variants={itemVariants}
@@ -108,7 +108,7 @@ const About = () => {
           <motion.div variants={itemVariants}>
             <h2 className="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Our Story</h2>
             <p className="mb-4 text-muted-foreground">
-              MQuotient Business Services was founded with a vision to help organizations leverage automation and digital technologies to transform their operations and drive growth. Over the years, we've built a reputation for delivering innovative solutions that address complex business challenges.
+              mquotient Business Services was founded with a vision to help organizations leverage automation and digital technologies to transform their operations and drive growth. Over the years, we've built a reputation for delivering innovative solutions that address complex business challenges.
             </p>
             <p className="mb-4 text-muted-foreground">
               With a team of experienced professionals specializing in RPA, Power Platform, and custom development, we've successfully delivered over 100 projects across various industries, helping our clients achieve significant improvements in operational efficiency and cost savings.

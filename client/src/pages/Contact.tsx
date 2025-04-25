@@ -62,7 +62,7 @@ const Contact = () => {
                 allowFullScreen 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
-                title="MQuotient Office Location"
+                title="mquotient Office Location"
               ></iframe>
             </div>
           </div>
