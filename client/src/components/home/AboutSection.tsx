@@ -53,11 +53,11 @@ const AboutSection = () => {
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="section-heading">
           <h2 className="section-title">
-            About <span className="gradient-text">MQuotient</span>
+            About <span className="gradient-text">mquotient</span>
           </h2>
           <div className="section-divider"></div>
           <p className="section-subtitle max-w-3xl mx-auto">
-            MQuotient Business Services is a specialized provider of hyperautomation solutions, helping organizations transform their business processes.
+            mquotient Business Services is a specialized provider of hyperautomation solutions, helping organizations transform their business processes.
           </p>
         </div>
 
@@ -74,7 +74,7 @@ const AboutSection = () => {
               <span className="absolute bottom-0 left-0 w-full h-1 bg-primary/20 rounded-full"></span>
             </h3>
             <p className="mb-6 text-foreground/80 leading-relaxed">
-              At MQuotient, we deliver innovative automation solutions that streamline operations, reduce costs, and increase productivity. Our expert team specializes in RPA implementation, custom software development, and digital transformation strategies.
+              At mquotient, we deliver innovative automation solutions that streamline operations, reduce costs, and increase productivity. Our expert team specializes in RPA implementation, custom software development, and digital transformation strategies.
             </p>
             <h3 className="text-2xl font-semibold mb-4 relative inline-block">
               <span className="relative z-10">Our Approach</span>
@@ -116,7 +116,7 @@ const AboutSection = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-xl blur-sm opacity-20"></div>
               <img 
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                alt="MQuotient Team" 
+                alt="mquotient Team" 
                 className="relative rounded-xl shadow-lg w-full h-auto object-cover z-10" 
                 style={{ maxHeight: "400px" }}
               />

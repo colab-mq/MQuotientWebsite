@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
             <div className="mb-6">
-              <img src={logoPath} alt="MQuotient Logo" className="h-10 mb-4" />
+              <img src={logoPath} alt="mquotient Logo" className="h-10 mb-4" />
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
               Empowering digital transformation through hyperautomation and innovative technology solutions.
@@ -140,7 +140,7 @@ const Footer = () => {
 
         <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-foreground/70 text-sm">&copy; {new Date().getFullYear()} MQuotient Business Services. All rights reserved.</p>
+            <p className="text-foreground/70 text-sm">&copy; {new Date().getFullYear()} mquotient Business Services. All rights reserved.</p>
             {/* Footer links removed as requested */}
           </div>
         </div>
