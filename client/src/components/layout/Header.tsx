@@ -48,6 +48,12 @@ const Header = () => {
             >
               Services
             </Link>
+            <Link 
+              href="/careers" 
+              className={`text-base font-medium transition-colors hover:text-primary ${location === '/careers' ? 'text-primary' : 'text-foreground'}`}
+            >
+              Careers
+            </Link>
             <Link href="/contact">
               <Button className="bg-gradient-to-r from-primary to-secondary text-white hover:opacity-90 transition-opacity">
                 Contact Us
