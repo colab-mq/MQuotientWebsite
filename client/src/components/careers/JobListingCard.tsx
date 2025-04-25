@@ -2,7 +2,7 @@ import { JobListing } from "@/types/careers";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MapPin, Clock } from "lucide-react";
+import { MapPin, Clock, ArrowRight } from "lucide-react";
 
 interface JobListingCardProps {
   job: JobListing;
@@ -11,43 +11,42 @@ interface JobListingCardProps {
 
 const JobListingCard = ({ job, onClick }: JobListingCardProps) => {
   return (
-    <Card className="border border-border hover:shadow-md transition-shadow relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary-dark"></div>
+    <Card className="h-full flex flex-col border border-border hover:shadow-md transition-shadow overflow-hidden">
       <CardHeader className="pb-2">
-        <div className="flex justify-between items-start">
-          <CardTitle className="text-xl">{job.title}</CardTitle>
-          <Badge variant="outline" className="bg-primary/5 text-primary border-primary/20">
-            {job.type}
+        <div className="flex justify-between items-start mb-1">
+          <CardTitle className="text-xl text-primary">{job.title}</CardTitle>
+        </div>
+        <div className="flex flex-wrap gap-2 mt-2">
+          <Badge variant="outline" className="flex items-center gap-1 px-2 py-1">
+            <MapPin className="h-3 w-3" /> {job.location}
+          </Badge>
+          <Badge variant="outline" className="flex items-center gap-1 px-2 py-1">
+            <Clock className="h-3 w-3" /> {job.type}
           </Badge>
         </div>
-        <div className="flex items-center text-muted-foreground text-sm mt-2">
-          <MapPin className="h-4 w-4 mr-1" /> {job.location}
-        </div>
       </CardHeader>
-      <CardContent>
-        <p className="text-muted-foreground line-clamp-3">
-          {job.description}
-        </p>
+      <CardContent className="flex-grow">
+        <p className="text-muted-foreground line-clamp-3 mb-4">{job.description}</p>
         
-        <div className="mt-4">
-          <h4 className="text-sm font-medium mb-2">Key Requirements:</h4>
-          <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
-            {job.requirements.slice(0, 3).map((req, index) => (
-              <li key={index} className="line-clamp-1">{req}</li>
-            ))}
-            {job.requirements.length > 3 && (
-              <li className="text-primary">+{job.requirements.length - 3} more</li>
-            )}
-          </ul>
+        <div className="mt-4 space-y-3">
+          <div>
+            <h4 className="text-sm font-medium text-primary mb-1">Key Requirements:</h4>
+            <ul className="ml-5 list-disc text-sm text-muted-foreground space-y-1">
+              {job.requirements.slice(0, 3).map((req, index) => (
+                <li key={index} className="line-clamp-1">{req}</li>
+              ))}
+              {job.requirements.length > 3 && <li>And more...</li>}
+            </ul>
+          </div>
         </div>
       </CardContent>
-      <CardFooter className="pt-2">
+      <CardFooter className="pb-4 pt-0">
         <Button 
-          variant="ghost" 
-          className="w-full text-primary hover:text-primary-dark hover:bg-primary/5 gap-2"
+          variant="outline" 
+          className="w-full mt-4 border-primary text-primary hover:bg-primary hover:text-white" 
           onClick={onClick}
         >
-          View Details <ArrowRight className="h-4 w-4" />
+          View Details <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
       </CardFooter>
     </Card>
