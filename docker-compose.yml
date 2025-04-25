@@ -10,6 +10,12 @@ services:
     environment:
       - NODE_ENV=production
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/mquotient
+      - EMAIL_USER=${EMAIL_USER:-admin@example.com}
+      - EMAIL_APP_PASSWORD=${EMAIL_APP_PASSWORD:-examplepassword}
+      - CONTACT_EMAIL_RECIPIENTS=${CONTACT_EMAIL_RECIPIENTS:-recipient@example.com}
+      - CAREERS_EMAIL_RECIPIENTS=${CAREERS_EMAIL_RECIPIENTS:-recipient@example.com}
+    volumes:
+      - ./uploads:/app/uploads
     depends_on:
       - db
     networks:

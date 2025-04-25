@@ -7,13 +7,13 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
+# Install ALL dependencies, including dev dependencies
 RUN npm ci
 
 # Copy all files
 COPY . .
 
-# Build the app
+# Build the app (use default build script)
 RUN npm run build
 
 # Production image
@@ -22,16 +22,19 @@ FROM node:18-alpine
 # Set working directory
 WORKDIR /app
 
-# Copy built assets from builder
+# Copy everything from builder (including node_modules)
 COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package*.json ./
-
-# Install production dependencies only
-RUN npm ci --production
+COPY --from=builder /app/uploads ./uploads
+COPY --from=builder /app/client/dist ./client/dist
 
 # Set environment variables
 ENV NODE_ENV=production
 ENV PORT=5000
+
+# Make uploads directory writable
+RUN mkdir -p uploads && chmod 777 uploads
 
 # Expose port
 EXPOSE 5000
