@@ -10,7 +10,6 @@ const ServicesSection = () => {
       title: "Glyphx AI",
       description: "Our in-house AI extraction and classification product that processes structured and unstructured documents for mortgage, insurance, and other sectors.",
       icon: <FaBrain />,
-      isNew: true,
       features: [
         "Automated data extraction from documents",
         "AI-powered document classification",
@@ -138,13 +137,7 @@ const ServicesSection = () => {
               className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-border/50 hover:shadow-lg transition-shadow relative"
               variants={itemVariants}
             >
-              {service.isNew && (
-                <div className="absolute -top-2 -right-2 z-10">
-                  <Badge className="bg-gradient-to-r from-primary to-secondary text-white font-medium px-3 py-1">
-                    <Sparkles className="h-3.5 w-3.5 mr-1" /> New
-                  </Badge>
-                </div>
-              )}
+              {/* New badge functionality removed as requested */}
               
               <div className="flex flex-col h-full">
                 <div className="mb-6">

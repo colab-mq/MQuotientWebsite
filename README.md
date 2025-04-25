@@ -1,26 +1,28 @@
 # MQuotient Business Services Website
 
-A professional, responsive corporate website for MQuotient featuring company information, services offerings, and contact capabilities.
+A professional, responsive corporate website for MQuotient featuring comprehensive company information, services offerings, careers section and contact capabilities.
 
-![MQuotient Website](https://raw.githubusercontent.com/username/mquotient-website/main/client/src/assets/screenshot.png)
+![MQuotient Website](generated-icon.png)
 
 ## Features
 
 - Responsive design optimized for all device sizes
-- Modern UI with gradient elements and subtle animations
-- Comprehensive company information and service offerings
-- Client testimonials and case studies
-- Contact form with validation
-- PostgreSQL database integration for contact form submissions
+- Modern UI with animated gradients and subtle motion effects
+- Interactive services section with GlyphxAI offering
+- Careers section with job listings and application form
+- Contact form with validation and email notifications
+- PostgreSQL database integration for storing form submissions
+- Email notification system for contact and career applications
 
 ## Tech Stack
 
-- **Frontend**: React, TailwindCSS, Framer Motion, Shadcn UI
+- **Frontend**: React with TypeScript, TailwindCSS, Framer Motion, Shadcn UI components
 - **Backend**: Express.js, Node.js
-- **Database**: PostgreSQL
-- **ORM**: Drizzle ORM
-- **Form Handling**: React Hook Form, Zod validation
-- **API Client**: TanStack Query
+- **Database**: PostgreSQL with Neon Serverless
+- **ORM**: Drizzle ORM with Zod validation
+- **Form Handling**: React Hook Form with schema validation
+- **API Client**: TanStack Query for data fetching
+- **Email**: Nodemailer with Gmail integration
 
 ## Project Structure
 

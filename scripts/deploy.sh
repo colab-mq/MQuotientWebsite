@@ -1,86 +1,124 @@
 #!/bin/bash
-#
 # MQuotient Website Deployment Script
-# 
-# This script automates the deployment process, including:
-# - Building the application
-# - Database migrations
-# - Starting the application
-#
 # Usage: ./scripts/deploy.sh [environment]
-# Environments: production, staging (default: production)
-#
+# Where environment is 'production' (default) or 'staging'
 
-# Exit on error
-set -e
+set -e  # Exit on any error
 
-# Get environment from argument or default to production
+# Default environment is production
 ENVIRONMENT=${1:-production}
-echo "Deploying to $ENVIRONMENT environment"
+TIMESTAMP=$(date +"%Y%m%d%H%M%S")
+LOG_DIR="deploy_logs"
+LOG_FILE="$LOG_DIR/deploy_${ENVIRONMENT}_${TIMESTAMP}.log"
 
-# Set working directory to project root
-cd "$(dirname "$0")/.."
+# Create log directory if it doesn't exist
+mkdir -p $LOG_DIR
 
-# Load environment variables if .env file exists
-if [ -f ".env.$ENVIRONMENT" ]; then
-  echo "Loading environment variables from .env.$ENVIRONMENT"
-  export $(grep -v '^#' .env.$ENVIRONMENT | xargs)
-elif [ -f ".env" ]; then
-  echo "Loading environment variables from .env"
-  export $(grep -v '^#' .env | xargs)
+# Log output to file
+exec > >(tee -a "$LOG_FILE") 2>&1
+
+echo "=== Starting MQuotient Website Deployment ==="
+echo "Environment: $ENVIRONMENT"
+echo "Timestamp: $(date)"
+echo "=========================================="
+
+# Load environment variables
+if [ "$ENVIRONMENT" = "production" ]; then
+    ENV_FILE=".env.production"
+elif [ "$ENVIRONMENT" = "staging" ]; then
+    ENV_FILE=".env.staging"
+else
+    echo "Error: Unknown environment '$ENVIRONMENT'"
+    echo "Usage: ./scripts/deploy.sh [environment]"
+    echo "Where environment is 'production' (default) or 'staging'"
+    exit 1
 fi
 
-# Check for required environment variables
-if [ -z "$DATABASE_URL" ]; then
-  echo "Error: DATABASE_URL environment variable is not set."
-  echo "Please set it in .env.$ENVIRONMENT or .env file."
-  exit 1
+# Check if env file exists
+if [ -f "$ENV_FILE" ]; then
+    echo "Loading environment variables from $ENV_FILE"
+    export $(grep -v '^#' $ENV_FILE | xargs)
+else
+    echo "Warning: $ENV_FILE not found, using existing environment variables"
 fi
 
-# Install dependencies
-echo "Installing dependencies..."
-npm ci
+# Determine deployment method based on environment
+if [ "$DEPLOYMENT_METHOD" = "" ]; then
+    # Default deployment method if not set in env
+    if [ "$ENVIRONMENT" = "production" ]; then
+        DEPLOYMENT_METHOD="server"
+    else
+        DEPLOYMENT_METHOD="server"
+    fi
+fi
 
-# Build the application
-echo "Building application..."
+echo "Deployment method: $DEPLOYMENT_METHOD"
+
+# Step 1: Install dependencies
+echo -e "\n=== Installing dependencies ==="
+npm ci || npm install
+
+# Step 2: Build the application
+echo -e "\n=== Building application ==="
 npm run build
 
-# Run database migrations
-echo "Running database migrations..."
-npm run db:push
-
-# For systemd service environments
-if [ "$ENVIRONMENT" = "production" ] && command -v systemctl &> /dev/null; then
-  echo "Restarting systemd service..."
-  sudo systemctl restart mquotient.service
-  
-  echo "Checking service status..."
-  sudo systemctl status mquotient.service --no-pager
-  
-  echo "Deployment completed successfully!"
-  exit 0
+# Step 3: Database operations
+echo -e "\n=== Running database operations ==="
+if [ "$SKIP_DB_OPERATIONS" != "true" ]; then
+    # Check database connection
+    echo "Checking database connection..."
+    node scripts/db-operations.js check
+    
+    # Push schema changes
+    echo "Applying schema changes..."
+    npm run db:push
+    
+    # Create database backup before deployment
+    echo "Creating database backup..."
+    node scripts/db-snapshot.js export
+else
+    echo "Skipping database operations as SKIP_DB_OPERATIONS is set to true"
 fi
 
-# For PM2 environments
-if command -v pm2 &> /dev/null; then
-  echo "Restarting PM2 service..."
-  pm2 reload mquotient-website || pm2 start server-config/ecosystem.config.js
-  
-  echo "Deployment completed successfully!"
-  exit 0
-fi
+# Step 4: Deploy based on method
+echo -e "\n=== Deploying application ==="
+case "$DEPLOYMENT_METHOD" in
+    "server")
+        echo "Deploying to server..."
+        
+        # Deploy the application using systemd or PM2 if available
+        if command -v systemctl >/dev/null 2>&1 && [ -f "/etc/systemd/system/mquotient.service" ]; then
+            echo "Restarting systemd service..."
+            sudo systemctl restart mquotient.service
+        elif command -v pm2 >/dev/null 2>&1; then
+            echo "Restarting PM2 process..."
+            pm2 restart ecosystem.config.js
+        else
+            echo "Starting Node.js process..."
+            # Kill any existing process and start a new one
+            pkill -f "node server/index.js" || true
+            nohup node server/index.js > server.log 2>&1 &
+        fi
+        ;;
+        
+    "docker")
+        echo "Deploying with Docker..."
+        docker-compose down
+        docker-compose up -d
+        ;;
+        
+    "gh-pages")
+        echo "Deploying to GitHub Pages (frontend only)..."
+        node gh-pages-deploy.js
+        ;;
+        
+    *)
+        echo "Error: Unknown deployment method '$DEPLOYMENT_METHOD'"
+        exit 1
+        ;;
+esac
 
-# For Docker environments
-if command -v docker-compose &> /dev/null; then
-  echo "Deploying with Docker Compose..."
-  docker-compose up -d --build
-  
-  echo "Deployment completed successfully!"
-  exit 0
-fi
-
-# Fallback to manual start
-echo "Starting application..."
-NODE_ENV=production node dist/index.js
-
-echo "Deployment completed successfully!"
+echo -e "\n=== Deployment completed successfully ==="
+echo "Timestamp: $(date)"
+echo "See $LOG_FILE for detailed log"
+echo "=========================================="

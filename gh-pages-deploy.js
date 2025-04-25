@@ -1,9 +1,16 @@
 /**
- * GitHub Pages Deployment Script
+ * GitHub Pages Deployment Script for MQuotient Website
  * 
- * This script helps deploy the static frontend of the MQuotient website to GitHub Pages.
+ * This script deploys the static frontend of the MQuotient website to GitHub Pages.
  * Since GitHub Pages only supports static websites, this deployment is for the frontend only.
- * Backend functionality (like the contact form) would need to be connected to an external API.
+ * Backend functionality (contact form, careers applications) would need to be connected to an external API.
+ * 
+ * Important: For full functionality including database and email features, use a traditional server deployment.
+ * This GitHub Pages deployment is suitable for a portfolio or informational version of the website.
+ * 
+ * Usage:
+ * 1. Set your GitHub token: export GITHUB_TOKEN=your_token_here
+ * 2. Run: node gh-pages-deploy.js
  */
 
 import { execSync } from 'child_process';
@@ -17,8 +24,12 @@ const config = {
   distFolder: 'dist',
   repoUrl: null,  // Will be populated from Git config
   commit: {
-    message: `Deploy: ${new Date().toISOString()}`
-  }
+    message: `Deploy MQuotient Website: ${new Date().toISOString()}`
+  },
+  // Base path for GitHub Pages (repo name or custom domain)
+  basePath: '/mquotient-website', // Change this if your repo has a different name
+  // API mocking for GitHub Pages deployment (optional)
+  mockApi: true
 };
 
 // Get the repository URL from git config
