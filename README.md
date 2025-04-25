@@ -1,8 +1,8 @@
-# MQuotient Business Services Website
+# mquotient Business Services Website
 
-A professional, responsive corporate website for MQuotient featuring comprehensive company information, services offerings, careers section and contact capabilities.
+A professional, responsive corporate website for mquotient featuring comprehensive company information, services offerings, careers section and contact capabilities.
 
-![MQuotient Website](generated-icon.png)
+![mquotient Website](generated-icon.png)
 
 ## Features
 

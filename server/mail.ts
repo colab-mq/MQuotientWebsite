@@ -96,7 +96,7 @@ export const mailService = {
     `;
 
     return mailService.sendEmail({
-      from: `"MQuotient Website" <${EMAIL_USER}>`,
+      from: `"mquotient Website" <${EMAIL_USER}>`,
       to: CONTACT_EMAIL_RECIPIENTS,
       subject: `New Contact Form: ${data.subject}`,
       html,
@@ -131,7 +131,7 @@ export const mailService = {
     `;
 
     return mailService.sendEmail({
-      from: `"MQuotient Careers" <${EMAIL_USER}>`,
+      from: `"mquotient Careers" <${EMAIL_USER}>`,
       to: CAREERS_EMAIL_RECIPIENTS,
       subject: `New Job Application: ${data.position}`,
       html,
