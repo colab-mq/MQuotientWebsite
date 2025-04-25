@@ -1,4 +1,8 @@
-import { users, type User, type InsertUser, contactMessages, type ContactMessage, type InsertContactMessage } from "@shared/schema";
+import { 
+  users, type User, type InsertUser, 
+  contactMessages, type ContactMessage, type InsertContactMessage,
+  careerApplications, type CareerApplication, type InsertCareerApplication 
+} from "@shared/schema";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
 
@@ -8,6 +12,8 @@ export interface IStorage {
   createUser(user: InsertUser): Promise<User>;
   createContactMessage(message: InsertContactMessage): Promise<ContactMessage>;
   getContactMessages(): Promise<ContactMessage[]>;
+  createCareerApplication(application: InsertCareerApplication): Promise<CareerApplication>;
+  getCareerApplications(): Promise<CareerApplication[]>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -37,6 +43,19 @@ export class DatabaseStorage implements IStorage {
 
   async getContactMessages(): Promise<ContactMessage[]> {
     return await db.select().from(contactMessages).orderBy(contactMessages.id);
+  }
+
+  async createCareerApplication(insertApplication: InsertCareerApplication): Promise<CareerApplication> {
+    const result = await db.insert(careerApplications).values({
+      ...insertApplication,
+      createdAt: new Date().toISOString()
+    }).returning();
+    
+    return result[0];
+  }
+
+  async getCareerApplications(): Promise<CareerApplication[]> {
+    return await db.select().from(careerApplications).orderBy(careerApplications.id);
   }
 }
 
