@@ -173,9 +173,6 @@ const Services = () => {
                   <div className="flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-r from-primary/90 to-secondary/90 text-white text-2xl mb-6 shadow-md">
                     {service.icon}
                   </div>
-                  {index === 0 && (
-                    <span className="absolute -top-2 -right-2 bg-primary/90 text-white text-xs px-2 py-1 rounded-full">New</span>
-                  )}
                 </div>
                 <h2 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
                   {service.title}

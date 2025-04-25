@@ -1,8 +1,6 @@
 import { Link } from "wouter";
 import { 
-  FaLinkedinIn, 
-  FaTwitter, 
-  FaFacebookF, 
+  FaLinkedinIn,
   FaMapMarkerAlt, 
   FaEnvelope, 
   FaGlobe
@@ -23,31 +21,13 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/company/mquotient/" 
                 target="_blank" 
                 rel="noreferrer" 
                 className="bg-background text-foreground hover:text-primary transition duration-200 h-10 w-10 rounded-full flex items-center justify-center shadow-sm border border-border"
                 aria-label="LinkedIn"
               >
                 <FaLinkedinIn />
-              </a>
-              <a 
-                href="https://twitter.com" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="bg-background text-foreground hover:text-primary transition duration-200 h-10 w-10 rounded-full flex items-center justify-center shadow-sm border border-border"
-                aria-label="Twitter"
-              >
-                <FaTwitter />
-              </a>
-              <a 
-                href="https://facebook.com" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="bg-background text-foreground hover:text-primary transition duration-200 h-10 w-10 rounded-full flex items-center justify-center shadow-sm border border-border"
-                aria-label="Facebook"
-              >
-                <FaFacebookF />
               </a>
             </div>
           </div>
@@ -155,14 +135,7 @@ const Footer = () => {
         <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-foreground/70 text-sm">&copy; {new Date().getFullYear()} MQuotient Business Services. All rights reserved.</p>
-            <div className="mt-4 md:mt-0 space-x-6">
-              <a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200 text-sm">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-foreground/70 hover:text-primary transition-colors duration-200 text-sm">
-                Terms of Service
-              </a>
-            </div>
+            {/* Footer links removed as requested */}
           </div>
         </div>
       </div>
