@@ -41,6 +41,12 @@ const Footer = () => {
               <li>
                 <Link href="/services" className="text-foreground hover:text-primary transition-colors duration-200 inline-flex items-center">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary/60 mr-2"></span>
+                  GlyphxAI
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="text-foreground hover:text-primary transition-colors duration-200 inline-flex items-center">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary/60 mr-2"></span>
                   RPA Solutions
                 </Link>
               </li>
