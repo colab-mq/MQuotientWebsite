@@ -3,6 +3,8 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactMessageSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
+import { mailService } from "./mail";
+import { ZodError } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission endpoint
@@ -11,19 +13,34 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const validatedData = insertContactMessageSchema.parse(req.body);
       const savedMessage = await storage.createContactMessage(validatedData);
       
+      // Send email notification
+      try {
+        await mailService.sendContactNotification({
+          name: validatedData.name,
+          email: validatedData.email,
+          company: validatedData.company || undefined,
+          subject: validatedData.subject,
+          message: validatedData.message
+        });
+      } catch (emailError) {
+        console.error('Failed to send email notification:', emailError);
+        // Continue execution even if email fails
+      }
+      
       res.status(201).json({ 
         success: true, 
         message: "Thank you for your message! We will get back to you soon.",
         data: savedMessage 
       });
     } catch (error) {
-      if (error instanceof Error) {
+      if (error instanceof ZodError) {
         const validationError = fromZodError(error);
         res.status(400).json({ 
           success: false, 
           message: validationError.message || "Invalid form data"
         });
       } else {
+        console.error('Error processing contact form:', error);
         res.status(500).json({ 
           success: false, 
           message: "An unexpected error occurred"
