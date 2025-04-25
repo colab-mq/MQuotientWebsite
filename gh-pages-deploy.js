@@ -1,7 +1,7 @@
 /**
- * GitHub Pages Deployment Script for MQuotient Website
+ * GitHub Pages Deployment Script for mquotient Website
  * 
- * This script deploys the static frontend of the MQuotient website to GitHub Pages.
+ * This script deploys the static frontend of the mquotient website to GitHub Pages.
  * Since GitHub Pages only supports static websites, this deployment is for the frontend only.
  * Backend functionality (contact form, careers applications) would need to be connected to an external API.
  * 
@@ -24,7 +24,7 @@ const config = {
   distFolder: 'dist',
   repoUrl: null,  // Will be populated from Git config
   commit: {
-    message: `Deploy MQuotient Website: ${new Date().toISOString()}`
+    message: `Deploy mquotient Website: ${new Date().toISOString()}`
   },
   // Base path for GitHub Pages (repo name or custom domain)
   basePath: '/mquotient-website', // Change this if your repo has a different name
