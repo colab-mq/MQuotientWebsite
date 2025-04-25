@@ -1,7 +1,7 @@
 /**
  * Job Listings Data
  * 
- * This file contains the current job openings at MQuotient.
+ * This file contains the current job openings at mquotient.
  * To update job listings, simply modify this file.
  */
 
