@@ -36,16 +36,16 @@ const ClientsSection = () => {
 
   const caseStudies = [
     {
-      title: "Meter Reading Automation",
-      description: "Implemented UiPath RPA solution for Ingram Micro to automate the meter reading process, significantly reducing manual effort and improving accuracy.",
-      tags: ["RPA", "UiPath"],
-      year: "2025"
+      title: "Vehicle Insurance Data Extraction",
+      description: "Implemented an AI-powered solution for a leading insurance portal to extract data from auto insurance policies with variable formats, enabling targeted marketing near policy expiry dates.",
+      tags: ["AI", "Data Extraction", "Insurance"],
+      year: "2024"
     },
     {
-      title: "Power Platform Tool Enhancement",
-      description: "Enhanced an existing Power Platform tool for Ingram Micro, adding new features and improving user experience to better track and manage lean initiatives.",
-      tags: ["Power Platform", "Dataverse"],
-      year: "2025"
+      title: "Mortgage Loan Document Indexing",
+      description: "Automated the document indexing and data extraction process for a major mortgage lender, processing files with 300-800 pages and extracting 1500+ data points with 99.99% accuracy.",
+      tags: ["Document Classification", "AI", "Data Extraction"],
+      year: "2023"
     }
   ];
 
