@@ -60,7 +60,7 @@ const Careers = () => {
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-primary to-primary-dark text-white py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Join Our Team</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Build More Than a Career — Build Ownership</h1>
           <p className="text-xl max-w-3xl">
             We're looking for exceptional talent to help us build innovative solutions. 
             Explore our open positions and become part of the mquotient family.
@@ -95,7 +95,7 @@ const Careers = () => {
             {/* Why Work With Us Section */}
             <div className="mb-16">
               <h2 className="text-3xl font-bold mb-10 text-center relative">
-                <span className="relative z-10">Why Work With Us</span>
+                <span className="relative z-10">Your Growth. Your Rewards. Your Future.</span>
                 <span className="absolute bottom-0 left-0 right-0 h-1 bg-primary/20 rounded-full"></span>
               </h2>
               
@@ -161,7 +161,7 @@ const Careers = () => {
             {/* Open Positions Section */}
             <div>
               <h2 className="text-3xl font-bold mb-10 text-center relative">
-                <span className="relative z-10">Open Positions</span>
+                <span className="relative z-10">Work with Us, Win with Us</span>
                 <span className="absolute bottom-0 left-0 right-0 h-1 bg-primary/20 rounded-full"></span>
               </h2>
               
@@ -198,7 +198,7 @@ const Careers = () => {
       <div className="bg-slate-50 py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold mb-10 text-center relative">
-            <span className="relative z-10">Our Benefits</span>
+            <span className="relative z-10">More Than a Job — A Stake in Our Future</span>
             <span className="absolute bottom-0 left-0 right-0 h-1 bg-primary/20 rounded-full"></span>
           </h2>
           
