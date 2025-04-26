@@ -23,27 +23,6 @@ const About = () => {
       }
     }
   };
-  
-  const leaders = [
-    {
-      name: "Rishi Behal",
-      position: "Managing Director",
-      bio: "Leading mquotient's strategic vision and growth initiatives, with extensive experience in technology consulting and digital transformation.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-    },
-    {
-      name: "Technical Leadership",
-      position: "CTO",
-      bio: "Guiding our technical strategy and innovation efforts, ensuring we deliver cutting-edge automation solutions to our clients.",
-      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-    },
-    {
-      name: "Operations Leadership",
-      position: "COO",
-      bio: "Overseeing day-to-day operations and ensuring smooth delivery of client projects with excellence and efficiency.",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
-    }
-  ];
 
   const values = [
     {
@@ -279,43 +258,6 @@ const About = () => {
                 </li>
               </ul>
             </motion.div>
-          </div>
-        </motion.div>
-
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-        >
-          <motion.div variants={itemVariants} className="text-center mb-10">
-            <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary inline-block">Our Leadership Team</h2>
-            <div className="h-1 w-20 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto"></div>
-          </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {leaders.map((leader, index) => (
-              <motion.div 
-                key={index} 
-                variants={itemVariants} 
-                className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-border/50 hover:shadow-md transition-shadow"
-              >
-                <div className="text-center mb-4">
-                  <div className="inline-block rounded-full overflow-hidden h-32 w-32 bg-muted mb-4 ring-4 ring-primary/10">
-                    <img 
-                      src={leader.image} 
-                      alt={leader.name} 
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <h4 className="font-semibold text-xl">{leader.name}</h4>
-                  <p className="text-primary">{leader.position}</p>
-                </div>
-                <p className="text-center text-muted-foreground">
-                  {leader.bio}
-                </p>
-              </motion.div>
-            ))}
           </div>
         </motion.div>
       </div>
