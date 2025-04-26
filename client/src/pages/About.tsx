@@ -182,7 +182,7 @@ const About = () => {
                 <span className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
                   <FaCheck className="text-primary h-4 w-4" />
                 </span>
-                Document Processing Capabilities
+                Technical Expertise
               </h3>
               <ul className="space-y-3">
                 <li className="flex items-start">
