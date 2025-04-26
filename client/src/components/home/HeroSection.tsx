@@ -101,7 +101,7 @@ const HeroSection = () => {
                   <img src={blueprismIcon} alt="Blue Prism" className="w-8 h-8 object-contain" />
                 </div>
                 <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center border-2 border-background overflow-hidden" title="GlyphX">
-                  <img src={glyphxIcon} alt="GlyphX" className="w-8 h-8 object-contain scale-125" />
+                  <img src={glyphxIcon} alt="GlyphX" className="w-8 h-8 object-contain scale-[1.55]" />
                 </div>
               </div>
               <span className="text-sm text-muted-foreground">
