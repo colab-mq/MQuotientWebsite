@@ -118,34 +118,27 @@ const Footer = () => {
                 </div>
                 <span className="text-foreground/80">hi@mquotient.net</span>
               </li>
-              <li className="flex items-start">
-                <div className="bg-background text-primary h-8 w-8 rounded-full flex items-center justify-center shadow-sm border border-border mr-3 flex-shrink-0 mt-0.5">
-                  <span className="flex items-center">
-                    <FaLinkedinIn className="h-3 w-3" />
-                  </span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-foreground/80 mb-2">Connect</span>
-                  <div className="flex space-x-3">
-                    <a 
-                      href="https://www.linkedin.com/company/mquotient/" 
-                      target="_blank" 
-                      rel="noreferrer" 
-                      className="bg-background text-foreground hover:text-primary transition duration-200 h-8 w-8 rounded-full flex items-center justify-center shadow-sm border border-border"
-                      aria-label="LinkedIn"
-                    >
-                      <FaLinkedinIn className="h-3 w-3" />
-                    </a>
-                    <a 
-                      href="https://wa.me/919987192566" 
-                      target="_blank" 
-                      rel="noreferrer" 
-                      className="bg-background text-foreground hover:text-primary transition duration-200 h-8 w-8 rounded-full flex items-center justify-center shadow-sm border border-border"
-                      aria-label="WhatsApp"
-                    >
-                      <FaWhatsapp className="h-3 w-3" />
-                    </a>
-                  </div>
+              <li className="flex items-center">
+                <span className="text-foreground/80 mr-4">Connect</span>
+                <div className="flex space-x-3">
+                  <a 
+                    href="https://www.linkedin.com/company/mquotient/" 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="bg-[#0077b5] text-white hover:bg-[#0077b5]/90 transition duration-200 h-8 w-8 rounded-full flex items-center justify-center shadow-sm"
+                    aria-label="LinkedIn"
+                  >
+                    <FaLinkedinIn className="h-4 w-4" />
+                  </a>
+                  <a 
+                    href="https://wa.me/919987192566" 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="bg-[#25D366] text-white hover:bg-[#25D366]/90 transition duration-200 h-8 w-8 rounded-full flex items-center justify-center shadow-sm"
+                    aria-label="WhatsApp"
+                  >
+                    <FaWhatsapp className="h-4 w-4" />
+                  </a>
                 </div>
               </li>
             </ul>
