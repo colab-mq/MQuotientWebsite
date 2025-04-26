@@ -210,9 +210,9 @@ const Careers = () => {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Rewarding Careers</h3>
+                <h3 className="text-xl font-semibold mb-2">Grow. Deliver. Be Rewarded.</h3>
                 <p className="text-muted-foreground">
-                  We offer competitive pay that reflects your skills, experience, and the impact you make — because great work deserves great rewards.
+                  We don't just talk about growth — we fuel it. From training budgets to skill-building opportunities, we're committed to helping you level up. We're here to make sure you're always learning, always progressing. We don't just reward what you achieve today — we invest in who you can become tomorrow. Your growth is our investment, your impact is our reward, and every milestone you reach is a reason for us to celebrate. When you grow, we all win
                 </p>
               </div>
             </div>
@@ -227,20 +227,6 @@ const Careers = () => {
                 <h3 className="text-xl font-semibold mb-2">Performance Over Punching the Clock</h3>
                 <p className="text-muted-foreground">
                   We focus on outcomes, not hours. Whether you prefer early mornings or late nights, our flexible hours and remote work options empower you to deliver your best. Work smart, recharge fully, and make time for what matters most — your family, your passions, your life.
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex items-start gap-4">
-              <div className="mt-1">
-                <div className="rounded-full bg-primary/10 p-1">
-                  <Check className="h-5 w-5 text-primary" />
-                </div>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Grow Every Day</h3>
-                <p className="text-muted-foreground">
-                  We champion lifelong learning. From certifications to conferences, we invest in your growth with dedicated budgets for training, upskilling, and new opportunities.
                 </p>
               </div>
             </div>
