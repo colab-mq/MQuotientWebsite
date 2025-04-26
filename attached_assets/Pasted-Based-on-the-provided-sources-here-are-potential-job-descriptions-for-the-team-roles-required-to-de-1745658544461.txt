@@ -1,0 +1,122 @@
+Based on the provided sources, here are potential job descriptions for the team roles required to deliver these projects, drawing directly from the responsibilities and requirements outlined in the Statements of Work (SOWs). The delivery locations mentioned for remote work are India and the Philippines.
+Developer
+This role is critical for building, testing, deploying, and supporting the automation or enhancement solutions. Depending on the specific project, the required technology expertise will vary, focusing on either UiPath RPA, Blue Prism RPA, or Microsoft Power Platform.
+Key Responsibilities (may vary slightly based on technology):
+•
+Build the solution/product based on the agreed client requirement or design captured from the Business Requirement Document.
+•
+Test the functionality of the bot or product as designed and based on agreed client requirements.
+•
+Support the deployment and stability monitoring of the product or solution.
+•
+Monitor the stability of the robot and apply fixes if necessary.
+•
+Support relevant technical questions from internal and external project members.
+•
+Work together with other project team members, including but not limited to the Project Manager, Solution Architect, and Business Analyst, to deliver the project.
+•
+Develop and implement automated workflows and processes.
+Required Skills and Experience:
+•
+Certified personnel.
+•
+Specific certification relevant to the project technology (e.g., UiARD Certified for UiPath RPA projects).
+•
+Proficiency in the relevant automation technology platform (e.g., UiPath Studio, Power Platform, Power Automate, Dataverse, PowerBI, Blue Prism).
+•
+Familiarity with setting up and working within development environments (dev, test, prod).
+•
+Experience with screenshare setups for collaboration.
+•
+Ability to work remotely and utilise remote desktop/VPN access.
+•
+Following the time zone of the customer may be required.
+Potential Location: Remote delivery from India or the Philippines, or in some cases either depending on suitability.
+Project Manager
+The Project Manager is responsible for the overall planning, execution, and closure of the automation projects, coordinating the delivery team and ensuring successful outcomes.
+Key Responsibilities:
+•
+Manage overall project execution.
+•
+Develop project timeline.
+•
+Generate progress reports (e.g., End of Week Progress Report).
+•
+Mitigate Risks and Issues.
+•
+Secure signoffs per milestone and decisions.
+•
+Oversee the overall project delivery.
+•
+Work together with other project team members, including Developers and Business Analysts.
+•
+Coordinate any change to the SOW using the Project Change Request Form.
+•
+Collaborate to adjust project schedules and redeploy resources expeditiously in the event of schedule delays.
+•
+Meet at the end of the project to bring to closure and resolve any open project issues.
+Required Skills and Experience:
+•
+Experience in managing technology or automation projects.
+•
+Ability to develop plans, track progress, and report status.
+•
+Strong risk management and problem-solving skills.
+•
+Ability to facilitate collaboration and manage stakeholders.
+Potential Location: Remote delivery from India or the Philippines, or potentially either. The sources explicitly state "Remote" for this role.
+Business Analyst
+The Business Analyst works closely with stakeholders to understand processes, identify automation opportunities, and define the requirements for the automation solutions.
+Key Responsibilities:
+•
+Conduct side by side discussions with Subject Matter Experts (SMEs) of the business.
+•
+Understand the process, including the overview, challenges, and recommended solution.
+•
+Create process relevant documents such as Process Flows, Process Definition Documents (PDD), Business Requirements Documents (BRD), and Solution Designs.
+•
+Present the solution to business stakeholders.
+•
+Work together with other project team members, including the Project Manager and Developers.
+•
+Identify and assess processes suitable for automation.
+•
+Conduct discovery workshops with key stakeholders.
+•
+Evaluate each identified process for automation feasibility, complexity, and expected Return on Investment (ROI).
+•
+(In some cases) May be involved in developing and implementing automated workflows, combining responsibilities with the Developer role.
+Required Skills and Experience:
+•
+Strong analytical and problem-solving skills.
+•
+Excellent communication and interpersonal skills for interacting with business users.
+•
+Ability to create detailed process documentation.
+•
+Experience in process discovery, analysis, and requirements gathering for automation.
+Potential Location: Remote delivery from India or the Philippines, or potentially either. The sources explicitly state "Remote" for this role.
+Solution Engineer / System Architect
+The sources mention a Solution Engineer role specifically in the context of Blue Prism implementation, responsible for configuring the supporting IT infrastructure. A System Architect is mentioned in one SOW as a role that the RPA Developer works together with, suggesting it could be a client-side role or potentially a technical lead role within the delivery team focused on the overall solution architecture. Based on the sources, the explicit responsibilities are limited but point towards technical environment setup and infrastructure considerations.
+Key Responsibilities (based on Solution Engineer role and implied needs):
+•
+Configuring the IT infrastructure that supports the automation solutions (specifically mentioned for Blue Prism RPA solutions).
+•
+Ensuring environments (development, test, production) are set up correctly.
+•
+Understanding infrastructure requirements related to servers, databases, networking, firewall adjustments, and security settings.
+•
+Collaborating with client's IT teams on technical prerequisites.
+•
+Working together with other project team members like Developers.
+Required Skills and Experience:
+•
+Expertise in setting up and configuring IT infrastructure for automation platforms (specifically Blue Prism in one source).
+•
+Knowledge of server, database, and network configurations.
+•
+Understanding of security settings and firewall requirements.
+•
+Experience with virtual machines (VMs) and remote access technologies (VPN).
+Potential Location: Remote delivery from India or the Philippines, or potentially either, similar to other roles.
+These descriptions consolidate the information found across the Statements of Work regarding the necessary team roles and their defined duties and prerequisites.

@@ -19,162 +19,121 @@ export interface JobListing {
 
 export const jobListings: JobListing[] = [
   {
-    id: "software-engineer-001",
-    title: "Software Engineer",
-    location: "Remote / London, UK",
+    id: "developer-001",
+    title: "Developer",
+    location: "Remote (India or Philippines)",
     type: "Full-time",
-    description: "We are looking for a skilled Software Engineer to join our team. You will be responsible for developing high-quality software solutions that meet or exceed our clients' needs. Your primary responsibility will be to design, code, test, and analyze software programs and applications.",
+    description: "This role is critical for building, testing, deploying, and supporting the automation or enhancement solutions. Depending on the specific project, the required technology expertise will vary, focusing on either UiPath RPA, Blue Prism RPA, or Microsoft Power Platform.",
     responsibilities: [
-      "Design, build, and maintain efficient, reusable, and reliable code",
-      "Implement software solutions based on technical specifications",
-      "Collaborate with cross-functional teams to define, design, and ship new features",
-      "Troubleshoot, debug and upgrade existing systems",
-      "Follow industry best practices for software development life cycle",
-      "Ensure the performance, quality, and responsiveness of applications"
+      "Build the solution/product based on the agreed client requirement or design captured from the Business Requirement Document",
+      "Test the functionality of the bot or product as designed and based on agreed client requirements",
+      "Support the deployment and stability monitoring of the product or solution",
+      "Monitor the stability of the robot and apply fixes if necessary",
+      "Support relevant technical questions from internal and external project members",
+      "Work together with other project team members, including but not limited to the Project Manager, Solution Architect, and Business Analyst, to deliver the project",
+      "Develop and implement automated workflows and processes"
     ],
     requirements: [
-      "Proven experience as a Software Engineer or similar role",
-      "Experience with modern programming languages (JavaScript, TypeScript, Python, etc.)",
-      "Familiarity with various operating systems and platforms",
-      "Good understanding of object-oriented programming",
-      "Good understanding of data structures and algorithms",
-      "Problem-solving aptitude",
-      "Excellent communication and teamwork skills"
+      "Certified personnel",
+      "Specific certification relevant to the project technology (e.g., UiARD Certified for UiPath RPA projects)",
+      "Proficiency in the relevant automation technology platform (e.g., UiPath Studio, Power Platform, Power Automate, Dataverse, PowerBI, Blue Prism)",
+      "Familiarity with setting up and working within development environments (dev, test, prod)",
+      "Experience with screenshare setups for collaboration",
+      "Ability to work remotely and utilise remote desktop/VPN access"
     ],
     desirable: [
-      "Knowledge of Agile methodologies",
-      "Experience with cloud services (AWS, Azure, GCP)",
-      "Understanding of CI/CD pipelines",
-      "Experience with microservices architecture"
+      "Flexibility to follow the time zone of the customer when required",
+      "Experience working in distributed development teams",
+      "Previous experience in banking, insurance, or healthcare sectors"
     ],
     active: true
   },
   {
-    id: "uipath-developer-001",
-    title: "UiPath Developer",
-    location: "Remote / London, UK",
+    id: "project-manager-001",
+    title: "Project Manager",
+    location: "Remote (India or Philippines)",
     type: "Full-time",
-    description: "We're seeking an experienced UiPath Developer to design, develop, and implement RPA solutions using UiPath. You will be responsible for creating efficient automation workflows to streamline business processes and reduce manual effort.",
+    description: "The Project Manager is responsible for the overall planning, execution, and closure of the automation projects, coordinating the delivery team and ensuring successful outcomes.",
     responsibilities: [
-      "Design, develop, and maintain RPA solutions using UiPath",
-      "Analyze business processes and identify automation opportunities",
-      "Create detailed documentation for automated processes",
-      "Implement best practices in RPA development",
-      "Collaborate with business analysts and stakeholders to understand requirements",
-      "Troubleshoot and resolve issues in automation workflows"
+      "Manage overall project execution",
+      "Develop project timeline",
+      "Generate progress reports (e.g., End of Week Progress Report)",
+      "Mitigate Risks and Issues",
+      "Secure signoffs per milestone and decisions",
+      "Oversee the overall project delivery",
+      "Work together with other project team members, including Developers and Business Analysts",
+      "Coordinate any change to the SOW using the Project Change Request Form",
+      "Collaborate to adjust project schedules and redeploy resources expeditiously in the event of schedule delays",
+      "Meet at the end of the project to bring to closure and resolve any open project issues"
     ],
     requirements: [
-      "Proven experience as a UiPath Developer",
-      "UiPath certification (preferably Advanced Developer)",
-      "Strong understanding of RPA concepts and principles",
-      "Experience with UiPath Studio, Orchestrator, and other UiPath tools",
-      "Knowledge of VB.NET or C#",
-      "Problem-solving skills and attention to detail",
-      "Excellent communication and documentation skills"
+      "Experience in managing technology or automation projects",
+      "Ability to develop plans, track progress, and report status",
+      "Strong risk management and problem-solving skills",
+      "Ability to facilitate collaboration and manage stakeholders"
     ],
     desirable: [
-      "Experience with REFramework",
-      "Knowledge of AI Center and Document Understanding",
-      "SQL database experience",
-      "API integration experience",
-      "Experience in financial or healthcare industries"
+      "PMP or Prince2 certification",
+      "Experience with Agile methodologies",
+      "Experience in RPA or automation projects",
+      "Strong communication skills and ability to work across time zones"
     ],
     active: true
   },
   {
-    id: "blue-prism-developer-001",
-    title: "Blue Prism Developer",
-    location: "Remote / London, UK",
-    type: "Contract",
-    description: "We are looking for a skilled Blue Prism Developer to join our growing RPA team. The ideal candidate will have strong experience in designing, developing, and implementing automation solutions using Blue Prism to improve business efficiency and accuracy.",
+    id: "business-analyst-001",
+    title: "Business Analyst",
+    location: "Remote (India or Philippines)",
+    type: "Full-time",
+    description: "The Business Analyst works closely with stakeholders to understand processes, identify automation opportunities, and define the requirements for the automation solutions.",
     responsibilities: [
-      "Design, develop, and implement Blue Prism automation solutions",
-      "Analyze business requirements and translate them into technical specifications",
-      "Create process documentation and technical design documents",
-      "Ensure best practices are followed for all Blue Prism development",
-      "Perform testing and debugging of automated processes",
-      "Provide support for existing automations and implement enhancements"
+      "Conduct side by side discussions with Subject Matter Experts (SMEs) of the business",
+      "Understand the process, including the overview, challenges, and recommended solution",
+      "Create process relevant documents such as Process Flows, Process Definition Documents (PDD), Business Requirements Documents (BRD), and Solution Designs",
+      "Present the solution to business stakeholders",
+      "Work together with other project team members, including the Project Manager and Developers",
+      "Identify and assess processes suitable for automation",
+      "Conduct discovery workshops with key stakeholders",
+      "Evaluate each identified process for automation feasibility, complexity, and expected Return on Investment (ROI)"
     ],
     requirements: [
-      "Minimum 2 years of experience in Blue Prism development",
-      "Blue Prism accreditation (Developer or Professional Developer)",
-      "Strong understanding of RPA concepts and methodologies",
-      "Experience with process design and implementation in Blue Prism",
-      "Knowledge of SQL and database concepts",
-      "Experience with exception handling and error management",
-      "Strong analytical and problem-solving skills"
+      "Strong analytical and problem-solving skills",
+      "Excellent communication and interpersonal skills for interacting with business users",
+      "Ability to create detailed process documentation",
+      "Experience in process discovery, analysis, and requirements gathering for automation"
     ],
     desirable: [
-      "Experience with other RPA tools (UiPath, Automation Anywhere)",
-      "Knowledge of web technologies and APIs",
-      "Programming experience in VB.NET, C# or JavaScript",
-      "Experience with Blue Prism Control Room and Release Management",
-      "ITIL foundation certification"
+      "Experience with RPA or process automation technologies",
+      "Understanding of software development lifecycle",
+      "Experience in creating workflow diagrams and process maps",
+      "Familiarity with Lean Six Sigma or process improvement methodologies"
     ],
     active: true
   },
   {
-    id: "power-platform-consultant-001",
-    title: "Power Platform Consultant",
-    location: "Remote / London, UK",
+    id: "solution-engineer-001",
+    title: "Solution Engineer / System Architect",
+    location: "Remote (India or Philippines)",
     type: "Full-time",
-    description: "We are seeking a Power Platform Consultant to help our clients leverage Microsoft Power Platform (Power Apps, Power Automate, Power BI, Power Virtual Agents) to optimize business processes and create innovative solutions. You will work closely with clients to understand their needs and deliver tailored solutions.",
+    description: "The Solution Engineer/System Architect is responsible for configuring the supporting IT infrastructure, ensuring environments are set up correctly, and collaborating with client's IT teams on technical prerequisites.",
     responsibilities: [
-      "Design and develop solutions using Microsoft Power Platform components",
-      "Gather and analyze client requirements and translate them into technical solutions",
-      "Create custom Power Apps and Power Automate flows to streamline business processes",
-      "Develop Power BI reports and dashboards for business intelligence",
-      "Configure and customize Power Virtual Agents for chatbot solutions",
-      "Provide training and support to client teams",
-      "Document solutions and create user guides"
+      "Configuring the IT infrastructure that supports the automation solutions (specifically for RPA solutions)",
+      "Ensuring environments (development, test, production) are set up correctly",
+      "Understanding infrastructure requirements related to servers, databases, networking, firewall adjustments, and security settings",
+      "Collaborating with client's IT teams on technical prerequisites",
+      "Working together with other project team members like Developers"
     ],
     requirements: [
-      "Proven experience as a Power Platform developer or consultant",
-      "Strong knowledge of Power Apps, Power Automate, and Power BI",
-      "Experience with SharePoint and Microsoft 365 integration",
-      "Understanding of data modeling and database concepts",
-      "Excellent problem-solving and analytical skills",
-      "Strong communication and client-facing skills",
-      "Microsoft certifications related to Power Platform (preferred)"
+      "Expertise in setting up and configuring IT infrastructure for automation platforms",
+      "Knowledge of server, database, and network configurations",
+      "Understanding of security settings and firewall requirements",
+      "Experience with virtual machines (VMs) and remote access technologies (VPN)"
     ],
     desirable: [
-      "Experience with Dataverse and model-driven apps",
-      "Knowledge of Azure services and integration",
-      "Experience with AI Builder or Power Virtual Agents",
-      "Programming skills in C#, JavaScript, or HTML",
-      "Experience in a consulting or client service role"
-    ],
-    active: true
-  },
-  {
-    id: "data-analyst-001",
-    title: "Data Analyst",
-    location: "Remote / London, UK",
-    type: "Full-time",
-    description: "We are looking for a Data Analyst to join our team and help transform raw data into insights that drive business solutions. The successful candidate will assess business needs and create reports and visualizations to help organizations make better decisions.",
-    responsibilities: [
-      "Interpret data, analyze results using statistical techniques",
-      "Develop and implement databases, data collection systems, and other strategies for data acquisition",
-      "Identify, analyze, and interpret trends or patterns in complex data sets",
-      "Filter and clean data by reviewing reports and performance indicators",
-      "Work with management to prioritize business and information needs",
-      "Locate and define new process improvement opportunities"
-    ],
-    requirements: [
-      "Proven experience as a Data Analyst or similar role",
-      "Technical expertise regarding data models, database design, and data mining",
-      "Strong knowledge of and experience with reporting packages (Power BI, Tableau)",
-      "Knowledge of SQL and experience working with relational databases",
-      "Experience with statistical analysis tools (R, Python, SPSS)",
-      "Strong analytical skills with the ability to collect, organize, and disseminate data",
-      "BA/BS in Mathematics, Economics, Computer Science, or related field"
-    ],
-    desirable: [
-      "Knowledge of big data technologies (Hadoop, Spark)",
-      "Experience with data visualization tools",
-      "Understanding of machine learning and AI concepts",
-      "Experience in data cleaning and data warehousing",
-      "Knowledge of business intelligence methodologies"
+      "Experience with cloud platforms (Azure, AWS)",
+      "Knowledge of containerization technologies",
+      "Experience with DevOps practices",
+      "Understanding of IT governance and compliance requirements"
     ],
     active: true
   }
