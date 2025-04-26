@@ -254,7 +254,7 @@ const Careers = () => {
               <div>
                 <h3 className="text-xl font-semibold mb-2">Happiness is Non-Negotiable</h3>
                 <p className="text-muted-foreground">
-                  We believe the best work happens when you're genuinely happy. That's why we're intentional about building a positive, energizing, and fun environment. Our ear is always to the ground — making sure you feel supported, valued, and excited to be part of the journey. Positivity isn't an afterthought here — it's the foundation we build on.
+                  Happiness Drives Excellence. We create a positive, energizing workplace where you feel valued and supported. Your joy fuels our success, and positivity is the foundation of our journey together.
                 </p>
               </div>
             </div>
