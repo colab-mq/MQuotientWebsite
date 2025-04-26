@@ -374,22 +374,22 @@ const About = () => {
               variants={itemVariants} 
               className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-border/50 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-semibold mb-3">Mortgage Loan Document Indexing (2023)</h3>
+              <h3 className="text-xl font-semibold mb-3">Mortgage Post-Closing Automation (2023)</h3>
               <p className="text-muted-foreground mb-4">
-                For a major mortgage lender, we automated the document indexing and data extraction process for loan file audits.
+                For a major mortgage lender, we streamlined the post-closing process through comprehensive automation.
               </p>
               
               <div className="mb-4">
                 <h4 className="font-medium mb-2 text-sm uppercase tracking-wider text-muted-foreground">Challenge:</h4>
                 <p className="text-sm text-muted-foreground">
-                  Processing mortgage files with 300-800 pages comprising over 250 different document types and extracting 1500+ data points.
+                  Managing complex post-closing workflows including document review, compliance validation, and tracking trailing documents across 300-800 page loan files.
                 </p>
               </div>
               
               <div className="mb-4">
                 <h4 className="font-medium mb-2 text-sm uppercase tracking-wider text-muted-foreground">Solution:</h4>
                 <p className="text-sm text-muted-foreground">
-                  Our document classification and data extraction solution used OCR with layout analysis to identify document types and extract required fields.
+                  Our AI-powered solution automated document classification, data extraction, compliance validation, and trailing document tracking with integrated workflow management.
                 </p>
               </div>
               

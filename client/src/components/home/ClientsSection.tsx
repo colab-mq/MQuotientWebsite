@@ -48,8 +48,8 @@ const ClientsSection = () => {
       year: "2025"
     },
     {
-      title: "Mortgage Loan Document Indexing",
-      description: "Automated the document indexing and data extraction process for a major mortgage lender, processing files with 300-800 pages and extracting 1500+ data points with 99.99% accuracy.",
+      title: "Mortgage Post-Closing Automation",
+      description: "Streamlined post-closing by automating document review, data extraction, compliance validation, and trailing document tracking for a major mortgage lender — processing 300–800 page loan files with 99%+ accuracy.",
       tags: ["Document Classification", "AI", "Data Extraction"],
       year: "2023"
     },
