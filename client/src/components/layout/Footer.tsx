@@ -41,7 +41,7 @@ const Footer = () => {
               <li>
                 <Link href="/services" className="text-foreground hover:text-primary transition-colors duration-200 inline-flex items-center">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary/60 mr-2"></span>
-                  GlyphxAI
+                  AI-Powered Data Entry Workforce
                 </Link>
               </li>
               <li>
@@ -140,7 +140,7 @@ const Footer = () => {
 
         <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-foreground/70 text-sm">&copy; {new Date().getFullYear()} mquotient Business Services. All rights reserved.</p>
+            <p className="text-foreground/70 text-sm">&copy; {new Date().getFullYear()} mquotient. All rights reserved.</p>
             {/* Footer links removed as requested */}
           </div>
         </div>

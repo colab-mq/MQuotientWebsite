@@ -82,12 +82,12 @@ const ContactSection = () => {
   }
 
   const services = [
+    "AI-Powered Data Entry Workforce",
     "Robotic Process Automation",
     "Microsoft Power Platform",
     "Process Optimization",
     "Custom Development",
-    "Test Automation",
-    "Implementation & Support"
+    "Test Automation"
   ];
 
   // Animation variants
