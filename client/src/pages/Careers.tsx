@@ -161,7 +161,7 @@ const Careers = () => {
             {/* Open Positions Section */}
             <div>
               <h2 className="text-3xl font-bold mb-10 text-center relative">
-                <span className="relative z-10">Work with Us, Win with Us</span>
+                <span className="relative z-10">Join Us, Build, Thrive</span>
                 <span className="absolute bottom-0 left-0 right-0 h-1 bg-primary/20 rounded-full"></span>
               </h2>
               
