@@ -36,9 +36,9 @@ const ClientsSection = () => {
 
   const caseStudies = [
     {
-      title: "Insurance Data Extraction",
-      description: "Implemented a GlyphX AI-powered solution for a leading insurance broker to extract data from auto and health insurance policies across multiple providers and variable formats, streamlining reconciliation processes with brokers and enabling targeted marketing near policy expiries.",
-      tags: ["AI", "Data Extraction", "Insurance"],
+      title: "Invoice Processing Automation",
+      description: "Implemented an AI-driven document extraction solution for a leading global consulting firm managing invoice operations for a major telecom provider, processing hundreds of thousands of complex invoices annually and reducing processing time from 5+ days to less than 1 day.",
+      tags: ["AI", "Finance", "Invoice Processing"],
       year: "2024"
     },
     {

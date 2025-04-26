@@ -487,7 +487,7 @@ const CaseStudiesSection = () => {
                         value={study.id}
                         className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary/60 data-[state=active]:to-secondary/60 data-[state=active]:text-white"
                       >
-                        {study.id === "insurance" ? "Insurance" : "Mortgage"}
+                        {study.id === "invoice" ? "Invoice" : "Mortgage"}
                       </TabsTrigger>
                     ))}
                   </TabsList>
