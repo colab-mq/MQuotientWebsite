@@ -201,25 +201,25 @@ const About = () => {
                   <div className="bg-primary/10 p-1 rounded-full mr-3 text-primary">
                     <FaCheck className="h-3 w-3" />
                   </div>
-                  <span className="text-muted-foreground">Document classification and routing</span>
+                  <span className="text-muted-foreground">Robotic Process Automation (RPA) with UiPath and Blue Prism</span>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-primary/10 p-1 rounded-full mr-3 text-primary">
                     <FaCheck className="h-3 w-3" />
                   </div>
-                  <span className="text-muted-foreground">OCR with advanced validation and business rules implementation</span>
+                  <span className="text-muted-foreground">Microsoft Power Platform (Power BI, Power Automate, Power Apps)</span>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-primary/10 p-1 rounded-full mr-3 text-primary">
                     <FaCheck className="h-3 w-3" />
                   </div>
-                  <span className="text-muted-foreground">Sample-based learning for document processing without templates</span>
+                  <span className="text-muted-foreground">Custom automation solutions and API integrations</span>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-primary/10 p-1 rounded-full mr-3 text-primary">
                     <FaCheck className="h-3 w-3" />
                   </div>
-                  <span className="text-muted-foreground">UiPath and Blue Prism integration for end-to-end automation</span>
+                  <span className="text-muted-foreground">Process optimization and workflow automation</span>
                 </li>
               </ul>
             </motion.div>
