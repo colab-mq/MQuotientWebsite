@@ -1,9 +1,8 @@
-# robots.txt for mquotient.net
 User-agent: *
 Allow: /
 
-# Allow all bots to index the site
-Sitemap: https://www.mquotient.net/sitemap.xml
+# Allow all crawlers access to all content
+Disallow:
 
-# Optimize crawl rate
-Crawl-delay: 10
+# Sitemap location
+Sitemap: https://www.mquotient.net/sitemap.xml

@@ -249,6 +249,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Serve robots.txt and sitemap.xml directly
+  app.get("/robots.txt", (_req: Request, res: Response) => {
+    res.sendFile(path.join(process.cwd(), "client/public/robots.txt"));
+  });
+  
+  app.get("/sitemap.xml", (_req: Request, res: Response) => {
+    res.type('application/xml');
+    res.sendFile(path.join(process.cwd(), "client/public/sitemap.xml"));
+  });
+
   const httpServer = createServer(app);
   
   return httpServer;
