@@ -266,6 +266,111 @@ const About = () => {
             </motion.div>
           </div>
         </motion.div>
+        
+        <motion.div 
+          className="mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={containerVariants}
+        >
+          <motion.div variants={itemVariants} className="text-center mb-10">
+            <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary inline-block">Featured Projects</h2>
+            <div className="h-1 w-20 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto"></div>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <motion.div 
+              variants={itemVariants} 
+              className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-border/50 hover:shadow-lg transition-shadow"
+            >
+              <h3 className="text-xl font-semibold mb-3">Vehicle Insurance Data Extraction</h3>
+              <p className="text-muted-foreground mb-4">
+                For a leading insurance portal, we implemented an AI-powered solution to extract data from auto insurance policies with variable formats.
+              </p>
+              
+              <div className="mb-4">
+                <h4 className="font-medium mb-2 text-sm uppercase tracking-wider text-muted-foreground">Challenge:</h4>
+                <p className="text-sm text-muted-foreground">
+                  Processing a vast archive of auto insurance policies with multiple layouts to enable targeted marketing near policy expiry dates.
+                </p>
+              </div>
+              
+              <div className="mb-4">
+                <h4 className="font-medium mb-2 text-sm uppercase tracking-wider text-muted-foreground">Solution:</h4>
+                <p className="text-sm text-muted-foreground">
+                  Our AI-Powered Data Entry Workforce used sample-based learning to identify and extract data from any document location, processing 30,000 documents per quarter.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-3 mb-2">
+                <div className="flex items-center gap-2">
+                  <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                    <FaCheck className="text-primary h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium">100% targeting</p>
+                    <p className="text-xs text-muted-foreground">increase</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                    <FaCheck className="text-primary h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium">40% conversion</p>
+                    <p className="text-xs text-muted-foreground">rate increase</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.div 
+              variants={itemVariants} 
+              className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-border/50 hover:shadow-lg transition-shadow"
+            >
+              <h3 className="text-xl font-semibold mb-3">Mortgage Loan Document Indexing</h3>
+              <p className="text-muted-foreground mb-4">
+                For a major mortgage lender, we automated the document indexing and data extraction process for loan file audits.
+              </p>
+              
+              <div className="mb-4">
+                <h4 className="font-medium mb-2 text-sm uppercase tracking-wider text-muted-foreground">Challenge:</h4>
+                <p className="text-sm text-muted-foreground">
+                  Processing mortgage files with 300-800 pages comprising over 250 different document types and extracting 1500+ data points.
+                </p>
+              </div>
+              
+              <div className="mb-4">
+                <h4 className="font-medium mb-2 text-sm uppercase tracking-wider text-muted-foreground">Solution:</h4>
+                <p className="text-sm text-muted-foreground">
+                  Our document classification and data extraction solution used OCR with layout analysis to identify document types and extract required fields.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-3 mb-2">
+                <div className="flex items-center gap-2">
+                  <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                    <FaCheck className="text-primary h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium">98% classification</p>
+                    <p className="text-xs text-muted-foreground">accuracy</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                    <FaCheck className="text-primary h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium">99.99% extraction</p>
+                    <p className="text-xs text-muted-foreground">accuracy</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </div>
   );
