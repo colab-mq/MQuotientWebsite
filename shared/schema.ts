@@ -15,7 +15,7 @@ export const contactMessages = pgTable("contact_messages", {
   company: text("company"),
   countryCode: text("country_code"),
   phone: text("phone"),
-  subject: text("subject").notNull(),
+  serviceArea: text("service_area").notNull(),
   message: text("message").notNull(),
   createdAt: text("created_at").notNull().default(new Date().toISOString()),
 });
@@ -43,7 +43,7 @@ export const insertContactMessageSchema = createInsertSchema(contactMessages).pi
   company: true,
   countryCode: true,
   phone: true,
-  subject: true,
+  serviceArea: true,
   message: true,
 });
 

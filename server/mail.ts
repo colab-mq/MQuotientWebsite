@@ -77,8 +77,10 @@ export const mailService = {
     name: string;
     email: string;
     company?: string;
-    subject: string;
+    serviceArea: string;
     message: string;
+    countryCode?: string;
+    phone?: string;
   }): Promise<boolean> => {
     if (CONTACT_EMAIL_RECIPIENTS.length === 0) {
       console.warn('No contact email recipients configured. Notification not sent.');
@@ -90,7 +92,8 @@ export const mailService = {
       <p><strong>Name:</strong> ${data.name}</p>
       <p><strong>Email:</strong> ${data.email}</p>
       <p><strong>Company:</strong> ${data.company || 'Not provided'}</p>
-      <p><strong>Subject:</strong> ${data.subject}</p>
+      <p><strong>Phone:</strong> ${data.countryCode || ''} ${data.phone || 'Not provided'}</p>
+      <p><strong>Service Area:</strong> ${data.serviceArea}</p>
       <h2>Message:</h2>
       <p>${data.message.replace(/\n/g, '<br>')}</p>
     `;
@@ -98,7 +101,7 @@ export const mailService = {
     return mailService.sendEmail({
       from: `"mquotient" <${EMAIL_USER}>`,
       to: CONTACT_EMAIL_RECIPIENTS,
-      subject: `New Contact Form: ${data.subject}`,
+      subject: `New Contact Form: ${data.serviceArea}`,
       html,
     });
   },
