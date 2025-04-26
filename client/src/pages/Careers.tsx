@@ -240,7 +240,7 @@ const Careers = () => {
               <div>
                 <h3 className="text-xl font-semibold mb-2">Work-Life, in Balance</h3>
                 <p className="text-muted-foreground">
-                  We respect the power of an 8-hour workday — and the importance of everything beyond it. Flexible hours and remote options help you create a life where work and living truly fit together.
+                  We respect the power of an 8-hour workday — and the importance of everything beyond it.
                 </p>
               </div>
             </div>
