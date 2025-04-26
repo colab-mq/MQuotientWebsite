@@ -87,26 +87,38 @@ const HeroSection = () => {
             </motion.div>
             
             <motion.div 
-              className="flex items-center gap-6 mt-12"
+              className="flex flex-col gap-3 mt-12"
               variants={itemVariants}
             >
-              <div className="flex -space-x-3">
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center border-2 border-background overflow-hidden">
-                  <img src={microsoftIcon} alt="Microsoft" className="w-8 h-8 object-contain" />
-                </div>
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center border-2 border-background overflow-hidden">
-                  <img src={uipathIcon} alt="UiPath" className="w-8 h-8 object-contain" />
-                </div>
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center border-2 border-background overflow-hidden">
-                  <img src={blueprismIcon} alt="Blue Prism" className="w-8 h-8 object-contain" />
-                </div>
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center border-2 border-background overflow-hidden">
-                  <img src={glyphxIcon} alt="GlyphX" className="w-8 h-8 object-contain" />
-                </div>
-              </div>
-              <span className="text-sm text-muted-foreground">
+              <span className="text-sm text-muted-foreground mb-1">
                 Trusted partners with industry leaders
               </span>
+              <div className="flex items-center gap-4">
+                <div className="flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center border-2 border-background overflow-hidden p-1">
+                    <img src={microsoftIcon} alt="Microsoft" className="w-10 h-10 object-contain" />
+                  </div>
+                  <span className="text-xs text-muted-foreground mt-1">Microsoft</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center border-2 border-background overflow-hidden p-1">
+                    <img src={uipathIcon} alt="UiPath" className="w-10 h-10 object-contain" />
+                  </div>
+                  <span className="text-xs text-muted-foreground mt-1">UiPath</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center border-2 border-background overflow-hidden p-1">
+                    <img src={blueprismIcon} alt="Blue Prism" className="w-10 h-10 object-contain" />
+                  </div>
+                  <span className="text-xs text-muted-foreground mt-1">Blue Prism</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center border-2 border-background overflow-hidden p-1">
+                    <img src={glyphxIcon} alt="GlyphX" className="w-10 h-10 object-contain scale-125" />
+                  </div>
+                  <span className="text-xs text-muted-foreground mt-1">GlyphX</span>
+                </div>
+              </div>
             </motion.div>
           </div>
           
