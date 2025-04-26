@@ -1,4 +1,4 @@
-import type { Express, Request, Response, NextFunction } from "express";
+import type { Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactMessageSchema, insertCareerApplicationSchema } from "@shared/schema";
@@ -9,27 +9,9 @@ import { getActiveJobListings, getJobListingById } from "./data/job-listings";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
-import { fileURLToPath } from "url";
-
-// Function to safely resolve paths for Docker compatibility
-function resolveFromRoot(relativePath: string): string {
-  try {
-    // First try using import.meta.dirname (works in most environments)
-    const projectRoot = path.resolve(import.meta.dirname, '..');
-    return path.join(projectRoot, relativePath);
-  } catch (error) {
-    console.log('Using fileURLToPath fallback for path resolution');
-    // Fallback to using fileURLToPath (for Docker compatibility)
-    const __filename = fileURLToPath(import.meta.url);
-    const __dirname = path.dirname(__filename);
-    // server folder is one level deep from project root
-    const projectRoot = path.resolve(__dirname, '..');
-    return path.join(projectRoot, relativePath);
-  }
-}
 
 // Set up multer for file uploads
-const uploadDir = resolveFromRoot("uploads");
+const uploadDir = path.join(process.cwd(), "uploads");
 // Create uploads directory if it doesn't exist
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
@@ -104,10 +86,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
           name: validatedData.name,
           email: validatedData.email,
           company: validatedData.company || undefined,
-          serviceArea: validatedData.serviceArea,
-          message: validatedData.message,
-          phone: validatedData.phone || undefined,
-          countryCode: validatedData.countryCode || undefined
+          subject: validatedData.subject,
+          message: validatedData.message
         });
         console.log('Email notification sent:', emailSent);
       } catch (emailError) {
@@ -269,16 +249,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // No duplicated function needed
-  
   // Serve robots.txt and sitemap.xml directly
   app.get("/robots.txt", (_req: Request, res: Response) => {
-    res.sendFile(resolveFromRoot("client/public/robots.txt"));
+    res.sendFile(path.join(process.cwd(), "client/public/robots.txt"));
   });
   
   app.get("/sitemap.xml", (_req: Request, res: Response) => {
     res.type('application/xml');
-    res.sendFile(resolveFromRoot("client/public/sitemap.xml"));
+    res.sendFile(path.join(process.cwd(), "client/public/sitemap.xml"));
   });
 
   const httpServer = createServer(app);
