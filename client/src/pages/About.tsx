@@ -90,7 +90,7 @@ const About = () => {
               mquotient Business Services was founded with a vision to help organizations leverage automation and digital technologies to transform their operations and drive growth. Over the years, we've built a reputation for delivering innovative solutions that address complex business challenges.
             </p>
             <p className="mb-4 text-muted-foreground">
-              With a team of experienced professionals specializing in RPA, Power Platform, and custom development, we've successfully delivered over 100 projects across various industries, helping our clients achieve significant improvements in operational efficiency and cost savings.
+              With a team of experienced professionals specializing in RPA, Power Platform, and custom development, we've successfully delivered over 80 projects across various industries, helping our clients achieve significant improvements in operational efficiency and cost savings.
             </p>
             <p className="text-muted-foreground">
               Our commitment to excellence, technical expertise, and client-focused approach has made us a trusted partner for organizations looking to embark on their digital transformation journey.
@@ -98,7 +98,7 @@ const About = () => {
             
             <div className="flex items-center gap-4 mt-8 bg-muted/50 p-4 rounded-lg border border-border/50">
               <div className="h-12 w-12 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 flex items-center justify-center text-primary font-bold">
-                100+
+                80+
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Successful Projects</p>

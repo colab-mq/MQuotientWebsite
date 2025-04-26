@@ -128,7 +128,7 @@ const AboutSection = () => {
               </div>
               <div className="flex items-center justify-between gap-4">
                 <h4 className="font-semibold whitespace-nowrap">Successful Projects</h4>
-                <span className="gradient-text font-bold text-3xl">100+</span>
+                <span className="gradient-text font-bold text-3xl">80+</span>
               </div>
             </div>
           </motion.div>
