@@ -279,12 +279,12 @@ const About = () => {
             <div className="h-1 w-20 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto"></div>
           </motion.div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <motion.div 
               variants={itemVariants} 
               className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-border/50 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-semibold mb-3">Vehicle Insurance Data Extraction</h3>
+              <h3 className="text-xl font-semibold mb-3">Vehicle Insurance Data Extraction (2024)</h3>
               <p className="text-muted-foreground mb-4">
                 For a leading insurance portal, we implemented an AI-powered solution to extract data from auto insurance policies with variable formats.
               </p>
@@ -329,7 +329,52 @@ const About = () => {
               variants={itemVariants} 
               className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-border/50 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-semibold mb-3">Mortgage Loan Document Indexing</h3>
+              <h3 className="text-xl font-semibold mb-3">Meter Reading Automation (2022)</h3>
+              <p className="text-muted-foreground mb-4">
+                For a utilities service provider, we developed a UiPath RPA solution to automate the meter reading and data processing workflow.
+              </p>
+              
+              <div className="mb-4">
+                <h4 className="font-medium mb-2 text-sm uppercase tracking-wider text-muted-foreground">Challenge:</h4>
+                <p className="text-sm text-muted-foreground">
+                  Managing a complex system of manual meter readings across multiple sites, with inconsistent data formats and frequent human errors.
+                </p>
+              </div>
+              
+              <div className="mb-4">
+                <h4 className="font-medium mb-2 text-sm uppercase tracking-wider text-muted-foreground">Solution:</h4>
+                <p className="text-sm text-muted-foreground">
+                  Our RPA solution automated data collection, validation, and processing, integrating with existing systems and implementing error-handling protocols.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-3 mb-2">
+                <div className="flex items-center gap-2">
+                  <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                    <FaCheck className="text-primary h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium">85% reduction</p>
+                    <p className="text-xs text-muted-foreground">in processing time</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                    <FaCheck className="text-primary h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium">99.5% accuracy</p>
+                    <p className="text-xs text-muted-foreground">in data reporting</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.div 
+              variants={itemVariants} 
+              className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-border/50 hover:shadow-lg transition-shadow"
+            >
+              <h3 className="text-xl font-semibold mb-3">Mortgage Loan Document Indexing (2023)</h3>
               <p className="text-muted-foreground mb-4">
                 For a major mortgage lender, we automated the document indexing and data extraction process for loan file audits.
               </p>
@@ -365,6 +410,51 @@ const About = () => {
                   <div>
                     <p className="text-sm font-medium">99.99% extraction</p>
                     <p className="text-xs text-muted-foreground">accuracy</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.div 
+              variants={itemVariants} 
+              className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-border/50 hover:shadow-lg transition-shadow"
+            >
+              <h3 className="text-xl font-semibold mb-3">Power Platform Tool Enhancement (2021)</h3>
+              <p className="text-muted-foreground mb-4">
+                For a manufacturing client, we enhanced an existing Power Platform tool to improve lean initiative tracking and management.
+              </p>
+              
+              <div className="mb-4">
+                <h4 className="font-medium mb-2 text-sm uppercase tracking-wider text-muted-foreground">Challenge:</h4>
+                <p className="text-sm text-muted-foreground">
+                  The existing tool lacked critical reporting capabilities, had poor user experience, and failed to provide real-time analytics needed for decision-making.
+                </p>
+              </div>
+              
+              <div className="mb-4">
+                <h4 className="font-medium mb-2 text-sm uppercase tracking-wider text-muted-foreground">Solution:</h4>
+                <p className="text-sm text-muted-foreground">
+                  We enhanced the Power Platform application with improved UI/UX, custom Power BI dashboards, and automated workflows for data collection and analysis.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-3 mb-2">
+                <div className="flex items-center gap-2">
+                  <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                    <FaCheck className="text-primary h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium">35% productivity</p>
+                    <p className="text-xs text-muted-foreground">improvement</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                    <FaCheck className="text-primary h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium">90% user</p>
+                    <p className="text-xs text-muted-foreground">satisfaction rate</p>
                   </div>
                 </div>
               </div>

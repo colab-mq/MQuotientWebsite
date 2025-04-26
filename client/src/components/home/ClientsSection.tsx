@@ -42,10 +42,22 @@ const ClientsSection = () => {
       year: "2024"
     },
     {
+      title: "Meter Reading Automation",
+      description: "Implemented UiPath RPA solution to automate the meter reading process for a utilities service provider, significantly reducing manual effort and improving accuracy.",
+      tags: ["RPA", "UiPath"],
+      year: "2022"
+    },
+    {
       title: "Mortgage Loan Document Indexing",
       description: "Automated the document indexing and data extraction process for a major mortgage lender, processing files with 300-800 pages and extracting 1500+ data points with 99.99% accuracy.",
       tags: ["Document Classification", "AI", "Data Extraction"],
       year: "2023"
+    },
+    {
+      title: "Power Platform Tool Enhancement",
+      description: "Enhanced an existing Power Platform tool for a manufacturing client, adding new features and improving user experience to better track and manage lean initiatives.",
+      tags: ["Power Platform", "Dataverse"],
+      year: "2021"
     }
   ];
 
