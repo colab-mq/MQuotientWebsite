@@ -244,6 +244,20 @@ const Careers = () => {
                 </p>
               </div>
             </div>
+            
+            <div className="flex items-start gap-4">
+              <div className="mt-1">
+                <div className="rounded-full bg-primary/10 p-1">
+                  <Check className="h-5 w-5 text-primary" />
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Happiness is Non-Negotiable</h3>
+                <p className="text-muted-foreground">
+                  We believe the best work happens when you're genuinely happy. That's why we're intentional about building a positive, energizing, and fun environment. Our ear is always to the ground — making sure you feel supported, valued, and excited to be part of the journey. Positivity isn't an afterthought here — it's the foundation we build on.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
