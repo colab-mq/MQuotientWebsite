@@ -4,7 +4,7 @@ import { Link } from "wouter";
 // Import partner logos
 import bluePrismLogo from "../assets/partners/Blue_Prism_Logo-700x126.png";
 import glyphXLogo from "../assets/partners/GlyphX.LOGOOne.jpg";
-import powerPlatformLogo from "../assets/partners/Microsoft-Power-Platform.png";
+import microsoftLogo from "../assets/partners/Microsoft_logo.png";
 import uiPathLogo from "../assets/partners/UiPath_2019_Corporate_Logo.png";
 
 const Services = () => {
@@ -18,7 +18,7 @@ const Services = () => {
       { src: bluePrismLogo, alt: "Blue Prism", width: 140 }
     ],
     "power-platform": [
-      { src: powerPlatformLogo, alt: "Microsoft Power Platform", width: 180 }
+      { src: microsoftLogo, alt: "Microsoft", width: 140 }
     ]
   };
   
