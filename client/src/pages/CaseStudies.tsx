@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -46,6 +46,11 @@ interface ServiceData {
 }
 
 const CaseStudies = () => {
+  // Update page title for SEO
+  useEffect(() => {
+    document.title = "mquotient Case Studies | Success Stories in AI and RPA Implementation";
+  }, []);
+
   // State for service tabs
   const [activeServiceTab, setActiveServiceTab] = useState("ai-data-entry");
 
