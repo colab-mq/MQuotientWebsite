@@ -125,7 +125,7 @@ const Footer = () => {
                 <div className="bg-background text-primary h-8 w-8 rounded-full flex items-center justify-center shadow-sm border border-border mr-3 flex-shrink-0 mt-0.5">
                   <FaEnvelope className="h-3 w-3" />
                 </div>
-                <span className="text-foreground/80">contactus@mquotient.net</span>
+                <span className="text-foreground/80">hi@mquotient.net</span>
               </li>
               <li className="flex items-start">
                 <div className="bg-background text-primary h-8 w-8 rounded-full flex items-center justify-center shadow-sm border border-border mr-3 flex-shrink-0 mt-0.5">
