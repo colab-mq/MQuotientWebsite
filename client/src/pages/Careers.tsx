@@ -272,6 +272,20 @@ const Careers = () => {
                 </p>
               </div>
             </div>
+            
+            <div className="flex items-start gap-4">
+              <div className="mt-1">
+                <div className="rounded-full bg-primary/10 p-1">
+                  <Check className="h-5 w-5 text-primary" />
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Partners in Success</h3>
+                <p className="text-muted-foreground">
+                  When the company wins, you win. Through profit-sharing and employee stock ownership plans (ESOPs), you're not just part of the team — you're a true partner in our success story.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
