@@ -18,17 +18,7 @@ const Footer = () => {
             <p className="text-muted-foreground mb-6 leading-relaxed">
               Empowering digital transformation through hyperautomation and innovative technology solutions.
             </p>
-            <div className="flex space-x-4">
-              <a 
-                href="https://www.linkedin.com/company/mquotient/" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="bg-background text-foreground hover:text-primary transition duration-200 h-10 w-10 rounded-full flex items-center justify-center shadow-sm border border-border"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedinIn />
-              </a>
-            </div>
+
           </div>
 
           <div>
