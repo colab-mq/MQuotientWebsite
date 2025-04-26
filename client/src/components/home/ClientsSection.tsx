@@ -8,7 +8,7 @@ const pbPartnersLogo = "/attached_assets/pb_life_1665575605.png";
 const firstsourceLogo = "/attached_assets/Firstsource-Solutions-600px-logo.jpg";
 const infosysLogo = "/attached_assets/Infosys_logo.svg.png";
 const mquotientLogo = "/attached_assets/mquotient LOGO.png";
-const turtlemintLogo = "/attached_assets/turtlemintlogo.jpeg";
+const turtlemintLogo = "/attached_assets/turtlemint-logo.webp";
 
 const ClientsSection = () => {
   const clients = [
