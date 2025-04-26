@@ -2,6 +2,12 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
+// Import partner icons
+import microsoftIcon from "/attached_assets/microsoft-icon-2048x2048-xtoxrveo.png";
+import uipathIcon from "/attached_assets/uipathICON.png";
+import blueprismIcon from "/attached_assets/BluePrism.png";
+import glyphxIcon from "/attached_assets/GlyphxIcon.jpg";
+
 const HeroSection = () => {
   // Animation variants
   const containerVariants = {
@@ -85,14 +91,17 @@ const HeroSection = () => {
               variants={itemVariants}
             >
               <div className="flex -space-x-3">
-                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center border-2 border-background">
-                  <span className="text-primary text-xs font-bold">UiP</span>
+                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center border-2 border-background overflow-hidden">
+                  <img src={microsoftIcon} alt="Microsoft" className="w-8 h-8 object-contain" />
                 </div>
-                <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center border-2 border-background">
-                  <span className="text-secondary text-xs font-bold">BP</span>
+                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center border-2 border-background overflow-hidden">
+                  <img src={uipathIcon} alt="UiPath" className="w-8 h-8 object-contain" />
                 </div>
-                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center border-2 border-background">
-                  <span className="text-primary text-xs font-bold">MS</span>
+                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center border-2 border-background overflow-hidden">
+                  <img src={blueprismIcon} alt="Blue Prism" className="w-8 h-8 object-contain" />
+                </div>
+                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center border-2 border-background overflow-hidden">
+                  <img src={glyphxIcon} alt="GlyphX" className="w-8 h-8 object-contain" />
                 </div>
               </div>
               <span className="text-sm text-muted-foreground">
