@@ -5,12 +5,51 @@ import { Badge } from "@/components/ui/badge";
 import { FaArrowRight, FaCheck, FaChartLine, FaClipboardCheck, FaFileAlt, FaRocket, FaUserClock, FaBrain, FaRobot, FaBolt } from "react-icons/fa";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
+// Import partner logos
+import bluePrismLogo from "../assets/partners/BluePrism.png";
+import glyphXLogo from "../assets/partners/GlyphX.LOGOOne.jpg";
+import powerPlatformLogo from "../assets/partners/Microsoft-Power-Platform.png";
+import uiPathLogo from "../assets/partners/UiPath_2019_Corporate_Logo.png";
+
+// Define types
+interface CaseStudyResult {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+}
+
+interface CaseStudy {
+  id: string;
+  title: string;
+  subtitle: string;
+  challenge: string;
+  solution: string;
+  process: string[];
+  results: CaseStudyResult[];
+  tags: string[];
+}
+
+interface PartnerLogo {
+  name: string;
+  logo: string;
+  width: number;
+}
+
+interface ServiceData {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  color: string;
+  studies: CaseStudy[];
+  partners: PartnerLogo[];
+}
+
 const CaseStudies = () => {
   // State for service tabs
   const [activeServiceTab, setActiveServiceTab] = useState("ai-data-entry");
 
   // AI-Powered Data Entry Workforce case studies
-  const aiDataEntryCaseStudies = [
+  const aiDataEntryCaseStudies: CaseStudy[] = [
     {
       id: "insurance",
       title: "Streamlining Vehicle Insurance Data Extraction for Direct Marketing",
@@ -103,7 +142,7 @@ const CaseStudies = () => {
   ];
 
   // RPA case studies
-  const rpaCaseStudies = [
+  const rpaCaseStudies: CaseStudy[] = [
     {
       id: "rpa-case-1",
       title: "Automating Finance Operations for Retail Giant",
@@ -195,85 +234,85 @@ const CaseStudies = () => {
   ];
 
   // Power Platform case studies
-  const powerPlatformCaseStudies = [
+  const powerPlatformCaseStudies: CaseStudy[] = [
     {
       id: "power-case-1",
       title: "Field Service Management Transformation",
       subtitle: "A utilities service provider",
       challenge: "A utilities service provider with hundreds of field technicians struggled with inefficient job dispatching, paper-based work orders, and delayed reporting. This resulted in longer response times, customer dissatisfaction, and challenges in tracking field operations performance.",
-      solution: "We created a comprehensive Microsoft Power Platform solution that digitized and streamlined their field service operations. The solution included custom Power Apps for technicians, automated workflows with Power Automate, and real-time analytics with Power BI, all working together to transform their field service capabilities.",
+      solution: "We developed a comprehensive Microsoft Power Platform solution combining Power Apps for mobile field service, Power Automate for workflow automation, and Power BI for analytics. This provided a unified platform for scheduling, dispatching, job management, and performance tracking that transformed their field service operations.",
       process: [
-        "Custom Power App for field technicians to receive, manage, and report on work orders",
-        "Power Automate flows for automated job assignment based on location, skills, and priority",
-        "Real-time service tracking with GPS integration",
-        "Digital forms with photo capture capability for documentation",
-        "Automated customer notifications and feedback collection",
-        "Power BI dashboards for management to track KPIs and service performance",
-        "Integration with existing CRM and ERP systems"
+        "Created a custom mobile app for field technicians using Power Apps",
+        "Implemented automated job assignment and scheduling using Power Automate",
+        "Developed digital forms for work orders, inspections, and customer sign-offs",
+        "Built real-time dashboards for managers to monitor field operations",
+        "Integrated with existing CRM and ERP systems",
+        "Implemented offline capabilities for areas with poor connectivity",
+        "Provided real-time job status updates to customers"
       ],
       results: [
         {
-          title: "35% increase in jobs completed",
-          description: "More efficient routing and job management increased productivity.",
+          title: "35% increase in jobs completed per day",
+          description: "More efficient routing and reduced administrative time.",
           icon: <FaChartLine />
         },
         {
-          title: "2-hour reduction in response time",
-          description: "Customers received faster service and real-time updates.",
+          title: "Digital transformation of field operations",
+          description: "Elimination of paper-based processes and manual data entry.",
           icon: <FaRocket />
         },
         {
-          title: "Complete elimination of paper forms",
-          description: "Digital transformation of all field documentation.",
+          title: "Real-time visibility",
+          description: "Management had immediate access to field operation status.",
           icon: <FaClipboardCheck />
         },
         {
-          title: "23% reduction in operational costs",
-          description: "Lower costs due to optimized routing and resource allocation.",
+          title: "Improved customer satisfaction",
+          description: "Customer satisfaction scores increased by 28%.",
           icon: <FaUserClock />
         },
         {
-          title: "20% improvement in customer satisfaction",
-          description: "Better communication and faster service resolution.",
+          title: "Enhanced compliance",
+          description: "Automated documentation ensured regulatory requirements were met.",
           icon: <FaCheck />
         }
       ],
-      tags: ["Utilities", "Field Service", "Power Apps", "Power BI"]
+      tags: ["Utilities", "Field Service", "Power Apps", "Power Automate", "Power BI"]
     },
     {
       id: "power-case-2",
       title: "Supply Chain Visibility Solution",
       subtitle: "A global manufacturing company",
-      challenge: "A global manufacturing company lacked real-time visibility into their supply chain, resulting in inventory discrepancies, production delays, and difficulty responding to disruptions. Data existed in silos across multiple systems, making consolidated reporting nearly impossible.",
-      solution: "We developed an integrated Microsoft Power Platform solution that connected disparate systems and provided end-to-end supply chain visibility. The solution included Power BI dashboards, custom Power Apps for inventory management, and automated alerts through Power Automate to enable proactive management of the supply chain.",
+      challenge: "A global manufacturing company with operations in 15 countries struggled with supply chain visibility. They had data silos across different systems, manual reporting processes, and couldn't get a unified view of their supply chain performance, leading to inefficiencies and increased costs.",
+      solution: "We implemented a Microsoft Power Platform solution centered around Power BI with data integration from multiple sources. This provided real-time visibility into their entire supply chain with automated alerts and recommendations using AI capabilities built into Power Platform.",
       process: [
-        "Power BI dashboards providing end-to-end supply chain visibility",
-        "Power Apps for inventory management and exception reporting",
-        "Power Automate workflows for alerts and notifications on critical events",
-        "Integration with existing ERP, warehouse management, and logistics systems",
-        "AI-powered demand forecasting and inventory optimization",
-        "Automated supplier performance tracking and evaluation",
-        "Mobile access to key supply chain metrics and alerts"
+        "Consolidated data from multiple ERP systems, warehouse management systems, and IoT sensors",
+        "Built interactive Power BI dashboards for different roles and levels",
+        "Implemented Power Automate flows for alerts and notifications",
+        "Created AI models to predict potential supply chain disruptions",
+        "Implemented automated reporting to replace manual processes",
+        "Developed a Power App for mobile access to key metrics",
+        "Provided training and change management support"
       ],
       results: [
         {
-          title: "28% reduction in inventory costs",
-          description: "Optimized inventory levels across the supply chain.",
+          title: "Comprehensive supply chain visibility",
+          description: "End-to-end visibility across all operations for the first time.",
           icon: <FaChartLine />
         },
         {
-          title: "62% improvement in forecast accuracy",
-          description: "AI-powered predictions enhanced planning capabilities.",
-          icon: <FaCheck />
-        },
-        {
-          title: "90% faster response to disruptions",
-          description: "Real-time alerts enabled rapid problem resolution.",
+          title: "12% reduction in inventory",
+          description: "Better forecasting and visibility led to optimized inventory levels.",
           icon: <FaRocket />
         },
         {
-          title: "15% improvement in on-time delivery",
-          description: "Better visibility led to improved logistics performance.",
+          title: "Proactive risk management",
+          description: "Early detection of potential disruptions through AI predictions.",
+          icon: <FaCheck />
+        },
+        {
+          title: "Faster decision making",
+          description: "Reduced time to make data-driven decisions by 65%.",
           icon: <FaUserClock />
         },
         {
@@ -287,32 +326,42 @@ const CaseStudies = () => {
   ];
 
   // Service meta data
-  const serviceData = {
+  const serviceData: Record<string, ServiceData> = {
     "ai-data-entry": {
       title: "AI-Powered Data Entry Workforce",
       description: "Our intelligent document processing solutions that automatically extract and validate data from both structured and unstructured documents.",
       icon: <FaBrain />,
       color: "from-purple-500 to-pink-500",
-      studies: aiDataEntryCaseStudies
+      studies: aiDataEntryCaseStudies,
+      partners: [
+        { name: "GlyphX", logo: glyphXLogo, width: 120 }
+      ]
     },
     "rpa": {
       title: "Robotic Process Automation",
       description: "UiPath and Blue Prism RPA solutions to automate repetitive tasks, reduce errors, and free your team to focus on high-value activities.",
       icon: <FaRobot />,
       color: "from-blue-500 to-cyan-500",
-      studies: rpaCaseStudies
+      studies: rpaCaseStudies,
+      partners: [
+        { name: "UiPath", logo: uiPathLogo, width: 120 },
+        { name: "Blue Prism", logo: bluePrismLogo, width: 120 }
+      ]
     },
     "power-platform": {
       title: "Microsoft Power Platform",
       description: "Custom solutions using Power Apps, Power Automate, and Power BI to streamline processes and provide valuable business insights.",
       icon: <FaBolt />,
       color: "from-teal-500 to-emerald-500",
-      studies: powerPlatformCaseStudies
+      studies: powerPlatformCaseStudies,
+      partners: [
+        { name: "Microsoft Power Platform", logo: powerPlatformLogo, width: 180 }
+      ]
     }
   };
 
   // Function to render a case study
-  const renderCaseStudy = (study) => (
+  const renderCaseStudy = (study: CaseStudy) => (
     <div key={study.id} className="border-b border-border pb-16 last:border-b-0 last:pb-0 mb-16">
       <div className="mb-8">
         <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
@@ -320,7 +369,7 @@ const CaseStudies = () => {
         </h2>
         <div className="text-lg font-medium text-foreground/70 mb-4">{study.subtitle}</div>
         <div className="flex flex-wrap gap-2 mt-3">
-          {study.tags.map((tag, idx) => (
+          {study.tags.map((tag: string, idx: number) => (
             <Badge key={idx} variant="outline" className="bg-primary/5 text-primary border-primary/20">
               {tag}
             </Badge>
@@ -348,7 +397,7 @@ const CaseStudies = () => {
               <span className="absolute bottom-0 left-0 w-full h-1 bg-primary/20 rounded-full"></span>
             </h3>
             <ul className="space-y-3">
-              {study.process.map((step, idx) => (
+              {study.process.map((step: string, idx: number) => (
                 <li key={idx} className="flex items-start">
                   <div className="flex-shrink-0 h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center mr-3 mt-1">
                     <FaCheck className="text-primary h-3 w-3" />
@@ -363,7 +412,7 @@ const CaseStudies = () => {
           <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl border border-border p-8 h-full">
             <h3 className="text-xl font-semibold mb-6 text-center">Results & Impact</h3>
             <div className="space-y-4">
-              {study.results.map((result, idx) => (
+              {study.results.map((result: CaseStudyResult, idx: number) => (
                 <Card key={idx} className="bg-background border-border hover:shadow-md transition-shadow">
                   <CardHeader className="py-4 px-5">
                     <div className="flex items-center gap-3">
@@ -429,17 +478,35 @@ const CaseStudies = () => {
           {Object.keys(serviceData).map((serviceKey) => (
             <TabsContent key={serviceKey} value={serviceKey} className="focus-visible:outline-none focus-visible:ring-0">
               <div className={`bg-gradient-to-r ${serviceData[serviceKey].color} text-white p-8 rounded-lg mb-10`}>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="bg-white/20 p-3 rounded-full">
-                    {serviceData[serviceKey].icon}
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                  <div>
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="bg-white/20 p-3 rounded-full">
+                        {serviceData[serviceKey].icon}
+                      </div>
+                      <h2 className="text-2xl font-bold">{serviceData[serviceKey].title}</h2>
+                    </div>
+                    <p className="text-lg">{serviceData[serviceKey].description}</p>
                   </div>
-                  <h2 className="text-2xl font-bold">{serviceData[serviceKey].title}</h2>
+                  
+                  {/* Partner logos */}
+                  <div className="flex flex-wrap gap-4">
+                    {serviceData[serviceKey].partners.map((partner: PartnerLogo, idx: number) => (
+                      <div key={idx} className="bg-white rounded-md p-2 shadow-sm">
+                        <img 
+                          src={partner.logo} 
+                          alt={partner.name} 
+                          className="object-contain h-8" 
+                          style={{ width: `${partner.width}px`, maxHeight: '40px' }}
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <p className="text-lg">{serviceData[serviceKey].description}</p>
               </div>
               
               <div className="space-y-6">
-                {serviceData[serviceKey].studies.map((study) => renderCaseStudy(study))}
+                {serviceData[serviceKey].studies.map((study: CaseStudy) => renderCaseStudy(study))}
               </div>
             </TabsContent>
           ))}

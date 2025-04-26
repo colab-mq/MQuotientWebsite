@@ -1,7 +1,27 @@
 import { FaRobot, FaBolt, FaChartLine, FaCode, FaVial, FaHeadset, FaCheckCircle, FaArrowRight, FaBrain } from "react-icons/fa";
 import { Link } from "wouter";
 
+// Import partner logos
+import bluePrismLogo from "../assets/partners/BluePrism.png";
+import glyphXLogo from "../assets/partners/GlyphX.LOGOOne.jpg";
+import powerPlatformLogo from "../assets/partners/Microsoft-Power-Platform.png";
+import uiPathLogo from "../assets/partners/UiPath_2019_Corporate_Logo.png";
+
 const Services = () => {
+  // Partner logos for each service
+  const partnerLogos = {
+    "ai-data-entry": [
+      { src: glyphXLogo, alt: "GlyphX", width: 140 }
+    ],
+    "rpa": [
+      { src: uiPathLogo, alt: "UiPath", width: 140 },
+      { src: bluePrismLogo, alt: "Blue Prism", width: 140 }
+    ],
+    "power-platform": [
+      { src: powerPlatformLogo, alt: "Microsoft Power Platform", width: 180 }
+    ]
+  };
+  
   const services = [
     {
       title: "AI-Powered Data Entry Workforce",
@@ -178,6 +198,32 @@ const Services = () => {
                   {service.title}
                 </h2>
                 <p className="mb-6 text-muted-foreground">{service.description}</p>
+                
+                {/* Partner logos */}
+                {(service.title === "AI-Powered Data Entry Workforce" || 
+                  service.title === "Robotic Process Automation (RPA)" || 
+                  service.title === "Microsoft Power Platform") && (
+                  <div className="mb-6">
+                    <h3 className="text-sm font-medium text-muted-foreground mb-3">Technology Partner{partnerLogos[service.title === "AI-Powered Data Entry Workforce" ? "ai-data-entry" : 
+                                                 service.title === "Robotic Process Automation (RPA)" ? "rpa" : 
+                                                 "power-platform"].length > 1 ? 's' : ''}</h3>
+                    <div className="flex flex-wrap items-center gap-6">
+                      {partnerLogos[service.title === "AI-Powered Data Entry Workforce" ? "ai-data-entry" : 
+                                    service.title === "Robotic Process Automation (RPA)" ? "rpa" : 
+                                    "power-platform"].map((logo, i) => (
+                        <div key={i} className="bg-white p-2 rounded-md shadow-sm border border-gray-100">
+                          <img 
+                            src={logo.src} 
+                            alt={logo.alt} 
+                            className="object-contain h-8" 
+                            style={{ width: `${logo.width}px`, maxHeight: '40px' }} 
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
                 <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
                   Get Started <FaArrowRight className="h-4 w-4" />
                 </Link>
