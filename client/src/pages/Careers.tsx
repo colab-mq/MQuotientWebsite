@@ -226,7 +226,7 @@ const Careers = () => {
               <div>
                 <h3 className="text-xl font-semibold mb-2">Performance Over Punching the Clock</h3>
                 <p className="text-muted-foreground">
-                  We focus on outcomes, not hours. Whether you prefer early mornings or late nights, our flexible hours and remote work options empower you to deliver your best. Work smart, recharge fully, and make time for what matters most — your family, your passions, your life.
+                  We focus on outcomes, not hours. Our flexible hours and remote work options empower you to deliver your best. Work smart, recharge fully, and make time for what matters most — your family, your passions, your life.
                 </p>
               </div>
             </div>
