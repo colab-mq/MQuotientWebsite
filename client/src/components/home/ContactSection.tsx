@@ -17,6 +17,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { 
+  Select, 
+  SelectContent, 
+  SelectItem, 
+  SelectTrigger, 
+  SelectValue 
+} from "@/components/ui/select";
 import { FaMapMarkerAlt, FaEnvelope, FaLinkedinIn, FaCheck } from "react-icons/fa";
 import { Send, ArrowRight } from "lucide-react";
 
@@ -30,8 +37,8 @@ const contactFormSchema = z.object({
   company: z.string().optional(),
   countryCode: z.string().optional(),
   phone: z.string().optional(),
-  subject: z.string().min(5, {
-    message: "Subject must be at least 5 characters.",
+  serviceArea: z.string({
+    required_error: "Please select a service area.",
   }),
   message: z.string().min(10, {
     message: "Message must be at least 10 characters.",
@@ -52,7 +59,7 @@ const ContactSection = () => {
       company: "",
       countryCode: "",
       phone: "",
-      subject: "",
+      serviceArea: "",
       message: "",
     },
   });
@@ -92,6 +99,30 @@ const ContactSection = () => {
     "Process Optimization",
     "Custom Development",
     "Test Automation"
+  ];
+  
+  const serviceAreas = [
+    ...services,
+    "Something Else"
+  ];
+  
+  const countryCodes = [
+    { value: "+1", label: "United States (+1)" },
+    { value: "+44", label: "United Kingdom (+44)" },
+    { value: "+91", label: "India (+91)" },
+    { value: "+61", label: "Australia (+61)" },
+    { value: "+49", label: "Germany (+49)" },
+    { value: "+33", label: "France (+33)" },
+    { value: "+81", label: "Japan (+81)" },
+    { value: "+86", label: "China (+86)" },
+    { value: "+65", label: "Singapore (+65)" },
+    { value: "+971", label: "UAE (+971)" },
+    { value: "+974", label: "Qatar (+974)" },
+    { value: "+966", label: "Saudi Arabia (+966)" },
+    { value: "+55", label: "Brazil (+55)" },
+    { value: "+52", label: "Mexico (+52)" },
+    { value: "+27", label: "South Africa (+27)" },
+    { value: "+31", label: "Netherlands (+31)" },
   ];
 
   // Animation variants
@@ -274,13 +305,23 @@ const ContactSection = () => {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>Country Code</FormLabel>
-                          <FormControl>
-                            <Input 
-                              placeholder="+1, +44, +91, etc. (optional)" 
-                              className="rounded-lg border-border focus:border-primary/50" 
-                              {...field} 
-                            />
-                          </FormControl>
+                          <Select 
+                            onValueChange={field.onChange}
+                            value={field.value}
+                          >
+                            <FormControl>
+                              <SelectTrigger className="rounded-lg border-border focus:border-primary/50">
+                                <SelectValue placeholder="Select a country code" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {countryCodes.map((country) => (
+                                <SelectItem key={country.value} value={country.value}>
+                                  {country.label}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -293,7 +334,7 @@ const ContactSection = () => {
                           <FormLabel>Phone Number</FormLabel>
                           <FormControl>
                             <Input 
-                              placeholder="Phone number (optional)" 
+                              placeholder="Phone number" 
                               className="rounded-lg border-border focus:border-primary/50" 
                               {...field} 
                             />
@@ -306,17 +347,27 @@ const ContactSection = () => {
                   
                   <FormField
                     control={form.control}
-                    name="subject"
+                    name="serviceArea"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Subject</FormLabel>
-                        <FormControl>
-                          <Input 
-                            placeholder="Subject of your message" 
-                            className="rounded-lg border-border focus:border-primary/50" 
-                            {...field} 
-                          />
-                        </FormControl>
+                        <FormLabel>Service Area</FormLabel>
+                        <Select 
+                          onValueChange={field.onChange}
+                          value={field.value}
+                        >
+                          <FormControl>
+                            <SelectTrigger className="rounded-lg border-border focus:border-primary/50">
+                              <SelectValue placeholder="Select a service area" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {serviceAreas.map((service) => (
+                              <SelectItem key={service} value={service}>
+                                {service}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                         <FormMessage />
                       </FormItem>
                     )}
