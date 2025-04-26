@@ -115,7 +115,7 @@ const AboutSection = () => {
             <div className="relative mx-auto max-w-md">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-xl blur-sm opacity-20"></div>
               <img 
-                src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                src="https://images.pexels.com/photos/7988079/pexels-photo-7988079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
                 alt="Business team collaborating at mquotient" 
                 className="relative rounded-xl shadow-lg w-full h-auto object-cover z-10" 
                 style={{ maxHeight: "400px" }}

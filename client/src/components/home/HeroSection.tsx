@@ -114,7 +114,7 @@ const HeroSection = () => {
               <div className="absolute -left-8 -top-8 w-40 h-40 bg-secondary/5 rounded-full z-0"></div>
               
               <img 
-                src="https://images.pexels.com/photos/5453818/pexels-photo-5453818.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                src="https://images.pexels.com/photos/3059745/pexels-photo-3059745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
                 alt="Business professional working on digital transformation solutions" 
                 className="relative rounded-xl shadow-xl w-full h-auto z-10 object-cover border border-border/40" 
                 style={{ maxHeight: "450px" }}
