@@ -1,5 +1,6 @@
 import { FaRobot, FaBolt, FaChartLine, FaCode, FaVial, FaHeadset, FaCheckCircle, FaArrowRight, FaBrain } from "react-icons/fa";
 import { Link } from "wouter";
+import { useEffect } from "react";
 
 // Import partner logos
 import bluePrismLogo from "../assets/partners/Blue_Prism_Logo-700x126.png";
@@ -9,6 +10,10 @@ import powerPlatformLogo from "../assets/partners/Microsoft_Power_Platform_logo.
 import uiPathLogo from "../assets/partners/UiPath_2019_Corporate_Logo.png";
 
 const Services = () => {
+  // Update page title for SEO
+  useEffect(() => {
+    document.title = "mquotient Services | AI Document Processing, RPA & Power Platform Solutions";
+  }, []);
   // Partner logos for each service
   const partnerLogos = {
     "ai-data-entry": [

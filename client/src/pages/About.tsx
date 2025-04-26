@@ -1,7 +1,12 @@
 import { FaCheck, FaAward, FaUsers, FaLightbulb, FaHandshake } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 const About = () => {
+  // Update page title for SEO
+  useEffect(() => {
+    document.title = "About mquotient | Our Story, Values & Approach";
+  }, []);
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
