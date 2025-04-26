@@ -150,7 +150,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg">Address</h4>
-                    <p className="text-foreground/80">53/16, Richmond Road, Bangalore - 560025, India</p>
+                    <p className="text-foreground/80">C-61/3, Okhla Industrial Area, Phase II, New Delhi 110020, India</p>
                   </div>
                 </div>
                 <div className="flex items-start">
