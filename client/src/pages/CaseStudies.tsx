@@ -9,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import bluePrismLogo from "../assets/partners/Blue_Prism_Logo-700x126.png";
 import glyphXLogo from "../assets/partners/GLYPHX.png";
 import microsoftLogo from "../assets/partners/Microsoft_logo.png";
+import powerPlatformLogo from "../assets/partners/Microsoft_Power_Platform_logo.svg.png";
 import uiPathLogo from "../assets/partners/UiPath_2019_Corporate_Logo.png";
 
 // Define types
@@ -355,7 +356,8 @@ const CaseStudies = () => {
       color: "from-teal-500 to-emerald-500",
       studies: powerPlatformCaseStudies,
       partners: [
-        { name: "Microsoft", logo: microsoftLogo, width: 140 }
+        { name: "Microsoft", logo: microsoftLogo, width: 140 },
+        { name: "Microsoft Power Platform", logo: powerPlatformLogo, width: 120 }
       ]
     }
   };
