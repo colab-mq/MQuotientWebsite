@@ -182,38 +182,44 @@ const About = () => {
                 <span className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
                   <FaCheck className="text-primary h-4 w-4" />
                 </span>
-                Technology Expertise
+                Document Processing Capabilities
               </h3>
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <div className="bg-primary/10 p-1 rounded-full mr-3 text-primary">
                     <FaCheck className="h-3 w-3" />
                   </div>
-                  <span className="text-muted-foreground">UiPath and Blue Prism RPA platforms</span>
+                  <span className="text-muted-foreground">AI-powered intelligent document processing (IDP)</span>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-primary/10 p-1 rounded-full mr-3 text-primary">
                     <FaCheck className="h-3 w-3" />
                   </div>
-                  <span className="text-muted-foreground">Microsoft Power Platform (Power Apps, Power Automate, Power BI)</span>
+                  <span className="text-muted-foreground">Automated data extraction from structured and unstructured documents</span>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-primary/10 p-1 rounded-full mr-3 text-primary">
                     <FaCheck className="h-3 w-3" />
                   </div>
-                  <span className="text-muted-foreground">Custom application development</span>
+                  <span className="text-muted-foreground">Document classification and routing</span>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-primary/10 p-1 rounded-full mr-3 text-primary">
                     <FaCheck className="h-3 w-3" />
                   </div>
-                  <span className="text-muted-foreground">System integration</span>
+                  <span className="text-muted-foreground">OCR with advanced validation and business rules implementation</span>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-primary/10 p-1 rounded-full mr-3 text-primary">
                     <FaCheck className="h-3 w-3" />
                   </div>
-                  <span className="text-muted-foreground">Test automation</span>
+                  <span className="text-muted-foreground">Sample-based learning for document processing without templates</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="bg-primary/10 p-1 rounded-full mr-3 text-primary">
+                    <FaCheck className="h-3 w-3" />
+                  </div>
+                  <span className="text-muted-foreground">UiPath and Blue Prism integration for end-to-end automation</span>
                 </li>
               </ul>
             </motion.div>
@@ -230,31 +236,31 @@ const About = () => {
                   <div className="bg-primary/10 p-1 rounded-full mr-3 text-primary">
                     <FaCheck className="h-3 w-3" />
                   </div>
-                  <span className="text-muted-foreground">Technology and IT Services</span>
+                  <span className="text-muted-foreground">Insurance (policy processing, claims automation)</span>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-primary/10 p-1 rounded-full mr-3 text-primary">
                     <FaCheck className="h-3 w-3" />
                   </div>
-                  <span className="text-muted-foreground">Healthcare and Life Sciences</span>
+                  <span className="text-muted-foreground">Banking & Finance (mortgage loan processing, accounts payable)</span>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-primary/10 p-1 rounded-full mr-3 text-primary">
                     <FaCheck className="h-3 w-3" />
                   </div>
-                  <span className="text-muted-foreground">Financial Services</span>
+                  <span className="text-muted-foreground">Healthcare (patient documentation, medical records management)</span>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-primary/10 p-1 rounded-full mr-3 text-primary">
                     <FaCheck className="h-3 w-3" />
                   </div>
-                  <span className="text-muted-foreground">Retail and Distribution</span>
+                  <span className="text-muted-foreground">Retail & Manufacturing (supply chain documentation, inventory)</span>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-primary/10 p-1 rounded-full mr-3 text-primary">
                     <FaCheck className="h-3 w-3" />
                   </div>
-                  <span className="text-muted-foreground">Manufacturing</span>
+                  <span className="text-muted-foreground">Utilities (field service documentation, meter reading automation)</span>
                 </li>
               </ul>
             </motion.div>
