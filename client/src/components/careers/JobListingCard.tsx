@@ -3,6 +3,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, ArrowRight } from "lucide-react";
+import { FiFlag } from "react-icons/fi";
 
 interface JobListingCardProps {
   job: JobListing;
@@ -10,6 +11,24 @@ interface JobListingCardProps {
 }
 
 const JobListingCard = ({ job, onClick }: JobListingCardProps) => {
+  // Function to get the appropriate flag for location
+  const getLocationFlag = (location: string) => {
+    if (location.includes("India")) {
+      return "🇮🇳"; // Indian flag
+    } else if (location.includes("Philippines")) {
+      return "🇵🇭"; // Philippines flag
+    } else if (location.includes("UK")) {
+      return "🇬🇧"; // UK flag
+    } else {
+      return "🌎"; // Global/default
+    }
+  };
+
+  // Check if location contains both India and Philippines
+  const displayFlag = job.location.includes("India or Philippines") 
+    ? "🇮🇳 🇵🇭" 
+    : getLocationFlag(job.location);
+
   return (
     <Card className="h-full flex flex-col border border-border hover:shadow-md transition-shadow overflow-hidden">
       <CardHeader className="pb-2">
@@ -18,7 +37,10 @@ const JobListingCard = ({ job, onClick }: JobListingCardProps) => {
         </div>
         <div className="flex flex-wrap gap-2 mt-2">
           <Badge variant="outline" className="flex items-center gap-1 px-2 py-1">
-            <MapPin className="h-3 w-3" /> {job.location}
+            <MapPin className="h-3 w-3" /> 
+            <span className="flex items-center gap-1">
+              {displayFlag} {job.location}
+            </span>
           </Badge>
           <Badge variant="outline" className="flex items-center gap-1 px-2 py-1">
             <Clock className="h-3 w-3" /> {job.type}

@@ -136,6 +136,37 @@ export const jobListings: JobListing[] = [
       "Understanding of IT governance and compliance requirements"
     ],
     active: true
+  },
+  {
+    id: "data-analyst-001",
+    title: "Data Analyst",
+    location: "Remote (India or Philippines)",
+    type: "Full-time",
+    description: "We are looking for a Data Analyst to join our team and help transform raw data into insights that drive business solutions. The successful candidate will assess business needs and create reports and visualizations to help organizations make better decisions.",
+    responsibilities: [
+      "Interpret data, analyze results using statistical techniques",
+      "Develop and implement databases, data collection systems, and other strategies for data acquisition",
+      "Identify, analyze, and interpret trends or patterns in complex data sets",
+      "Filter and clean data by reviewing reports and performance indicators",
+      "Work with management to prioritize business and information needs",
+      "Locate and define new process improvement opportunities"
+    ],
+    requirements: [
+      "Proven experience as a Data Analyst or similar role",
+      "Technical expertise regarding data models, database design, and data mining",
+      "Strong knowledge of and experience with reporting packages (Power BI, Tableau)",
+      "Knowledge of SQL and experience working with relational databases",
+      "Experience with statistical analysis tools (R, Python, SPSS)",
+      "Strong analytical skills with the ability to collect, organize, and disseminate data"
+    ],
+    desirable: [
+      "Knowledge of big data technologies (Hadoop, Spark)",
+      "Experience with data visualization tools",
+      "Understanding of machine learning and AI concepts",
+      "Experience in data cleaning and data warehousing",
+      "Knowledge of business intelligence methodologies"
+    ],
+    active: true
   }
 ];
 

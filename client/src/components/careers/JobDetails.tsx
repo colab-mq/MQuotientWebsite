@@ -10,6 +10,24 @@ interface JobDetailsProps {
 }
 
 const JobDetails = ({ job, onApplyClick }: JobDetailsProps) => {
+  // Function to get the appropriate flag for location
+  const getLocationFlag = (location: string) => {
+    if (location.includes("India")) {
+      return "🇮🇳"; // Indian flag
+    } else if (location.includes("Philippines")) {
+      return "🇵🇭"; // Philippines flag
+    } else if (location.includes("UK")) {
+      return "🇬🇧"; // UK flag
+    } else {
+      return "🌎"; // Global/default
+    }
+  };
+
+  // Check if location contains both India and Philippines
+  const displayFlag = job.location.includes("India or Philippines") 
+    ? "🇮🇳 🇵🇭" 
+    : getLocationFlag(job.location);
+
   return (
     <div className="space-y-8">
       <Card className="border border-border overflow-hidden">
@@ -19,7 +37,10 @@ const JobDetails = ({ job, onApplyClick }: JobDetailsProps) => {
               <CardTitle className="text-2xl text-primary mb-2">{job.title}</CardTitle>
               <div className="flex flex-wrap gap-2">
                 <Badge variant="outline" className="flex items-center gap-1 px-3 py-1">
-                  <MapPin className="h-3 w-3" /> {job.location}
+                  <MapPin className="h-3 w-3" /> 
+                  <span className="flex items-center gap-1">
+                    {displayFlag} {job.location}
+                  </span>
                 </Badge>
                 <Badge variant="outline" className="flex items-center gap-1 px-3 py-1">
                   <Clock className="h-3 w-3" /> {job.type}
