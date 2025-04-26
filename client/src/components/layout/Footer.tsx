@@ -2,7 +2,8 @@ import { Link } from "wouter";
 import { 
   FaLinkedinIn,
   FaMapMarkerAlt, 
-  FaEnvelope
+  FaEnvelope,
+  FaWhatsapp
 } from "react-icons/fa";
 import logoPath from "../../assets/mquotient-logo.png";
 
@@ -119,16 +120,33 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <div className="bg-background text-primary h-8 w-8 rounded-full flex items-center justify-center shadow-sm border border-border mr-3 flex-shrink-0 mt-0.5">
-                  <FaLinkedinIn className="h-3 w-3" />
+                  <span className="flex items-center">
+                    <FaLinkedinIn className="h-3 w-3" />
+                  </span>
                 </div>
-                <a 
-                  href="https://www.linkedin.com/company/mquotient/" 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="text-foreground/80 hover:text-primary transition-colors duration-200"
-                >
-                  LinkedIn
-                </a>
+                <div className="flex flex-col">
+                  <span className="text-foreground/80 mb-2">Connect</span>
+                  <div className="flex space-x-3">
+                    <a 
+                      href="https://www.linkedin.com/company/mquotient/" 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="bg-background text-foreground hover:text-primary transition duration-200 h-8 w-8 rounded-full flex items-center justify-center shadow-sm border border-border"
+                      aria-label="LinkedIn"
+                    >
+                      <FaLinkedinIn className="h-3 w-3" />
+                    </a>
+                    <a 
+                      href="https://wa.me/919987192566" 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="bg-background text-foreground hover:text-primary transition duration-200 h-8 w-8 rounded-full flex items-center justify-center shadow-sm border border-border"
+                      aria-label="WhatsApp"
+                    >
+                      <FaWhatsapp className="h-3 w-3" />
+                    </a>
+                  </div>
+                </div>
               </li>
             </ul>
           </div>
