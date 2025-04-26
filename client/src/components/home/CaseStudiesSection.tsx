@@ -11,53 +11,53 @@ const CaseStudiesSection = () => {
   const [activeServiceTab, setActiveServiceTab] = useState("ai-data-entry");
   
   // Second level tabs for case studies within each service
-  const [activeAIDataEntryTab, setActiveAIDataEntryTab] = useState("insurance");
+  const [activeAIDataEntryTab, setActiveAIDataEntryTab] = useState("invoice");
   const [activeRPATab, setActiveRPATab] = useState("rpa-case-1");
   const [activePowerPlatformTab, setActivePowerPlatformTab] = useState("power-case-1");
 
   // AI-Powered Data Entry Workforce case studies
   const aiDataEntryCaseStudies = [
     {
-      id: "insurance",
-      title: "Streamlining Vehicle Insurance Data Extraction",
-      subtitle: "A leading internet portal for insurance products in India",
-      challenge: "A leading internet portal for insurance products in India had a vast archive of auto insurance policies from various providers, each with multiple versions and layouts. They aimed to reach out to past customers for direct marketing close to their policy expiry dates. However, their fully manual back-office operations struggled to efficiently handle the cyclical peaks and troughs in demand, and traditional template-based data extraction solutions failed due to the high variability in document formats.",
+      id: "invoice",
+      title: "Transforming Invoice Processing Through Automation",
+      subtitle: "A leading global consulting firm managing operations for a major telecom provider",
+      challenge: "A leading global consulting firm managed invoice processing operations for one of the world's largest telecom providers. The client generated hundreds of thousands of invoices annually, with each invoice often spanning 20–50 pages, packed with detailed service descriptions, usage data, taxes, and regional compliance information. Their manual process was slow, error-prone, and costly, with dozens of full-time employees needed to handle the load, resulting in average invoice turnaround times exceeding 5 days and increased compliance risks.",
       solution: [
-        "The client implemented our AI-Powered Data Entry Workforce solution, which uses a sample-based learning approach to identify and extract data from any location within documents.",
-        "The client uploaded policy documents in batches via FTP.",
-        "Our system automatically picked up the files for processing.",
-        "Raw OCR extraction followed by smart algorithms improved accuracy from around 90% to the required SLA.",
-        "Processed results were exported into Excel files for the client to download.",
-        "The process was repeated quarterly, processing around 30,000 documents per run with unlimited horizontal scaling."
+        "We deployed an AI-driven document extraction and classification solution with cutting-edge technology.",
+        "Optical Character Recognition (OCR) was used to digitize scanned invoices of varying quality.",
+        "Machine Learning Models were trained to extract key data (supplier name, invoice number, amounts, line items, VAT details).",
+        "Automated Validation rules were implemented for cross-checking data (e.g., matching PO numbers, checking tax calculations).",
+        "Classification Engines organized invoices by region, service type, and supplier.",
+        "The solution was integrated with existing ERP platforms for automatic data ingestion."
       ],
       results: [
         {
-          title: "100% increase in targeting",
-          description: "The client could contact all their target customers compared to 50% pre-project.",
+          title: "80% reduction in manual effort",
+          description: "Massive decrease in labor required for invoice processing.",
           icon: <FaUserClock />
         },
         {
-          title: "40% increase in conversion",
-          description: "The direct marketing outreach achieved a 40% higher conversion rate compared to typical mail campaigns.",
+          title: "5x faster processing",
+          description: "Processing time per invoice dropped from 5+ days to less than 1 day.",
           icon: <FaChartLine />
         },
         {
-          title: "Guaranteed ROI",
-          description: "The project delivered exceptionally high return on investment through increased conversion and a shorter sales cycle.",
-          icon: <FaRocket />
+          title: "99%+ extraction accuracy",
+          description: "Achieved over 99% accuracy in data capture with automated validation.",
+          icon: <FaCheck />
         },
         {
-          title: "Improved efficiency",
-          description: "The delivery was typically completed within 5 days, exceeding the throughput requirement of the SLA.",
+          title: "$1.5M annual savings",
+          description: "Significant cost reduction by cutting down on manual labor and error rectification.",
           icon: <FaClipboardCheck />
         },
         {
-          title: "High accuracy",
-          description: "The project met and exceeded the required accuracy levels.",
-          icon: <FaCheck />
+          title: "Enhanced vendor relationships",
+          description: "Faster, more accurate invoice processing led to quicker payments and improved negotiation leverage.",
+          icon: <FaRocket />
         }
       ],
-      tags: ["Insurance", "Data Extraction", "Direct Marketing"]
+      tags: ["Finance", "Invoice Processing", "AI Automation"]
     },
     {
       id: "mortgage",
@@ -474,7 +474,7 @@ const CaseStudiesSection = () => {
             {/* AI Data Entry case studies */}
             <TabsContent value="ai-data-entry" className="focus-visible:outline-none focus-visible:ring-0">
               <Tabs 
-                defaultValue="insurance" 
+                defaultValue="invoice" 
                 value={activeAIDataEntryTab}
                 onValueChange={setActiveAIDataEntryTab}
                 className="w-full"
