@@ -284,22 +284,22 @@ const About = () => {
               variants={itemVariants} 
               className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-border/50 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-semibold mb-3">Vehicle Insurance Data Extraction (2024)</h3>
+              <h3 className="text-xl font-semibold mb-3">Insurance Data Extraction (2024)</h3>
               <p className="text-muted-foreground mb-4">
-                For a leading insurance portal, we implemented an AI-powered solution to extract data from auto insurance policies with variable formats.
+                For a leading insurance broker, we implemented a GlyphX AI-powered solution to extract data from auto and health insurance policies across multiple providers.
               </p>
               
               <div className="mb-4">
                 <h4 className="font-medium mb-2 text-sm uppercase tracking-wider text-muted-foreground">Challenge:</h4>
                 <p className="text-sm text-muted-foreground">
-                  Processing a vast archive of auto insurance policies with multiple layouts to enable targeted marketing near policy expiry dates.
+                  Processing thousands of policies with variable formats to streamline reconciliation processes with brokers and enable targeted marketing near policy expiry dates.
                 </p>
               </div>
               
               <div className="mb-4">
                 <h4 className="font-medium mb-2 text-sm uppercase tracking-wider text-muted-foreground">Solution:</h4>
                 <p className="text-sm text-muted-foreground">
-                  Our AI-Powered Data Entry Workforce used sample-based learning to identify and extract data from any document location, processing 30,000 documents per quarter.
+                  Our GlyphX AI-Powered Data Entry Workforce used advanced machine learning to identify and extract data from policies regardless of format, processing over 30,000 documents per quarter.
                 </p>
               </div>
               

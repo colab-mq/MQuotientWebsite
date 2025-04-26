@@ -36,8 +36,8 @@ const ClientsSection = () => {
 
   const caseStudies = [
     {
-      title: "Vehicle Insurance Data Extraction",
-      description: "Implemented an AI-powered solution for a leading insurance portal to extract data from auto insurance policies with variable formats, enabling targeted marketing near policy expiry dates.",
+      title: "Insurance Data Extraction",
+      description: "Implemented a GlyphX AI-powered solution for a leading insurance broker to extract data from auto and health insurance policies across multiple providers and variable formats, streamlining reconciliation processes with brokers and enabling targeted marketing near policy expiries.",
       tags: ["AI", "Data Extraction", "Insurance"],
       year: "2024"
     },
