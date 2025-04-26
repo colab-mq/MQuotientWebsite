@@ -6,7 +6,7 @@ import { FaArrowRight, FaCheck, FaChartLine, FaClipboardCheck, FaFileAlt, FaRock
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 // Import partner logos
-import bluePrismLogo from "../assets/partners/BluePrism.png";
+import bluePrismLogo from "../assets/partners/Blue_Prism_Logo-700x126.png";
 import glyphXLogo from "../assets/partners/GlyphX.LOGOOne.jpg";
 import powerPlatformLogo from "../assets/partners/Microsoft-Power-Platform.png";
 import uiPathLogo from "../assets/partners/UiPath_2019_Corporate_Logo.png";
