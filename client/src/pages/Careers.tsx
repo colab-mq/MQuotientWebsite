@@ -198,7 +198,7 @@ const Careers = () => {
       <div className="bg-slate-50 py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold mb-10 text-center relative">
-            <span className="relative z-10">More Than a Job — A Stake in Our Future</span>
+            <span className="relative z-10">Benefits: Beyond a Job, Your Future</span>
             <span className="absolute bottom-0 left-0 right-0 h-1 bg-primary/20 rounded-full"></span>
           </h2>
           
