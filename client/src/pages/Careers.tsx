@@ -210,9 +210,9 @@ const Careers = () => {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Competitive Compensation</h3>
+                <h3 className="text-xl font-semibold mb-2">Rewarding Careers</h3>
                 <p className="text-muted-foreground">
-                  We offer competitive salary packages that recognize your skills and experience.
+                  We offer competitive pay that reflects your skills, experience, and the impact you make — because great work deserves great rewards.
                 </p>
               </div>
             </div>
@@ -224,9 +224,9 @@ const Careers = () => {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Health Insurance</h3>
+                <h3 className="text-xl font-semibold mb-2">Health & Wellness, Covered</h3>
                 <p className="text-muted-foreground">
-                  Comprehensive health coverage for you and your family.
+                  Your health comes first. We provide comprehensive insurance for you and your family, so you can focus on what matters most.
                 </p>
               </div>
             </div>
@@ -238,9 +238,9 @@ const Careers = () => {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Flexible Work</h3>
+                <h3 className="text-xl font-semibold mb-2">Work-Life, in Balance</h3>
                 <p className="text-muted-foreground">
-                  Remote work options and flexible hours to help you maintain work-life balance.
+                  We respect the power of an 8-hour workday — and the importance of everything beyond it. Flexible hours and remote options help you create a life where work and living truly fit together.
                 </p>
               </div>
             </div>
@@ -252,9 +252,9 @@ const Careers = () => {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Professional Development</h3>
+                <h3 className="text-xl font-semibold mb-2">Flexible Work Hours</h3>
                 <p className="text-muted-foreground">
-                  Budget for training, certifications, and conference attendance.
+                  Whether you're a morning person or a night owl, our flexible schedules and remote-friendly setup let you work when you're at your best.
                 </p>
               </div>
             </div>
@@ -266,23 +266,9 @@ const Careers = () => {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Paid Time Off</h3>
+                <h3 className="text-xl font-semibold mb-2">Grow Every Day</h3>
                 <p className="text-muted-foreground">
-                  Generous vacation policy, plus paid sick leave and holidays.
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex items-start gap-4">
-              <div className="mt-1">
-                <div className="rounded-full bg-primary/10 p-1">
-                  <Check className="h-5 w-5 text-primary" />
-                </div>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Team Events</h3>
-                <p className="text-muted-foreground">
-                  Regular team-building activities and social events to foster community.
+                  We champion lifelong learning. From certifications to conferences, we invest in your growth with dedicated budgets for training, upskilling, and new opportunities.
                 </p>
               </div>
             </div>
