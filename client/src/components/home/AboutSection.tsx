@@ -57,7 +57,7 @@ const AboutSection = () => {
           </h2>
           <div className="section-divider"></div>
           <p className="section-subtitle max-w-3xl mx-auto">
-            mquotient Business Services is a specialized provider of hyperautomation solutions, helping organizations transform their business processes.
+            mquotient is a specialized provider of hyperautomation solutions, helping organizations transform their business processes.
           </p>
         </div>
 
