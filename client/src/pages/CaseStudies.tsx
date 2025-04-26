@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 // Import partner logos
 import bluePrismLogo from "../assets/partners/Blue_Prism_Logo-700x126.png";
-import glyphXLogo from "../assets/partners/GlyphX_new.webp";
+import glyphXLogo from "../assets/partners/GLYPHX.png";
 import microsoftLogo from "../assets/partners/Microsoft_logo.png";
 import uiPathLogo from "../assets/partners/UiPath_2019_Corporate_Logo.png";
 
@@ -334,7 +334,7 @@ const CaseStudies = () => {
       color: "from-purple-500 to-pink-500",
       studies: aiDataEntryCaseStudies,
       partners: [
-        { name: "GlyphX", logo: glyphXLogo, width: 120 }
+        { name: "GlyphX", logo: glyphXLogo, width: 160 }
       ]
     },
     "rpa": {

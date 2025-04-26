@@ -3,7 +3,7 @@ import { Link } from "wouter";
 
 // Import partner logos
 import bluePrismLogo from "../assets/partners/Blue_Prism_Logo-700x126.png";
-import glyphXLogo from "../assets/partners/GlyphX_new.webp";
+import glyphXLogo from "../assets/partners/GLYPHX.png";
 import microsoftLogo from "../assets/partners/Microsoft_logo.png";
 import uiPathLogo from "../assets/partners/UiPath_2019_Corporate_Logo.png";
 
@@ -11,7 +11,7 @@ const Services = () => {
   // Partner logos for each service
   const partnerLogos = {
     "ai-data-entry": [
-      { src: glyphXLogo, alt: "GlyphX", width: 140 }
+      { src: glyphXLogo, alt: "GlyphX", width: 160 }
     ],
     "rpa": [
       { src: uiPathLogo, alt: "UiPath", width: 140 },
