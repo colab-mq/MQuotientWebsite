@@ -7,13 +7,13 @@ import { Badge } from "@/components/ui/badge";
 const ServicesSection = () => {
   const services = [
     {
-      title: "Glyphx AI",
-      description: "Our in-house AI extraction and classification product that processes structured and unstructured documents for mortgage, insurance, and other sectors.",
+      title: "AI-Powered Data Entry Workforce",
+      description: "Break free from manual data entry bottlenecks with our intelligent document processing solution that automatically extracts and validates data from both structured and unstructured documents.",
       icon: <FaBrain />,
       features: [
-        "Automated data extraction from documents",
-        "AI-powered document classification",
-        "High accuracy information capture"
+        "99%+ accuracy with automated validation",
+        "80% reduction in manual processing tasks",
+        "Seamless integration with existing systems"
       ]
     },
     {

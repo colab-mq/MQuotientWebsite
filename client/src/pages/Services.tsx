@@ -4,23 +4,23 @@ import { Link } from "wouter";
 const Services = () => {
   const services = [
     {
-      title: "Glyphx AI",
-      description: "Our in-house AI extraction and classification product that processes structured and unstructured documents for mortgage, insurance, and other sectors.",
+      title: "AI-Powered Data Entry Workforce",
+      description: "Break free from manual data entry bottlenecks with our intelligent document processing solution that automatically extracts and validates data from both structured and unstructured documents.",
       icon: <FaBrain />,
       features: [
-        "Automated data extraction from documents",
-        "AI-powered document classification",
-        "Processing of structured and unstructured documents",
-        "Mortgage and insurance document processing",
-        "High accuracy information capture",
-        "Seamless integration with existing systems"
+        "Intelligent classification of document types",
+        "Advanced data extraction beyond simple OCR",
+        "Automated validation with business rules",
+        "Processing of structured and unstructured formats",
+        "Human-in-the-loop oversight for quality assurance",
+        "Seamless integration with existing enterprise systems"
       ],
       benefits: [
-        "Reduced manual data entry",
-        "Faster document processing",
-        "Improved data accuracy",
-        "Lower operational costs",
-        "Enhanced compliance and audit trails"
+        "Up to 80% reduction in manual data entry tasks",
+        "99%+ accuracy with automated validation",
+        "Drastically reduced processing turnaround times",
+        "Significant cost savings on overhead",
+        "Scalability to handle peak loads without additional hiring"
       ]
     },
     {
