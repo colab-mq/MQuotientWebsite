@@ -66,6 +66,11 @@ const ContactSection = () => {
 
   const contactMutation = useMutation({
     mutationFn: async (data: ContactFormValues) => {
+      // If custom country code is selected, use the custom value
+      if (data.countryCode === 'custom' && customCountryCode) {
+        data = { ...data, countryCode: customCountryCode };
+      }
+      
       const response = await apiRequest("POST", "/api/contact", data);
       return response.json();
     },
@@ -75,6 +80,7 @@ const ContactSection = () => {
         description: data.message || "Your message has been sent successfully.",
       });
       form.reset();
+      setCustomCountryCode("");
       setIsSubmitting(false);
     },
     onError: (error) => {
@@ -123,7 +129,10 @@ const ContactSection = () => {
     { value: "+52", label: "Mexico (+52)" },
     { value: "+27", label: "South Africa (+27)" },
     { value: "+31", label: "Netherlands (+31)" },
+    { value: "custom", label: "Not listed (enter manually)" },
   ];
+  
+  const [customCountryCode, setCustomCountryCode] = useState("");
 
   // Animation variants
   const containerVariants = {
@@ -306,7 +315,13 @@ const ContactSection = () => {
                         <FormItem>
                           <FormLabel>Country Code</FormLabel>
                           <Select 
-                            onValueChange={field.onChange}
+                            onValueChange={(value) => {
+                              field.onChange(value);
+                              // Reset custom country code when changing selection
+                              if (value !== 'custom') {
+                                setCustomCountryCode("");
+                              }
+                            }}
                             value={field.value}
                           >
                             <FormControl>
@@ -322,6 +337,16 @@ const ContactSection = () => {
                               ))}
                             </SelectContent>
                           </Select>
+                          {field.value === 'custom' && (
+                            <div className="mt-2">
+                              <Input
+                                placeholder="Enter country code (e.g. +123)"
+                                value={customCountryCode}
+                                onChange={(e) => setCustomCountryCode(e.target.value)}
+                                className="rounded-lg border-border focus:border-primary/50"
+                              />
+                            </div>
+                          )}
                           <FormMessage />
                         </FormItem>
                       )}
