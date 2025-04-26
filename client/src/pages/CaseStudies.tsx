@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 // Import partner logos
 import bluePrismLogo from "../assets/partners/Blue_Prism_Logo-700x126.png";
-import glyphXLogo from "../assets/partners/GlyphX.LOGOOne.jpg";
+import glyphXLogo from "../assets/partners/GlyphX_new.webp";
 import microsoftLogo from "../assets/partners/Microsoft_logo.png";
 import uiPathLogo from "../assets/partners/UiPath_2019_Corporate_Logo.png";
 
