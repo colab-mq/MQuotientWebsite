@@ -116,7 +116,7 @@ const AboutSection = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-xl blur-sm opacity-20"></div>
               <img 
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                alt="mquotient Team" 
+                alt="Southeast Asian business team collaborating at mquotient" 
                 className="relative rounded-xl shadow-lg w-full h-auto object-cover z-10" 
                 style={{ maxHeight: "400px" }}
               />

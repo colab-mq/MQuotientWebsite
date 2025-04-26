@@ -115,7 +115,7 @@ const HeroSection = () => {
               
               <img 
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                alt="Digital Transformation" 
+                alt="Southeast Asian business professional working on digital transformation solutions" 
                 className="relative rounded-xl shadow-xl w-full h-auto z-10 object-cover border border-border/40" 
                 style={{ maxHeight: "450px" }}
               />
