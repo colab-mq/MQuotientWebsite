@@ -329,7 +329,7 @@ const About = () => {
               variants={itemVariants} 
               className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-border/50 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-semibold mb-3">Meter Reading Automation (2022)</h3>
+              <h3 className="text-xl font-semibold mb-3">Meter Reading Automation (2025)</h3>
               <p className="text-muted-foreground mb-4">
                 For a utilities service provider, we developed a UiPath RPA solution to automate the meter reading and data processing workflow.
               </p>
@@ -419,7 +419,7 @@ const About = () => {
               variants={itemVariants} 
               className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-border/50 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-semibold mb-3">Power Platform Tool Enhancement (2021)</h3>
+              <h3 className="text-xl font-semibold mb-3">Power Platform Tool Enhancement (2025)</h3>
               <p className="text-muted-foreground mb-4">
                 For a manufacturing client, we enhanced an existing Power Platform tool to improve lean initiative tracking and management.
               </p>
