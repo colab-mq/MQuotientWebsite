@@ -1,0 +1,68 @@
+Case Study 1: Streamlining Vehicle Insurance Data Extraction for Direct Marketing
+•
+The Problem: A leading internet portal for insurance products in India had a vast archive of auto insurance policies from various providers, each with multiple versions and layouts. They aimed to reach out to past customers for direct marketing close to their policy expiry dates. However, their fully manual back-office operations struggled to efficiently handle the cyclical peaks and troughs in demand, and traditional template-based data extraction solutions failed due to the high variation in document formats. Manual data entry into shared excel templates was time-consuming and difficult to scale.
+•
+The Solution: The client implemented mquotient used the Intelligent Data Extraction platform GlyphX, a Machine Learning-based data extraction platform. Unlike traditional methods relying on pre-configured locations, mquotient used the Intelligent Data Extraction platform GlyphX uses a sample-based learning approach, where the system is taught to identify and extract data from any location within the documents using provided samples. For this batch processing requirement involving a large volume of documents, a hosted solution was recommended and implemented on a 4-node server farm on AWS cloud. The workflow involved:
+◦
+The client uploading policy documents in batches via FTP.
+◦
+mquotient used the Intelligent Data Extraction platform GlyphX automatically picking up the files for processing.
+◦
+Raw OCR extraction followed by smart algorithms to improve accuracy from around 90% to the required SLA.
+◦
+Exporting the processed results into Excel files for the client to download.
+◦
+The process was repeated quarterly, processing around 30,000 documents per run. mquotient used the Intelligent Data Extraction platform GlyphX is a highly parallel server-based platform offering unlimited horizontal scaling. Hosted solutions by mquotient offer a quick and hassle-free setup.
+•
+The Impact: The implementation of mquotient used the Intelligent Data Extraction platform GlyphX resulted in significant improvements:
+◦
+100% increase in targeting: The client could contact all their target customers compared to 50% pre-project.
+◦
+40% increase in conversion: The direct marketing outreach achieved a 40% higher conversion rate compared to typical mail campaigns.
+◦
+Guaranteed ROI: The project delivered exceptionally high return on investment through increased conversion and a shorter sales cycle.
+◦
+Improved efficiency: The delivery was typically completed within 5 days, exceeding the throughput requirement of the SLA.
+◦
+High accuracy: The project met and exceeded the required accuracy levels.
+Case Study 2: Automating Document Indexing and Data Extraction for Mortgage Loan Audits
+•
+The Problem: A Top 5 mortgage lender in the US faced challenges in reviewing mortgage files for loan validity. An incoming mortgage file could range from 300 to 800 pages, comprising over 250 different document types with numerous variations. The manual process of indexing these documents by type and extracting over 1500 data points across multiple pages was characterized by long turnaround times, little flexibility to scale, high error rates due to operator dependency, and resource intensiveness.
+•
+The Solution: The lender implemented mquotient used the Intelligent Data Extraction platform GlyphX, described as a turnkey electronic document classification and data extraction solution. Due to data privacy requirements, the solution was deployed on-premise. The automated process involved:
+◦
+Manual effort limited to clubbing pages by document type in designated folders to configure automated classification.
+◦
+Defining business rules for indexing all loan pages and routing necessary pages for data extraction.
+◦
+Handling layout variations in unstructured mortgage documents through the configuration module.
+◦
+Document Classification: mquotient used the Intelligent Data Extraction platform GlyphX uses a combination of OCR and layout analysis to identify the document type of each page, assigning a confidence score. Pages with low confidence were manually checked.
+◦
+Routing: Documents were stacked and routed according to customer-defined business rules, extracting required pages to an output folder.
+◦
+Data Extraction: mquotient used the Intelligent Data Extraction platform GlyphX extracts the defined fields and uses business rules to refine raw OCR output as necessary.
+◦
+Front-End Quality Control: A User Interface allowed for correcting exceptions or suspect fields that failed any validation rules.
+◦
+Data Output: Verified data files are secured and encrypted, then delivered to the customer BPM as per their defined ruleset. The process was designed to run unattended as a zero-touch process.
+•
+The Impact: The implementation of mquotient used the Intelligent Data Extraction platform GlyphX yielded significant benefits:
+◦
+Improved consistency in document indexing.
+◦
+Reduced transition time for new document types.
+◦
+Ability to handle multiple image types and sources.
+◦
+Flexibility through user-defined workflows.
+◦
+High accuracy in document classification: End accuracy of over 98% for classification.
+◦
+Significant reduction in manual effort for classification: Over 90% reduction.
+◦
+High accuracy in data extraction: Post-verification accuracy of 99.99 %.
+◦
+Significant reduction in manual effort for data extraction: Over 60% reduction.
+◦
+Scalability: mquotient used the Intelligent Data Extraction platform GlyphX manages peak loads without affecting daily throughput, and volume scaling is transparent

@@ -49,6 +49,12 @@ const Header = () => {
               Services
             </Link>
             <Link 
+              href="/case-studies" 
+              className={`text-base font-medium transition-colors hover:text-primary ${location === '/case-studies' ? 'text-primary' : 'text-foreground'}`}
+            >
+              Case Studies
+            </Link>
+            <Link 
               href="/careers" 
               className={`text-base font-medium transition-colors hover:text-primary ${location === '/careers' ? 'text-primary' : 'text-foreground'}`}
             >
