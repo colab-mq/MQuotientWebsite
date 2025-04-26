@@ -224,37 +224,9 @@ const Careers = () => {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Health & Wellness, Covered</h3>
+                <h3 className="text-xl font-semibold mb-2">Performance Over Punching the Clock</h3>
                 <p className="text-muted-foreground">
-                  Your health comes first. We provide comprehensive insurance for you and your family, so you can focus on what matters most.
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex items-start gap-4">
-              <div className="mt-1">
-                <div className="rounded-full bg-primary/10 p-1">
-                  <Check className="h-5 w-5 text-primary" />
-                </div>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Work-Life, in Balance</h3>
-                <p className="text-muted-foreground">
-                  We respect the power of an 8-hour workday — and the importance of everything beyond it.
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex items-start gap-4">
-              <div className="mt-1">
-                <div className="rounded-full bg-primary/10 p-1">
-                  <Check className="h-5 w-5 text-primary" />
-                </div>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Flexible Work Hours</h3>
-                <p className="text-muted-foreground">
-                  Whether you're a morning person or a night owl, our flexible schedules and remote-friendly setup let you work when you're at your best.
+                  We focus on outcomes, not hours. Whether you prefer early mornings or late nights, our flexible hours and remote work options empower you to deliver your best. Work smart, recharge fully, and make time for what matters most — your family, your passions, your life.
                 </p>
               </div>
             </div>
