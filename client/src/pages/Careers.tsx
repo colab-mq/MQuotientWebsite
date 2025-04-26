@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { apiRequest } from "@/lib/queryClient";
@@ -11,6 +11,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Check, BriefcaseBusiness, Users, BadgeCheck, GraduationCap } from "lucide-react";
 
 const Careers = () => {
+  // Update page title for SEO
+  useEffect(() => {
+    document.title = "Careers at mquotient | Join Our Team of Automation Experts";
+  }, []);
   const [selectedJob, setSelectedJob] = useState<JobListing | null>(null);
   const [showApplicationForm, setShowApplicationForm] = useState(false);
 

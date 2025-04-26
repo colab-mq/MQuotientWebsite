@@ -14,6 +14,7 @@ const Services = () => {
   useEffect(() => {
     document.title = "mquotient Services | AI Document Processing, RPA & Power Platform Solutions";
   }, []);
+
   // Partner logos for each service
   const partnerLogos = {
     "ai-data-entry": [

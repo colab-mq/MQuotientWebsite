@@ -1,7 +1,12 @@
 import ContactSection from "@/components/home/ContactSection";
 import { FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import { useEffect } from "react";
 
 const Contact = () => {
+  // Update page title for SEO
+  useEffect(() => {
+    document.title = "Contact mquotient | Get in Touch With Our Automation Experts";
+  }, []);
   return (
     <div className="pt-16 pb-16">
       <div className="bg-gradient-to-r from-primary to-primary-dark text-white py-20">
