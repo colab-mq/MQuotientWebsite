@@ -462,16 +462,17 @@ const CaseStudies = () => {
           className="w-full mb-12"
         >
           <div className="flex justify-center mb-12">
-            <TabsList className="grid grid-cols-3 w-full max-w-2xl">
+            <TabsList className="flex flex-col sm:grid sm:grid-cols-3 w-full max-w-2xl gap-2">
               {Object.keys(serviceData).map((serviceKey) => (
                 <TabsTrigger 
                   key={serviceKey} 
                   value={serviceKey}
-                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary/80 data-[state=active]:to-secondary/80 data-[state=active]:text-white gap-2 p-4"
+                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary/80 data-[state=active]:to-secondary/80 data-[state=active]:text-white gap-2 p-4 h-full flex items-center justify-center"
                 >
-                  <span className="mr-2">{serviceData[serviceKey].icon}</span>
-                  <span className="hidden sm:inline">{serviceData[serviceKey].title}</span>
-                  <span className="sm:hidden">{serviceKey === "ai-data-entry" ? "AI" : serviceKey === "rpa" ? "RPA" : "Power"}</span>
+                  <div className="flex items-center justify-center gap-3 flex-wrap">
+                    <span className="flex-shrink-0">{serviceData[serviceKey].icon}</span>
+                    <span>{serviceKey === "ai-data-entry" ? "AI Data Entry" : serviceKey === "rpa" ? "RPA" : "Power Platform"}</span>
+                  </div>
                 </TabsTrigger>
               ))}
             </TabsList>
