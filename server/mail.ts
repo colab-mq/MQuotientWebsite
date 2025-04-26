@@ -96,7 +96,7 @@ export const mailService = {
     `;
 
     return mailService.sendEmail({
-      from: `"mquotient Website" <${EMAIL_USER}>`,
+      from: `"mquotient" <${EMAIL_USER}>`,
       to: CONTACT_EMAIL_RECIPIENTS,
       subject: `New Contact Form: ${data.subject}`,
       html,

@@ -2,8 +2,7 @@ import { Link } from "wouter";
 import { 
   FaLinkedinIn,
   FaMapMarkerAlt, 
-  FaEnvelope, 
-  FaGlobe
+  FaEnvelope
 } from "react-icons/fa";
 import logoPath from "../../assets/mquotient-logo.png";
 
@@ -130,9 +129,16 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <div className="bg-background text-primary h-8 w-8 rounded-full flex items-center justify-center shadow-sm border border-border mr-3 flex-shrink-0 mt-0.5">
-                  <FaGlobe className="h-3 w-3" />
+                  <FaLinkedinIn className="h-3 w-3" />
                 </div>
-                <span className="text-foreground/80">www.mquotient.net</span>
+                <a 
+                  href="https://www.linkedin.com/company/mquotient/" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="text-foreground/80 hover:text-primary transition-colors duration-200"
+                >
+                  LinkedIn
+                </a>
               </li>
             </ul>
           </div>

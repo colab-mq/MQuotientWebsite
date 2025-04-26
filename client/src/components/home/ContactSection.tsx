@@ -17,7 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { FaMapMarkerAlt, FaEnvelope, FaGlobe, FaCheck } from "react-icons/fa";
+import { FaMapMarkerAlt, FaEnvelope, FaLinkedinIn, FaCheck } from "react-icons/fa";
 import { Send, ArrowRight } from "lucide-react";
 
 const contactFormSchema = z.object({
@@ -164,11 +164,18 @@ const ContactSection = () => {
                 </div>
                 <div className="flex items-start">
                   <div className="bg-background text-primary h-10 w-10 rounded-full flex items-center justify-center shadow-sm border border-border mr-4 flex-shrink-0 mt-0.5">
-                    <FaGlobe className="h-4 w-4" />
+                    <FaLinkedinIn className="h-4 w-4" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-lg">Website</h4>
-                    <p className="text-foreground/80">www.mquotient.net</p>
+                    <h4 className="font-semibold text-lg">LinkedIn</h4>
+                    <a 
+                      href="https://www.linkedin.com/company/mquotient/" 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="text-foreground/80 hover:text-primary transition-colors duration-200"
+                    >
+                      linkedin.com/company/mquotient
+                    </a>
                   </div>
                 </div>
               </div>
