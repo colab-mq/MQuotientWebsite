@@ -210,9 +210,9 @@ const Careers = () => {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Grow. Deliver. Be Rewarded.</h3>
+                <h3 className="text-xl font-semibold mb-2">Grow. Deliver. Thrive.</h3>
                 <p className="text-muted-foreground">
-                  We don't just talk about growth — we fuel it. From training budgets to skill-building opportunities, we're committed to helping you level up. We're here to make sure you're always learning, always progressing. We don't just reward what you achieve today — we invest in who you can become tomorrow. Your growth is our investment, your impact is our reward, and every milestone you reach is a reason for us to celebrate. When you grow, we all win
+                  We fuel your growth with training, skill-building, and opportunities to excel. Your progress drives our success. We invest in your potential, celebrate your milestones, and reward your impact. When you grow, we all win.
                 </p>
               </div>
             </div>
