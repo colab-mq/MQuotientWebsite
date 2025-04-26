@@ -12,8 +12,8 @@ export interface EmailConfig {
 // Define environment variables for email configuration
 const EMAIL_USER = process.env.EMAIL_USER;
 const EMAIL_APP_PASSWORD = process.env.EMAIL_APP_PASSWORD;
-const CONTACT_EMAIL_RECIPIENTS = process.env.CONTACT_EMAIL_RECIPIENTS?.split(',') || ['recipient@example.com'];
-const CAREERS_EMAIL_RECIPIENTS = process.env.CAREERS_EMAIL_RECIPIENTS?.split(',') || ['recipient@example.com'];
+const CONTACT_EMAIL_RECIPIENTS = process.env.CONTACT_EMAIL_RECIPIENTS?.split(',') || ['hi@mquotient.net'];
+const CAREERS_EMAIL_RECIPIENTS = process.env.CAREERS_EMAIL_RECIPIENTS?.split(',') || ['hi@mquotient.net'];
 
 // Create a mock transporter for development if credentials aren't available
 const createTransporter = () => {
