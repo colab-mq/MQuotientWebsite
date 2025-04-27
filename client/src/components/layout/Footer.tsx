@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
             <div className="mb-6">
-              <img src={logoPath} alt="mquotient Logo" className="h-10 mb-4" />
+              <img src={logoPath} alt="mQuotient Logo" className="h-10 mb-4" />
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
               Empowering digital transformation through hyperautomation and innovative technology solutions.
