@@ -166,11 +166,13 @@ const ContactSection = () => {
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="section-heading">
           <h2 className="section-title">
-            Get In <span className="gradient-text">Touch</span>
+            Let's Build the Future — <span className="gradient-text">Together</span>
           </h2>
           <div className="section-divider"></div>
           <p className="section-subtitle max-w-3xl mx-auto">
-            Ready to start your digital transformation journey? Contact us to discuss how our automation solutions can help your business.
+            Ready to unlock the full potential of automation and AI?<br/>
+            Whether you're starting your transformation journey or accelerating your next breakthrough, mQuotient is here to make it real — and make it extraordinary.<br/>
+            Let's create smarter, faster, future-proof solutions — tailored just for you.
           </p>
         </div>
 
@@ -245,10 +247,11 @@ const ContactSection = () => {
 
           <motion.div variants={itemVariants}>
             <div className="bg-background border border-border rounded-xl p-8 shadow-sm">
-              <h3 className="text-2xl font-semibold mb-6 relative inline-block">
-                <span className="relative z-10">Send Us a Message</span>
+              <h3 className="text-2xl font-semibold mb-2 relative inline-block">
+                <span className="relative z-10">Let's Talk Transformation</span>
                 <span className="absolute bottom-0 left-0 w-full h-1 bg-primary/20 rounded-full"></span>
               </h3>
+              <p className="mb-6 text-foreground/70 text-sm">No hard sells. Just a conversation about what's possible.</p>
               
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -425,9 +428,15 @@ const ContactSection = () => {
                     {isSubmitting ? (
                       <>Sending... <Send className="ml-2 h-4 w-4 animate-pulse" /></>
                     ) : (
-                      <>Send Message <ArrowRight className="ml-2 h-4 w-4" /></>
+                      <>Let's Talk Transformation <ArrowRight className="ml-2 h-4 w-4" /></>
                     )}
                   </Button>
+                  
+                  <div className="mt-4 text-center">
+                    <a href="/services" className="inline-flex items-center px-4 py-2 bg-muted/50 text-sm font-medium rounded-md border border-border hover:bg-muted transition-colors">
+                      View Our Services <ArrowRight className="ml-2 h-3 w-3" />
+                    </a>
+                  </div>
                 </form>
               </Form>
             </div>
