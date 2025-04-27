@@ -11,8 +11,8 @@ interface SEOHeadProps {
 }
 
 const SEOHead: React.FC<SEOHeadProps> = ({
-  title = "mQuotient - Hyperautomation and Digital Solutions",
-  description = "mQuotient delivers enterprise-grade hyperautomation and digital transformation services with expertise in AI-powered document processing, RPA, Microsoft Power Platform, and custom solutions.",
+  title = "m·quotient - Hyperautomation and Digital Solutions",
+  description = "m·quotient delivers enterprise-grade hyperautomation and digital transformation services with expertise in AI-powered document processing, RPA, Microsoft Power Platform, and custom solutions.",
   keywords = "hyperautomation, digital transformation, AI document processing, RPA solutions, Power Platform, workflow automation, automated data entry, intelligent document processing, business process automation",
   canonicalUrl,
   image = "https://www.mquotient.net/logo.png",

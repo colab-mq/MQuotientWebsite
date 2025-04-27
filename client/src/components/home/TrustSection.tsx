@@ -69,11 +69,11 @@ const TrustSection = () => {
           variants={containerVariants}
         >
           <motion.h2 className="section-title" variants={itemVariants}>
-            Why Leading Businesses <span className="gradient-text">Trust mQuotient</span>
+            Why Leading Businesses <span className="gradient-text">Trust m·quotient</span>
           </motion.h2>
           <div className="section-divider mx-auto"></div>
           <motion.p className="section-subtitle max-w-3xl mx-auto" variants={itemVariants}>
-            At mQuotient, we don't just implement automation — we architect your next advantage.
+            At m·quotient, we don't just implement automation — we architect your next advantage.
             Here's why organizations choose us as their transformation partner:
           </motion.p>
         </motion.div>
@@ -116,7 +116,7 @@ const TrustSection = () => {
               Your transformation deserves more than just tools — it deserves a partner who sees your vision, shares your ambition, and has the expertise to make it real.
             </p>
             <p className="text-lg font-semibold gradient-text mt-4">
-              That's the mQuotient difference.
+              That's the m·quotient difference.
             </p>
           </motion.div>
         </motion.div>
