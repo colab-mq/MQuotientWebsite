@@ -7,7 +7,7 @@ const ingramLogo = "/attached_assets/Ingram_Micro_logo_new.svg.png";
 const pbPartnersLogo = "/attached_assets/pb_life_1665575605.png";
 const firstsourceLogo = "/attached_assets/Firstsource-Solutions-600px-logo.jpg";
 const infosysLogo = "/attached_assets/Infosys_logo.svg.png";
-const mquotientLogo = "/attached_assets/mquotient LOGO.png";
+const mquotientLogo = "/attached_assets/mquotient LOGO.png"; // TODO: Update to m·quotient logo
 const turtlemintLogo = "/attached_assets/turtlemint-logo.webp";
 
 const ClientsSection = () => {
