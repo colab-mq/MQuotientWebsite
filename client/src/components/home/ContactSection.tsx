@@ -205,7 +205,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg">Email</h4>
-                    <p className="text-foreground/80">hi@mquotient.net</p>
+                    <p className="text-foreground/80">hi@m·quotient.net</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -215,12 +215,12 @@ const ContactSection = () => {
                   <div>
                     <h4 className="font-semibold text-lg">LinkedIn</h4>
                     <a 
-                      href="https://www.linkedin.com/company/mquotient/" 
+                      href="https://www.linkedin.com/company/m·quotient/" 
                       target="_blank" 
                       rel="noreferrer" 
                       className="text-foreground/80 hover:text-primary transition-colors duration-200"
                     >
-                      linkedin.com/company/mquotient
+                      linkedin.com/company/m·quotient
                     </a>
                   </div>
                 </div>
@@ -248,7 +248,7 @@ const ContactSection = () => {
           <motion.div variants={itemVariants}>
             <div className="bg-background border border-border rounded-xl p-8 shadow-sm">
               <h3 className="text-2xl font-semibold mb-2 relative inline-block">
-                <span className="relative z-10">Let's Talk Transformation</span>
+                <span className="relative z-10">Let's Build the Future — Together</span>
                 <span className="absolute bottom-0 left-0 w-full h-1 bg-primary/20 rounded-full"></span>
               </h3>
               <p className="mb-6 text-foreground/70 text-sm">No hard sells. Just a conversation about what's possible.</p>

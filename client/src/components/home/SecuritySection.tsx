@@ -85,7 +85,7 @@ const SecuritySection = () => {
           </motion.h2>
           <div className="section-divider mx-auto"></div>
           <motion.p className="section-subtitle max-w-3xl mx-auto" variants={itemVariants}>
-            At mQuotient, your trust is our most valuable asset.
+            At m·quotient, your trust is our most valuable asset.
             That's why we invest deeply in information security, compliance, and risk management — ensuring your business and data are protected at every stage of our partnership.
           </motion.p>
         </motion.div>
@@ -155,7 +155,7 @@ const SecuritySection = () => {
         >
           <motion.div className="max-w-3xl mx-auto border-t border-border pt-8" variants={itemVariants}>
             <p className="text-lg font-medium mb-2">
-              With mQuotient, your transformation is built on a foundation of trust, compliance, and resilience.
+              With m·quotient, your transformation is built on a foundation of trust, compliance, and resilience.
             </p>
             <p className="text-lg font-semibold gradient-text">
               Your systems are secure with us.
