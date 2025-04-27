@@ -147,7 +147,7 @@ const Footer = () => {
 
         <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-foreground/70 text-sm">&copy; {new Date().getFullYear()} mquotient. All rights reserved.</p>
+            <p className="text-foreground/70 text-sm">&copy; {new Date().getFullYear()} mQuotient. All rights reserved.</p>
             {/* Footer links removed as requested */}
           </div>
         </div>

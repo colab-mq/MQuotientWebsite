@@ -217,7 +217,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     // Basic meta tags
     ensureMetaTag('description', description);
     ensureMetaTag('keywords', keywords);
-    ensureMetaTag('author', 'mquotient');
+    ensureMetaTag('author', 'mQuotient');
     ensureMetaTag('robots', 'index, follow');
     ensureMetaTag('viewport', 'width=device-width, initial-scale=1.0');
     
@@ -236,7 +236,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     ensurePropertyTag('og:url', currentUrl);
     ensurePropertyTag('og:type', type);
     ensurePropertyTag('og:image', image);
-    ensurePropertyTag('og:site_name', 'mquotient');
+    ensurePropertyTag('og:site_name', 'mQuotient');
     ensurePropertyTag('og:locale', 'en_US');
     
     // Twitter Card meta tags
