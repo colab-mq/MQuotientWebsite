@@ -171,7 +171,7 @@ const ContactSection = () => {
           <div className="section-divider"></div>
           <p className="section-subtitle max-w-3xl mx-auto">
             Ready to unlock the full potential of automation and AI?<br/>
-            Whether you're starting your transformation journey or accelerating your next breakthrough, mQuotient is here to make it real — and make it extraordinary.<br/>
+            Whether you're starting your transformation journey or accelerating your next breakthrough, m·quotient is here to make it real — and make it extraordinary.<br/>
             Let's create smarter, faster, future-proof solutions — tailored just for you.
           </p>
         </div>
@@ -205,7 +205,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg">Email</h4>
-                    <p className="text-foreground/80">hi@m·quotient.net</p>
+                    <p className="text-foreground/80">hi@mquotient.net</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -215,12 +215,12 @@ const ContactSection = () => {
                   <div>
                     <h4 className="font-semibold text-lg">LinkedIn</h4>
                     <a 
-                      href="https://www.linkedin.com/company/m·quotient/" 
+                      href="https://www.linkedin.com/company/mquotient/" 
                       target="_blank" 
                       rel="noreferrer" 
                       className="text-foreground/80 hover:text-primary transition-colors duration-200"
                     >
-                      linkedin.com/company/m·quotient
+                      linkedin.com/company/mquotient
                     </a>
                   </div>
                 </div>
