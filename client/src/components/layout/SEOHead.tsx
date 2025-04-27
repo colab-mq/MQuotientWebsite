@@ -11,8 +11,8 @@ interface SEOHeadProps {
 }
 
 const SEOHead: React.FC<SEOHeadProps> = ({
-  title = "mquotient - Hyperautomation and Digital Solutions",
-  description = "mquotient delivers enterprise-grade hyperautomation and digital transformation services with expertise in AI-powered document processing, RPA, Microsoft Power Platform, and custom solutions.",
+  title = "mQuotient - Hyperautomation and Digital Solutions",
+  description = "mQuotient delivers enterprise-grade hyperautomation and digital transformation services with expertise in AI-powered document processing, RPA, Microsoft Power Platform, and custom solutions.",
   keywords = "hyperautomation, digital transformation, AI document processing, RPA solutions, Power Platform, workflow automation, automated data entry, intelligent document processing, business process automation",
   canonicalUrl,
   image = "https://www.mquotient.net/logo.png",
@@ -31,10 +31,10 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     const organizationSchema = {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "mquotient",
+      "name": "mQuotient",
       "url": "https://www.mquotient.net",
       "logo": "https://www.mquotient.net/logo.png",
-      "description": "mquotient delivers enterprise-grade hyperautomation and digital transformation services.",
+      "description": "mQuotient delivers enterprise-grade hyperautomation and digital transformation services.",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "C-61/3, Okhla Industrial Area, Phase II",
@@ -59,7 +59,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       "serviceType": "Digital Transformation Services",
       "provider": {
         "@type": "Organization",
-        "name": "mquotient"
+        "name": "mQuotient"
       },
       "areaServed": "Worldwide",
       "description": "Enterprise-grade hyperautomation and digital transformation services including AI-powered document processing, RPA, Microsoft Power Platform, and custom solutions.",
@@ -132,11 +132,11 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       pageSpecificSchema = {
         "@context": "https://schema.org",
         "@type": "JobPosting",
-        "title": "Join Our Team at mquotient",
+        "title": "Join Our Team at mQuotient",
         "description": "Explore career opportunities in automation, AI, and digital transformation",
         "hiringOrganization": {
           "@type": "Organization",
-          "name": "mquotient"
+          "name": "mQuotient"
         },
         "jobLocation": {
           "@type": "Place",
