@@ -248,7 +248,7 @@ const ContactSection = () => {
           <motion.div variants={itemVariants}>
             <div className="bg-background border border-border rounded-xl p-8 shadow-sm">
               <h3 className="text-2xl font-semibold mb-2 relative inline-block">
-                <span className="relative z-10">Let's Build the Future — Together</span>
+                <span className="relative z-10">Let's Talk Transformation</span>
                 <span className="absolute bottom-0 left-0 w-full h-1 bg-primary/20 rounded-full"></span>
               </h3>
               <p className="mb-6 text-foreground/70 text-sm">No hard sells. Just a conversation about what's possible.</p>
