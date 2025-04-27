@@ -62,14 +62,14 @@ const HeroSection = () => {
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8"
               variants={itemVariants}
             >
-              Unlock the True <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Power of Automation and AI</span> — Guided by Those Who Live It
+              Design the Future of Your <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Business</span> — Powered by Automation and AI
             </motion.h1>
             
             <motion.p 
               className="text-lg md:text-xl mb-10 text-muted-foreground leading-relaxed"
               variants={itemVariants}
             >
-              Partner with experts who live and breathe intelligent automation — and bring AI-powered transformation to life.
+              Expertise you can trust. Innovation you can measure.
             </motion.p>
             
             <motion.div 
