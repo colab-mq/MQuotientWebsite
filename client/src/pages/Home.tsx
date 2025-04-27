@@ -19,12 +19,12 @@ const Home = () => {
     <article>
       <HeroSection />
       <AboutSection />
+      <CaseStudiesSection />
       <ServicesSection />
+      <ClientsSection />
+      <SecuritySection />
       <ProcessSection />
       <TrustSection />
-      <CaseStudiesSection />
-      <SecuritySection />
-      <ClientsSection />
       <ContactSection />
     </article>
   );

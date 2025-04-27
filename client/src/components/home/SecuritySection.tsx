@@ -62,7 +62,7 @@ const SecuritySection = () => {
   const insuranceCoverage = [
     "Public Liability Insurance",
     "Cyber Risk Insurance — protecting against data breaches, cyberattacks, and unauthorized access incidents.",
-    "Professional Indemnity (Errors and Omissions) Insurance — covering worldwide service delivery risks, with limits up to £500,000 per claim."
+    "Professional Indemnity Insurance - covering worldwide service delivery risks"
   ];
 
   return (
@@ -158,7 +158,7 @@ const SecuritySection = () => {
               With mQuotient, your transformation is built on a foundation of trust, compliance, and resilience.
             </p>
             <p className="text-lg font-semibold gradient-text">
-              Your future is secure with us.
+              Your systems are secure with us.
             </p>
           </motion.div>
         </motion.div>

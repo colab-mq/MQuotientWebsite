@@ -57,7 +57,7 @@ const ProcessSection = () => {
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="section-heading">
           <h2 className="section-title">
-            Our <span className="gradient-text">Approach</span>
+            How We <span className="gradient-text">Work</span>
           </h2>
           <div className="section-divider"></div>
           <p className="section-subtitle max-w-3xl mx-auto">
