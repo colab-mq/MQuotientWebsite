@@ -428,15 +428,9 @@ const ContactSection = () => {
                     {isSubmitting ? (
                       <>Sending... <Send className="ml-2 h-4 w-4 animate-pulse" /></>
                     ) : (
-                      <>Let's Talk Transformation <ArrowRight className="ml-2 h-4 w-4" /></>
+                      <>Send Message <ArrowRight className="ml-2 h-4 w-4" /></>
                     )}
                   </Button>
-                  
-                  <div className="mt-4 text-center">
-                    <a href="/services" className="inline-flex items-center px-4 py-2 bg-muted/50 text-sm font-medium rounded-md border border-border hover:bg-muted transition-colors">
-                      View Our Services <ArrowRight className="ml-2 h-3 w-3" />
-                    </a>
-                  </div>
                 </form>
               </Form>
             </div>

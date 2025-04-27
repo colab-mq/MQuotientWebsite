@@ -20,8 +20,8 @@ const Home = () => {
       <HeroSection />
       <AboutSection />
       <CaseStudiesSection />
-      <ClientsSection />
       <ServicesSection />
+      <ClientsSection />
       <SecuritySection />
       <ProcessSection />
       <TrustSection />
