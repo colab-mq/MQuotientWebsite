@@ -105,7 +105,7 @@ const HeroSection = () => {
                 </div>
               </div>
               <span className="text-sm text-muted-foreground">
-                Trusted partners with industry leaders
+                Activating the True Potential of Leading Technologies
               </span>
             </motion.div>
           </div>
