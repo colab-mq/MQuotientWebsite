@@ -12,7 +12,7 @@ import uiPathLogo from "../assets/partners/UiPath_2019_Corporate_Logo.png";
 const Services = () => {
   // Update page title for SEO
   useEffect(() => {
-    document.title = "mquotient Services | AI Document Processing, RPA & Power Platform Solutions";
+    document.title = "m·quotient Services | AI Document Processing, RPA & Power Platform Solutions";
   }, []);
 
   // Partner logos for each service

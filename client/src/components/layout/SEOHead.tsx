@@ -31,10 +31,10 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     const organizationSchema = {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "mQuotient",
+      "name": "m·quotient",
       "url": "https://www.mquotient.net",
       "logo": "https://www.mquotient.net/logo.png",
-      "description": "mQuotient delivers enterprise-grade hyperautomation and digital transformation services.",
+      "description": "m·quotient delivers enterprise-grade hyperautomation and digital transformation services.",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "C-61/3, Okhla Industrial Area, Phase II",
