@@ -4,6 +4,8 @@ import ServicesSection from "@/components/home/ServicesSection";
 import ProcessSection from "@/components/home/ProcessSection";
 import ClientsSection from "@/components/home/ClientsSection";
 import CaseStudiesSection from "@/components/home/CaseStudiesSection";
+import TrustSection from "@/components/home/TrustSection";
+import SecuritySection from "@/components/home/SecuritySection";
 import ContactSection from "@/components/home/ContactSection";
 import { useEffect } from "react";
 
@@ -19,7 +21,9 @@ const Home = () => {
       <AboutSection />
       <ServicesSection />
       <ProcessSection />
+      <TrustSection />
       <CaseStudiesSection />
+      <SecuritySection />
       <ClientsSection />
       <ContactSection />
     </article>

@@ -426,11 +426,11 @@ const CaseStudiesSection = () => {
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="section-heading">
           <h2 className="section-title">
-            Success <span className="gradient-text">Stories</span>
+            The <span className="gradient-text">Results</span> We Deliver
           </h2>
           <div className="section-divider"></div>
           <p className="section-subtitle max-w-3xl mx-auto">
-            See how our solutions have helped organizations transform their workflows and achieve significant business outcomes.
+            Come Witness How Automation and AI Create Real-World Magic
           </p>
         </div>
 
