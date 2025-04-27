@@ -63,7 +63,7 @@ const AboutSection = () => {
               <span className="absolute bottom-0 left-0 w-full h-1 bg-primary/20 rounded-full"></span>
             </h3>
             <p className="mb-6 text-foreground/80 leading-relaxed">
-              At mQuotient, we bring automation to life — combining intelligent automation with AI-driven solutions to transform complex business processes into simple, scalable systems.
+              At m·quotient, we bring automation to life — combining intelligent automation with AI-driven solutions to transform complex business processes into simple, scalable systems.
             </p>
             <p className="mb-6 text-foreground/80 leading-relaxed">
               With deep expertise and a passion for innovation, we help you move faster, work smarter, and grow stronger.
@@ -75,7 +75,7 @@ const AboutSection = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-xl blur-sm opacity-20"></div>
               <img 
                 src="https://images.pexels.com/photos/2505026/pexels-photo-2505026.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                alt="Business team collaborating at mQuotient" 
+                alt="Business team collaborating at m·quotient" 
                 className="relative rounded-xl shadow-lg w-full h-auto object-cover z-10" 
                 style={{ maxHeight: "400px" }}
               />
@@ -131,7 +131,7 @@ const AboutSection = () => {
               <span className="absolute bottom-0 left-0 w-full h-1 bg-primary/20 rounded-full"></span>
             </h3>
             <p className="mb-6 text-foreground/80 leading-relaxed">
-              At mQuotient, we begin with you — understanding your goals, your challenges, and what success looks like for your business.
+              At m·quotient, we begin with you — understanding your goals, your challenges, and what success looks like for your business.
             </p>
             <p className="mb-6 text-foreground/80 leading-relaxed">
               We design solutions that are the perfect fit — blending automation and AI to cut costs, improve control, reduce turnaround times, and deliver immediate, visible ROI.
@@ -161,7 +161,7 @@ const AboutSection = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-xl blur-sm opacity-20"></div>
               <img 
                 src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                alt="Team collaboration at mQuotient" 
+                alt="Team collaboration at m·quotient" 
                 className="relative rounded-xl shadow-lg w-full h-auto object-cover z-10" 
                 style={{ maxHeight: "400px" }}
               />

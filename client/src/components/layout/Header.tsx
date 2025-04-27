@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import MobileNav from "./MobileNav";
-import logoPath from "../../assets/mquotient-logo.png";
+import logoPath from "../../assets/mquotient-logo.png"; // TODO: Update to m·quotient logo
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +24,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <img src={logoPath} alt="mQuotient Logo" className="h-10" />
+              <img src={logoPath} alt="m·quotient Logo" className="h-10" />
             </Link>
           </div>
 
