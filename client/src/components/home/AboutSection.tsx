@@ -44,7 +44,7 @@ const AboutSection = () => {
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="section-heading">
           <h2 className="section-title">
-            About <span className="gradient-text">mQuotient</span>
+            Where Intelligent Automation Meets <span className="gradient-text">Real-World Impact</span>
           </h2>
           <div className="section-divider"></div>
         </div>

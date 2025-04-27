@@ -1,0 +1,89 @@
+I.	Replace: "About mQuotient" with the text "Where Intelligent Automation Meets Real-World Impact"  
+II.	The section "Success Stories" will come next 
+In this section replace the text "Success Stories" with ""The Results We Deliver""
+with new tagline - "Come Witness How Automation and AI Create Real-World Magic" instead of "See how our solutions have helped organizations transform their workflows and achieve significant business outcomes."
+III.	The section titled “Featured Projects” will come next
+
+IV.	Followed by the section “Our Services”
+
+V.	Followed by the section “Our Clients”
+
+VI.	 Add this section for Compliance and Security Assurance  
+
+Section Title:
+Your Security, Our Commitment
+
+Section Copy:
+At mQuotient, your trust is our most valuable asset.
+That’s why we invest deeply in information security, compliance, and risk management — ensuring your business and data are protected at every stage of our partnership.
+
+ Our Security Measures:
+Certified Infrastructure:
+Our Cloud Infrastructure is  ISO 27001 and SOC 2 compliant cloud providers and implement Virtual Private Clouds (VPC) with secured access protocols.
+Data Protection by Design:
+All data at rest is encrypted using AES-256 standards; all data in transit is secured via TLS and HTTPS with mutual authentication.
+Robust Access Control:
+Role-based access controls, multi-factor authentication (MFA), and least-privilege policies are strictly enforced across systems.
+Vigilant Monitoring and Incident Response:
+Comprehensive audit logs, proactive threat detection, and a tested incident response framework ensure rapid action if issues arise.
+Employee Readiness:
+All employees undergo continuous training in information security best practices, data privacy, and compliance standards.
+Secure Data Disposal:
+We follow strict protocols for secure data deletion, ensuring no residual data risks post-engagement.
+
+🛡️ Our Insurance Coverage:
+Public Liability Insurance 
+Cyber Risk Insurance — protecting against data breaches, cyberattacks, and unauthorized access incidents.
+Professional Indemnity (Errors and Omissions) Insurance — covering worldwide service delivery risks, with limits up to £500,000 per claim.
+________________________________________
+Final Closing Line:
+With mQuotient, your transformation is built on a foundation of trust, compliance, and resilience.
+Your future is secure with us.
+
+VII.	Followed by the section “Our Values”
+
+VIII.	Followed by the section “Our Approach”
+Rename this section from “Our Approach” to “How we work”
+
+IX.	Followed by the section “Why Leading Businesses Trust mQuotient” (add this section)
+
+Section Copy:
+At mQuotient, we don't just implement automation — we architect your next advantage.
+Here's why organizations choose us as their transformation partner:
+
+5 Powerful Points (each one short, punchy, inspiring):
+🔹 Automation + AI, Perfectly Blended
+We combine deep automation expertise with the transformative power of AI — delivering solutions that think, adapt, and scale with you.
+🔹 Immediate, Measurable Impact
+Every solution we craft is built for visible ROI — faster processes, lower costs, smarter operations — results you can see, feel, and grow.
+🔹 True Partnership, Not Just Delivery
+We embed ourselves in your journey — understanding your challenges, your goals, and becoming an extension of your team.
+🔹 Innovation Without the Guesswork
+With 7+ years and 80+ successful projects, we bring proven frameworks — not trial-and-error experiments.
+🔹 Built on Trust, Secured by Compliance
+We invest heavily in certifications, security measures, and client protection — so you can innovate with total peace of mind.
+Your transformation deserves more than just tools — it deserves a partner who sees your vision, shares your ambition, and has the expertise to make it real.
+That’s the mQuotient difference.
+
+
+X.	Followed by the section “Get In Touch”
+Please make the following changes to this section.
+
+Replace “Get In Touch” with “Let's Build Your Future — Together”
+
+Replace “Ready to start your digital transformation journey? Contact us to discuss how our automation solutions can help your business” with
+
+“Ready to unlock the full potential of automation and AI?
+Whether you're starting your transformation journey or accelerating your next breakthrough, mQuotient is here to make it real — and make it extraordinary.
+Let’s create smarter, faster, future-proof solutions — tailored just for you.”
+
+Replace “Send Us a Message” with “Let’s Talk Transformation” 
+
+Move the 6 bullet points under “Our Services” to a smaller secondary button title “View Our Services”
+
+Include the line under “Let’s Talk Transformation” --- “No hard sells. Just a conversation about what’s possible.” 
+
+
+
+
+
