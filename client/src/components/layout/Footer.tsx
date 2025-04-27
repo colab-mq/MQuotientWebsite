@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
             <div className="mb-6">
-              <img src={logoPath} alt="mQuotient Logo" className="h-10 mb-4" />
+              <img src={logoPath} alt="m·quotient Logo" className="h-10 mb-4" />
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
               Empowering digital transformation through hyperautomation and innovative technology solutions.
@@ -116,13 +116,13 @@ const Footer = () => {
                 <div className="bg-background text-primary h-8 w-8 rounded-full flex items-center justify-center shadow-sm border border-border mr-3 flex-shrink-0 mt-0.5">
                   <FaEnvelope className="h-3 w-3" />
                 </div>
-                <span className="text-foreground/80">hi@mquotient.net</span>
+                <span className="text-foreground/80">hi@m·quotient.net</span>
               </li>
               <li className="flex items-center">
                 <span className="text-foreground/80 mr-4">Connect</span>
                 <div className="flex space-x-3">
                   <a 
-                    href="https://www.linkedin.com/company/mquotient/" 
+                    href="https://www.linkedin.com/company/m·quotient/" 
                     target="_blank" 
                     rel="noreferrer" 
                     className="bg-[#0077b5] text-white hover:bg-[#0077b5]/90 transition duration-200 h-8 w-8 rounded-full flex items-center justify-center shadow-sm"
@@ -147,7 +147,7 @@ const Footer = () => {
 
         <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-foreground/70 text-sm">&copy; {new Date().getFullYear()} mQuotient. All rights reserved.</p>
+            <p className="text-foreground/70 text-sm">&copy; {new Date().getFullYear()} m·quotient. All rights reserved.</p>
             {/* Footer links removed as requested */}
           </div>
         </div>

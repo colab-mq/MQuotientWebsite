@@ -59,7 +59,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       "serviceType": "Digital Transformation Services",
       "provider": {
         "@type": "Organization",
-        "name": "mQuotient"
+        "name": "m·quotient"
       },
       "areaServed": "Worldwide",
       "description": "Enterprise-grade hyperautomation and digital transformation services including AI-powered document processing, RPA, Microsoft Power Platform, and custom solutions.",
@@ -132,11 +132,11 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       pageSpecificSchema = {
         "@context": "https://schema.org",
         "@type": "JobPosting",
-        "title": "Join Our Team at mQuotient",
+        "title": "Join Our Team at m·quotient",
         "description": "Explore career opportunities in automation, AI, and digital transformation",
         "hiringOrganization": {
           "@type": "Organization",
-          "name": "mQuotient"
+          "name": "m·quotient"
         },
         "jobLocation": {
           "@type": "Place",
@@ -217,7 +217,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     // Basic meta tags
     ensureMetaTag('description', description);
     ensureMetaTag('keywords', keywords);
-    ensureMetaTag('author', 'mQuotient');
+    ensureMetaTag('author', 'm·quotient');
     ensureMetaTag('robots', 'index, follow');
     ensureMetaTag('viewport', 'width=device-width, initial-scale=1.0');
     
@@ -236,7 +236,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     ensurePropertyTag('og:url', currentUrl);
     ensurePropertyTag('og:type', type);
     ensurePropertyTag('og:image', image);
-    ensurePropertyTag('og:site_name', 'mQuotient');
+    ensurePropertyTag('og:site_name', 'm·quotient');
     ensurePropertyTag('og:locale', 'en_US');
     
     // Twitter Card meta tags
