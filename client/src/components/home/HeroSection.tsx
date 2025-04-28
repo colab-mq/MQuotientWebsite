@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 
 // Import partner icons
 import microsoftIcon from "/attached_assets/microsoft-icon-2048x2048-xtoxrveo.png";
@@ -15,7 +15,7 @@ const HeroSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.15
       }
     }
   };
@@ -26,120 +26,117 @@ const HeroSection = () => {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5
+        type: "spring",
+        stiffness: 100,
+        damping: 15
       }
     }
   };
 
   return (
-    <section className="relative overflow-hidden py-20 md:py-36">
-      {/* Enhanced background elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10 z-0" />
+    <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-32">
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background z-0" />
       
-      {/* More decorative elements with animated gradients */}
-      <div className="absolute top-20 right-0 w-96 h-96 bg-gradient-to-br from-primary/10 to-transparent rounded-full filter blur-3xl opacity-70 animate-pulse" style={{ animationDuration: '8s' }} />
-      <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-tr from-secondary/10 to-transparent rounded-full filter blur-3xl opacity-70 animate-pulse" style={{ animationDuration: '10s' }} />
-      <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-full filter blur-3xl opacity-50 animate-pulse" style={{ animationDuration: '12s' }} />
+      {/* Decorative elements with minimal gradient blurs */}
+      <div className="absolute top-40 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full filter blur-[100px] opacity-50" />
+      <div className="absolute -top-20 -left-20 w-[300px] h-[300px] bg-secondary/10 rounded-full filter blur-[80px] opacity-40" />
+      
+      {/* Grid pattern for design texture - inspired by Vercel */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBzdHJva2U9IiMyNDI0MjQiIHN0cm9rZS13aWR0aD0iMC4yNSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMzAgMHYzMG0wIDMwVjMwbTMwIDB6Ii8+PC9nPjwvc3ZnPg==')] opacity-[0.03] z-0" />
       
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
-          className="flex flex-col md:flex-row items-center gap-12"
+          className="flex flex-col items-center text-center"
           initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
-          <div className="md:w-1/2 mb-10 md:mb-0">
-            <motion.div
-              className="relative inline-block mb-6" 
-              variants={itemVariants}
-            >
-              <span className="px-4 py-1 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full text-sm font-medium text-primary">
-                Hyperautomation Experts
-              </span>
-            </motion.div>
-            
-            <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8"
-              variants={itemVariants}
-            >
-              Design the Future of Your <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Business</span> — Powered by Automation and AI
-            </motion.h1>
-            
-            <motion.p 
-              className="text-lg md:text-xl mb-10 text-muted-foreground leading-relaxed"
-              variants={itemVariants}
-            >
-              Expertise you can trust. Innovation you can measure.
-            </motion.p>
-            
-            <motion.div 
-              className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
-              variants={itemVariants}
-            >
-              <Link href="/services" className="btn-outline inline-flex items-center gap-2">
-                Explore Our Services 
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
-                Get Started
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </motion.div>
-            
-            <motion.div 
-              className="flex items-center gap-6 mt-12"
-              variants={itemVariants}
-            >
-              <div className="flex -space-x-3">
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center border-2 border-background overflow-hidden" title="Microsoft">
-                  <img src={microsoftIcon} alt="Microsoft" className="w-8 h-8 object-contain" />
-                </div>
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center border-2 border-background overflow-hidden" title="UiPath">
-                  <img src={uipathIcon} alt="UiPath" className="w-8 h-8 object-contain" />
-                </div>
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center border-2 border-background overflow-hidden" title="Blue Prism">
-                  <img src={blueprismIcon} alt="Blue Prism" className="w-8 h-8 object-contain" />
-                </div>
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center border-2 border-background overflow-hidden" title="GlyphX">
-                  <img src={glyphxIcon} alt="GlyphX" className="w-8 h-8 object-contain scale-[1.75]" />
-                </div>
-              </div>
-              <span className="text-sm text-muted-foreground">
-                Activating the True Potential of Leading Technologies
-              </span>
-            </motion.div>
-          </div>
+          <motion.div variants={itemVariants} className="flex items-center mb-6 space-x-2">
+            <span className="h-px w-5 bg-primary"></span>
+            <span className="text-sm font-medium tracking-wider text-primary uppercase">Hyperautomation Experts</span>
+            <span className="h-px w-5 bg-primary"></span>
+          </motion.div>
           
-          <motion.div 
-            className="md:w-1/2 flex justify-center"
+          <motion.h1 
+            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-8 max-w-5xl"
             variants={itemVariants}
           >
-            <div className="relative w-full max-w-md mx-auto">
-              {/* Animated gradient border */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary via-secondary to-primary rounded-xl blur-sm opacity-30 animate-gradient-xy"></div>
-              
-              {/* Decorative elements behind image */}
-              <div className="absolute -right-12 -bottom-12 w-64 h-64 bg-primary/5 rounded-full z-0"></div>
-              <div className="absolute -left-8 -top-8 w-40 h-40 bg-secondary/5 rounded-full z-0"></div>
-              
+            Design the Future of Your Business <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">—</span> Powered by Automation and AI
+          </motion.h1>
+          
+          <motion.p 
+            className="text-lg md:text-xl mb-12 text-muted-foreground max-w-2xl"
+            variants={itemVariants}
+          >
+            Expertise you can trust. Innovation you can measure.
+          </motion.p>
+          
+          <motion.div 
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-16"
+            variants={itemVariants}
+          >
+            <Link href="/contact" className="rounded-full bg-primary hover:bg-primary/90 text-white px-8 py-4 font-medium transition-all duration-300 flex items-center gap-2">
+              Get Started
+              <ChevronRight className="h-4 w-4 ml-1" />
+            </Link>
+            <Link href="/services" className="rounded-full border border-border hover:border-primary/50 bg-transparent px-8 py-4 font-medium transition-all duration-300 flex items-center gap-2">
+              Explore Services 
+              <ArrowRight className="h-4 w-4 ml-1" />
+            </Link>
+          </motion.div>
+          
+          {/* Featured image with modern styling */}
+          <motion.div 
+            className="w-full max-w-5xl mx-auto relative"
+            variants={itemVariants}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl transform rotate-1 scale-[1.02] blur-[2px] opacity-40"></div>
+            <div className="relative overflow-hidden rounded-2xl border border-white/5 shadow-xl">
               <img 
                 src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                alt="Business professional working on digital transformation solutions" 
-                className="relative rounded-xl shadow-xl w-full h-auto z-10 object-cover border border-border/40" 
-                style={{ maxHeight: "450px" }}
+                alt="Digital transformation solutions" 
+                className="w-full h-auto object-cover object-center"
               />
               
-              {/* Floating info card */}
-              <div className="absolute -bottom-6 -left-6 bg-background/95 backdrop-blur-sm p-4 rounded-lg shadow-lg border border-border/60 z-20">
+              {/* Overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-70"></div>
+              
+              {/* Floating stat cards */}
+              <div className="absolute bottom-8 left-8 bg-background/80 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/10">
                 <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white font-bold">
+                  <div className="h-12 w-12 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white font-bold text-lg">
                     7+
                   </div>
                   <div>
-                    <p className="text-xs text-muted-foreground">Years of Excellence</p>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide">Years of Excellence</p>
                     <p className="text-sm font-medium">In Hyperautomation</p>
                   </div>
                 </div>
+              </div>
+            </div>
+          </motion.div>
+          
+          {/* Partner logos */}
+          <motion.div 
+            className="flex flex-col items-center mt-16"
+            variants={itemVariants}
+          >
+            <p className="text-sm text-muted-foreground mb-6">
+              Activating the True Potential of Leading Technologies
+            </p>
+            <div className="flex items-center gap-8 flex-wrap justify-center">
+              <div className="w-16 h-16 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
+                <img src={microsoftIcon} alt="Microsoft" className="w-10 h-10 object-contain" />
+              </div>
+              <div className="w-16 h-16 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
+                <img src={uipathIcon} alt="UiPath" className="w-10 h-10 object-contain" />
+              </div>
+              <div className="w-16 h-16 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
+                <img src={blueprismIcon} alt="Blue Prism" className="w-10 h-10 object-contain" />
+              </div>
+              <div className="w-16 h-16 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
+                <img src={glyphxIcon} alt="GlyphX" className="w-10 h-10 object-contain scale-[1.75]" />
               </div>
             </div>
           </motion.div>
