@@ -64,7 +64,7 @@ const MobileNav = ({ isOpen, closeMenu }: MobileNavProps) => {
         <>
           {/* Dark overlay */}
           <motion.div 
-            className="fixed inset-0 bg-foreground/30 backdrop-blur-sm z-40 lg:hidden"
+            className="fixed inset-0 bg-foreground/30 dark:bg-background/50 backdrop-blur-sm z-40 lg:hidden"
             initial="hidden"
             animate="visible"
             exit="exit"
@@ -74,7 +74,7 @@ const MobileNav = ({ isOpen, closeMenu }: MobileNavProps) => {
           
           {/* Mobile menu slide in */}
           <motion.div 
-            className="fixed top-0 right-0 bottom-0 w-3/4 max-w-sm bg-background z-50 lg:hidden shadow-xl overflow-auto flex flex-col"
+            className="fixed top-0 right-0 bottom-0 w-3/4 max-w-sm bg-background dark:bg-background/95 dark:border-l dark:border-border z-50 lg:hidden shadow-xl overflow-auto flex flex-col"
             initial="hidden"
             animate="visible"
             exit="exit"

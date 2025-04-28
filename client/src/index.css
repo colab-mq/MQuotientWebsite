@@ -64,18 +64,35 @@
 }
 
 @layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+  
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-300;
     font-family: 'Inter', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight;
     font-family: 'Inter', sans-serif;
+  }
+  
+  /* Enhanced dark mode styles */
+  .dark body {
+    @apply bg-background text-foreground;
+  }
+  
+  .dark img {
+    @apply brightness-90;
   }
 }
 

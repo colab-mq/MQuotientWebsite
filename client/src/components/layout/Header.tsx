@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import MobileNav from "./MobileNav";
 import logoPath from "../../assets/mquotient-logo.png"; // TODO: Update to m·quotient logo
 
@@ -31,7 +32,7 @@ const Header = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled 
-        ? 'bg-background/95 backdrop-blur-xl shadow-sm py-3' 
+        ? 'bg-background/95 dark:bg-background/80 backdrop-blur-xl shadow-sm dark:shadow-md dark:shadow-black/10 py-3' 
         : 'bg-transparent py-6'
     }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -99,10 +100,12 @@ const Header = () => {
                 Contact Us
               </Button>
             </Link>
+            <ThemeToggle />
           </nav>
 
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden">
+          {/* Mobile and Theme Controls */}
+          <div className="lg:hidden flex items-center gap-2">
+            <ThemeToggle />
             <Button 
               variant="ghost" 
               size="icon" 
