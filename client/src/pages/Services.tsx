@@ -8,9 +8,9 @@ import glyphXLogo from "../assets/partners/GLYPHX.png";
 import microsoftLogo from "../assets/partners/Microsoft_logo.png";
 import powerPlatformLogo from "../assets/partners/Microsoft_Power_Platform_logo.svg.png";
 import uiPathLogo from "../assets/partners/UiPath_2019_Corporate_Logo.png";
-import awsLogo from "../assets/partners/aws-logo.png";
+import awsLogo from "../assets/partners/aws-logo-new.png";
 import azureLogo from "../assets/partners/azure-logo.png";
-import gcpLogo from "../assets/partners/gcp-logo.png";
+import gcpLogo from "../assets/partners/gcp-logo-new.png";
 
 const Services = () => {
   // Update page title for SEO
@@ -32,9 +32,9 @@ const Services = () => {
       { src: powerPlatformLogo, alt: "Microsoft Power Platform", width: 120 }
     ],
     "cloud": [
-      { src: azureLogo, alt: "Microsoft Azure", width: 140 },
-      { src: awsLogo, alt: "Amazon Web Services", width: 140 },
-      { src: gcpLogo, alt: "Google Cloud Platform", width: 140 }
+      { src: azureLogo, alt: "Microsoft Azure", width: 100 },
+      { src: awsLogo, alt: "Amazon Web Services", width: 100 },
+      { src: gcpLogo, alt: "Google Cloud Platform", width: 120 }
     ]
   };
   
@@ -205,7 +205,7 @@ const Services = () => {
                                                  service.title === "Robotic Process Automation (RPA)" ? "rpa" : 
                                                  service.title === "Cloud Services" ? "cloud" :
                                                  "power-platform"].length > 1 ? 's' : ''}</h3>
-                    <div className="flex flex-wrap items-center gap-6">
+                    <div className={`flex items-center ${service.title === "Cloud Services" ? "justify-between w-full max-w-md" : "flex-wrap gap-6"}`}>
                       {partnerLogos[service.title === "AI-Powered Data Entry Workforce" ? "ai-data-entry" : 
                                     service.title === "Robotic Process Automation (RPA)" ? "rpa" : 
                                     service.title === "Cloud Services" ? "cloud" :
@@ -215,7 +215,7 @@ const Services = () => {
                             src={logo.src} 
                             alt={logo.alt} 
                             className="object-contain h-8" 
-                            style={{ width: `${logo.width}px`, maxHeight: '40px' }} 
+                            style={{ width: `${logo.width}px`, maxHeight: '36px' }} 
                           />
                         </div>
                       ))}
