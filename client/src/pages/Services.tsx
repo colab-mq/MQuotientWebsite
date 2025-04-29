@@ -1,6 +1,6 @@
-import { FaRobot, FaBolt, FaChartLine, FaCode, FaVial, FaHeadset, FaCheckCircle, FaArrowRight, FaBrain, FaCloud } from "react-icons/fa";
 import { Link } from "wouter";
 import { useEffect } from "react";
+import { FaRobot, FaBolt, FaCode, FaHeadset, FaCheckCircle, FaArrowRight, FaBrain, FaCloud, FaCog } from "react-icons/fa";
 
 // Import partner logos
 import bluePrismLogo from "../assets/partners/Blue_Prism_Logo-700x126.png";
@@ -8,6 +8,9 @@ import glyphXLogo from "../assets/partners/GLYPHX.png";
 import microsoftLogo from "../assets/partners/Microsoft_logo.png";
 import powerPlatformLogo from "../assets/partners/Microsoft_Power_Platform_logo.svg.png";
 import uiPathLogo from "../assets/partners/UiPath_2019_Corporate_Logo.png";
+import awsLogo from "../assets/partners/aws-logo.png";
+import azureLogo from "../assets/partners/azure-logo.png";
+import gcpLogo from "../assets/partners/gcp-logo.png";
 
 const Services = () => {
   // Update page title for SEO
@@ -27,6 +30,11 @@ const Services = () => {
     "power-platform": [
       { src: microsoftLogo, alt: "Microsoft", width: 140 },
       { src: powerPlatformLogo, alt: "Microsoft Power Platform", width: 120 }
+    ],
+    "cloud": [
+      { src: azureLogo, alt: "Microsoft Azure", width: 140 },
+      { src: awsLogo, alt: "Amazon Web Services", width: 140 },
+      { src: gcpLogo, alt: "Google Cloud Platform", width: 140 }
     ]
   };
   
@@ -92,27 +100,47 @@ const Services = () => {
       ]
     },
     {
-      title: "Cloud & AI Services",
-      description: "Harness the power of cloud computing and artificial intelligence to transform, streamline, and secure your business with our tailored solutions.",
+      title: "Cloud Services",
+      description: "Harness the power of cloud computing to transform, streamline, and secure your business with our tailored solutions supporting Azure, AWS, and Google Cloud.",
       icon: <FaCloud />,
       features: [
-        "Cloud Assessment and Migration Services",
-        "Cloud Security & Compliance",
-        "AI Strategy & Roadmap Development",
-        "AI-Driven Productivity Tools",
-        "Data & Insights Management",
-        "Intelligent Automation Solutions"
+        "Cloud Assessment as a Service",
+        "Seamless Cloud Migration",
+        "Cloud Security & Governance",
+        "Deployment & Network Services",
+        "Database & DevOps Support",
+        "Industry-Focused Cloud Solutions"
       ],
       benefits: [
         "Reduced infrastructure costs",
         "Enhanced scalability and flexibility",
-        "Improved data-driven decision making",
+        "Comprehensive data protection & compliance",
         "Accelerated innovation and time-to-market",
-        "Industry-specific custom solutions"
+        "Minimized disruption during transitions"
       ]
     },
     {
-      title: "Implementation & Support",
+      title: "AI & Intelligent Automation",
+      description: "Accelerate innovation and productivity through AI and automation solutions designed to deliver business outcomes, optimize processes, and enable data-driven decision-making.",
+      icon: <FaMicrochip />,
+      features: [
+        "AI Strategy & Transformation Roadmap",
+        "Intelligent Automation with NLP and RPA",
+        "AI for Employee Productivity",
+        "Data Analytics & Machine Learning",
+        "Proof of Concepts & Prototyping",
+        "Industry-Specific AI Use Cases"
+      ],
+      benefits: [
+        "Increased operational efficiency",
+        "Data-driven decision making",
+        "Enhanced customer experiences",
+        "Reduced manual workload",
+        "Competitive advantage through innovation"
+      ]
+    },
+    {
+      title: "Managed Services",
       description: "We provide comprehensive implementation services and ongoing support to ensure your automation solutions continue to deliver value.",
       icon: <FaHeadset />,
       features: [
