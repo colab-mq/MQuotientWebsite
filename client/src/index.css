@@ -15,25 +15,25 @@
   --card-foreground: 233 11% 19%;
   --border: 240 6% 90%;
   --input: 240 6% 90%;
-  --primary: 267 83% 60%; /* Purple from Lusion inspiration */
-  --primary-dark: 267 83% 54%;
-  --primary-light: 267 83% 66%;
+  --primary: 220 98% 25%; /* Deep Navy Blue #01257D */
+  --primary-dark: 220 98% 20%;
+  --primary-light: 220 98% 30%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 221 83% 53%; /* Royal Blue from inspiration */
-  --secondary-dark: 221 83% 47%;
-  --secondary-light: 221 83% 59%;
-  --secondary-foreground: 0 0% 100%;
-  --accent: 246 100% 77%;
+  --secondary: 180 100% 50%; /* Electric Blue #00FFFF */
+  --secondary-dark: 180 100% 45%;
+  --secondary-light: 180 100% 55%;
+  --secondary-foreground: 0 0% 0%;
+  --accent: 180 100% 50%;
   --accent-foreground: 233 11% 19%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 210 40% 98%;
-  --ring: 267 83% 60%;
+  --ring: 220 98% 25%;
   --radius: 0.5rem;
-  --chart-1: 267 83% 60%;
-  --chart-2: 221 83% 53%;
-  --chart-3: 246 100% 77%;
-  --chart-4: 263 70% 50%;
-  --chart-5: 221 70% 60%;
+  --chart-1: 220 98% 25%;
+  --chart-2: 180 100% 50%;
+  --chart-3: 210 100% 60%;
+  --chart-4: 220 80% 40%;
+  --chart-5: 190 90% 50%;
 }
 
 .dark {
@@ -47,19 +47,19 @@
   --card-foreground: 210 20% 98%;
   --border: 233 20% 18%;
   --input: 233 20% 18%;
-  --primary: 267 83% 66%;
-  --primary-dark: 267 83% 60%;
-  --primary-light: 267 83% 72%;
+  --primary: 220 98% 30%; /* Deep Navy Blue - lighter for dark mode */
+  --primary-dark: 220 98% 25%;
+  --primary-light: 220 98% 35%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 221 83% 60%;
-  --secondary-dark: 221 83% 54%;
-  --secondary-light: 221 83% 66%;
-  --secondary-foreground: 0 0% 100%;
-  --accent: 246 100% 77%;
+  --secondary: 180 100% 60%; /* Electric Blue - brighter for dark mode */
+  --secondary-dark: 180 100% 55%;
+  --secondary-light: 180 100% 65%;
+  --secondary-foreground: 0 0% 0%;
+  --accent: 180 100% 60%;
   --accent-foreground: 210 20% 98%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 210 20% 98%;
-  --ring: 267 83% 60%;
+  --ring: 220 98% 30%;
   --radius: 0.5rem;
 }
 
@@ -113,12 +113,12 @@
   /* Buttons */
   .btn-primary {
     @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors duration-200 
-      bg-gradient-to-r from-primary to-secondary text-white hover:opacity-90 px-6 py-3 shadow-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+      bg-gradient-to-r from-primary to-secondary text-white hover:from-primary-dark hover:to-secondary-dark px-6 py-3 shadow-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
   }
 
   .btn-secondary {
     @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors duration-200
-      bg-secondary text-white hover:bg-secondary-dark px-6 py-3 shadow-md focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2;
+      bg-secondary text-black hover:bg-secondary-dark px-6 py-3 shadow-md focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2;
   }
 
   .btn-outline {
