@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import MobileNav from "./MobileNav";
-import logoPath from "../../assets/mquotient-logo.png"; // TODO: Update to m·quotient logo
+import logoPath from "../../assets/mquotient-logo-new.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);

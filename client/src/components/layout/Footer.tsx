@@ -5,7 +5,7 @@ import {
   FaEnvelope,
   FaWhatsapp
 } from "react-icons/fa";
-import logoPath from "../../assets/mquotient-logo.png"; // TODO: Update to m·quotient logo
+import logoPath from "../../assets/mquotient-logo-new.png";
 
 const Footer = () => {
   return (
