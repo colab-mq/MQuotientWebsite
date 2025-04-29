@@ -122,7 +122,7 @@ const Services = () => {
     {
       title: "AI & Intelligent Automation",
       description: "Accelerate innovation and productivity through AI and automation solutions designed to deliver business outcomes, optimize processes, and enable data-driven decision-making.",
-      icon: <FaMicrochip />,
+      icon: <FaCode />,
       features: [
         "AI Strategy & Transformation Roadmap",
         "Intelligent Automation with NLP and RPA",
@@ -198,14 +198,17 @@ const Services = () => {
                 {/* Partner logos */}
                 {(service.title === "AI-Powered Data Entry Workforce" || 
                   service.title === "Robotic Process Automation (RPA)" || 
-                  service.title === "Microsoft Power Platform") && (
+                  service.title === "Microsoft Power Platform" ||
+                  service.title === "Cloud Services") && (
                   <div className="mb-6">
                     <h3 className="text-sm font-medium text-muted-foreground mb-3">Technology Partner{partnerLogos[service.title === "AI-Powered Data Entry Workforce" ? "ai-data-entry" : 
                                                  service.title === "Robotic Process Automation (RPA)" ? "rpa" : 
+                                                 service.title === "Cloud Services" ? "cloud" :
                                                  "power-platform"].length > 1 ? 's' : ''}</h3>
                     <div className="flex flex-wrap items-center gap-6">
                       {partnerLogos[service.title === "AI-Powered Data Entry Workforce" ? "ai-data-entry" : 
                                     service.title === "Robotic Process Automation (RPA)" ? "rpa" : 
+                                    service.title === "Cloud Services" ? "cloud" :
                                     "power-platform"].map((logo, i) => (
                         <div key={i} className="bg-white p-2 rounded-md shadow-sm border border-gray-100">
                           <img 

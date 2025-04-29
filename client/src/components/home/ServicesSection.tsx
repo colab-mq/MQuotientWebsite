@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { FaRobot, FaBolt, FaChartLine, FaCode, FaVial, FaHeadset, FaCheckCircle, FaBrain, FaStar } from "react-icons/fa";
+import { FaRobot, FaBolt, FaChartLine, FaCode, FaVial, FaHeadset, FaCheckCircle, FaBrain, FaStar, FaCloud } from "react-icons/fa";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
@@ -43,15 +43,39 @@ const ServicesSection = () => {
       ]
     },
     {
-      title: "Cloud & AI Services",
-      description: "Harness the power of cloud computing and artificial intelligence to transform, streamline, and secure your business with our tailored solutions.",
+      title: "Cloud Services",
+      description: "Harness the power of cloud computing to transform, streamline, and secure your business with our tailored solutions supporting Azure, AWS, and Google Cloud.",
+      icon: <FaCloud />,
+      features: [
+        "Cloud Assessment as a Service",
+        "Seamless Cloud Migration",
+        "Cloud Security & Governance",
+        "Database & DevOps Support",
+        "Industry-Focused Cloud Solutions"
+      ]
+    },
+    {
+      title: "AI & Intelligent Automation",
+      description: "Accelerate innovation and productivity through AI and automation solutions designed to deliver business outcomes, optimize processes, and enable data-driven decision-making.",
       icon: <FaCode />,
       features: [
-        "Cloud Assessment and Migration Services",
-        "AI Strategy & Roadmap Development",
-        "Data & Insights Management",
-        "Intelligent Automation Solutions",
-        "Industry-Specific Cloud Solutions"
+        "AI Strategy & Transformation Roadmap",
+        "Intelligent Automation with NLP and RPA",
+        "AI for Employee Productivity",
+        "Data Analytics & Machine Learning",
+        "Proof of Concepts & Prototyping"
+      ]
+    },
+    {
+      title: "Managed Services",
+      description: "We provide comprehensive implementation services and ongoing support to ensure your automation solutions continue to deliver value.",
+      icon: <FaHeadset />,
+      features: [
+        "Solution implementation and deployment",
+        "User training and knowledge transfer",
+        "Ongoing maintenance and support",
+        "Performance monitoring and support",
+        "System upgrades and enhancements"
       ]
     }
   ];
