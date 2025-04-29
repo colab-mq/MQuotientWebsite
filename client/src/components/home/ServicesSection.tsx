@@ -13,7 +13,9 @@ const ServicesSection = () => {
       features: [
         "99%+ accuracy with automated validation",
         "80% reduction in manual processing tasks",
-        "Seamless integration with existing systems"
+        "Seamless integration with existing systems",
+        "Process analysis and optimization",
+        "System integration services"
       ]
     },
     {
@@ -23,7 +25,9 @@ const ServicesSection = () => {
       features: [
         "Process analysis and optimization",
         "Attended and unattended automation",
-        "UiPath and Blue Prism expertise"
+        "UiPath and Blue Prism expertise",
+        "Test automation and quality assurance",
+        "Implementation of process improvements"
       ]
     },
     {
@@ -33,37 +37,21 @@ const ServicesSection = () => {
       features: [
         "Custom Power App development",
         "Workflow automation with Power Automate",
-        "Business intelligence with Power BI"
-      ]
-    },
-    {
-      title: "Process Optimization",
-      description: "We analyze your business processes to identify optimization opportunities and implement solutions that improve efficiency and reduce costs.",
-      icon: <FaChartLine />,
-      features: [
-        "Process analysis and mapping",
-        "Identification of automation opportunities",
-        "Implementation of process improvements"
-      ]
-    },
-    {
-      title: "Custom Development",
-      description: "Our skilled developers create tailored solutions to address unique business challenges that off-the-shelf software can't solve.",
-      icon: <FaCode />,
-      features: [
-        "Web and mobile application development",
-        "System integration services",
+        "Business intelligence with Power BI",
+        "Custom development for unique challenges",
         "API development and integration"
       ]
     },
     {
-      title: "Test Automation",
-      description: "We implement automated testing solutions to improve software quality, reduce testing time, and accelerate your development cycles.",
-      icon: <FaVial />,
+      title: "Cloud & AI Services",
+      description: "Harness the power of cloud computing and artificial intelligence to transform, streamline, and secure your business with our tailored solutions.",
+      icon: <FaCode />,
       features: [
-        "Test case development and execution",
-        "UiPath Test Suite implementation",
-        "Continuous integration support"
+        "Cloud Assessment and Migration Services",
+        "AI Strategy & Roadmap Development",
+        "Data & Insights Management",
+        "Intelligent Automation Solutions",
+        "Industry-Specific Cloud Solutions"
       ]
     }
   ];

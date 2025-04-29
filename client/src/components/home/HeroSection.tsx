@@ -5,7 +5,7 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 // Import partner icons
 import microsoftIcon from "/attached_assets/microsoft-icon-2048x2048-xtoxrveo.png";
 import uipathIcon from "/attached_assets/uipathICON.png";
-import blueprismIcon from "/attached_assets/BluePrism.png";
+import blueprismIcon from "/attached_assets/BlusePrismTransparent.png";
 import glyphxIcon from "/attached_assets/GlyphxIcon.jpg";
 
 const HeroSection = () => {
@@ -122,8 +122,9 @@ const HeroSection = () => {
             className="flex flex-col items-center mt-16"
             variants={itemVariants}
           >
-            <p className="text-sm text-muted-foreground mb-6">
-              Activating the True Potential of Leading Technologies
+            <p className="text-sm text-muted-foreground mb-6 relative inline-block">
+              <span>Activating the True Potential of Leading Technologies</span>
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary"></span>
             </p>
             <div className="flex items-center gap-8 flex-wrap justify-center">
               <div className="w-16 h-16 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
