@@ -102,9 +102,8 @@ const ContactSection = () => {
     "AI-Powered Data Entry Workforce",
     "Robotic Process Automation",
     "Microsoft Power Platform",
-    "Process Optimization",
-    "Custom Development",
-    "Test Automation"
+    "Cloud & AI Services",
+    "Implementation & Support"
   ];
   
   const serviceAreas = [

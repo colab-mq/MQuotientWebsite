@@ -27,11 +27,6 @@ const Services = () => {
     "power-platform": [
       { src: microsoftLogo, alt: "Microsoft", width: 140 },
       { src: powerPlatformLogo, alt: "Microsoft Power Platform", width: 120 }
-    ],
-    "cloud-ai": [
-      { src: microsoftLogo, alt: "Microsoft Azure", width: 140 },
-      { src: awsLogo, alt: "Amazon Web Services", width: 140 },
-      { src: gcpLogo, alt: "Google Cloud Platform", width: 140 }
     ]
   };
   
