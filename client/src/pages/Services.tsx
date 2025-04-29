@@ -1,4 +1,4 @@
-import { FaRobot, FaBolt, FaChartLine, FaCode, FaVial, FaHeadset, FaCheckCircle, FaArrowRight, FaBrain } from "react-icons/fa";
+import { FaRobot, FaBolt, FaChartLine, FaCode, FaVial, FaHeadset, FaCheckCircle, FaArrowRight, FaBrain, FaCloud } from "react-icons/fa";
 import { Link } from "wouter";
 import { useEffect } from "react";
 
@@ -27,6 +27,11 @@ const Services = () => {
     "power-platform": [
       { src: microsoftLogo, alt: "Microsoft", width: 140 },
       { src: powerPlatformLogo, alt: "Microsoft Power Platform", width: 120 }
+    ],
+    "cloud-ai": [
+      { src: microsoftLogo, alt: "Microsoft Azure", width: 140 },
+      { src: awsLogo, alt: "Amazon Web Services", width: 140 },
+      { src: gcpLogo, alt: "Google Cloud Platform", width: 140 }
     ]
   };
   
@@ -59,7 +64,7 @@ const Services = () => {
         "Process analysis and optimization",
         "Attended and unattended automation",
         "UiPath and Blue Prism expertise",
-        "Automation of back-office processes",
+        "Test automation and quality assurance",
         "Integration with existing systems",
         "Scalable RPA implementation"
       ],
@@ -80,8 +85,8 @@ const Services = () => {
         "Workflow automation with Power Automate",
         "Business intelligence with Power BI",
         "Dataverse integration",
-        "Microsoft 365 integration",
-        "Low-code solution development"
+        "Custom development for unique challenges",
+        "API development and integration"
       ],
       benefits: [
         "Rapid application development",
@@ -92,63 +97,23 @@ const Services = () => {
       ]
     },
     {
-      title: "Process Optimization",
-      description: "We analyze your business processes to identify optimization opportunities and implement solutions that improve efficiency and reduce costs.",
-      icon: <FaChartLine />,
+      title: "Cloud & AI Services",
+      description: "Harness the power of cloud computing and artificial intelligence to transform, streamline, and secure your business with our tailored solutions.",
+      icon: <FaCloud />,
       features: [
-        "Process analysis and mapping",
-        "Identification of automation opportunities",
-        "Implementation of process improvements",
-        "Process standardization",
-        "Performance metrics and KPIs",
-        "Continuous improvement methodologies"
+        "Cloud Assessment and Migration Services",
+        "Cloud Security & Compliance",
+        "AI Strategy & Roadmap Development",
+        "AI-Driven Productivity Tools",
+        "Data & Insights Management",
+        "Intelligent Automation Solutions"
       ],
       benefits: [
-        "Streamlined operations",
-        "Elimination of bottlenecks",
-        "Reduced waste and inefficiency",
-        "Improved resource utilization",
-        "Enhanced process visibility"
-      ]
-    },
-    {
-      title: "Custom Development",
-      description: "Our skilled developers create tailored solutions to address unique business challenges that off-the-shelf software can't solve.",
-      icon: <FaCode />,
-      features: [
-        "Web and mobile application development",
-        "System integration services",
-        "API development and integration",
-        "Database design and optimization",
-        "Cloud-based solutions",
-        "Enterprise application development"
-      ],
-      benefits: [
-        "Tailored solutions for specific business needs",
-        "Seamless integration with existing systems",
-        "Improved productivity and efficiency",
-        "Enhanced user experience",
-        "Competitive advantage"
-      ]
-    },
-    {
-      title: "Test Automation",
-      description: "We implement automated testing solutions to improve software quality, reduce testing time, and accelerate your development cycles.",
-      icon: <FaVial />,
-      features: [
-        "Test case development and execution",
-        "UiPath Test Suite implementation",
-        "Continuous integration support",
-        "Regression testing automation",
-        "Performance testing",
-        "Quality assurance processes"
-      ],
-      benefits: [
-        "Faster time to market",
-        "Improved software quality",
-        "Reduced testing costs",
-        "Consistent and reliable testing",
-        "Early detection of defects"
+        "Reduced infrastructure costs",
+        "Enhanced scalability and flexibility",
+        "Improved data-driven decision making",
+        "Accelerated innovation and time-to-market",
+        "Industry-specific custom solutions"
       ]
     },
     {

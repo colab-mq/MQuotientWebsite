@@ -22,7 +22,7 @@ export const jobListings: JobListing[] = [
     id: "developer-001",
     title: "Developer",
     location: "Remote (India or Philippines)",
-    type: "Full-time",
+    type: "Consultant",
     description: "This role is critical for building, testing, deploying, and supporting the automation or enhancement solutions. Depending on the specific project, the required technology expertise will vary, focusing on either UiPath RPA, Blue Prism RPA, or Microsoft Power Platform.",
     responsibilities: [
       "Build the solution/product based on the agreed client requirement or design captured from the Business Requirement Document",
@@ -49,42 +49,10 @@ export const jobListings: JobListing[] = [
     active: true
   },
   {
-    id: "project-manager-001",
-    title: "Project Manager",
-    location: "Remote (India or Philippines)",
-    type: "Full-time",
-    description: "The Project Manager is responsible for the overall planning, execution, and closure of the automation projects, coordinating the delivery team and ensuring successful outcomes.",
-    responsibilities: [
-      "Manage overall project execution",
-      "Develop project timeline",
-      "Generate progress reports (e.g., End of Week Progress Report)",
-      "Mitigate Risks and Issues",
-      "Secure signoffs per milestone and decisions",
-      "Oversee the overall project delivery",
-      "Work together with other project team members, including Developers and Business Analysts",
-      "Coordinate any change to the SOW using the Project Change Request Form",
-      "Collaborate to adjust project schedules and redeploy resources expeditiously in the event of schedule delays",
-      "Meet at the end of the project to bring to closure and resolve any open project issues"
-    ],
-    requirements: [
-      "Experience in managing technology or automation projects",
-      "Ability to develop plans, track progress, and report status",
-      "Strong risk management and problem-solving skills",
-      "Ability to facilitate collaboration and manage stakeholders"
-    ],
-    desirable: [
-      "PMP or Prince2 certification",
-      "Experience with Agile methodologies",
-      "Experience in RPA or automation projects",
-      "Strong communication skills and ability to work across time zones"
-    ],
-    active: true
-  },
-  {
     id: "business-analyst-001",
     title: "Business Analyst",
     location: "Remote (India or Philippines)",
-    type: "Full-time",
+    type: "Consultant",
     description: "The Business Analyst works closely with stakeholders to understand processes, identify automation opportunities, and define the requirements for the automation solutions.",
     responsibilities: [
       "Conduct side by side discussions with Subject Matter Experts (SMEs) of the business",
@@ -111,60 +79,36 @@ export const jobListings: JobListing[] = [
     active: true
   },
   {
-    id: "solution-engineer-001",
-    title: "Solution Engineer / System Architect",
-    location: "Remote (India or Philippines)",
+    id: "technical-presales-lead-001",
+    title: "Technical Pre-sales Lead",
+    location: "Manila, Philippines",
     type: "Full-time",
-    description: "The Solution Engineer/System Architect is responsible for configuring the supporting IT infrastructure, ensuring environments are set up correctly, and collaborating with client's IT teams on technical prerequisites.",
+    description: "We are looking for a Technical Pre-sales Lead to drive business development, lead generation, and client acquisition for our automation and digital transformation solutions.",
     responsibilities: [
-      "Configuring the IT infrastructure that supports the automation solutions (specifically for RPA solutions)",
-      "Ensuring environments (development, test, production) are set up correctly",
-      "Understanding infrastructure requirements related to servers, databases, networking, firewall adjustments, and security settings",
-      "Collaborating with client's IT teams on technical prerequisites",
-      "Working together with other project team members like Developers"
+      "Identify and pursue new market opportunities, including target account profiling and customized outreach",
+      "Design and execute lead generation strategies, including digital campaigns, outbound outreach, and event participation",
+      "Work closely with mQuotient (MQ) executives to align business development initiatives with company objectives",
+      "Collaborate with MQ's technical teams to scope, design, and deliver proof of concepts (POCs) and demos based on customer requirements",
+      "Drive the pre-sales cycle end-to-end: from customer discovery and requirements gathering to solution positioning and deal closure",
+      "Coordinate and manage client engagement, including communication, documentation, and handover to onboarding teams",
+      "Represent MQ at industry forums, partner events, and customer meetings, helping position the firm as a thought leader",
+      "Actively contribute to sales forecasting, pipeline management, and reporting of pre-sales metrics",
+      "Source, organize, and analyze relevant market and customer data to support lead prioritization and segmentation",
+      "Work with marketing to develop and deliver content and campaigns that support demand generation and market education"
     ],
     requirements: [
-      "Expertise in setting up and configuring IT infrastructure for automation platforms",
-      "Knowledge of server, database, and network configurations",
-      "Understanding of security settings and firewall requirements",
-      "Experience with virtual machines (VMs) and remote access technologies (VPN)"
+      "Proven experience in business development, particularly in SaaS products and professional services",
+      "Strong track record in lead generation, pre-sales, and client acquisition",
+      "Experience in data-driven outreach campaigns and sales enablement activities",
+      "Demonstrated ability to work collaboratively with cross-functional technical and executive teams",
+      "Exceptional written and verbal communication skills in English",
+      "Strong analytical mindset with the ability to gather, interpret, and act on market and customer data"
     ],
     desirable: [
-      "Experience with cloud platforms (Azure, AWS)",
-      "Knowledge of containerization technologies",
-      "Experience with DevOps practices",
-      "Understanding of IT governance and compliance requirements"
-    ],
-    active: true
-  },
-  {
-    id: "data-analyst-001",
-    title: "Data Analyst",
-    location: "Remote (India or Philippines)",
-    type: "Full-time",
-    description: "We are looking for a Data Analyst to join our team and help transform raw data into insights that drive business solutions. The successful candidate will assess business needs and create reports and visualizations to help organizations make better decisions.",
-    responsibilities: [
-      "Interpret data, analyze results using statistical techniques",
-      "Develop and implement databases, data collection systems, and other strategies for data acquisition",
-      "Identify, analyze, and interpret trends or patterns in complex data sets",
-      "Filter and clean data by reviewing reports and performance indicators",
-      "Work with management to prioritize business and information needs",
-      "Locate and define new process improvement opportunities"
-    ],
-    requirements: [
-      "Proven experience as a Data Analyst or similar role",
-      "Technical expertise regarding data models, database design, and data mining",
-      "Strong knowledge of and experience with reporting packages (Power BI, Tableau)",
-      "Knowledge of SQL and experience working with relational databases",
-      "Experience with statistical analysis tools (R, Python, SPSS)",
-      "Strong analytical skills with the ability to collect, organize, and disseminate data"
-    ],
-    desirable: [
-      "Knowledge of big data technologies (Hadoop, Spark)",
-      "Experience with data visualization tools",
-      "Understanding of machine learning and AI concepts",
-      "Experience in data cleaning and data warehousing",
-      "Knowledge of business intelligence methodologies"
+      "Understanding of modern technology stacks, cloud services, and AI-driven solutions",
+      "Experience with automation technologies such as RPA, Power Platform, or AI/ML solutions",
+      "Background in consulting or professional services",
+      "Experience in the APAC market"
     ],
     active: true
   }
