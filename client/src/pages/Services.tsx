@@ -8,6 +8,8 @@ import glyphXLogo from "../assets/partners/GLYPHX.png";
 import microsoftLogo from "../assets/partners/Microsoft_logo.png";
 import powerPlatformLogo from "../assets/partners/Microsoft_Power_Platform_logo.svg.png";
 import uiPathLogo from "../assets/partners/UiPath_2019_Corporate_Logo.png";
+import automationAnywhereLogo from "../assets/partners/automation-anywhere-logo.png";
+import powerAutomateLogo from "../assets/partners/power-automate-logo.png";
 import awsLogo from "../assets/partners/aws-logo-new.png";
 import azureLogo from "../assets/partners/azure-logo.png";
 import gcpLogo from "../assets/partners/gcp-logo-new.png";
@@ -24,8 +26,10 @@ const Services = () => {
       { src: glyphXLogo, alt: "GlyphX", width: 160 }
     ],
     "rpa": [
-      { src: uiPathLogo, alt: "UiPath", width: 140 },
-      { src: bluePrismLogo, alt: "Blue Prism", width: 140 }
+      { src: uiPathLogo, alt: "UiPath", width: 80 },
+      { src: bluePrismLogo, alt: "Blue Prism", width: 80 },
+      { src: automationAnywhereLogo, alt: "Automation Anywhere", width: 100 },
+      { src: powerAutomateLogo, alt: "Power Automate", width: 80 }
     ],
     "power-platform": [
       { src: microsoftLogo, alt: "Microsoft", width: 140 },
@@ -201,11 +205,8 @@ const Services = () => {
                   service.title === "Microsoft Power Platform" ||
                   service.title === "Cloud Services") && (
                   <div className="mb-6">
-                    <h3 className="text-sm font-medium text-muted-foreground mb-3">Technology Partner{partnerLogos[service.title === "AI-Powered Data Entry Workforce" ? "ai-data-entry" : 
-                                                 service.title === "Robotic Process Automation (RPA)" ? "rpa" : 
-                                                 service.title === "Cloud Services" ? "cloud" :
-                                                 "power-platform"].length > 1 ? 's' : ''}</h3>
-                    <div className={`flex items-center ${service.title === "Cloud Services" ? "justify-between w-full max-w-md" : "flex-wrap gap-6"}`}>
+                    <h3 className="text-sm font-medium text-muted-foreground mb-3">Technology Stack</h3>
+                    <div className={`flex items-center ${service.title === "Cloud Services" || service.title === "Robotic Process Automation (RPA)" ? "justify-between w-full max-w-md" : "flex-wrap gap-6"}`}>
                       {partnerLogos[service.title === "AI-Powered Data Entry Workforce" ? "ai-data-entry" : 
                                     service.title === "Robotic Process Automation (RPA)" ? "rpa" : 
                                     service.title === "Cloud Services" ? "cloud" :
