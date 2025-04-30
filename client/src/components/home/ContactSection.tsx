@@ -421,7 +421,7 @@ const ContactSection = () => {
                   
                   <Button 
                     type="submit" 
-                    className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity"
+                    className="w-full btn-primary border-none focus:ring-offset-0"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (

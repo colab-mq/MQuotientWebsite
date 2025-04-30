@@ -193,7 +193,7 @@ const ServicesSection = () => {
         >
           <Link 
             href="/services" 
-            className="bg-gradient-to-r from-primary/90 to-secondary/90 text-white px-6 py-3 rounded-full font-medium inline-flex items-center shadow-md hover:shadow-xl transition-all hover:from-primary hover:to-secondary"
+            className="btn-primary"
           >
             View All Services
             <ArrowRight className="ml-2 h-4 w-4" />

@@ -4,6 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { FaCheck, FaChartLine, FaClipboardCheck, FaFileAlt, FaRocket, FaUserClock, FaBrain, FaRobot, FaBolt } from "react-icons/fa";
+import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 
 const CaseStudiesSection = () => {
@@ -563,8 +564,9 @@ const CaseStudiesSection = () => {
           </Tabs>
           
           <div className="text-center mt-10">
-            <Link href="/case-studies" className="btn-outline inline-flex items-center gap-2">
+            <Link href="/case-studies" className="btn-primary inline-flex items-center gap-2">
               View All Case Studies
+              <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </div>
         </motion.div>
