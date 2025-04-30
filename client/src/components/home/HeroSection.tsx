@@ -46,54 +46,86 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBzdHJva2U9IiMyNDI0MjQiIHN0cm9rZS13aWR0aD0iMC4yNSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMzAgMHYzMG0wIDMwVjMwbTMwIDB6Ii8+PC9nPjwvc3ZnPg==')] opacity-[0.03] z-0" />
       
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          className="flex flex-col items-center text-center"
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-        >
-          <motion.div variants={itemVariants} className="flex items-center mb-4 space-x-2">
-            <span className="h-px w-5 bg-primary"></span>
-            <span className="text-sm font-medium tracking-wider text-primary uppercase">Hyperautomation Experts</span>
-            <span className="h-px w-5 bg-primary"></span>
-          </motion.div>
-          
-          <motion.h1 
-            className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6 max-w-5xl"
-            variants={itemVariants}
-          >
-            Design the Future of Your Business <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">—</span> Powered by Automation and AI
-          </motion.h1>
-          
-          <motion.p 
-            className="text-base md:text-lg mb-8 text-muted-foreground max-w-2xl"
-            variants={itemVariants}
-          >
-            Expertise you can trust. Innovation you can measure.
-          </motion.p>
-          
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Left side content */}
           <motion.div 
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8"
-            variants={itemVariants}
+            className="lg:col-span-6 flex flex-col"
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
           >
-            <Link href="/contact" className="rounded-full bg-primary hover:bg-primary/90 text-white px-6 py-3 font-medium transition-all duration-300 flex items-center gap-2">
-              Get Started
-              <ChevronRight className="h-4 w-4 ml-1" />
-            </Link>
-            <Link href="/services" className="rounded-full border border-border hover:border-primary/50 bg-transparent px-6 py-3 font-medium transition-all duration-300 flex items-center gap-2">
-              Explore Services 
-              <ArrowRight className="h-4 w-4 ml-1" />
-            </Link>
+            <motion.div variants={itemVariants} className="flex items-center mb-4 space-x-2">
+              <span className="h-px w-5 bg-primary"></span>
+              <span className="text-sm font-medium tracking-wider text-primary uppercase">Hyperautomation Experts</span>
+            </motion.div>
+            
+            <motion.h1 
+              className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6"
+              variants={itemVariants}
+            >
+              Design the Future of Your Business <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">—</span> Powered by Automation and AI
+            </motion.h1>
+            
+            <motion.p 
+              className="text-base md:text-lg mb-8 text-muted-foreground max-w-2xl"
+              variants={itemVariants}
+            >
+              Expertise you can trust. Innovation you can measure.
+            </motion.p>
+            
+            <motion.div 
+              className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-4"
+              variants={itemVariants}
+            >
+              <Link href="/contact" className="rounded-full bg-primary hover:bg-primary/90 text-white px-6 py-3 font-medium transition-all duration-300 flex items-center gap-2">
+                Get Started
+                <ChevronRight className="h-4 w-4 ml-1" />
+              </Link>
+              <Link href="/services" className="rounded-full border border-border hover:border-primary/50 bg-transparent px-6 py-3 font-medium transition-all duration-300 flex items-center gap-2">
+                Explore Services 
+                <ArrowRight className="h-4 w-4 ml-1" />
+              </Link>
+            </motion.div>
+            
+            {/* Partner logos */}
+            <motion.div 
+              className="mt-10 lg:mt-12"
+              variants={itemVariants}
+            >
+              <p className="text-sm text-muted-foreground mb-5 relative inline-block">
+                <span>Activating the True Potential of Leading Technologies</span>
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary"></span>
+              </p>
+              <div className="flex items-center gap-6 flex-wrap">
+                <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
+                  <img src={microsoftIcon} alt="Microsoft" className="w-8 h-8 object-contain" />
+                </div>
+                <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
+                  <img src={uipathIcon} alt="UiPath" className="w-8 h-8 object-contain" />
+                </div>
+                <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
+                  <img src={powerAutomateIcon} alt="Power Automate" className="w-8 h-8 object-contain" />
+                </div>
+                <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
+                  <img src={automationAnywhereIcon} alt="Automation Anywhere" className="w-8 h-8 object-contain" />
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Featured image with modern styling */}
+          {/* Right side image */}
+          <motion.div 
+            className="lg:col-span-6 lg:pr-8"
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+          >
             <motion.div 
-              className="w-full mx-auto relative order-2 lg:order-1"
+              className="w-full h-full relative"
               variants={itemVariants}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl transform rotate-1 scale-[1.02] blur-[2px] opacity-40"></div>
-              <div className="relative overflow-hidden rounded-2xl border border-white/5 shadow-xl max-h-[300px] md:max-h-[350px]">
+              <div className="relative overflow-hidden rounded-2xl border border-white/5 shadow-xl h-[350px] md:h-[450px]">
                 <img 
                   src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
                   alt="Digital transformation solutions" 
@@ -117,33 +149,8 @@ const HeroSection = () => {
                 </div>
               </div>
             </motion.div>
-            
-            {/* Partner logos */}
-            <motion.div 
-              className="flex flex-col order-1 lg:order-2"
-              variants={itemVariants}
-            >
-              <p className="text-sm text-muted-foreground mb-5 relative inline-block">
-                <span>Activating the True Potential of Leading Technologies</span>
-                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary"></span>
-              </p>
-              <div className="flex items-center gap-6 flex-wrap justify-center">
-                <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
-                  <img src={microsoftIcon} alt="Microsoft" className="w-8 h-8 object-contain" />
-                </div>
-                <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
-                  <img src={uipathIcon} alt="UiPath" className="w-8 h-8 object-contain" />
-                </div>
-                <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
-                  <img src={powerAutomateIcon} alt="Power Automate" className="w-8 h-8 object-contain" />
-                </div>
-                <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
-                  <img src={automationAnywhereIcon} alt="Automation Anywhere" className="w-8 h-8 object-contain" />
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
