@@ -452,21 +452,21 @@ const CaseStudiesSection = () => {
               <TabsList className="grid grid-cols-3 w-full max-w-2xl">
                 <TabsTrigger 
                   value="ai-data-entry"
-                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary/80 data-[state=active]:to-secondary/80 data-[state=active]:text-white gap-2"
+                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary/80 data-[state=active]:to-secondary/80 data-[state=active]:text-white gap-1 px-1 sm:px-2 md:px-3 text-xs sm:text-sm"
                 >
-                  {serviceIcons["ai-data-entry"]} AI-Powered Data Entry
+                  {serviceIcons["ai-data-entry"]} <span className="truncate">AI Data</span><span className="hidden sm:inline"> Entry</span>
                 </TabsTrigger>
                 <TabsTrigger 
                   value="rpa"
-                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary/80 data-[state=active]:to-secondary/80 data-[state=active]:text-white gap-2"
+                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary/80 data-[state=active]:to-secondary/80 data-[state=active]:text-white gap-1 sm:gap-2 px-1 sm:px-2 md:px-3 text-xs sm:text-sm"
                 >
                   {serviceIcons["rpa"]} RPA
                 </TabsTrigger>
                 <TabsTrigger 
                   value="power-platform"
-                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary/80 data-[state=active]:to-secondary/80 data-[state=active]:text-white gap-2"
+                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary/80 data-[state=active]:to-secondary/80 data-[state=active]:text-white gap-1 sm:gap-2 px-1 sm:px-2 md:px-3 text-xs sm:text-sm"
                 >
-                  {serviceIcons["power-platform"]} Power Platform
+                  {serviceIcons["power-platform"]} <span className="truncate">Power</span><span className="hidden sm:inline"> Platform</span>
                 </TabsTrigger>
               </TabsList>
             </div>
