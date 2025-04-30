@@ -5,8 +5,8 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 // Import partner icons
 import microsoftIcon from "/attached_assets/microsoft-icon-2048x2048-xtoxrveo.png";
 import uipathIcon from "/attached_assets/uipathICON.png";
-import blueprismIcon from "/attached_assets/BlusePrismTransparent.png";
-import glyphxIcon from "/attached_assets/GlyphxIcon.jpg";
+import powerAutomateIcon from "/attached_assets/PowerAutomate-2020-icon-1024x1024.png";
+import automationAnywhereIcon from "/attached_assets/automation-anywhere-Icon.avif";
 
 const HeroSection = () => {
   // Animation variants
@@ -134,10 +134,10 @@ const HeroSection = () => {
                 <img src={uipathIcon} alt="UiPath" className="w-10 h-10 object-contain" />
               </div>
               <div className="w-16 h-16 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
-                <img src={blueprismIcon} alt="Blue Prism" className="w-10 h-10 object-contain" />
+                <img src={powerAutomateIcon} alt="Power Automate" className="w-10 h-10 object-contain" />
               </div>
               <div className="w-16 h-16 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
-                <img src={glyphxIcon} alt="GlyphX" className="w-10 h-10 object-contain scale-[1.75]" />
+                <img src={automationAnywhereIcon} alt="Automation Anywhere" className="w-10 h-10 object-contain" />
               </div>
             </div>
           </motion.div>
