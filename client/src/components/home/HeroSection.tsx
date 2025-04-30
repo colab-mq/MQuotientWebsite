@@ -34,7 +34,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-32">
+    <section className="relative overflow-hidden pt-24 pb-10 md:pt-32 md:pb-16">
       {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background z-0" />
       
@@ -52,95 +52,97 @@ const HeroSection = () => {
           animate="visible"
           variants={containerVariants}
         >
-          <motion.div variants={itemVariants} className="flex items-center mb-6 space-x-2">
+          <motion.div variants={itemVariants} className="flex items-center mb-4 space-x-2">
             <span className="h-px w-5 bg-primary"></span>
             <span className="text-sm font-medium tracking-wider text-primary uppercase">Hyperautomation Experts</span>
             <span className="h-px w-5 bg-primary"></span>
           </motion.div>
           
           <motion.h1 
-            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-8 max-w-5xl"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6 max-w-5xl"
             variants={itemVariants}
           >
             Design the Future of Your Business <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">—</span> Powered by Automation and AI
           </motion.h1>
           
           <motion.p 
-            className="text-lg md:text-xl mb-12 text-muted-foreground max-w-2xl"
+            className="text-base md:text-lg mb-8 text-muted-foreground max-w-2xl"
             variants={itemVariants}
           >
             Expertise you can trust. Innovation you can measure.
           </motion.p>
           
           <motion.div 
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-16"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8"
             variants={itemVariants}
           >
-            <Link href="/contact" className="rounded-full bg-primary hover:bg-primary/90 text-white px-8 py-4 font-medium transition-all duration-300 flex items-center gap-2">
+            <Link href="/contact" className="rounded-full bg-primary hover:bg-primary/90 text-white px-6 py-3 font-medium transition-all duration-300 flex items-center gap-2">
               Get Started
               <ChevronRight className="h-4 w-4 ml-1" />
             </Link>
-            <Link href="/services" className="rounded-full border border-border hover:border-primary/50 bg-transparent px-8 py-4 font-medium transition-all duration-300 flex items-center gap-2">
+            <Link href="/services" className="rounded-full border border-border hover:border-primary/50 bg-transparent px-6 py-3 font-medium transition-all duration-300 flex items-center gap-2">
               Explore Services 
               <ArrowRight className="h-4 w-4 ml-1" />
             </Link>
           </motion.div>
           
-          {/* Featured image with modern styling */}
-          <motion.div 
-            className="w-full max-w-5xl mx-auto relative"
-            variants={itemVariants}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl transform rotate-1 scale-[1.02] blur-[2px] opacity-40"></div>
-            <div className="relative overflow-hidden rounded-2xl border border-white/5 shadow-xl">
-              <img 
-                src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                alt="Digital transformation solutions" 
-                className="w-full h-auto object-cover object-center"
-              />
-              
-              {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-70"></div>
-              
-              {/* Floating stat cards */}
-              <div className="absolute bottom-8 left-8 bg-background/80 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/10">
-                <div className="flex items-center gap-3">
-                  <div className="h-12 w-12 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white font-bold text-lg">
-                    7+
-                  </div>
-                  <div>
-                    <p className="text-xs text-muted-foreground uppercase tracking-wide">Years of Excellence</p>
-                    <p className="text-sm font-medium">In Hyperautomation</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Featured image with modern styling */}
+            <motion.div 
+              className="w-full mx-auto relative order-2 lg:order-1"
+              variants={itemVariants}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl transform rotate-1 scale-[1.02] blur-[2px] opacity-40"></div>
+              <div className="relative overflow-hidden rounded-2xl border border-white/5 shadow-xl max-h-[300px] md:max-h-[350px]">
+                <img 
+                  src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                  alt="Digital transformation solutions" 
+                  className="w-full h-full object-cover object-center"
+                />
+                
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-70"></div>
+                
+                {/* Floating stat cards */}
+                <div className="absolute bottom-6 left-6 bg-background/80 backdrop-blur-md p-3 rounded-xl shadow-lg border border-white/10">
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white font-bold text-base">
+                      7+
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground uppercase tracking-wide">Years of Excellence</p>
+                      <p className="text-sm font-medium">In Hyperautomation</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
-          
-          {/* Partner logos */}
-          <motion.div 
-            className="flex flex-col items-center mt-16"
-            variants={itemVariants}
-          >
-            <p className="text-sm text-muted-foreground mb-6 relative inline-block">
-              <span>Activating the True Potential of Leading Technologies</span>
-              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary"></span>
-            </p>
-            <div className="flex items-center gap-8 flex-wrap justify-center">
-              <div className="w-16 h-16 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
-                <img src={microsoftIcon} alt="Microsoft" className="w-10 h-10 object-contain" />
+            </motion.div>
+            
+            {/* Partner logos */}
+            <motion.div 
+              className="flex flex-col order-1 lg:order-2"
+              variants={itemVariants}
+            >
+              <p className="text-sm text-muted-foreground mb-5 relative inline-block">
+                <span>Activating the True Potential of Leading Technologies</span>
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary"></span>
+              </p>
+              <div className="flex items-center gap-6 flex-wrap justify-center">
+                <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
+                  <img src={microsoftIcon} alt="Microsoft" className="w-8 h-8 object-contain" />
+                </div>
+                <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
+                  <img src={uipathIcon} alt="UiPath" className="w-8 h-8 object-contain" />
+                </div>
+                <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
+                  <img src={powerAutomateIcon} alt="Power Automate" className="w-8 h-8 object-contain" />
+                </div>
+                <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
+                  <img src={automationAnywhereIcon} alt="Automation Anywhere" className="w-8 h-8 object-contain" />
+                </div>
               </div>
-              <div className="w-16 h-16 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
-                <img src={uipathIcon} alt="UiPath" className="w-10 h-10 object-contain" />
-              </div>
-              <div className="w-16 h-16 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
-                <img src={powerAutomateIcon} alt="Power Automate" className="w-10 h-10 object-contain" />
-              </div>
-              <div className="w-16 h-16 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
-                <img src={automationAnywhereIcon} alt="Automation Anywhere" className="w-10 h-10 object-contain" />
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

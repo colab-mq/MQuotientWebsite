@@ -191,6 +191,6 @@
   }
 
   .section-divider {
-    @apply w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full;
+    @apply w-24 h-1 bg-gradient-to-r from-primary/80 to-secondary/80 mx-auto rounded-full;
   }
 }
