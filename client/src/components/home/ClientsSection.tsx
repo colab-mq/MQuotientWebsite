@@ -36,27 +36,27 @@ const ClientsSection = () => {
 
   const caseStudies = [
     {
-      title: "Invoice Processing Automation",
-      description: "Implemented an AI-driven document extraction solution for a leading global consulting firm managing invoice operations for a major telecom provider, processing hundreds of thousands of complex invoices annually and reducing processing time from 5+ days to less than 1 day.",
-      tags: ["AI", "Finance", "Invoice Processing"],
-      year: "2024"
+      title: "Insurance Data Extraction",
+      description: "For a leading insurance broker, the GlyphX Extraction Platform was deployed to automatically extract data from auto and health insurance policies—processing thousands of documents daily with speed, accuracy, and scale.",
+      tags: ["AI", "Insurance", "Document Processing"],
+      year: "2020"
     },
     {
       title: "Meter Reading Automation",
-      description: "Implemented UiPath RPA solution to automate the meter reading process for a utilities service provider, significantly reducing manual effort and improving accuracy.",
-      tags: ["RPA", "UiPath"],
-      year: "2025"
+      description: "For a utilities service provider, we developed an RPA solution to automate the meter reading and data processing workflow, reducing processing time by 85% and achieving 99.5% data reporting accuracy.",
+      tags: ["RPA", "Utilities"],
+      year: "2024"
     },
     {
       title: "Mortgage Post-Closing Automation",
-      description: "Streamlined post-closing by automating document review, data extraction, compliance validation, and trailing document tracking for a major mortgage lender — processing 300–800 page loan files with 99%+ accuracy.",
+      description: "For a major mortgage lender, we streamlined the post-closing process by automating document classification, data extraction, compliance validation, and trailing document tracking with loan files ranging from 100–800 pages.",
       tags: ["Document Classification", "AI", "Data Extraction"],
-      year: "2023"
+      year: "2021"
     },
     {
       title: "Power Platform Tool Enhancement",
-      description: "Enhanced an existing Power Platform tool for a manufacturing client, adding new features and improving user experience to better track and manage lean initiatives.",
-      tags: ["Power Platform", "Dataverse"],
+      description: "For a manufacturing client, we enhanced an existing Power Platform tool to improve lean initiative tracking and management, increasing productivity by 35% and achieving a 90% user satisfaction rate.",
+      tags: ["Power Platform", "Manufacturing"],
       year: "2025"
     }
   ];
@@ -95,11 +95,11 @@ const ClientsSection = () => {
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="section-heading">
           <h2 className="section-title">
-            Our <span className="gradient-text">Clients</span>
+            Companies We <span className="gradient-text">Work With</span>
           </h2>
           <div className="section-divider"></div>
           <p className="section-subtitle max-w-3xl mx-auto">
-            We work with leading organizations across various industries to drive digital transformation.
+            We team up with forward-thinking organizations across industries to enhance efficiency and drive digital transformation together.
           </p>
         </div>
 

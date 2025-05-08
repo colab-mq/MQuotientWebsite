@@ -11,6 +11,8 @@ import glyphXLogo from "../assets/partners/GLYPHX.png";
 import microsoftLogo from "../assets/partners/Microsoft_logo.png";
 import powerPlatformLogo from "../assets/partners/Microsoft_Power_Platform_logo.svg.png";
 import uiPathLogo from "../assets/partners/UiPath_2019_Corporate_Logo.png";
+import powerAutomateLogo from "@assets/PowerAutomate-2020-icon-1024x1024.png";
+import automationAnywhereLogo from "@assets/AutomationAnywhereLogo.png";
 
 // Define types
 interface CaseStudyResult {
@@ -118,19 +120,14 @@ const CaseStudies = () => {
       ],
       results: [
         {
-          title: "98% classification accuracy",
-          description: "End accuracy of over 98% for document classification.",
+          title: "Unmatched Accuracy at Scale",
+          description: "Delivering 99%+ post-verification accuracy in document classification and data extraction",
           icon: <FaFileAlt />
         },
         {
           title: "90% reduction in manual effort",
           description: "Over 90% reduction in manual effort for classification.",
           icon: <FaUserClock />
-        },
-        {
-          title: "99.99% data extraction accuracy",
-          description: "Post-verification accuracy of 99.99% for data extraction.",
-          icon: <FaCheck />
         },
         {
           title: "60% reduction in data entry",
@@ -345,13 +342,15 @@ const CaseStudies = () => {
     },
     "rpa": {
       title: "Robotic Process Automation",
-      description: "UiPath and Blue Prism RPA solutions to automate repetitive tasks, reduce errors, and free your team to focus on high-value activities.",
+      description: "Automate repetitive tasks, reduce errors, and boost efficiency with RPA solutions tailored to your needs, with the platform of your choice driving your specific requirements.",
       icon: <FaRobot />,
       color: "from-blue-500 to-cyan-500",
       studies: rpaCaseStudies,
       partners: [
         { name: "UiPath", logo: uiPathLogo, width: 120 },
-        { name: "Blue Prism", logo: bluePrismLogo, width: 120 }
+        { name: "Blue Prism", logo: bluePrismLogo, width: 120 },
+        { name: "Power Automate", logo: powerAutomateLogo, width: 100 },
+        { name: "Automation Anywhere", logo: automationAnywhereLogo, width: 160 }
       ]
     },
     "power-platform": {
