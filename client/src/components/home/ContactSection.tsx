@@ -31,10 +31,28 @@ const contactFormSchema = z.object({
   name: z.string().min(2, {
     message: "Name must be at least 2 characters.",
   }),
-  email: z.string().email({
-    message: "Please enter a valid email address.",
+  email: z.string()
+    .email({
+      message: "Please enter a valid email address.",
+    })
+    .refine((email) => {
+      // Get domain part of email (after @)
+      const domain = email.split('@')[1];
+      // List of common personal email domains
+      const personalDomains = [
+        'gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 
+        'aol.com', 'icloud.com', 'mail.com', 'protonmail.com',
+        'zoho.com', 'yandex.com', 'gmx.com', 'live.com',
+        'msn.com', 'me.com', 'inbox.com'
+      ];
+      // Return true if domain is not in the list of personal domains
+      return !personalDomains.includes(domain);
+    }, {
+      message: "Please use your company email address.",
+    }),
+  company: z.string().min(1, {
+    message: "Company name is required.",
   }),
-  company: z.string().optional(),
   countryCode: z.string().optional(),
   phone: z.string().optional(),
   serviceArea: z.string({
@@ -280,11 +298,12 @@ const ContactSection = () => {
                           <FormLabel>Email</FormLabel>
                           <FormControl>
                             <Input 
-                              placeholder="Your email" 
+                              placeholder="Your company email" 
                               className="rounded-lg border-border focus:border-primary/50" 
                               {...field} 
                             />
                           </FormControl>
+                          <p className="text-xs text-muted-foreground mt-1">Please use your company email address</p>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -299,7 +318,7 @@ const ContactSection = () => {
                         <FormLabel>Company</FormLabel>
                         <FormControl>
                           <Input 
-                            placeholder="Your company (optional)" 
+                            placeholder="Your company" 
                             className="rounded-lg border-border focus:border-primary/50" 
                             {...field} 
                           />

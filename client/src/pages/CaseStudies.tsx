@@ -446,16 +446,16 @@ const CaseStudies = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Case Studies</h1>
           <p className="text-xl max-w-3xl">
-            Real-world examples of how our solutions have transformed business operations and delivered exceptional results.
+            A closer look at how we've solved complex challenges, streamlined operations, and delivered measurable impact—one project at a time.
           </p>
         </div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">Client Success Stories by Service Area</h2>
+          <h2 className="text-3xl font-bold mb-4">Success Stories by Service Area</h2>
           <p className="text-xl max-w-3xl mx-auto text-muted-foreground">
-            Explore how our solutions have helped clients across different industries automate processes, improve accuracy, and accelerate their workflows.
+            See how we've applied automation where it matters—boosting accuracy, speeding up workflows, and making operations smarter across industries.
           </p>
         </div>
 
@@ -473,9 +473,15 @@ const CaseStudies = () => {
                   value={serviceKey}
                   className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary/80 data-[state=active]:to-secondary/80 data-[state=active]:text-white gap-2 p-4 h-full flex items-center justify-center"
                 >
-                  <div className="flex items-center justify-center gap-3 flex-wrap">
+                  <div className="flex items-center justify-center gap-2 flex-wrap">
                     <span className="flex-shrink-0">{serviceData[serviceKey].icon}</span>
-                    <span>{serviceKey === "ai-data-entry" ? "AI Data Entry" : serviceKey === "rpa" ? "RPA" : "Power Platform"}</span>
+                    <span className="whitespace-nowrap">
+                      {serviceKey === "ai-data-entry" 
+                        ? "AI Data Entry" 
+                        : serviceKey === "rpa" 
+                          ? "RPA" 
+                          : <span className="whitespace-nowrap">Power&nbsp;Platform</span>}
+                    </span>
                   </div>
                 </TabsTrigger>
               ))}
