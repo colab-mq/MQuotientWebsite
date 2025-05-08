@@ -74,7 +74,7 @@ const About = () => {
                 variants={itemVariants}
                 className="text-xl text-muted-foreground"
               >
-                We're a specialized provider of hyperautomation solutions, helping organizations transform their business processes for greater efficiency and growth.
+                We help organizations unlock the full potential of automation—designing and implementing solutions that simplify operations, boost efficiency, and deliver measurable results.
               </motion.p>
             </motion.div>
           </div>
@@ -92,13 +92,13 @@ const About = () => {
           <motion.div variants={itemVariants}>
             <h2 className="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Our Story</h2>
             <p className="mb-4 text-muted-foreground">
-              mquotient Business Services was founded with a vision to help organizations leverage automation and digital technologies to transform their operations and drive growth. Over the years, we've built a reputation for delivering innovative solutions that address complex business challenges.
+              At mquotient, we started with a clear goal: help businesses make the most of automation and digital technology to work better, not harder.
             </p>
             <p className="mb-4 text-muted-foreground">
-              With a team of experienced professionals specializing in RPA, Power Platform, and custom development, we've successfully delivered over 80 projects across various industries, helping our clients achieve significant improvements in operational efficiency and cost savings.
+              Since then, we've delivered over 80 projects across a range of industries—solving tough problems, improving day-to-day operations, and helping our clients save time and resources where it really counts.
             </p>
             <p className="text-muted-foreground">
-              Our commitment to excellence, technical expertise, and client-focused approach has made us a trusted partner for organizations looking to embark on their digital transformation journey.
+              We're a hands-on team of developers, problem-solvers, and tech enthusiasts who genuinely care about getting it right. We listen first, build second, and stick around to make sure what we deliver actually works for the people using it. That's how we've earned the trust of our clients—and why we love what we do.
             </p>
             
             <div className="flex items-center gap-4 mt-8 bg-muted/50 p-4 rounded-lg border border-border/50">
@@ -140,7 +140,7 @@ const About = () => {
                 <FaAward className="text-primary h-5 w-5" />
               </div>
               <h3 className="text-xl font-semibold mb-3">Excellence</h3>
-              <p className="text-muted-foreground">We strive for excellence in everything we do, from the solutions we build to the service we provide.</p>
+              <p className="text-muted-foreground">We don't settle. From strategy to execution, we aim to deliver work we're proud of—every time.</p>
             </motion.div>
             
             <motion.div variants={itemVariants} className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-border/50 hover:shadow-md transition-shadow">
@@ -148,7 +148,7 @@ const About = () => {
                 <FaLightbulb className="text-primary h-5 w-5" />
               </div>
               <h3 className="text-xl font-semibold mb-3">Innovation</h3>
-              <p className="text-muted-foreground">We embrace innovation and continuously explore new technologies and approaches to deliver better results.</p>
+              <p className="text-muted-foreground">We stay curious and forward-thinking, always looking for smarter ways to solve real problems.</p>
             </motion.div>
             
             <motion.div variants={itemVariants} className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-border/50 hover:shadow-md transition-shadow">
@@ -164,7 +164,7 @@ const About = () => {
                 <FaUsers className="text-primary h-5 w-5" />
               </div>
               <h3 className="text-xl font-semibold mb-3">Client Focus</h3>
-              <p className="text-muted-foreground">We put our clients at the center of everything we do, focusing on delivering solutions that address their specific challenges.</p>
+              <p className="text-muted-foreground">We listen closely, build thoughtfully, and stay focused on what matters most: our clients' success.</p>
             </motion.div>
           </div>
         </motion.div>
