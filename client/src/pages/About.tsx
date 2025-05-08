@@ -155,8 +155,8 @@ const About = () => {
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                 <FaHandshake className="text-primary h-5 w-5" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Integrity</h3>
-              <p className="text-muted-foreground">We act with integrity and transparency, building trust-based relationships with our clients and partners.</p>
+              <h3 className="text-xl font-semibold mb-3">Collaboration</h3>
+              <p className="text-muted-foreground">We believe in the power of teamwork—both within our company and with our clients. Together, we create solutions that make an impact.</p>
             </motion.div>
             
             <motion.div variants={itemVariants} className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-border/50 hover:shadow-md transition-shadow">
@@ -194,37 +194,37 @@ const About = () => {
                   <div className="bg-primary/10 p-1 rounded-full mr-3 text-primary">
                     <FaCheck className="h-3 w-3" />
                   </div>
-                  <span className="text-muted-foreground">AI-powered intelligent document processing (IDP)</span>
+                  <span className="text-muted-foreground">AI-powered data extraction & document classification from various document types</span>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-primary/10 p-1 rounded-full mr-3 text-primary">
                     <FaCheck className="h-3 w-3" />
                   </div>
-                  <span className="text-muted-foreground">Automated data extraction from structured and unstructured documents</span>
+                  <span className="text-muted-foreground">Robotic Process Automation (RPA) with Power Automate, Automation Anywhere, UiPath, and Blue Prism</span>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-primary/10 p-1 rounded-full mr-3 text-primary">
                     <FaCheck className="h-3 w-3" />
                   </div>
-                  <span className="text-muted-foreground">Robotic Process Automation (RPA) with UiPath and Blue Prism</span>
+                  <span className="text-muted-foreground">Microsoft Power Platform for data analysis, process automation, and custom app development</span>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-primary/10 p-1 rounded-full mr-3 text-primary">
                     <FaCheck className="h-3 w-3" />
                   </div>
-                  <span className="text-muted-foreground">Microsoft Power Platform (Power BI, Power Automate, Power Apps)</span>
+                  <span className="text-muted-foreground">Custom automation solutions and seamless API integrations</span>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-primary/10 p-1 rounded-full mr-3 text-primary">
                     <FaCheck className="h-3 w-3" />
                   </div>
-                  <span className="text-muted-foreground">Custom automation solutions and API integrations</span>
+                  <span className="text-muted-foreground">Cloud services with Azure, AWS, and Google Cloud for migration, security, and industry solutions</span>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-primary/10 p-1 rounded-full mr-3 text-primary">
                     <FaCheck className="h-3 w-3" />
                   </div>
-                  <span className="text-muted-foreground">Process optimization and workflow automation</span>
+                  <span className="text-muted-foreground">Managed services: implementation, training, support, upgrades, and performance monitoring</span>
                 </li>
               </ul>
             </motion.div>
