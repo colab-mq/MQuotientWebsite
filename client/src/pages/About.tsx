@@ -289,22 +289,22 @@ const About = () => {
               variants={itemVariants} 
               className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-border/50 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-semibold mb-3">Insurance Data Extraction (2024)</h3>
+              <h3 className="text-xl font-semibold mb-3">Insurance Data Extraction (2020)</h3>
               <p className="text-muted-foreground mb-4">
-                For a leading insurance broker, we implemented a GlyphX AI-powered solution to extract data from auto and health insurance policies across multiple providers.
+                For a leading insurance broker, the GlyphX Extraction Platform was deployed to automatically extract data from auto and health insurance policies—processing thousands of documents daily with speed, accuracy, and scale.
               </p>
               
               <div className="mb-4">
                 <h4 className="font-medium mb-2 text-sm uppercase tracking-wider text-muted-foreground">Challenge:</h4>
                 <p className="text-sm text-muted-foreground">
-                  Processing thousands of policies with variable formats to streamline reconciliation processes with brokers and enable targeted marketing near policy expiry dates.
+                  Extracting data from a wide variety of policy formats across multiple providers
                 </p>
               </div>
               
               <div className="mb-4">
                 <h4 className="font-medium mb-2 text-sm uppercase tracking-wider text-muted-foreground">Solution:</h4>
                 <p className="text-sm text-muted-foreground">
-                  Our GlyphX AI-Powered Data Entry Workforce used advanced machine learning to identify and extract data from policies regardless of format, processing over 30,000 documents per quarter.
+                  A fully automated, auto-scalable AI system capable of processing 1 to 25,000 policies per day—24/7, error-free, and without manual checks
                 </p>
               </div>
               
@@ -314,8 +314,8 @@ const About = () => {
                     <FaCheck className="text-primary h-4 w-4" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium">100% targeting</p>
-                    <p className="text-xs text-muted-foreground">increase</p>
+                    <p className="text-sm font-medium">Zero manual checks</p>
+                    <p className="text-xs text-muted-foreground">required</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
@@ -323,8 +323,8 @@ const About = () => {
                     <FaCheck className="text-primary h-4 w-4" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium">40% conversion</p>
-                    <p className="text-xs text-muted-foreground">rate increase</p>
+                    <p className="text-sm font-medium">High volumes</p>
+                    <p className="text-xs text-muted-foreground">processed within days</p>
                   </div>
                 </div>
               </div>
@@ -334,7 +334,7 @@ const About = () => {
               variants={itemVariants} 
               className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-border/50 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-semibold mb-3">Meter Reading Automation (2025)</h3>
+              <h3 className="text-xl font-semibold mb-3">Meter Reading Automation (2024)</h3>
               <p className="text-muted-foreground mb-4">
                 For a utilities service provider, we developed a UiPath RPA solution to automate the meter reading and data processing workflow.
               </p>
@@ -379,7 +379,7 @@ const About = () => {
               variants={itemVariants} 
               className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-border/50 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-semibold mb-3">Mortgage Post-Closing Automation (2023)</h3>
+              <h3 className="text-xl font-semibold mb-3">Mortgage Post-Closing Automation (2021)</h3>
               <p className="text-muted-foreground mb-4">
                 For a major mortgage lender, we streamlined the post-closing process through comprehensive automation.
               </p>
@@ -387,7 +387,7 @@ const About = () => {
               <div className="mb-4">
                 <h4 className="font-medium mb-2 text-sm uppercase tracking-wider text-muted-foreground">Challenge:</h4>
                 <p className="text-sm text-muted-foreground">
-                  Managing complex post-closing workflows including document review, compliance validation, and tracking trailing documents across 300-800 page loan files.
+                  Managing complex post-closing workflows including document review, compliance validation, and tracking trailing documents across 100-800 page loan files.
                 </p>
               </div>
               
