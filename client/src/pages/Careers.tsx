@@ -18,9 +18,23 @@ const Careers = () => {
   const [selectedJob, setSelectedJob] = useState<JobListing | null>(null);
   const [showApplicationForm, setShowApplicationForm] = useState(false);
 
-  const { data: jobs, isLoading, error } = useQuery<JobListing[]>({
+  // Define the correct order for job IDs as specified
+  const jobOrder = [
+    "technical-presales-lead-001",
+    "business-analyst-001",
+    "developer-001", // Now labeled as "Automation Solutions Consultant"
+    "csharp-engineer-001",
+    "ml-intern-001"
+  ];
+
+  const { data: fetchedJobs, isLoading, error } = useQuery<JobListing[]>({
     queryKey: ['/api/careers/jobs'],
   });
+  
+  // Sort jobs based on the predefined order
+  const jobs = fetchedJobs ? [...fetchedJobs].sort((a, b) => {
+    return jobOrder.indexOf(a.id) - jobOrder.indexOf(b.id);
+  }) : undefined;
 
   const handleJobClick = (job: JobListing) => {
     setSelectedJob(job);

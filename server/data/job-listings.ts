@@ -168,6 +168,9 @@ export const jobListings: JobListing[] = [
 
 /**
  * Function to get all active job listings
+ * 
+ * The order of the listings in the array determines the display order on the website
+ * (first item appears at the top, last item at the bottom)
  */
 export function getActiveJobListings(): JobListing[] {
   return jobListings.filter(job => job.active);
