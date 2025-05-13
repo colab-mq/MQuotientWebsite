@@ -183,7 +183,7 @@ const ContactSection = () => {
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="section-heading">
           <h2 className="section-title">
-            Let's Build the Future — <span className="gradient-text">Together</span>
+            Let's Solve Big Problems — <span className="gradient-text">Partner With Us</span>
           </h2>
           <div className="section-divider"></div>
           <p className="section-subtitle max-w-3xl mx-auto">

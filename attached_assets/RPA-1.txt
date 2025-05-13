@@ -1,0 +1,34 @@
+Optimizing Process: RPA in Purchase Order ETA Management
+The Challenge
+A global supply chain team in a leading consumer goods company struggled with managing Purchase Order ETA confirmations. The existing manual process required employees to log into multiple supplier portals, download shipment updates, reconcile expected delivery dates, and update internal systems. This caused delays, errors, and inefficiencies, particularly when handling thousands of POs each month.
+
+Our Solution
+We implemented a Robotic Process Automation (RPA) solution using UiPath to automate the end-to-end PO ETA tracking and update process. The bot was designed to log in to various supplier portals, extract shipment and ETA information, compare it with expected delivery data, and update the enterprise system of record automatically.
+
+Implementation Highlights
+Created a bot to mimic user actions across diverse supplier platforms
+
+Integrated structured data extraction with logic for ETA comparison
+
+Automated updates into the internal PO management system
+
+Scheduled bot runs to ensure real-time updates throughout the day
+
+Included alerts for exception handling and discrepancies requiring human review
+
+Results & Impact
+✅ 80% faster PO ETA updates
+Reduced average update cycle time from 2 days to under 4 hours
+
+✅ Freed up 1,200+ man-hours per year
+Significant FTE savings through automation of repetitive tasks
+
+✅ Higher data accuracy
+Consistent and error-free updates led to better planning and supplier coordination
+
+✅ Improved visibility across the supply chain
+Timely ETA data improved internal forecasting and reduced stockout risk
+
+✅ Scalable across multiple categories
+Easily replicated for other sourcing regions and supplier networks
+

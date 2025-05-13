@@ -148,96 +148,135 @@ const CaseStudies = () => {
   const rpaCaseStudies: CaseStudy[] = [
     {
       id: "rpa-case-1",
-      title: "Automating Finance Operations for Retail Giant",
-      subtitle: "A multinational retail corporation",
-      challenge: "A multinational retail corporation was struggling with their accounts payable process, which required significant manual effort for invoice processing, data entry, and reconciliation. The process was error-prone, time-consuming, and preventing the finance team from focusing on higher-value strategic activities.",
-      solution: "We implemented a comprehensive UiPath RPA solution to automate the entire accounts payable workflow from invoice receipt to payment processing. This solution not only automated data entry but also integrated with their ERP system to create a seamless, efficient process with minimal human intervention.",
+      title: "Optimizing Process: RPA in Purchase Order ETA Management",
+      subtitle: "A global supply chain team in a leading consumer goods company",
+      challenge: "A global supply chain team in a leading consumer goods company struggled with managing Purchase Order ETA confirmations. The existing manual process required employees to log into multiple supplier portals, download shipment updates, reconcile expected delivery dates, and update internal systems. This caused delays, errors, and inefficiencies, particularly when handling thousands of POs each month.",
+      solution: "We implemented a Robotic Process Automation (RPA) solution using UiPath to automate the end-to-end PO ETA tracking and update process. The bot was designed to log in to various supplier portals, extract shipment and ETA information, compare it with expected delivery data, and update the enterprise system of record automatically.",
       process: [
-        "Invoice data extraction using OCR and our AI-powered validation",
-        "Automated three-way matching between purchase orders, receiving documents, and invoices",
-        "Integration with the client's ERP system for automated data entry",
-        "Exception handling with notifications for human intervention when needed",
-        "Automated payment scheduling and processing",
-        "Creation of comprehensive audit logs and reporting",
-        "Continuous monitoring and optimization of the automated processes"
+        "Created a bot to mimic user actions across diverse supplier platforms",
+        "Integrated structured data extraction with logic for ETA comparison",
+        "Automated updates into the internal PO management system",
+        "Scheduled bot runs to ensure real-time updates throughout the day",
+        "Included alerts for exception handling and discrepancies requiring human review"
       ],
       results: [
         {
-          title: "75% reduction in processing time",
-          description: "Invoice processing time reduced from days to hours.",
-          icon: <FaUserClock />
-        },
-        {
-          title: "99.5% accuracy rate",
-          description: "Near-elimination of data entry errors and improved compliance.",
-          icon: <FaCheck />
-        },
-        {
-          title: "ROI within 6 months",
-          description: "The solution paid for itself within the first 6 months of operation.",
+          title: "80% faster PO ETA updates",
+          description: "Reduced average update cycle time from 2 days to under 4 hours.",
           icon: <FaRocket />
         },
         {
-          title: "30% cost savings",
-          description: "Significant reduction in operational costs.",
+          title: "Freed up 1,200+ man-hours per year",
+          description: "Significant FTE savings through automation of repetitive tasks.",
+          icon: <FaUserClock />
+        },
+        {
+          title: "Higher data accuracy",
+          description: "Consistent and error-free updates led to better planning and supplier coordination.",
+          icon: <FaCheck />
+        },
+        {
+          title: "Improved visibility across the supply chain",
+          description: "Timely ETA data improved internal forecasting and reduced stockout risk.",
           icon: <FaChartLine />
         },
         {
-          title: "Improved vendor relationships",
-          description: "Faster payments and fewer disputes led to better vendor relations.",
+          title: "Scalable across multiple categories",
+          description: "Easily replicated for other sourcing regions and supplier networks.",
           icon: <FaClipboardCheck />
         }
       ],
-      tags: ["Finance", "Accounts Payable", "UiPath", "OCR"]
+      tags: ["Supply Chain", "Purchase Orders", "UiPath", "Process Automation"]
     },
     {
       id: "rpa-case-2",
-      title: "HR Process Automation for Healthcare Provider",
-      subtitle: "A leading healthcare provider network",
-      challenge: "A large healthcare provider with over 5,000 employees faced challenges with their employee onboarding process. The manual process was slow, inconsistent, and created a poor experience for new hires. HR staff spent excessive time on repetitive administrative tasks instead of strategic HR initiatives.",
-      solution: "We deployed a Blue Prism RPA solution that automated key parts of the employee onboarding workflow. The solution integrated with multiple HR systems and databases to create a streamlined, consistent process that significantly reduced manual effort while improving the experience for new employees.",
+      title: "Navigating the Future: RPA's Flightpath to Aviation Excellence",
+      subtitle: "A leading aviation enterprise",
+      challenge: "A leading aviation enterprise faced growing challenges in handling high-volume, time-sensitive operations across its fleet management, compliance, and maintenance reporting systems. Manual data entries, repeated validations, and fragmented systems led to delays, human errors, and compliance risks—ultimately impacting flight readiness and operational efficiency.",
+      solution: "To transform the back-end operations, we deployed a suite of RPA bots using Automation Anywhere. These bots were programmed to automate routine and rule-based tasks across multiple aviation workflows—spanning aircraft maintenance scheduling, documentation updates, regulatory compliance checks, and vendor coordination.",
       process: [
-        "Automated data extraction from employment contracts and documents",
-        "Integration with multiple HR systems and databases",
-        "Automated provisioning of IT accounts and access rights",
-        "Triggered notifications and workflows for required training programs",
-        "Generated personalized welcome packages and documentation",
-        "Provided real-time status updates on onboarding progress",
-        "Automated compliance checks and documentation"
+        "Automated aircraft maintenance logs and service compliance updates",
+        "Bots scheduled routine diagnostics and flagged critical maintenance triggers",
+        "Integrated across legacy aviation systems for seamless data synchronization",
+        "Implemented real-time dashboards to track bot performance and exceptions",
+        "Enabled alerts and escalations for anomalies, ensuring regulatory adherence"
       ],
       results: [
         {
-          title: "85% faster onboarding",
-          description: "Reduced onboarding processing time from 3 days to 4 hours.",
+          title: "30% improvement in aircraft readiness KPIs",
+          description: "Faster maintenance workflows led to reduced aircraft ground time.",
           icon: <FaRocket />
         },
         {
-          title: "Improved compliance",
-          description: "100% adherence to regulatory requirements and internal policies.",
+          title: "Reduced regulatory non-compliance by 85%",
+          description: "Accurate and timely filings strengthened operational integrity.",
           icon: <FaCheck />
         },
         {
-          title: "Enhanced employee experience",
-          description: "Significantly improved satisfaction scores from new hires.",
+          title: "Saved over 5,000 manual hours annually",
+          description: "Released valuable engineering time to focus on critical maintenance.",
           icon: <FaUserClock />
         },
         {
-          title: "40% reduction in HR workload",
-          description: "HR staff time freed up for strategic initiatives.",
+          title: "Improved cross-functional collaboration",
+          description: "Real-time system updates enhanced coordination between teams.",
           icon: <FaClipboardCheck />
         },
         {
-          title: "Scalability during hiring peaks",
-          description: "Ability to handle seasonal hiring surges without additional staff.",
+          title: "Set a roadmap for scalable aviation automation",
+          description: "New use cases identified across flight scheduling and baggage handling.",
           icon: <FaChartLine />
         }
       ],
-      tags: ["Healthcare", "HR", "Blue Prism", "Employee Onboarding"]
+      tags: ["Aviation", "Compliance", "Automation Anywhere", "Maintenance"]
     }
   ];
 
   // Power Platform case studies
   const powerPlatformCaseStudies: CaseStudy[] = [
+    {
+      id: "power-case-vat",
+      title: "Automating VAT Invoice Requests with Power Automate",
+      subtitle: "A multinational retail chain",
+      challenge: "A multinational retail chain faced a recurring operational burden in handling VAT invoice requests from corporate customers. The manual process involved receiving invoice requests via email, validating order and payment details, and manually generating compliant VAT invoices. This led to delays, inconsistencies, and a growing backlog, especially during peak retail periods, impacting customer satisfaction and compliance standards.",
+      solution: "We developed and deployed a low-code automation solution using Microsoft Power Automate to streamline and fully automate the VAT invoice request workflow. The system integrated with the client's email, ERP, and invoicing platforms to auto-capture requests, validate inputs, generate invoices, and send them back to requestors—without human intervention.",
+      process: [
+        "Set up Power Automate to monitor shared mailboxes for invoice request emails",
+        "Parsed email content using AI Builder and Power Automate expressions",
+        "Connected with ERP system APIs to validate transaction and customer data",
+        "Auto-generated compliant VAT invoices using pre-configured templates",
+        "Sent responses to requestors and logged transactions for audit readiness",
+        "Created dashboards in Power BI for tracking volumes and SLA compliance"
+      ],
+      results: [
+        {
+          title: "90% reduction in manual effort",
+          description: "Nearly eliminated human involvement in the end-to-end request lifecycle.",
+          icon: <FaUserClock />
+        },
+        {
+          title: "Instant turnaround time",
+          description: "Invoice delivery time reduced from 3–4 days to under 30 minutes.",
+          icon: <FaRocket />
+        },
+        {
+          title: "100% compliance adherence",
+          description: "Every VAT invoice met regional format and audit requirements.",
+          icon: <FaCheck />
+        },
+        {
+          title: "Enhanced customer experience",
+          description: "Faster, accurate responses improved client satisfaction ratings.",
+          icon: <FaClipboardCheck />
+        },
+        {
+          title: "Fully scalable automation",
+          description: "Easily replicated across 6 business units with zero code duplication.",
+          icon: <FaChartLine />
+        }
+      ],
+      tags: ["Retail", "VAT", "Invoice Processing", "Power Automate", "Power BI"]
+    },
     {
       id: "power-case-1",
       title: "Field Service Management Transformation",
@@ -475,12 +514,12 @@ const CaseStudies = () => {
                 >
                   <div className="flex items-center justify-center gap-2 flex-wrap">
                     <span className="flex-shrink-0">{serviceData[serviceKey].icon}</span>
-                    <span className="whitespace-nowrap">
+                    <span className="whitespace-nowrap text-center min-w-[110px]">
                       {serviceKey === "ai-data-entry" 
                         ? "AI Data Entry" 
                         : serviceKey === "rpa" 
                           ? "RPA" 
-                          : <span className="whitespace-nowrap">Power&nbsp;Platform</span>}
+                          : "Power Platform"}
                     </span>
                   </div>
                 </TabsTrigger>

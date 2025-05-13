@@ -19,6 +19,58 @@ export interface JobListing {
 
 export const jobListings: JobListing[] = [
   {
+    id: "ml-intern-001",
+    title: "Machine Learning Intern",
+    location: "Hybrid (Remote + Onsite in Bangalore as needed)",
+    type: "Internship",
+    description: "Join us as a Machine Learning Intern and dive into real-world AI/ML and Generative AI projects! You'll gain hands-on experience with LLMs, model deployment, and cutting-edge technologies while collaborating with a team of experienced developers.",
+    responsibilities: [
+      "Develop and optimize ML models using Python and popular AI/ML frameworks",
+      "Work with Generative AI models, including foundational and large language models (LLMs)",
+      "Contribute to the design, development, and deployment of local and cloud-based ML pipelines",
+      "Assist in fine-tuning models for specific tasks (a plus)",
+      "Collaborate with frontend teams to integrate ML outputs into applications"
+    ],
+    requirements: [
+      "Strong Python programming skills",
+      "Solid understanding of Machine Learning and AI fundamentals",
+      "Familiarity with Generative AI & LLMs (e.g., GPT, LLaMA, Mistral)",
+      "Basic knowledge of model deployment (local/cloud)",
+      "Strong problem-solving and communication skills",
+      "Final-year students or recent graduates in B.Tech (CSE), MCA, BCA, or related fields"
+    ],
+    desirable: [
+      "Experience with fine-tuning ML/LLM models",
+      "Exposure to frontend development (React or similar)"
+    ],
+    active: true
+  },
+  {
+    id: "csharp-engineer-001",
+    title: "Associate C# Engineer",
+    location: "Hybrid (Remote + Onsite as needed)",
+    type: "Full-time",
+    description: "We're looking for a motivated Associate C# Engineer to help build and enhance desktop applications using C# and .NET. This role offers hands-on experience with third-party SDK integrations, software deployment, and collaboration with a skilled development team.",
+    responsibilities: [
+      "Assist in designing, developing, and deploying standalone C# applications",
+      "Integrate third-party SDKs and APIs into software solutions",
+      "Collaborate with backend and frontend teams on cross-functional tasks",
+      "Contribute to documentation, testing, and debugging"
+    ],
+    requirements: [
+      "Strong grasp of C# and .NET application development",
+      "Experience in running and deploying standalone applications",
+      "Exposure to third-party SDK integration",
+      "Eagerness to learn and take ownership of tasks",
+      "Freshers or recent graduates in B.Tech (CSE), MCA, BCA, or related fields"
+    ],
+    desirable: [
+      "Knowledge of Python & Django",
+      "Familiarity with frontend technologies (React, JavaScript)"
+    ],
+    active: true
+  },
+  {
     id: "developer-001",
     title: "Developer",
     location: "Remote (India or Philippines)",
