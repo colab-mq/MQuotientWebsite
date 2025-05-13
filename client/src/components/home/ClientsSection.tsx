@@ -42,22 +42,22 @@ const ClientsSection = () => {
       year: "2020"
     },
     {
-      title: "Meter Reading Automation",
-      description: "For a utilities service provider, we developed an RPA solution to automate the meter reading and data processing workflow, reducing processing time by 85% and achieving 99.5% data reporting accuracy.",
-      tags: ["RPA", "Utilities"],
+      title: "Purchase Order ETA Management",
+      description: "For a global supply chain team, we implemented a UiPath solution to automate PO ETA tracking across multiple supplier portals, reducing update cycle time from 2 days to under 4 hours and saving 1,200+ man-hours annually.",
+      tags: ["RPA", "Supply Chain"],
+      year: "2023"
+    },
+    {
+      title: "VAT Invoice Request Automation",
+      description: "For a multinational retail chain, we developed a Power Automate solution to fully automate VAT invoice requests, reducing delivery time from 3-4 days to under 30 minutes with 100% compliance adherence.",
+      tags: ["Power Automate", "Finance"],
+      year: "2022"
+    },
+    {
+      title: "Aviation Maintenance Workflow",
+      description: "For a leading aviation enterprise, we deployed Automation Anywhere bots to streamline fleet management and maintenance operations, improving aircraft readiness KPIs by 30% and reducing regulatory non-compliance by 85%.",
+      tags: ["RPA", "Aviation"],
       year: "2024"
-    },
-    {
-      title: "Mortgage Post-Closing Automation",
-      description: "For a major mortgage lender, we streamlined the post-closing process by automating document classification, data extraction, compliance validation, and trailing document tracking with loan files ranging from 100–800 pages.",
-      tags: ["Document Classification", "AI", "Data Extraction"],
-      year: "2021"
-    },
-    {
-      title: "Power Platform Tool Enhancement",
-      description: "For a manufacturing client, we enhanced an existing Power Platform tool to improve lean initiative tracking and management, increasing productivity by 35% and achieving a 90% user satisfaction rate.",
-      tags: ["Power Platform", "Manufacturing"],
-      year: "2025"
     }
   ];
 
