@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
 import { JobListing } from "@/types/careers";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
@@ -63,14 +62,19 @@ const ApplicationForm = ({ job }: ApplicationFormProps) => {
         formData.append("resume", resume);
       }
       
-      return apiRequest({
-        url: "/api/careers/apply",
+      // Using fetch directly since we need to handle FormData differently than JSON
+      const response = await fetch("/api/careers/apply", {
         method: "POST",
         body: formData,
-        headers: {
-          // Don't set Content-Type here as it's automatically set when using FormData
-        },
+        credentials: "include"
       });
+      
+      if (!response.ok) {
+        const text = await response.text() || response.statusText;
+        throw new Error(`${response.status}: ${text}`);
+      }
+      
+      return response;
     },
     onSuccess: () => {
       toast({
