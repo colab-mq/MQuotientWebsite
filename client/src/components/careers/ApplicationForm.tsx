@@ -63,7 +63,8 @@ const ApplicationForm = ({ job }: ApplicationFormProps) => {
         formData.append("resume", resume);
       }
       
-      return apiRequest("/api/careers/apply", {
+      return apiRequest({
+        url: "/api/careers/apply",
         method: "POST",
         body: formData,
         headers: {
@@ -117,7 +118,7 @@ const ApplicationForm = ({ job }: ApplicationFormProps) => {
                   <FormItem>
                     <FormLabel>Full Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="John Doe" {...field} />
+                      <Input placeholder="Maya Rosario" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -131,7 +132,7 @@ const ApplicationForm = ({ job }: ApplicationFormProps) => {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input type="email" placeholder="john.doe@example.com" {...field} />
+                      <Input type="email" placeholder="maya.rosario@example.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

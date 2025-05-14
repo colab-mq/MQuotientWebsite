@@ -1,0 +1,966 @@
+import { useState, useEffect, useRef } from "react";
+import { Link } from "wouter";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { FaArrowRight, FaCheck, FaChartLine, FaClipboardCheck, FaFileAlt, FaRocket, FaUserClock, FaBrain, FaRobot, FaBolt, FaDownload } from "react-icons/fa";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
+import { useToast } from "@/hooks/use-toast";
+
+// Import partner logos
+import bluePrismLogo from "../assets/partners/Blue_Prism_Logo-700x126.png";
+import glyphXLogo from "../assets/partners/GLYPHX.png";
+import microsoftLogo from "../assets/partners/Microsoft_logo.png";
+import powerPlatformLogo from "../assets/partners/Microsoft_Power_Platform_logo.svg.png";
+import uiPathLogo from "../assets/partners/UiPath_2019_Corporate_Logo.png";
+import powerAutomateLogo from "@assets/PowerAutomate-2020-icon-1024x1024.png";
+import automationAnywhereLogo from "@assets/AutomationAnywhereLogo.png";
+import mquotientLogo from "../assets/mquotient-logo-new.png";
+
+// Define types
+interface CaseStudyResult {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+}
+
+interface CaseStudy {
+  id: string;
+  title: string;
+  subtitle: string;
+  challenge: string;
+  solution: string;
+  process: string[];
+  results: CaseStudyResult[];
+  tags: string[];
+}
+
+interface PartnerLogo {
+  name: string;
+  logo: string;
+  width: number;
+}
+
+interface ServiceData {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  color: string;
+  studies: CaseStudy[];
+  partners: PartnerLogo[];
+}
+
+// Form validation schema for download form
+const downloadFormSchema = z.object({
+  name: z.string().min(2, {
+    message: "Name must be at least 2 characters.",
+  }),
+  email: z.string().email({
+    message: "Please enter a valid email address.",
+  }).refine((email) => {
+    // Validate that it's a company email (not common email providers like gmail, yahoo, etc.)
+    const commonEmailProviders = [
+      "@gmail.com", "@yahoo.com", "@hotmail.com", "@outlook.com", 
+      "@aol.com", "@icloud.com", "@me.com", "@mail.com", "@protonmail.com"
+    ];
+    return !commonEmailProviders.some(provider => email.toLowerCase().endsWith(provider));
+  }, {
+    message: "Please use your company email. Personal email addresses are not accepted.",
+  }),
+});
+
+type DownloadFormValues = z.infer<typeof downloadFormSchema>;
+
+const CaseStudies = () => {
+  // Update page title for SEO
+  useEffect(() => {
+    document.title = "mquotient Case Studies | Success Stories in AI and RPA Implementation";
+  }, []);
+
+  const { toast } = useToast();
+  
+  // State for service tabs
+  const [activeServiceTab, setActiveServiceTab] = useState("ai-data-entry");
+  
+  // State for download dialog
+  const [isDownloadDialogOpen, setIsDownloadDialogOpen] = useState(false);
+  const [selectedStudy, setSelectedStudy] = useState<CaseStudy | null>(null);
+  
+  // Form handling
+  const form = useForm<DownloadFormValues>({
+    resolver: zodResolver(downloadFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+    },
+  });
+
+  // AI-Powered Data Entry Workforce case studies
+  const aiDataEntryCaseStudies: CaseStudy[] = [
+    {
+      id: "invoice",
+      title: "Transforming Invoice Processing Through Automation",
+      subtitle: "A leading global consulting firm managing operations for a major telecom provider",
+      challenge: "A leading global consulting firm managed invoice processing operations for one of the world's largest telecom providers. The client generated hundreds of thousands of invoices annually, with each invoice often spanning 20–50 pages, packed with detailed service descriptions, usage data, taxes, and regional compliance information. Their manual process was slow, error-prone, and costly, with dozens of full-time employees needed to handle the load, resulting in average invoice turnaround times exceeding 5 days and increased compliance risks.",
+      solution: "We deployed an AI-driven document extraction and classification solution with cutting-edge technology. The solution incorporated Optical Character Recognition (OCR) to digitize scanned invoices, Machine Learning Models trained to extract key data fields, Automated Validation rules for cross-checking data, and Classification Engines to organize invoices by region, service type, and supplier.",
+      process: [
+        "Digitizing invoices using advanced OCR technology designed for mixed quality documents",
+        "Training machine learning models on client's specific invoice formats for optimal extraction",
+        "Implementing validation rules to cross-check invoice data with purchase orders",
+        "Deploying classification engines to organize invoices by region, service type, and supplier",
+        "Integrating the solution with existing ERP platforms for seamless data flow",
+        "Providing real-time analytics for monitoring invoice processing metrics"
+      ],
+      results: [
+        {
+          title: "80% reduction in manual effort",
+          description: "Massive decrease in labor required for invoice processing operations.",
+          icon: <FaUserClock />
+        },
+        {
+          title: "5x faster processing",
+          description: "Processing time per invoice dropped from 5+ days to less than 1 day.",
+          icon: <FaChartLine />
+        },
+        {
+          title: "99%+ extraction accuracy",
+          description: "Achieved over 99% accuracy in data capture with automated validation.",
+          icon: <FaCheck />
+        },
+        {
+          title: "$1.5M annual savings",
+          description: "Significant cost reduction by cutting down on manual labor and error rectification.",
+          icon: <FaClipboardCheck />
+        },
+        {
+          title: "Enhanced vendor relationships",
+          description: "Faster, more accurate invoice processing led to quicker payments and improved negotiation leverage.",
+          icon: <FaRocket />
+        }
+      ],
+      tags: ["Telecom", "Invoice Processing", "OCR", "AI", "ML"]
+    },
+    {
+      id: "procurement",
+      title: "Digitizing Supply Chain Documents with AI",
+      subtitle: "A multinational manufacturing company",
+      challenge: "A multinational manufacturing company struggled with manual data extraction from diverse supplier documents including purchase orders, packing lists, bills of lading, and quality certificates. This paper-based system created data entry backlogs, limited visibility into the supply chain, and resulted in frequent errors and delays.",
+      solution: "We implemented a comprehensive Document Intelligence Platform that uses AI to automate data capture across all supply chain document types. The solution recognizes document layouts, extracts structured data, validates against business rules, and integrates directly with their ERP system.",
+      process: [
+        "Analyzing sample documents from 200+ suppliers to classify format patterns",
+        "Developing specialized extraction models for each document type",
+        "Creating automated validation workflows with supplier-specific rules",
+        "Building an exception handling interface for flagged documents",
+        "Integrating with existing SAP system for seamless data flow",
+        "Implementing dashboards to track document processing metrics"
+      ],
+      results: [
+        {
+          title: "92% automatic extraction rate",
+          description: "The vast majority of documents processed without human intervention.",
+          icon: <FaRobot />
+        },
+        {
+          title: "75% faster document processing",
+          description: "Data available for decision-making in minutes instead of days.",
+          icon: <FaUserClock />
+        },
+        {
+          title: "Improved supplier compliance",
+          description: "Real-time feedback to suppliers on document issues reduced future errors.",
+          icon: <FaCheck />
+        },
+        {
+          title: "$1.2M annual cost avoidance",
+          description: "Significant savings by eliminating manual processing and error correction.",
+          icon: <FaClipboardCheck />
+        },
+        {
+          title: "Faster decision making",
+          description: "Reduced time to make data-driven decisions by 65%.",
+          icon: <FaUserClock />
+        },
+        {
+          title: "Single source of truth",
+          description: "Eliminated data silos and provided consistent reporting.",
+          icon: <FaClipboardCheck />
+        }
+      ],
+      tags: ["Manufacturing", "Supply Chain", "OCR", "AI", "ERP Integration"]
+    }
+  ];
+
+  // RPA case studies
+  const rpaCaseStudies: CaseStudy[] = [
+    {
+      id: "rpa-case-1",
+      title: "Streamlining Finance Operations with RPA",
+      subtitle: "A global financial services provider",
+      challenge: "A large financial services company was grappling with overwhelming manual workloads in their accounts payable operations. Their AP team was spending countless hours matching invoices to purchase orders, entering data into multiple systems, and reconciling discrepancies. These manual processes led to delays, human errors, and high operational costs. Finance staff were spending 60% of their time on repetitive tasks rather than value-added analysis.",
+      solution: "We implemented a comprehensive RPA solution using Blue Prism that automated the end-to-end invoice processing workflow across multiple systems. The bots now handle document retrieval, header and line-item data extraction, three-way matching, posting to the ERP, exception handling, and payment processing.",
+      process: [
+        "Conducted process mining to identify highest-impact automation opportunities",
+        "Developed intelligent OCR capabilities for semi-structured invoice formats",
+        "Created bots to handle multi-system integration (ERP, CRM, vendor portals, banking systems)",
+        "Implemented validation checks with business rules to catch discrepancies",
+        "Built exception handling workflows with human-in-the-loop capabilities",
+        "Established real-time performance dashboards and audit trails"
+      ],
+      results: [
+        {
+          title: "92% reduction in manual processing time",
+          description: "Tasks that took days now completed in minutes, with 24/7 processing.",
+          icon: <FaUserClock />
+        },
+        {
+          title: "99.7% data accuracy",
+          description: "Nearly eliminated human error from the invoice processing workflow.",
+          icon: <FaCheck />
+        },
+        {
+          title: "50% faster invoice approvals",
+          description: "Reduced invoice cycle time from 11 days to 5.5 days on average.",
+          icon: <FaChartLine />
+        },
+        {
+          title: "$1.8M annual cost savings",
+          description: "Reduced operational costs through efficiency and error reduction.",
+          icon: <FaClipboardCheck />
+        },
+        {
+          title: "Improved vendor relations",
+          description: "Faster payments and fewer disputes led to stronger supplier relationships.",
+          icon: <FaRocket />
+        }
+      ],
+      tags: ["Finance", "Accounts Payable", "Blue Prism", "OCR"]
+    },
+    {
+      id: "rpa-case-2",
+      title: "Enhancing Aircraft Maintenance Compliance",
+      subtitle: "A leading commercial airline",
+      challenge: "A major airline faced significant regulatory pressure due to inconsistent maintenance record-keeping. Their manual process for filing maintenance logs was causing delays, errors, and occasional regulatory findings. Maintenance technicians spent up to 3 hours daily on documentation rather than aircraft repairs, and the manual data entry led to reporting discrepancies that complicated compliance verification.",
+      solution: "We deployed an Automation Anywhere RPA solution that integrated with their maintenance systems to automatically retrieve, process, and file maintenance records in accordance with regulatory requirements. The solution incorporated OCR for paper records, intelligent workflows for routing and approval, and automated validation against maintenance schedules.",
+      process: [
+        "Mapped the maintenance documentation workflow across multiple systems",
+        "Implemented OCR to digitize and structure paper maintenance logs",
+        "Built RPA bots to extract, transform, and load data into compliance systems",
+        "Automated cross-checking against maintenance schedules and regulatory requirements",
+        "Integrated across legacy aviation systems for seamless data synchronization",
+        "Implemented real-time dashboards to track bot performance and exceptions",
+        "Enabled alerts and escalations for anomalies, ensuring regulatory adherence"
+      ],
+      results: [
+        {
+          title: "30% improvement in aircraft readiness KPIs",
+          description: "Faster maintenance workflows led to reduced aircraft ground time.",
+          icon: <FaRocket />
+        },
+        {
+          title: "Reduced regulatory non-compliance by 85%",
+          description: "Accurate and timely filings strengthened operational integrity.",
+          icon: <FaCheck />
+        },
+        {
+          title: "Saved over 5,000 manual hours annually",
+          description: "Released valuable engineering time to focus on critical maintenance.",
+          icon: <FaUserClock />
+        },
+        {
+          title: "Improved cross-functional collaboration",
+          description: "Real-time system updates enhanced coordination between teams.",
+          icon: <FaClipboardCheck />
+        },
+        {
+          title: "Set a roadmap for scalable aviation automation",
+          description: "New use cases identified across flight scheduling and baggage handling.",
+          icon: <FaChartLine />
+        }
+      ],
+      tags: ["Aviation", "Compliance", "Automation Anywhere", "Maintenance"]
+    }
+  ];
+
+  // Power Platform case studies
+  const powerPlatformCaseStudies: CaseStudy[] = [
+    {
+      id: "power-case-opex",
+      title: "Enhancing the OPEX Tool with Power Platform",
+      subtitle: "A global enterprise organization",
+      challenge: "The organization's OPEX tool was cumbersome and outdated, requiring multiple disconnected projects for managing financial inputs. Manual data entry, lack of a mass upload function, and a clunky interface slowed down operations. Teams struggled to maintain accurate financial oversight and spent unnecessary hours performing basic tasks.",
+      solution: "We rebuilt the OPEX tool using Microsoft Power Platform technologies—Power Apps, Power Automate, and Power BI. This new solution centralized project data, introduced automation to reduce manual work, and added much-needed flexibility and usability through a modern interface and enhanced reporting.",
+      process: [
+        "Built a new Power Apps interface for intuitive use",
+        "Introduced mass upload capability via Power Automate",
+        "Enabled automated workflows for data syncing and validation",
+        "Created Power BI dashboards for dynamic, real-time financial tracking",
+        "Standardized naming conventions and workflows for ease of use"
+      ],
+      results: [
+        {
+          title: "2,080 hours saved annually",
+          description: "Major time savings from automation and simplified workflows.",
+          icon: <FaUserClock />
+        },
+        {
+          title: "$260K annual cost savings",
+          description: "Consolidated tool replaced multiple disconnected projects.",
+          icon: <FaClipboardCheck />
+        },
+        {
+          title: "Enhanced financial granularity",
+          description: "More precise and accessible data for improved decision-making.",
+          icon: <FaChartLine />
+        },
+        {
+          title: "Simplified user experience",
+          description: "Non-technical teams could now manage data and updates efficiently.",
+          icon: <FaCheck />
+        }
+      ],
+      tags: ["Enterprise", "Finance", "OPEX", "Power Apps", "Power Automate", "Power BI"]
+    },
+    {
+      id: "power-case-vat",
+      title: "Automating VAT Invoice Requests with Power Automate",
+      subtitle: "A multinational retail chain",
+      challenge: "A multinational retail chain faced a recurring operational burden in handling VAT invoice requests from corporate customers. The manual process involved receiving invoice requests via email, validating order and payment details, and manually generating compliant VAT invoices. This led to delays, inconsistencies, and a growing backlog, especially during peak retail periods, impacting customer satisfaction and compliance standards.",
+      solution: "We developed and deployed a low-code automation solution using Microsoft Power Automate to streamline and fully automate the VAT invoice request workflow. The system integrated with the client's email, ERP, and invoicing platforms to auto-capture requests, validate inputs, generate invoices, and send them back to requestors—without human intervention.",
+      process: [
+        "Set up Power Automate to monitor shared mailboxes for invoice request emails",
+        "Parsed email content using AI Builder and Power Automate expressions",
+        "Connected with ERP system APIs to validate transaction and customer data",
+        "Auto-generated compliant VAT invoices using pre-configured templates",
+        "Sent responses to requestors and logged transactions for audit readiness",
+        "Created dashboards in Power BI for tracking volumes and SLA compliance"
+      ],
+      results: [
+        {
+          title: "90% reduction in manual effort",
+          description: "Nearly eliminated human involvement in the end-to-end request lifecycle.",
+          icon: <FaUserClock />
+        },
+        {
+          title: "Instant turnaround time",
+          description: "Invoice delivery time reduced from 3–4 days to under 30 minutes.",
+          icon: <FaRocket />
+        },
+        {
+          title: "100% compliance adherence",
+          description: "Every VAT invoice met regional format and audit requirements.",
+          icon: <FaCheck />
+        },
+        {
+          title: "Enhanced customer experience",
+          description: "Faster, accurate responses improved client satisfaction ratings.",
+          icon: <FaClipboardCheck />
+        },
+        {
+          title: "Fully scalable automation",
+          description: "Easily replicated across 6 business units with zero code duplication.",
+          icon: <FaChartLine />
+        }
+      ],
+      tags: ["Retail", "VAT", "Invoice Processing", "Power Automate", "Power BI"]
+    },
+    {
+      id: "power-case-1",
+      title: "Field Service Management Transformation",
+      subtitle: "A utilities service provider",
+      challenge: "A utilities service provider with hundreds of field technicians struggled with inefficient job dispatching, paper-based work orders, and delayed reporting. This resulted in longer response times, customer dissatisfaction, and challenges in tracking field operations performance.",
+      solution: "We developed a comprehensive Microsoft Power Platform solution combining Power Apps for mobile field service, Power Automate for workflow automation, and Power BI for analytics. This provided a unified platform for scheduling, dispatching, job management, and performance tracking that transformed their field service operations.",
+      process: [
+        "Created a custom mobile app for field technicians using Power Apps",
+        "Implemented automated job assignment and scheduling using Power Automate",
+        "Developed digital forms for work orders, inspections, and customer sign-offs",
+        "Built real-time dashboards for managers to monitor field operations",
+        "Integrated with existing CRM and ERP systems",
+        "Implemented offline capabilities for areas with poor connectivity",
+        "Provided real-time job status updates to customers"
+      ],
+      results: [
+        {
+          title: "35% increase in jobs completed per day",
+          description: "More efficient routing and reduced administrative time.",
+          icon: <FaChartLine />
+        },
+        {
+          title: "First-time fix rate improved by 28%",
+          description: "Better information and preparation for field technicians.",
+          icon: <FaCheck />
+        },
+        {
+          title: "Customer satisfaction scores up 42%",
+          description: "Faster response times and better communication.",
+          icon: <FaRocket />
+        },
+        {
+          title: "Paper costs reduced by 95%",
+          description: "Digital forms eliminated most printing needs.",
+          icon: <FaClipboardCheck />
+        },
+        {
+          title: "60% reduction in manual data entry",
+          description: "Digital capture eliminated redundant data entry.",
+          icon: <FaUserClock />
+        }
+      ],
+      tags: ["Utilities", "Field Service", "Power Apps", "Power Automate", "Power BI"]
+    },
+    {
+      id: "power-case-2",
+      title: "Manufacturing Supply Chain Visibility",
+      subtitle: "A global manufacturing company",
+      challenge: "A global manufacturer lacked visibility across their supply chain, with data siloed in multiple systems (ERP, CRM, WMS, etc.). This made it difficult to track materials, forecast accurately, and make timely decisions. Business users depended on IT for custom reports, causing delays in accessing critical information.",
+      solution: "We created a comprehensive supply chain intelligence solution using Microsoft Power Platform. This included Power BI dashboards for real-time visibility, Power Automate for data integration, and Power Apps for mobile access and data entry. The solution connected disparate systems to provide a holistic view of the entire supply chain.",
+      process: [
+        "Mapped data flows across multiple enterprise systems",
+        "Created data models to consolidate information from diverse sources",
+        "Developed interactive Power BI dashboards for different user roles",
+        "Built Power Automate flows to synchronize data between systems",
+        "Created mobile Power Apps for on-the-go access and updates",
+        "Implemented alerts and notifications for supply chain issues"
+      ],
+      results: [
+        {
+          title: "90% reduction in reporting time",
+          description: "Eliminated wait times for custom IT reports.",
+          icon: <FaChartLine />
+        },
+        {
+          title: "15% improvement in inventory accuracy",
+          description: "Better visibility led to more accurate stock levels.",
+          icon: <FaCheck />
+        },
+        {
+          title: "20% reduction in expedited shipping costs",
+          description: "Better forecasting and planning reduced emergency shipments.",
+          icon: <FaClipboardCheck />
+        },
+        {
+          title: "Empowered business users",
+          description: "Self-service analytics reduced dependency on IT.",
+          icon: <FaRocket />
+        },
+        {
+          title: "Faster decision making",
+          description: "Reduced time to make data-driven decisions by 65%.",
+          icon: <FaUserClock />
+        },
+        {
+          title: "Single source of truth",
+          description: "Eliminated data silos and provided consistent reporting.",
+          icon: <FaClipboardCheck />
+        }
+      ],
+      tags: ["Manufacturing", "Supply Chain", "Power BI", "Power Automate"]
+    }
+  ];
+
+  // Service meta data
+  const serviceData: Record<string, ServiceData> = {
+    "ai-data-entry": {
+      title: "AI-Powered Data Entry Workforce",
+      description: "Our intelligent document processing solutions that automatically extract and validate data from both structured and unstructured documents.",
+      icon: <FaBrain />,
+      color: "from-purple-500 to-pink-500",
+      studies: aiDataEntryCaseStudies,
+      partners: [
+        { name: "GlyphX", logo: glyphXLogo, width: 160 }
+      ]
+    },
+    "rpa": {
+      title: "Robotic Process Automation",
+      description: "Automate repetitive tasks, reduce errors, and boost efficiency with RPA solutions tailored to your needs, with the platform of your choice driving your specific requirements.",
+      icon: <FaRobot />,
+      color: "from-blue-500 to-cyan-500",
+      studies: rpaCaseStudies,
+      partners: [
+        { name: "UiPath", logo: uiPathLogo, width: 120 },
+        { name: "Blue Prism", logo: bluePrismLogo, width: 120 },
+        { name: "Power Automate", logo: powerAutomateLogo, width: 100 },
+        { name: "Automation Anywhere", logo: automationAnywhereLogo, width: 160 }
+      ]
+    },
+    "power-platform": {
+      title: "Microsoft Power Platform",
+      description: "Custom solutions using Power Apps, Power Automate, and Power BI to streamline processes and provide valuable business insights.",
+      icon: <FaBolt />,
+      color: "from-teal-500 to-emerald-500",
+      studies: powerPlatformCaseStudies,
+      partners: [
+        { name: "Microsoft", logo: microsoftLogo, width: 140 },
+        { name: "Microsoft Power Platform", logo: powerPlatformLogo, width: 120 }
+      ]
+    }
+  };
+
+  // Function to handle download button click
+  const handleDownloadClick = (study: CaseStudy) => {
+    setSelectedStudy(study);
+    setIsDownloadDialogOpen(true);
+    // Reset form when opening dialog
+    form.reset();
+  };
+
+  // Function to handle form submission
+  const onSubmit = async (data: DownloadFormValues) => {
+    if (selectedStudy) {
+      await generatePDF(selectedStudy, data);
+      
+      // Close dialog and show success message
+      setIsDownloadDialogOpen(false);
+      toast({
+        title: "Thank you!",
+        description: "Your case study has been downloaded successfully.",
+      });
+      
+      // Optional: Store the lead information in your database
+      console.log("Lead captured:", {
+        name: data.name,
+        email: data.email,
+        caseStudy: selectedStudy.title,
+        timestamp: new Date().toISOString()
+      });
+    }
+  };
+
+  // Function to generate PDF from a case study
+  const generatePDF = async (study: CaseStudy, userData: DownloadFormValues) => {
+    // Create a temporary div to render the case study content for PDF
+    const tempDiv = document.createElement('div');
+    tempDiv.style.width = '800px';
+    tempDiv.style.padding = '40px';
+    tempDiv.style.position = 'absolute';
+    tempDiv.style.left = '-9999px';
+    tempDiv.className = 'bg-white text-black';
+    
+    // Add the mQuotient logo at the top
+    const logoImg = document.createElement('img');
+    logoImg.src = mquotientLogo;
+    logoImg.style.width = '200px';
+    logoImg.style.marginBottom = '20px';
+    tempDiv.appendChild(logoImg);
+    
+    // Add case study content
+    const title = document.createElement('h1');
+    title.textContent = study.title;
+    title.style.fontSize = '24px';
+    title.style.fontWeight = 'bold';
+    title.style.marginBottom = '5px';
+    title.style.color = '#01257D';
+    tempDiv.appendChild(title);
+    
+    const subtitle = document.createElement('p');
+    subtitle.textContent = study.subtitle;
+    subtitle.style.fontSize = '16px';
+    subtitle.style.marginBottom = '20px';
+    subtitle.style.color = '#666';
+    tempDiv.appendChild(subtitle);
+    
+    // The Challenge
+    const challengeTitle = document.createElement('h2');
+    challengeTitle.textContent = 'The Challenge';
+    challengeTitle.style.fontSize = '18px';
+    challengeTitle.style.fontWeight = 'bold';
+    challengeTitle.style.marginBottom = '10px';
+    challengeTitle.style.color = '#01257D';
+    tempDiv.appendChild(challengeTitle);
+    
+    const challengeText = document.createElement('p');
+    challengeText.textContent = study.challenge;
+    challengeText.style.marginBottom = '20px';
+    challengeText.style.fontSize = '14px';
+    tempDiv.appendChild(challengeText);
+    
+    // Our Solution
+    const solutionTitle = document.createElement('h2');
+    solutionTitle.textContent = 'Our Solution';
+    solutionTitle.style.fontSize = '18px';
+    solutionTitle.style.fontWeight = 'bold';
+    solutionTitle.style.marginBottom = '10px';
+    solutionTitle.style.color = '#01257D';
+    tempDiv.appendChild(solutionTitle);
+    
+    const solutionText = document.createElement('p');
+    solutionText.textContent = study.solution;
+    solutionText.style.marginBottom = '20px';
+    solutionText.style.fontSize = '14px';
+    tempDiv.appendChild(solutionText);
+    
+    // Implementation Process
+    const processTitle = document.createElement('h2');
+    processTitle.textContent = 'Implementation Process';
+    processTitle.style.fontSize = '18px';
+    processTitle.style.fontWeight = 'bold';
+    processTitle.style.marginBottom = '10px';
+    processTitle.style.color = '#01257D';
+    tempDiv.appendChild(processTitle);
+    
+    const processList = document.createElement('ul');
+    processList.style.marginBottom = '20px';
+    processList.style.paddingLeft = '20px';
+    study.process.forEach(step => {
+      const item = document.createElement('li');
+      item.textContent = step;
+      item.style.marginBottom = '5px';
+      item.style.fontSize = '14px';
+      processList.appendChild(item);
+    });
+    tempDiv.appendChild(processList);
+    
+    // Results & Impact
+    const resultsTitle = document.createElement('h2');
+    resultsTitle.textContent = 'Results & Impact';
+    resultsTitle.style.fontSize = '18px';
+    resultsTitle.style.fontWeight = 'bold';
+    resultsTitle.style.marginBottom = '10px';
+    resultsTitle.style.color = '#01257D';
+    tempDiv.appendChild(resultsTitle);
+    
+    const resultsList = document.createElement('ul');
+    resultsList.style.marginBottom = '20px';
+    resultsList.style.paddingLeft = '20px';
+    study.results.forEach(result => {
+      const item = document.createElement('li');
+      item.textContent = `${result.title}: ${result.description}`;
+      item.style.marginBottom = '5px';
+      item.style.fontSize = '14px';
+      resultsList.appendChild(item);
+    });
+    tempDiv.appendChild(resultsList);
+    
+    // Add prepared for section with user's information
+    const preparedForTitle = document.createElement('h2');
+    preparedForTitle.textContent = 'Prepared For';
+    preparedForTitle.style.fontSize = '18px';
+    preparedForTitle.style.fontWeight = 'bold';
+    preparedForTitle.style.marginBottom = '10px';
+    preparedForTitle.style.color = '#01257D';
+    tempDiv.appendChild(preparedForTitle);
+    
+    const preparedFor = document.createElement('p');
+    preparedFor.textContent = `${userData.name} (${userData.email})`;
+    preparedFor.style.marginBottom = '20px';
+    preparedFor.style.fontSize = '14px';
+    tempDiv.appendChild(preparedFor);
+    
+    // Add copyright and contact
+    const footer = document.createElement('div');
+    footer.style.marginTop = '30px';
+    footer.style.borderTop = '1px solid #ddd';
+    footer.style.paddingTop = '10px';
+    footer.style.fontSize = '12px';
+    footer.style.color = '#666';
+    footer.textContent = '© ' + new Date().getFullYear() + ' mquotient. For more information, please contact us at hi@mquotient.net';
+    tempDiv.appendChild(footer);
+    
+    // Append to document, convert to image, then remove
+    document.body.appendChild(tempDiv);
+    
+    try {
+      // Convert to image with html2canvas
+      const canvas = await html2canvas(tempDiv, {
+        scale: 2,
+        useCORS: true,
+        logging: false
+      });
+      
+      // Create PDF
+      const pdf = new jsPDF({
+        orientation: 'portrait',
+        unit: 'px',
+        format: 'a4'
+      });
+      
+      const imgData = canvas.toDataURL('image/png');
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      
+      // Save the PDF
+      pdf.save(`mquotient-case-study-${study.id}.pdf`);
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+      toast({
+        title: "Error generating PDF",
+        description: "There was a problem creating your PDF. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      // Clean up
+      document.body.removeChild(tempDiv);
+    }
+  };
+
+  // Function to render a case study
+  const renderCaseStudy = (study: CaseStudy) => (
+    <div key={study.id} className="border-b border-border pb-16 last:border-b-0 last:pb-0 mb-16">
+      <div className="mb-8 flex justify-between items-start">
+        <div>
+          <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+            {study.title}
+          </h2>
+          <div className="text-lg font-medium text-foreground/70 mb-4">{study.subtitle}</div>
+          <div className="flex flex-wrap gap-2 mt-3">
+            {study.tags.map((tag: string, idx: number) => (
+              <Badge key={idx} variant="outline" className="bg-primary/5 text-primary border-primary/20">
+                {tag}
+              </Badge>
+            ))}
+          </div>
+        </div>
+        <Button 
+          variant="outline" 
+          size="sm" 
+          className="flex items-center gap-2 border-primary/20 text-primary hover:bg-primary/10"
+          onClick={() => handleDownloadClick(study)}
+        >
+          <FaDownload className="w-4 h-4" /> 
+          <span className="hidden sm:inline">Download</span> PDF
+        </Button>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-12">
+        <div className="lg:col-span-3">
+          <div className="bg-muted/30 rounded-xl p-8 border border-border h-full">
+            <h3 className="text-xl font-semibold mb-6 relative inline-block">
+              <span className="relative z-10">The Challenge</span>
+              <span className="absolute bottom-0 left-0 w-full h-1 bg-primary/20 rounded-full"></span>
+            </h3>
+            <p className="text-foreground/80 leading-relaxed mb-8">{study.challenge}</p>
+
+            <h3 className="text-xl font-semibold mb-6 relative inline-block">
+              <span className="relative z-10">Our Solution</span>
+              <span className="absolute bottom-0 left-0 w-full h-1 bg-primary/20 rounded-full"></span>
+            </h3>
+            <p className="text-foreground/80 leading-relaxed mb-8">{study.solution}</p>
+
+            <h3 className="text-xl font-semibold mb-6 relative inline-block">
+              <span className="relative z-10">Implementation Process</span>
+              <span className="absolute bottom-0 left-0 w-full h-1 bg-primary/20 rounded-full"></span>
+            </h3>
+            <ul className="space-y-3">
+              {study.process.map((step: string, idx: number) => (
+                <li key={idx} className="flex items-start">
+                  <div className="flex-shrink-0 h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center mr-3 mt-1">
+                    <FaCheck className="text-primary h-3 w-3" />
+                  </div>
+                  <span className="text-foreground/80">{step}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="lg:col-span-2">
+          <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl border border-border p-8 h-full">
+            <h3 className="text-xl font-semibold mb-6 text-center">Results & Impact</h3>
+            <div className="space-y-4">
+              {study.results.map((result: CaseStudyResult, idx: number) => (
+                <Card key={idx} className="bg-background border-border hover:shadow-md transition-shadow">
+                  <CardHeader className="py-4 px-5">
+                    <div className="flex items-center gap-3">
+                      <div className="flex-shrink-0 h-8 w-8 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 flex items-center justify-center text-primary">
+                        {result.icon}
+                      </div>
+                      <CardTitle className="text-base font-semibold">{result.title}</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="py-2 px-5 pt-0 text-sm text-foreground/70">
+                    {result.description}
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="pt-16 pb-16">
+      <div className="bg-gradient-to-r from-primary to-primary-dark text-white py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Case Studies</h1>
+          <p className="text-xl max-w-3xl">
+            A closer look at how we've solved complex challenges, streamlined operations, and delivered measurable impact—one project at a time.
+          </p>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold mb-4">Success Stories by Service Area</h2>
+          <p className="text-xl max-w-3xl mx-auto text-muted-foreground">
+            See how we've applied automation where it matters—boosting accuracy, speeding up workflows, and making operations smarter across industries.
+          </p>
+        </div>
+
+        <Tabs 
+          defaultValue="ai-data-entry" 
+          value={activeServiceTab}
+          onValueChange={setActiveServiceTab}
+          className="w-full mb-12"
+        >
+          <div className="flex justify-center mb-12">
+            <TabsList className="flex flex-col sm:grid sm:grid-cols-3 w-full max-w-2xl gap-2">
+              {Object.keys(serviceData).map((serviceKey) => (
+                <TabsTrigger 
+                  key={serviceKey} 
+                  value={serviceKey}
+                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary/80 data-[state=active]:to-secondary/80 data-[state=active]:text-white gap-2 p-4 h-full flex items-center justify-center"
+                >
+                  <div className="mr-2 text-xl">
+                    {serviceData[serviceKey].icon}
+                  </div>
+                  <div className="text-start">
+                    <div className="font-medium">{serviceData[serviceKey].title}</div>
+                  </div>
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </div>
+
+          {Object.keys(serviceData).map((serviceKey) => (
+            <TabsContent key={serviceKey} value={serviceKey} className="focus-visible:outline-none focus-visible:ring-0">
+              <div className="mb-16">
+                <div className="mb-10">
+                  <h3 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                    {serviceData[serviceKey].title}
+                  </h3>
+                  <p className="text-lg max-w-4xl text-foreground/80">
+                    {serviceData[serviceKey].description}
+                  </p>
+                  
+                  {/* Partner logos */}
+                  <div className="flex flex-wrap gap-4">
+                    {serviceData[serviceKey].partners.map((partner: PartnerLogo, idx: number) => (
+                      <div key={idx} className="bg-white rounded-md p-2 shadow-sm">
+                        <img 
+                          src={partner.logo} 
+                          alt={partner.name} 
+                          className="object-contain h-8" 
+                          style={{ width: `${partner.width}px`, maxHeight: '40px' }}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              
+              <div className="space-y-6">
+                {serviceData[serviceKey].studies.map((study: CaseStudy) => renderCaseStudy(study))}
+              </div>
+            </TabsContent>
+          ))}
+        </Tabs>
+        
+        <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-10 rounded-lg mt-16 shadow-md border border-primary/10">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+              Ready to Transform Your Business?
+            </h2>
+            <p className="text-lg max-w-3xl mx-auto">
+              Contact us today to discuss how our solutions can help your organization automate processes, reduce manual effort, and improve accuracy.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
+              Contact Us <FaArrowRight className="h-4 w-4" />
+            </Link>
+            <Link href="/services" className="btn-outline">
+              Learn More About Our Services
+            </Link>
+          </div>
+        </div>
+      </div>
+      
+      {/* Download Form Dialog */}
+      <Dialog open={isDownloadDialogOpen} onOpenChange={setIsDownloadDialogOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Download Case Study</DialogTitle>
+            <DialogDescription>
+              Please provide your information to download the case study. We'll send you similar relevant case studies in the future.
+            </DialogDescription>
+          </DialogHeader>
+          
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 py-4">
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Your full name" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Company Email</FormLabel>
+                    <FormControl>
+                      <Input 
+                        type="email" 
+                        placeholder="you@yourcompany.com" 
+                        {...field} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Please use your work email. Personal email domains (gmail.com, etc.) are not accepted.
+                    </p>
+                  </FormItem>
+                )}
+              />
+              
+              <DialogFooter className="flex flex-col-reverse sm:flex-row sm:justify-between sm:space-x-2">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => setIsDownloadDialogOpen(false)}
+                >
+                  Cancel
+                </Button>
+                <Button 
+                  type="submit"
+                  className="gap-2"
+                  disabled={form.formState.isSubmitting}
+                >
+                  {form.formState.isSubmitting ? (
+                    <div className="animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full mr-1" />
+                  ) : (
+                    <FaDownload className="h-4 w-4" />
+                  )}
+                  Download PDF
+                </Button>
+              </DialogFooter>
+            </form>
+          </Form>
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
+};
+
+export default CaseStudies;

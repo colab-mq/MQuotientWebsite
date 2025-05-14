@@ -56,7 +56,7 @@ export const jobListings: JobListing[] = [
     id: "business-analyst-001",
     title: "Business Analyst",
     location: "Remote (India or Philippines)",
-    type: "Consultant",
+    type: "Full-time",
     description: "The Business Analyst works closely with stakeholders to understand processes, identify automation opportunities, and define the requirements for the automation solutions.",
     responsibilities: [
       "Conduct side by side discussions with Subject Matter Experts (SMEs) of the business",
