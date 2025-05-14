@@ -6,13 +6,20 @@ import { FaRobot, FaBolt, FaCode, FaHeadset, FaCheckCircle, FaArrowRight, FaBrai
 import bluePrismLogo from "../assets/partners/Blue_Prism_Logo-700x126.png";
 import glyphXLogo from "../assets/partners/GLYPHX.png";
 import microsoftLogo from "../assets/partners/Microsoft_logo.png";
-import powerPlatformLogo from "../assets/partners/Microsoft_Power_Platform_logo.svg.png";
 import uiPathLogo from "../assets/partners/UiPath_2019_Corporate_Logo.png";
 import automationAnywhereLogo from "../assets/partners/automation-anywhere-logo.png";
 import powerAutomateLogo from "../assets/partners/power-automate-logo.png";
 import awsLogo from "../assets/partners/aws-logo-new.png";
 import azureLogo from "../assets/partners/azure-logo.png";
 import gcpLogo from "../assets/partners/gcp-logo-new.png";
+
+// Import new Power Platform logos
+import powerPlatformLogo from "../assets/power-platform/PowerPlatform_scalable.png";
+import powerAppsLogo from "../assets/power-platform/PowerApps_scalable.png";
+import powerAutomate2Logo from "../assets/power-platform/PowerAutomate_scalable.png";
+import powerBILogo from "../assets/power-platform/PowerBI_scalable.png";
+import dataverseLogo from "../assets/power-platform/Dataverse_scalable.png";
+import copilotStudioLogo from "../assets/power-platform/CopilotStudio_scalable.png";
 
 const Services = () => {
   // Update page title for SEO
@@ -29,13 +36,14 @@ const Services = () => {
       { src: uiPathLogo, alt: "UiPath", width: 80 },
       { src: bluePrismLogo, alt: "Blue Prism", width: 80 },
       { src: automationAnywhereLogo, alt: "Automation Anywhere", width: 100 },
-      { src: powerAutomateLogo, alt: "Power Automate", width: 80 },
-      { src: azureLogo, alt: "Azure AI", width: 80 },
-      { src: microsoftLogo, alt: "Microsoft Fabric", width: 100 }
+      { src: powerAutomateLogo, alt: "Power Automate", width: 80 }
     ],
     "power-platform": [
-      { src: microsoftLogo, alt: "Microsoft", width: 140 },
-      { src: powerPlatformLogo, alt: "Microsoft Power Platform", width: 120 }
+      { src: powerPlatformLogo, alt: "Power Platform", width: 50 },
+      { src: powerAppsLogo, alt: "Power Apps", width: 50 },
+      { src: powerAutomate2Logo, alt: "Power Automate", width: 50 },
+      { src: powerBILogo, alt: "Power BI", width: 50 },
+      { src: dataverseLogo, alt: "Dataverse", width: 50 }
     ],
     "cloud": [
       { src: azureLogo, alt: "Microsoft Azure", width: 100 },
@@ -188,18 +196,28 @@ const Services = () => {
                   service.title === "Cloud Services") && (
                   <div className="mb-6">
                     <h3 className="text-sm font-medium text-muted-foreground mb-3">Technology Stack</h3>
-                    <div className={`flex items-center ${service.title === "Cloud Services" || service.title === "Intelligent Business Automation: AI + RPA" ? "justify-between w-full max-w-md flex-wrap" : "flex-wrap gap-6"}`}>
+                    <div className={`flex items-center ${
+                      service.title === "Microsoft Power Platform Solutions" 
+                        ? "justify-center flex-wrap gap-4 w-full" 
+                        : service.title === "Cloud Services" || service.title === "Intelligent Business Automation: AI + RPA" 
+                          ? "justify-between w-full max-w-md flex-wrap" 
+                          : "flex-wrap gap-6"
+                    }`}>
                       {partnerLogos[
                         service.title === "AI-Powered Data Entry Workforce" ? "ai-data-entry" : 
                         service.title === "Intelligent Business Automation: AI + RPA" ? "intelligent-automation" : 
                         service.title === "Cloud Services" ? "cloud" : "power-platform"
                       ].map((logo: { src: string; alt: string; width: number }, i: number) => (
-                        <div key={i} className="bg-white p-2 rounded-md shadow-sm border border-gray-100">
+                        <div key={i} className={`${
+                          service.title === "Microsoft Power Platform Solutions"
+                            ? "bg-white/90 p-2 rounded-md shadow-sm border border-gray-100 flex items-center justify-center h-14 w-14 md:h-16 md:w-16"
+                            : "bg-white p-2 rounded-md shadow-sm border border-gray-100"
+                        }`}>
                           <img 
                             src={logo.src} 
                             alt={logo.alt} 
-                            className="object-contain h-8" 
-                            style={{ width: `${logo.width}px`, maxHeight: '36px' }} 
+                            className={`object-contain ${service.title === "Microsoft Power Platform Solutions" ? "h-full w-full" : "h-8"}`}
+                            style={service.title !== "Microsoft Power Platform Solutions" ? { width: `${logo.width}px`, maxHeight: '36px' } : {}} 
                           />
                         </div>
                       ))}
