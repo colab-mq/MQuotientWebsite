@@ -1,0 +1,23 @@
+Case Study 2: Enhancing the OPEX Tool with Power Platform
+The Challenge
+The organization’s OPEX tool was cumbersome and outdated, requiring multiple disconnected projects for managing financial inputs. Manual data entry, lack of a mass upload function, and a clunky interface slowed down operations. Teams struggled to maintain accurate financial oversight and spent unnecessary hours performing basic tasks.
+Our Solution
+We rebuilt the OPEX tool using Microsoft Power Platform technologies—Power Apps, Power Automate, and Power BI. This new solution centralized project data, introduced automation to reduce manual work, and added much-needed flexibility and usability through a modern interface and enhanced reporting.
+Implementation Highlights
+•	Built a new Power Apps interface for intuitive use
+•	Introduced mass upload capability via Power Automate
+•	Enabled automated workflows for data syncing and validation
+•	Created Power BI dashboards for dynamic, real-time financial tracking
+•	Standardized naming conventions and workflows for ease of use
+Results & Impact
+•	✅ Saved ~2,080 hours annually
+Major time savings from automation and simplified workflows
+•	✅ 1 FTE capacity released
+Entire role’s worth of manual work eliminated
+•	✅ $260K annual cost savings
+Consolidated tool replaced multiple disconnected projects
+•	✅ Improved decision-making with better financial granularity
+More precise and accessible data for planning
+•	✅ Simplified user experience
+Non-technical teams could now manage data and updates efficiently
+

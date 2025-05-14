@@ -1,9 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { FaArrowRight, FaCheck, FaChartLine, FaClipboardCheck, FaFileAlt, FaRocket, FaUserClock, FaBrain, FaRobot, FaBolt } from "react-icons/fa";
+import { Button } from "@/components/ui/button";
+import { FaArrowRight, FaCheck, FaChartLine, FaClipboardCheck, FaFileAlt, FaRocket, FaUserClock, FaBrain, FaRobot, FaBolt, FaDownload } from "react-icons/fa";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 // Import partner logos
 import bluePrismLogo from "../assets/partners/Blue_Prism_Logo-700x126.png";
@@ -13,6 +16,7 @@ import powerPlatformLogo from "../assets/partners/Microsoft_Power_Platform_logo.
 import uiPathLogo from "../assets/partners/UiPath_2019_Corporate_Logo.png";
 import powerAutomateLogo from "@assets/PowerAutomate-2020-icon-1024x1024.png";
 import automationAnywhereLogo from "@assets/AutomationAnywhereLogo.png";
+import mquotientLogo from "../assets/mquotient-logo-new.png";
 
 // Define types
 interface CaseStudyResult {
@@ -234,6 +238,48 @@ const CaseStudies = () => {
 
   // Power Platform case studies
   const powerPlatformCaseStudies: CaseStudy[] = [
+    {
+      id: "power-case-opex",
+      title: "Enhancing the OPEX Tool with Power Platform",
+      subtitle: "A global enterprise organization",
+      challenge: "The organization's OPEX tool was cumbersome and outdated, requiring multiple disconnected projects for managing financial inputs. Manual data entry, lack of a mass upload function, and a clunky interface slowed down operations. Teams struggled to maintain accurate financial oversight and spent unnecessary hours performing basic tasks.",
+      solution: "We rebuilt the OPEX tool using Microsoft Power Platform technologies—Power Apps, Power Automate, and Power BI. This new solution centralized project data, introduced automation to reduce manual work, and added much-needed flexibility and usability through a modern interface and enhanced reporting.",
+      process: [
+        "Built a new Power Apps interface for intuitive use",
+        "Introduced mass upload capability via Power Automate",
+        "Enabled automated workflows for data syncing and validation",
+        "Created Power BI dashboards for dynamic, real-time financial tracking",
+        "Standardized naming conventions and workflows for ease of use"
+      ],
+      results: [
+        {
+          title: "2,080 hours saved annually",
+          description: "Major time savings from automation and simplified workflows.",
+          icon: <FaUserClock />
+        },
+        {
+          title: "1 FTE capacity released",
+          description: "Entire role's worth of manual work eliminated.",
+          icon: <FaRocket />
+        },
+        {
+          title: "$260K annual cost savings",
+          description: "Consolidated tool replaced multiple disconnected projects.",
+          icon: <FaClipboardCheck />
+        },
+        {
+          title: "Enhanced financial granularity",
+          description: "More precise and accessible data for improved decision-making.",
+          icon: <FaChartLine />
+        },
+        {
+          title: "Simplified user experience",
+          description: "Non-technical teams could now manage data and updates efficiently.",
+          icon: <FaCheck />
+        }
+      ],
+      tags: ["Enterprise", "Finance", "OPEX", "Power Apps", "Power Automate", "Power BI"]
+    },
     {
       id: "power-case-vat",
       title: "Automating VAT Invoice Requests with Power Automate",
