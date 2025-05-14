@@ -43,7 +43,8 @@ const Services = () => {
       { src: powerAppsLogo, alt: "Power Apps", width: 50 },
       { src: powerAutomate2Logo, alt: "Power Automate", width: 50 },
       { src: powerBILogo, alt: "Power BI", width: 50 },
-      { src: dataverseLogo, alt: "Dataverse", width: 50 }
+      { src: dataverseLogo, alt: "Dataverse", width: 50 },
+      { src: copilotStudioLogo, alt: "Copilot Studio", width: 50 }
     ],
     "cloud": [
       { src: azureLogo, alt: "Microsoft Azure", width: 100 },
@@ -196,32 +197,42 @@ const Services = () => {
                   service.title === "Cloud Services") && (
                   <div className="mb-6">
                     <h3 className="text-sm font-medium text-muted-foreground mb-3">Technology Stack</h3>
-                    <div className={`flex items-center ${
-                      service.title === "Microsoft Power Platform Solutions" 
-                        ? "justify-center flex-wrap gap-4 w-full" 
-                        : service.title === "Cloud Services" || service.title === "Intelligent Business Automation: AI + RPA" 
+                    {service.title === "Microsoft Power Platform Solutions" ? (
+                      <div className="w-full overflow-hidden relative">
+                        <div className="flex gap-4 py-2 overflow-x-auto scrollbar-hide snap-x">
+                          {partnerLogos["power-platform"].map((logo: { src: string; alt: string; width: number }, i: number) => (
+                            <div key={i} className="bg-white/90 p-2 rounded-md shadow-sm border border-gray-100 flex-shrink-0 flex items-center justify-center h-16 w-16 snap-start">
+                              <img 
+                                src={logo.src} 
+                                alt={logo.alt} 
+                                className="object-contain h-full w-full"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <div className={`flex items-center ${
+                        service.title === "Cloud Services" || service.title === "Intelligent Business Automation: AI + RPA" 
                           ? "justify-between w-full max-w-md flex-wrap" 
                           : "flex-wrap gap-6"
-                    }`}>
-                      {partnerLogos[
-                        service.title === "AI-Powered Data Entry Workforce" ? "ai-data-entry" : 
-                        service.title === "Intelligent Business Automation: AI + RPA" ? "intelligent-automation" : 
-                        service.title === "Cloud Services" ? "cloud" : "power-platform"
-                      ].map((logo: { src: string; alt: string; width: number }, i: number) => (
-                        <div key={i} className={`${
-                          service.title === "Microsoft Power Platform Solutions"
-                            ? "bg-white/90 p-2 rounded-md shadow-sm border border-gray-100 flex items-center justify-center h-14 w-14 md:h-16 md:w-16"
-                            : "bg-white p-2 rounded-md shadow-sm border border-gray-100"
-                        }`}>
-                          <img 
-                            src={logo.src} 
-                            alt={logo.alt} 
-                            className={`object-contain ${service.title === "Microsoft Power Platform Solutions" ? "h-full w-full" : "h-8"}`}
-                            style={service.title !== "Microsoft Power Platform Solutions" ? { width: `${logo.width}px`, maxHeight: '36px' } : {}} 
-                          />
-                        </div>
-                      ))}
-                    </div>
+                      }`}>
+                        {partnerLogos[
+                          service.title === "AI-Powered Data Entry Workforce" ? "ai-data-entry" : 
+                          service.title === "Intelligent Business Automation: AI + RPA" ? "intelligent-automation" : 
+                          "cloud"
+                        ].map((logo: { src: string; alt: string; width: number }, i: number) => (
+                          <div key={i} className="bg-white p-2 rounded-md shadow-sm border border-gray-100">
+                            <img 
+                              src={logo.src} 
+                              alt={logo.alt} 
+                              className="object-contain h-8"
+                              style={{ width: `${logo.width}px`, maxHeight: '36px' }}
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 )}
                 
