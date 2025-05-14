@@ -18,12 +18,20 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { 
+  Select, 
+  SelectContent, 
+  SelectItem, 
+  SelectTrigger, 
+  SelectValue 
+} from "@/components/ui/select";
 
 // Validation schema for the application form
 const applicationFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
   email: z.string().email({ message: "Please enter a valid email address" }),
-  phone: z.string().min(10, { message: "Please enter a valid phone number" }),
+  countryCode: z.string().optional(),
+  phone: z.string().min(5, { message: "Please enter a valid phone number" }),
   position: z.string().min(1, { message: "Position is required" }),
   message: z.string().min(10, { message: "Cover letter must be at least 10 characters" }).max(1000, { message: "Cover letter must not exceed 1000 characters" }),
 });
@@ -37,12 +45,34 @@ interface ApplicationFormProps {
 const ApplicationForm = ({ job }: ApplicationFormProps) => {
   const { toast } = useToast();
   const [resume, setResume] = useState<File | null>(null);
+  const [customCountryCode, setCustomCountryCode] = useState("");
+  
+  const countryCodes = [
+    { value: "+1", label: "United States (+1)" },
+    { value: "+44", label: "United Kingdom (+44)" },
+    { value: "+91", label: "India (+91)" },
+    { value: "+61", label: "Australia (+61)" },
+    { value: "+49", label: "Germany (+49)" },
+    { value: "+33", label: "France (+33)" },
+    { value: "+81", label: "Japan (+81)" },
+    { value: "+86", label: "China (+86)" },
+    { value: "+65", label: "Singapore (+65)" },
+    { value: "+971", label: "UAE (+971)" },
+    { value: "+974", label: "Qatar (+974)" },
+    { value: "+966", label: "Saudi Arabia (+966)" },
+    { value: "+55", label: "Brazil (+55)" },
+    { value: "+52", label: "Mexico (+52)" },
+    { value: "+27", label: "South Africa (+27)" },
+    { value: "+31", label: "Netherlands (+31)" },
+    { value: "custom", label: "Not listed (enter manually)" },
+  ];
   
   const form = useForm<ApplicationFormValues>({
     resolver: zodResolver(applicationFormSchema),
     defaultValues: {
       name: "",
       email: "",
+      countryCode: "",
       phone: "",
       position: job.title,
       message: "",
@@ -51,9 +81,15 @@ const ApplicationForm = ({ job }: ApplicationFormProps) => {
 
   const mutation = useMutation({
     mutationFn: async (data: ApplicationFormValues) => {
+      // If custom country code is selected, use the custom value
+      if (data.countryCode === 'custom' && customCountryCode) {
+        data = { ...data, countryCode: customCountryCode };
+      }
+      
       const formData = new FormData();
       formData.append("name", data.name);
       formData.append("email", data.email);
+      formData.append("countryCode", data.countryCode || "");
       formData.append("phone", data.phone);
       formData.append("position", data.position);
       formData.append("message", data.message);
