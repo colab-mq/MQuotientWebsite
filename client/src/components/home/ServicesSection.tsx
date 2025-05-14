@@ -19,51 +19,15 @@ const ServicesSection = () => {
       ]
     },
     {
-      title: "Robotic Process Automation",
-      description: "We implement UiPath and Blue Prism RPA solutions to automate repetitive tasks, reduce errors, and free your team to focus on high-value activities.",
+      title: "Intelligent Business Automation: AI + RPA",
+      description: "We help businesses unlock operational efficiency and innovation through AI-enabled automation and RPA. From eliminating repetitive tasks to scaling intelligent decision-making, our solutions are platform-agnostic and tailored to your environment.",
       icon: <FaRobot />,
       features: [
-        "Process analysis and optimization",
-        "Attended and unattended automation",
-        "UiPath and Blue Prism expertise",
-        "Test automation and quality assurance",
-        "Implementation of process improvements"
-      ]
-    },
-    {
-      title: "Microsoft Power Platform",
-      description: "We create custom solutions using Power Apps, Power Automate, and Power BI to streamline processes and provide valuable business insights.",
-      icon: <FaBolt />,
-      features: [
-        "Custom Power App development",
-        "Workflow automation with Power Automate",
-        "Business intelligence with Power BI",
-        "Custom development for unique challenges",
-        "API development and integration"
-      ]
-    },
-    {
-      title: "Cloud Services",
-      description: "Harness the power of cloud computing to transform, streamline, and secure your business with our tailored solutions supporting Azure, AWS, and Google Cloud.",
-      icon: <FaCloud />,
-      features: [
-        "Cloud Assessment as a Service",
-        "Seamless Cloud Migration",
-        "Cloud Security & Governance",
-        "Database & DevOps Support",
-        "Industry-Focused Cloud Solutions"
-      ]
-    },
-    {
-      title: "AI & Intelligent Automation",
-      description: "Accelerate innovation and productivity through AI and automation solutions designed to deliver business outcomes, optimize processes, and enable data-driven decision-making.",
-      icon: <FaCode />,
-      features: [
-        "AI Strategy & Transformation Roadmap",
-        "Intelligent Automation with NLP and RPA",
-        "AI for Employee Productivity",
-        "Data Analytics & Machine Learning",
-        "Proof of Concepts & Prototyping"
+        "Process discovery, analysis & optimization",
+        "Attended & unattended RPA solutions",
+        "AI-enhanced automation (OCR, NLP, ML)",
+        "Automation consolidation & migration",
+        "Future-ready automation programs"
       ]
     },
     {
@@ -76,6 +40,30 @@ const ServicesSection = () => {
         "Ongoing maintenance and support",
         "Performance monitoring and support",
         "System upgrades and enhancements"
+      ]
+    },
+    {
+      title: "Microsoft Power Platform Solutions",
+      description: "We design custom business applications and process automation solutions using Microsoft Power Apps, Power Automate, Power BI, and Dataverse—helping your teams work smarter and make faster, informed decisions.",
+      icon: <FaBolt />,
+      features: [
+        "Custom Power App development",
+        "Workflow automation with Power Automate",
+        "Visual reporting with Power BI dashboards",
+        "Dataverse for centralized data management",
+        "Tailored low-code/no-code solutions"
+      ]
+    },
+    {
+      title: "Cloud Services",
+      description: "Harness the power of cloud computing to transform, streamline, and secure your business with our tailored solutions supporting Azure, AWS, and Google Cloud.",
+      icon: <FaCloud />,
+      features: [
+        "Cloud Assessment as a Service",
+        "Seamless Cloud Migration",
+        "Cloud Security & Governance",
+        "Database & DevOps Support",
+        "Industry-Focused Cloud Solutions"
       ]
     }
   ];

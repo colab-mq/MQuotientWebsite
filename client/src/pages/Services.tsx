@@ -25,11 +25,13 @@ const Services = () => {
     "ai-data-entry": [
       { src: glyphXLogo, alt: "GlyphX", width: 160 }
     ],
-    "rpa": [
+    "intelligent-automation": [
       { src: uiPathLogo, alt: "UiPath", width: 80 },
       { src: bluePrismLogo, alt: "Blue Prism", width: 80 },
       { src: automationAnywhereLogo, alt: "Automation Anywhere", width: 100 },
-      { src: powerAutomateLogo, alt: "Power Automate", width: 80 }
+      { src: powerAutomateLogo, alt: "Power Automate", width: 80 },
+      { src: azureLogo, alt: "Azure AI", width: 80 },
+      { src: microsoftLogo, alt: "Microsoft Fabric", width: 100 }
     ],
     "power-platform": [
       { src: microsoftLogo, alt: "Microsoft", width: 140 },
@@ -64,83 +66,23 @@ const Services = () => {
       ]
     },
     {
-      title: "Robotic Process Automation (RPA)",
-      description: "We implement UiPath and Blue Prism RPA solutions to automate repetitive tasks, reduce errors, and free your team to focus on high-value activities.",
+      title: "Intelligent Business Automation: AI + RPA",
+      description: "We help businesses unlock operational efficiency and innovation through AI-enabled automation and RPA. From eliminating repetitive tasks to scaling intelligent decision-making, our solutions are platform-agnostic and tailored to your environment.",
       icon: <FaRobot />,
       features: [
-        "Process analysis and optimization",
-        "Attended and unattended automation",
-        "UiPath and Blue Prism expertise",
-        "Test automation and quality assurance",
-        "Integration with existing systems",
-        "Scalable RPA implementation"
+        "Process discovery, analysis & optimization",
+        "Attended & unattended RPA (UiPath, Blue Prism, Power Automate)",
+        "AI-enhanced automation (OCR, NLP, ML)",
+        "Automation consolidation & migration (up to 80% cost savings)",
+        "Scalable automation frameworks with AI readiness",
+        "Test automation and QA"
       ],
       benefits: [
-        "Reduced operational costs",
-        "Increased accuracy and compliance",
-        "Faster processing times",
-        "Improved employee satisfaction",
-        "Better customer experience"
-      ]
-    },
-    {
-      title: "Microsoft Power Platform",
-      description: "We create custom solutions using Power Apps, Power Automate, and Power BI to streamline processes and provide valuable business insights.",
-      icon: <FaBolt />,
-      features: [
-        "Custom Power App development",
-        "Workflow automation with Power Automate",
-        "Business intelligence with Power BI",
-        "Dataverse integration",
-        "Custom development for unique challenges",
-        "API development and integration"
-      ],
-      benefits: [
-        "Rapid application development",
-        "Improved data-driven decision making",
-        "Streamlined business processes",
-        "Enhanced collaboration",
-        "Lower development costs"
-      ]
-    },
-    {
-      title: "Cloud Services",
-      description: "Harness the power of cloud computing to transform, streamline, and secure your business with our tailored solutions supporting Azure, AWS, and Google Cloud.",
-      icon: <FaCloud />,
-      features: [
-        "Cloud Assessment as a Service",
-        "Seamless Cloud Migration",
-        "Cloud Security & Governance",
-        "Deployment & Network Services",
-        "Database & DevOps Support",
-        "Industry-Focused Cloud Solutions"
-      ],
-      benefits: [
-        "Reduced infrastructure costs",
-        "Enhanced scalability and flexibility",
-        "Comprehensive data protection & compliance",
-        "Accelerated innovation and time-to-market",
-        "Minimized disruption during transitions"
-      ]
-    },
-    {
-      title: "AI & Intelligent Automation",
-      description: "Accelerate innovation and productivity through AI and automation solutions designed to deliver business outcomes, optimize processes, and enable data-driven decision-making.",
-      icon: <FaCode />,
-      features: [
-        "AI Strategy & Transformation Roadmap",
-        "Intelligent Automation with NLP and RPA",
-        "AI for Employee Productivity",
-        "Data Analytics & Machine Learning",
-        "Proof of Concepts & Prototyping",
-        "Industry-Specific AI Use Cases"
-      ],
-      benefits: [
-        "Increased operational efficiency",
-        "Data-driven decision making",
-        "Enhanced customer experiences",
-        "Reduced manual workload",
-        "Competitive advantage through innovation"
+        "Faster, more accurate operations",
+        "Reduced manual workload and licensing costs",
+        "Future-ready automation programs",
+        "AI-compatible workflows for enterprise scaling",
+        "Improved compliance and customer satisfaction"
       ]
     },
     {
@@ -161,6 +103,46 @@ const Services = () => {
         "Minimized disruption to operations",
         "Continuous improvement",
         "Peace of mind"
+      ]
+    },
+    {
+      title: "Microsoft Power Platform Solutions",
+      description: "We design custom business applications and process automation solutions using Microsoft Power Apps, Power Automate, Power BI, and Dataverse—helping your teams work smarter and make faster, informed decisions.",
+      icon: <FaBolt />,
+      features: [
+        "Custom Power App development",
+        "Workflow automation with Power Automate",
+        "Visual reporting with Power BI dashboards",
+        "Dataverse for centralized data management",
+        "Tailored low-code/no-code solutions",
+        "API integration and external system connectors"
+      ],
+      benefits: [
+        "Rapid business app development",
+        "Empowered business users via low-code tools",
+        "Streamlined internal workflows",
+        "Better decision-making with visual data insights",
+        "Reduced reliance on IT and lower development costs"
+      ]
+    },
+    {
+      title: "Cloud Services",
+      description: "Harness the power of cloud computing to transform, streamline, and secure your business with our tailored solutions supporting Azure, AWS, and Google Cloud.",
+      icon: <FaCloud />,
+      features: [
+        "Cloud Assessment as a Service",
+        "Seamless Cloud Migration",
+        "Cloud Security & Governance",
+        "Deployment & Network Services",
+        "Database & DevOps Support",
+        "Industry-Focused Cloud Solutions"
+      ],
+      benefits: [
+        "Reduced infrastructure costs",
+        "Enhanced scalability and flexibility",
+        "Comprehensive data protection & compliance",
+        "Accelerated innovation and time-to-market",
+        "Minimized disruption during transitions"
       ]
     }
   ];
@@ -201,16 +183,17 @@ const Services = () => {
                 
                 {/* Partner logos */}
                 {(service.title === "AI-Powered Data Entry Workforce" || 
-                  service.title === "Robotic Process Automation (RPA)" || 
-                  service.title === "Microsoft Power Platform" ||
+                  service.title === "Intelligent Business Automation: AI + RPA" || 
+                  service.title === "Microsoft Power Platform Solutions" ||
                   service.title === "Cloud Services") && (
                   <div className="mb-6">
                     <h3 className="text-sm font-medium text-muted-foreground mb-3">Technology Stack</h3>
-                    <div className={`flex items-center ${service.title === "Cloud Services" || service.title === "Robotic Process Automation (RPA)" ? "justify-between w-full max-w-md" : "flex-wrap gap-6"}`}>
-                      {partnerLogos[service.title === "AI-Powered Data Entry Workforce" ? "ai-data-entry" : 
-                                    service.title === "Robotic Process Automation (RPA)" ? "rpa" : 
-                                    service.title === "Cloud Services" ? "cloud" :
-                                    "power-platform"].map((logo, i) => (
+                    <div className={`flex items-center ${service.title === "Cloud Services" || service.title === "Intelligent Business Automation: AI + RPA" ? "justify-between w-full max-w-md flex-wrap" : "flex-wrap gap-6"}`}>
+                      {partnerLogos[
+                        service.title === "AI-Powered Data Entry Workforce" ? "ai-data-entry" : 
+                        service.title === "Intelligent Business Automation: AI + RPA" ? "intelligent-automation" : 
+                        service.title === "Cloud Services" ? "cloud" : "power-platform"
+                      ].map((logo: { src: string; alt: string; width: number }, i: number) => (
                         <div key={i} className="bg-white p-2 rounded-md shadow-sm border border-gray-100">
                           <img 
                             src={logo.src} 

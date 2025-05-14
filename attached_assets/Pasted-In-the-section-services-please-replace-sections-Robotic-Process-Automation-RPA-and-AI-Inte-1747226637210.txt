@@ -1,0 +1,83 @@
+In the section /services , please replace sections "Robotic Process Automation (RPA)" and "AI & Intelligent Automation" with one section 
+
+Intelligent Business Automation: AI + RPA 
+
+(Keep the current logos)
+
+We help businesses unlock operational efficiency and innovation through AI-enabled automation and RPA. From eliminating repetitive tasks to scaling intelligent decision-making, our solutions are platform-agnostic and tailored to your environment.
+
+Technology Stack:
+UiPath • Blue Prism • Automation Anywhere • Power Automate • Microsoft Fabric • Azure AI • OpenAI
+
+Key Features
+Process discovery, analysis & optimization
+
+Attended & unattended RPA (UiPath, Blue Prism, Power Automate)
+
+AI-enhanced automation (OCR, NLP, ML)
+
+Automation consolidation & migration (up to 80% cost savings)
+
+Scalable automation frameworks with AI readiness
+
+Test automation and QA
+
+Integration with ERP, CRM, and legacy systems
+
+Benefits
+Faster, more accurate operations
+
+Reduced manual workload and licensing costs
+
+Future-ready automation programs
+
+AI-compatible workflows for enterprise scaling
+
+Improved compliance and customer satisfaction
+
+
+In the section /services , please replace the current section "Microsoft Power Platform"
+
+Microsoft Power Platform Solutions
+We design custom business applications and process automation solutions using Microsoft Power Apps, Power Automate, Power BI, and Dataverse—helping your teams work smarter and make faster, informed decisions.
+
+Technology Stack:
+Microsoft Power Apps • Power Automate • Power BI • Dataverse • Azure Logic Apps (replace the current logos with the ones attached)
+
+Key Features
+Custom Power App development
+
+Workflow automation with Power Automate
+
+Visual reporting with Power BI dashboards
+
+Dataverse for centralized data management
+
+Tailored low-code/no-code solutions
+
+API integration and external system connectors
+
+Benefits
+Rapid business app development
+
+Empowered business users via low-code tools
+
+Streamlined internal workflows
+
+Better decision-making with visual data insights
+
+Reduced reliance on IT and lower development costs
+
+_______________________________________________________________
+
+The refreshed order of services should now be:
+
+AI-Powered Data Entry Workforce
+Intelligent Business Automation: AI + RPA 
+Managed Services
+Microsoft Power Platform
+Cloud Services
+
+______________________________________________________
+
+The "Our Services" section on the home page should be reflecting the synopsis reflective of what we now have in the /services section. 
