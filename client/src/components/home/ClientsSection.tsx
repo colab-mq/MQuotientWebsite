@@ -51,7 +51,7 @@ const ClientsSection = () => {
       title: "VAT Invoice Request Automation",
       description: "For a multinational retail chain, we developed a Power Automate solution to fully automate VAT invoice requests, reducing delivery time from 3-4 days to under 30 minutes with 100% compliance adherence.",
       tags: ["Power Automate", "Finance"],
-      year: "2022"
+      year: "2024"
     },
     {
       title: "Aviation Maintenance Workflow",

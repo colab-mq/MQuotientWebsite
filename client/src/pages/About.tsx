@@ -334,22 +334,22 @@ const About = () => {
               variants={itemVariants} 
               className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-border/50 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-semibold mb-3">Meter Reading Automation (2024)</h3>
+              <h3 className="text-xl font-semibold mb-3">VAT Invoice Automation (2024)</h3>
               <p className="text-muted-foreground mb-4">
-                For a utilities service provider, we developed a UiPath RPA solution to automate the meter reading and data processing workflow.
+                For a multinational retailer, we implemented a Power Automate solution to streamline VAT invoice request handling end-to-end.
               </p>
               
               <div className="mb-4">
                 <h4 className="font-medium mb-2 text-sm uppercase tracking-wider text-muted-foreground">Challenge:</h4>
                 <p className="text-sm text-muted-foreground">
-                  Managing a complex system of manual meter readings across multiple sites, with inconsistent data formats and frequent human errors.
+                  Manual email-based requests, slow invoice generation, and compliance risks due to inconsistent processing during peak periods.
                 </p>
               </div>
               
               <div className="mb-4">
                 <h4 className="font-medium mb-2 text-sm uppercase tracking-wider text-muted-foreground">Solution:</h4>
                 <p className="text-sm text-muted-foreground">
-                  Our RPA solution automated data collection, validation, and processing, integrating with existing systems and implementing error-handling protocols.
+                  The Power Automate workflow captured, validated, generated, and delivered VAT invoices with full ERP integration and audit tracking.
                 </p>
               </div>
               
@@ -359,8 +359,8 @@ const About = () => {
                     <FaCheck className="text-primary h-4 w-4" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium">85% reduction</p>
-                    <p className="text-xs text-muted-foreground">in processing time</p>
+                    <p className="text-sm font-medium">90% reduction</p>
+                    <p className="text-xs text-muted-foreground">in manual effort</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
@@ -368,8 +368,20 @@ const About = () => {
                     <FaCheck className="text-primary h-4 w-4" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium">99.5% accuracy</p>
-                    <p className="text-xs text-muted-foreground">in data reporting</p>
+                    <p className="text-sm font-medium">{"<30 min turnaround"}</p>
+                    <p className="text-xs text-muted-foreground">from request to delivery</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-3 mb-2 mt-3">
+                <div className="flex items-center gap-2">
+                  <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                    <FaCheck className="text-primary h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium">100% compliance</p>
+                    <p className="text-xs text-muted-foreground">with regional standards</p>
                   </div>
                 </div>
               </div>
@@ -424,22 +436,22 @@ const About = () => {
               variants={itemVariants} 
               className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-border/50 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-xl font-semibold mb-3">Power Platform Tool Enhancement (2025)</h3>
+              <h3 className="text-xl font-semibold mb-3">OPEX Tool Enhancement with Power Platform (2025)</h3>
               <p className="text-muted-foreground mb-4">
-                For a manufacturing client, we enhanced an existing Power Platform tool to improve lean initiative tracking and management.
+                For a global manufacturing firm, we modernized the financial OPEX tool using Power Apps, Power Automate, and Power BI.
               </p>
               
               <div className="mb-4">
                 <h4 className="font-medium mb-2 text-sm uppercase tracking-wider text-muted-foreground">Challenge:</h4>
                 <p className="text-sm text-muted-foreground">
-                  The existing tool lacked critical reporting capabilities, had poor user experience, and failed to provide real-time analytics needed for decision-making.
+                  The original workflow relied on disconnected projects, manual inputs, and lacked user-friendly interfaces or mass upload features.
                 </p>
               </div>
               
               <div className="mb-4">
                 <h4 className="font-medium mb-2 text-sm uppercase tracking-wider text-muted-foreground">Solution:</h4>
                 <p className="text-sm text-muted-foreground">
-                  We enhanced the Power Platform application with improved UI/UX, custom Power BI dashboards, and automated workflows for data collection and analysis.
+                  We redesigned the tool for usability, added mass upload automation, and integrated real-time reporting through Power BI.
                 </p>
               </div>
               
@@ -449,8 +461,8 @@ const About = () => {
                     <FaCheck className="text-primary h-4 w-4" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium">35% productivity</p>
-                    <p className="text-xs text-muted-foreground">improvement</p>
+                    <p className="text-sm font-medium">2,080 hours saved</p>
+                    <p className="text-xs text-muted-foreground">annually via automation</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
@@ -458,8 +470,8 @@ const About = () => {
                     <FaCheck className="text-primary h-4 w-4" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium">90% user</p>
-                    <p className="text-xs text-muted-foreground">satisfaction rate</p>
+                    <p className="text-sm font-medium">$260K cost savings</p>
+                    <p className="text-xs text-muted-foreground">from reduced manual work</p>
                   </div>
                 </div>
               </div>
