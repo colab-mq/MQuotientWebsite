@@ -451,21 +451,182 @@ const CaseStudies = () => {
     }
   };
 
+  // Function to generate PDF from a case study
+  const generatePDF = async (study: CaseStudy) => {
+    // Create a temporary div to render the case study content for PDF
+    const tempDiv = document.createElement('div');
+    tempDiv.style.width = '800px';
+    tempDiv.style.padding = '40px';
+    tempDiv.style.position = 'absolute';
+    tempDiv.style.left = '-9999px';
+    tempDiv.className = 'bg-white text-black';
+    
+    // Add the mQuotient logo at the top
+    const logoImg = document.createElement('img');
+    logoImg.src = mquotientLogo;
+    logoImg.style.width = '200px';
+    logoImg.style.marginBottom = '20px';
+    tempDiv.appendChild(logoImg);
+    
+    // Add case study content
+    const title = document.createElement('h1');
+    title.textContent = study.title;
+    title.style.fontSize = '24px';
+    title.style.fontWeight = 'bold';
+    title.style.marginBottom = '5px';
+    title.style.color = '#01257D';
+    tempDiv.appendChild(title);
+    
+    const subtitle = document.createElement('p');
+    subtitle.textContent = study.subtitle;
+    subtitle.style.fontSize = '16px';
+    subtitle.style.marginBottom = '20px';
+    subtitle.style.color = '#666';
+    tempDiv.appendChild(subtitle);
+    
+    // The Challenge
+    const challengeTitle = document.createElement('h2');
+    challengeTitle.textContent = 'The Challenge';
+    challengeTitle.style.fontSize = '18px';
+    challengeTitle.style.fontWeight = 'bold';
+    challengeTitle.style.marginBottom = '10px';
+    challengeTitle.style.color = '#01257D';
+    tempDiv.appendChild(challengeTitle);
+    
+    const challengeText = document.createElement('p');
+    challengeText.textContent = study.challenge;
+    challengeText.style.marginBottom = '20px';
+    challengeText.style.fontSize = '14px';
+    tempDiv.appendChild(challengeText);
+    
+    // Our Solution
+    const solutionTitle = document.createElement('h2');
+    solutionTitle.textContent = 'Our Solution';
+    solutionTitle.style.fontSize = '18px';
+    solutionTitle.style.fontWeight = 'bold';
+    solutionTitle.style.marginBottom = '10px';
+    solutionTitle.style.color = '#01257D';
+    tempDiv.appendChild(solutionTitle);
+    
+    const solutionText = document.createElement('p');
+    solutionText.textContent = study.solution;
+    solutionText.style.marginBottom = '20px';
+    solutionText.style.fontSize = '14px';
+    tempDiv.appendChild(solutionText);
+    
+    // Implementation Process
+    const processTitle = document.createElement('h2');
+    processTitle.textContent = 'Implementation Process';
+    processTitle.style.fontSize = '18px';
+    processTitle.style.fontWeight = 'bold';
+    processTitle.style.marginBottom = '10px';
+    processTitle.style.color = '#01257D';
+    tempDiv.appendChild(processTitle);
+    
+    const processList = document.createElement('ul');
+    processList.style.marginBottom = '20px';
+    processList.style.paddingLeft = '20px';
+    study.process.forEach(step => {
+      const item = document.createElement('li');
+      item.textContent = step;
+      item.style.marginBottom = '5px';
+      item.style.fontSize = '14px';
+      processList.appendChild(item);
+    });
+    tempDiv.appendChild(processList);
+    
+    // Results & Impact
+    const resultsTitle = document.createElement('h2');
+    resultsTitle.textContent = 'Results & Impact';
+    resultsTitle.style.fontSize = '18px';
+    resultsTitle.style.fontWeight = 'bold';
+    resultsTitle.style.marginBottom = '10px';
+    resultsTitle.style.color = '#01257D';
+    tempDiv.appendChild(resultsTitle);
+    
+    const resultsList = document.createElement('ul');
+    resultsList.style.marginBottom = '20px';
+    resultsList.style.paddingLeft = '20px';
+    study.results.forEach(result => {
+      const item = document.createElement('li');
+      item.textContent = `${result.title}: ${result.description}`;
+      item.style.marginBottom = '5px';
+      item.style.fontSize = '14px';
+      resultsList.appendChild(item);
+    });
+    tempDiv.appendChild(resultsList);
+    
+    // Add copyright and contact
+    const footer = document.createElement('div');
+    footer.style.marginTop = '30px';
+    footer.style.borderTop = '1px solid #ddd';
+    footer.style.paddingTop = '10px';
+    footer.style.fontSize = '12px';
+    footer.style.color = '#666';
+    footer.textContent = '© ' + new Date().getFullYear() + ' mquotient. For more information, please contact us at hi@mquotient.net';
+    tempDiv.appendChild(footer);
+    
+    // Append to document, convert to image, then remove
+    document.body.appendChild(tempDiv);
+    
+    try {
+      // Convert to image with html2canvas
+      const canvas = await html2canvas(tempDiv, {
+        scale: 2,
+        useCORS: true,
+        logging: false
+      });
+      
+      // Create PDF
+      const pdf = new jsPDF({
+        orientation: 'portrait',
+        unit: 'px',
+        format: 'a4'
+      });
+      
+      const imgData = canvas.toDataURL('image/png');
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      
+      // Save the PDF
+      pdf.save(`mquotient-case-study-${study.id}.pdf`);
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+    } finally {
+      // Clean up
+      document.body.removeChild(tempDiv);
+    }
+  };
+
   // Function to render a case study
   const renderCaseStudy = (study: CaseStudy) => (
     <div key={study.id} className="border-b border-border pb-16 last:border-b-0 last:pb-0 mb-16">
-      <div className="mb-8">
-        <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-          {study.title}
-        </h2>
-        <div className="text-lg font-medium text-foreground/70 mb-4">{study.subtitle}</div>
-        <div className="flex flex-wrap gap-2 mt-3">
-          {study.tags.map((tag: string, idx: number) => (
-            <Badge key={idx} variant="outline" className="bg-primary/5 text-primary border-primary/20">
-              {tag}
-            </Badge>
-          ))}
+      <div className="mb-8 flex justify-between items-start">
+        <div>
+          <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+            {study.title}
+          </h2>
+          <div className="text-lg font-medium text-foreground/70 mb-4">{study.subtitle}</div>
+          <div className="flex flex-wrap gap-2 mt-3">
+            {study.tags.map((tag: string, idx: number) => (
+              <Badge key={idx} variant="outline" className="bg-primary/5 text-primary border-primary/20">
+                {tag}
+              </Badge>
+            ))}
+          </div>
         </div>
+        <Button 
+          variant="outline" 
+          size="sm" 
+          className="flex items-center gap-2 border-primary/20 text-primary hover:bg-primary/10"
+          onClick={() => generatePDF(study)}
+        >
+          <FaDownload className="w-4 h-4" /> 
+          <span className="hidden sm:inline">Download</span> PDF
+        </Button>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-12">
