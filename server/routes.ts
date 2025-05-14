@@ -176,6 +176,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         validatedData = insertCareerApplicationSchema.parse({
           name: formData.name,
           email: formData.email,
+          countryCode: formData.countryCode,
           phone: formData.phone,
           position: formData.position,
           message: formData.message,

@@ -24,6 +24,7 @@ export const careerApplications = pgTable("career_applications", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
   email: text("email").notNull(),
+  countryCode: text("country_code"),
   phone: text("phone").notNull(),
   position: text("position").notNull(),
   message: text("message").notNull(),
@@ -50,6 +51,7 @@ export const insertContactMessageSchema = createInsertSchema(contactMessages).pi
 export const insertCareerApplicationSchema = createInsertSchema(careerApplications).pick({
   name: true,
   email: true,
+  countryCode: true,
   phone: true,
   position: true,
   message: true,

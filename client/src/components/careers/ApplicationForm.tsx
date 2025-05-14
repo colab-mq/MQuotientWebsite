@@ -119,6 +119,7 @@ const ApplicationForm = ({ job }: ApplicationFormProps) => {
       });
       form.reset();
       setResume(null);
+      setCustomCountryCode("");
     },
     onError: (error) => {
       toast({
@@ -179,19 +180,64 @@ const ApplicationForm = ({ job }: ApplicationFormProps) => {
                 )}
               />
               
-              <FormField
-                control={form.control}
-                name="phone"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Phone Number</FormLabel>
-                    <FormControl>
-                      <Input placeholder="+1 (555) 123-4567" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <div className="space-y-4">
+                <FormField
+                  control={form.control}
+                  name="countryCode"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Country Code</FormLabel>
+                      <Select 
+                        onValueChange={(value) => {
+                          field.onChange(value);
+                          // Reset custom country code when changing selection
+                          if (value !== 'custom') {
+                            setCustomCountryCode("");
+                          }
+                        }}
+                        value={field.value}
+                      >
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select a country code" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {countryCodes.map((country) => (
+                            <SelectItem key={country.value} value={country.value}>
+                              {country.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      {field.value === 'custom' && (
+                        <div className="mt-2">
+                          <Input
+                            placeholder="Enter country code (e.g. +123)"
+                            value={customCountryCode}
+                            onChange={(e) => setCustomCountryCode(e.target.value)}
+                          />
+                        </div>
+                      )}
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="phone"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Phone Number</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Enter phone number" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
               
               <FormField
                 control={form.control}
