@@ -4,6 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
+import { externalApiRequest } from "@/utils/externalApi";
+import { API_CONFIG } from "@/config/api";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
 import { 
@@ -89,8 +91,8 @@ const ContactSection = () => {
         data = { ...data, countryCode: customCountryCode };
       }
       
-      const response = await apiRequest("POST", "/api/contact", data);
-      return response.json();
+      // Use the external PHP backend instead of the local API
+      return await externalApiRequest("POST", API_CONFIG.ENDPOINTS.CONTACT, data);
     },
     onSuccess: (data) => {
       toast({
