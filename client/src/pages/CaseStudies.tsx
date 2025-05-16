@@ -465,14 +465,13 @@ const CaseStudies = () => {
       ]
     },
     "power-platform": {
-      title: "Microsoft Power Platform",
-      description: "Custom solutions using Power Apps, Power Automate, and Power BI to streamline processes and provide valuable business insights.",
+      title: "Microsoft Power Platform Solutions",
+      description: "Discover how our custom business applications and process automation solutions—built using Microsoft Power Apps, Power Automate, Power BI, and Dataverse—have helped organizations streamline operations, enhance productivity, and make data-driven decisions faster.",
       icon: <FaBolt />,
       color: "from-teal-500 to-emerald-500",
       studies: powerPlatformCaseStudies,
       partners: [
-        { name: "Microsoft", logo: microsoftLogo, width: 140 },
-        { name: "Microsoft Power Platform", logo: powerPlatformLogo, width: 120 }
+        { name: "Microsoft", logo: microsoftLogo, width: 140 }
       ]
     }
   };
@@ -495,10 +494,12 @@ const CaseStudies = () => {
       // Create a new PDF document
       const pdf = new jsPDF();
       
-      // Add m·quotient company header
+      // Add mQuotient logo as base64 image directly
+      // Since we're in a browser context, we need to use a different approach
+      // Let's just proceed with the text-based header for now
       pdf.setFontSize(22);
       pdf.setTextColor(1, 37, 125); // #01257D
-      pdf.text("m·quotient", 20, 20);
+      pdf.text("MQUOTIENT", 20, 20);
       
       pdf.setFontSize(12);
       pdf.setTextColor(100, 100, 100);
@@ -581,7 +582,7 @@ const CaseStudies = () => {
       
       pdf.setFontSize(9);
       pdf.setTextColor(100, 100, 100);
-      pdf.text(`© ${new Date().getFullYear()} m·quotient | Generated: ${new Date().toLocaleDateString()}`, 20, 280);
+      pdf.text(`© ${new Date().getFullYear()} MQUOTIENT | Generated: ${new Date().toLocaleDateString()}`, 20, 280);
       pdf.text("Contact: hi@mquotient.net | www.mquotient.net", 20, 285);
       
       // Fix the insecure download issue by generating a blob URL
