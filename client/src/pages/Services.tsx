@@ -61,63 +61,23 @@ const Services = () => {
   
   const services = [
     {
-      title: "AI-Powered Data Entry Workforce",
-      description: "Break free from manual data entry bottlenecks with our intelligent document processing solution that automatically extracts and validates data from both structured and unstructured documents.",
-      icon: <FaBrain />,
-      features: [
-        "Intelligent classification of document types",
-        "Advanced data extraction beyond simple OCR",
-        "Automated validation with business rules",
-        "Processing of structured and unstructured formats",
-        "Human-in-the-loop oversight for quality assurance",
-        "Seamless integration with existing enterprise systems"
-      ],
-      benefits: [
-        "Up to 80% reduction in manual data entry tasks",
-        "99%+ accuracy with automated validation",
-        "Drastically reduced processing turnaround times",
-        "Significant cost savings on overhead",
-        "Scalability to handle peak loads without additional hiring"
-      ]
-    },
-    {
       title: "Intelligent Business Automation: AI + RPA",
-      description: "We help businesses unlock operational efficiency and innovation through AI-enabled automation and RPA. From eliminating repetitive tasks to scaling intelligent decision-making, our solutions are platform-agnostic and tailored to your environment.",
+      description: "At mquotient, we believe automation should do more than just reduce effort—it should unlock innovation and prepare you for what's next. That's why our AI-enabled automation and RPA solutions are designed not only to eliminate repetitive tasks, but also to scale intelligent decision-making across your organization.",
       icon: <FaRobot />,
       features: [
         "Process discovery, analysis & optimization",
         "Attended & unattended RPA (UiPath, Blue Prism, Power Automate)",
         "AI-enhanced automation (OCR, NLP, ML)",
         "Automation consolidation & migration (up to 80% cost savings)",
-        "Scalable automation frameworks with AI readiness",
+        "Scalable automation frameworks built for AI readiness",
         "Test automation and QA"
       ],
       benefits: [
-        "Faster, more accurate operations",
-        "Reduced manual workload and licensing costs",
-        "Future-ready automation programs",
-        "AI-compatible workflows for enterprise scaling",
-        "Improved compliance and customer satisfaction"
-      ]
-    },
-    {
-      title: "Managed Services",
-      description: "We provide comprehensive implementation services and ongoing support to ensure your automation solutions continue to deliver value.",
-      icon: <FaHeadset />,
-      features: [
-        "Solution implementation and deployment",
-        "User training and knowledge transfer",
-        "Ongoing maintenance and support",
-        "Performance monitoring",
-        "Issue resolution",
-        "System upgrades and enhancements"
-      ],
-      benefits: [
-        "Smooth transition to new solutions",
-        "Maximized return on investment",
-        "Minimized disruption to operations",
-        "Continuous improvement",
-        "Peace of mind"
+        "Smarter, faster operations powered by proven automation strategies",
+        "Lower costs through license reduction and optimized platforms",
+        "Future-ready systems designed for enterprise-scale AI integration",
+        "Hands-on, committed team that listens first and delivers with precision",
+        "Improved compliance and customer satisfaction through intelligent workflows"
       ]
     },
     {
@@ -138,6 +98,46 @@ const Services = () => {
         "Streamlined internal workflows",
         "Better decision-making with visual data insights",
         "Reduced reliance on IT and lower development costs"
+      ]
+    },
+    {
+      title: "AI-Powered Data Entry Workforce",
+      description: "Break free from manual data entry bottlenecks with our intelligent document processing solution that automatically extracts and validates data from both structured and unstructured documents.",
+      icon: <FaBrain />,
+      features: [
+        "Intelligent classification of document types",
+        "Advanced data extraction beyond simple OCR",
+        "Automated validation with business rules",
+        "Processing of structured and unstructured formats",
+        "Human-in-the-loop oversight for quality assurance",
+        "Seamless integration with existing enterprise systems"
+      ],
+      benefits: [
+        "Up to 80% reduction in manual data entry tasks",
+        "99%+ accuracy with automated validation",
+        "Drastically reduced processing turnaround times",
+        "Significant cost savings on overhead",
+        "Scalability to handle peak loads without additional hiring"
+      ]
+    },
+    {
+      title: "Managed Automation Services",
+      description: "Sustain Performance. Scale with Confidence. Automation isn't a one-time project—it's an evolving capability. Our Managed Services ensure your automation environment continues to deliver value long after go-live.",
+      icon: <FaHeadset />,
+      features: [
+        "End-to-end solution onboarding and operationalization",
+        "Hypercare and stabilization post-deployment",
+        "Performance monitoring to identify optimization opportunities",
+        "Knowledge transfer and user enablement to empower teams",
+        "System upgrades and platform enhancements",
+        "Support for automation roadmap planning and AI integration readiness"
+      ],
+      benefits: [
+        "Minimize disruption with proactive, responsive support",
+        "Maximize ROI by extending the life and impact of your automation investments",
+        "Enable continuous improvement through data-driven insights and refinement",
+        "Stay scalable and AI-ready with architecture designed for what's next",
+        "Work with a team that listens, adapts, and delivers—long after the build is done"
       ]
     },
     {
@@ -249,7 +249,7 @@ const Services = () => {
               <div className="lg:col-span-2">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="bg-muted/50 p-6 rounded-lg border border-border">
-                    <h3 className="text-xl font-semibold mb-4">Key Features</h3>
+                    <h3 className="text-xl font-semibold mb-4">What We Deliver</h3>
                     <ul className="space-y-3">
                       {service.features.map((feature, i) => (
                         <li key={i} className="flex items-start">
@@ -262,7 +262,7 @@ const Services = () => {
                     </ul>
                   </div>
                   <div className="bg-muted/50 p-6 rounded-lg border border-border">
-                    <h3 className="text-xl font-semibold mb-4">Benefits</h3>
+                    <h3 className="text-xl font-semibold mb-4">Why mquotient</h3>
                     <ul className="space-y-3">
                       {service.benefits.map((benefit, i) => (
                         <li key={i} className="flex items-start">
