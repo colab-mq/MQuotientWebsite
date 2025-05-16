@@ -80,17 +80,8 @@ const CaseStudies = () => {
   // State for service tabs
   const [activeServiceTab, setActiveServiceTab] = useState("ai-data-entry");
   
-  // State for download dialog
-  const [isDownloadDialogOpen, setIsDownloadDialogOpen] = useState(false);
+  // We're no longer using a download dialog - direct downloads only
   const [selectedStudy, setSelectedStudy] = useState<CaseStudy | null>(null);
-  
-  // Form handling
-  const form = useForm<DownloadFormValues>({
-    resolver: zodResolver(downloadFormSchema),
-    defaultValues: {
-      name: "",
-    },
-  });
 
   // AI-Powered Data Entry Workforce case studies
   const aiDataEntryCaseStudies: CaseStudy[] = [
