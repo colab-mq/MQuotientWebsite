@@ -89,6 +89,35 @@ A professional, responsive corporate website for mquotient featuring comprehensi
 
 6. Open [http://localhost:5000](http://localhost:5000) to view the application.
 
+## PHP Backend Integration
+
+This project can be configured to submit form data to a PHP backend hosted on cPanel. This allows you to deploy the frontend as a static site while handling form submissions through a separate PHP backend.
+
+### Setting Up PHP Backend
+
+1. Configure the API endpoints in `client/src/config/api.ts`:
+   ```typescript
+   export const API_CONFIG = {
+     // Base URL for the PHP backend - update with your cPanel domain
+     BASE_URL: "https://your-domain.com/api",
+     
+     // Endpoints
+     ENDPOINTS: {
+       CONTACT: "/contact.php",
+       CAREERS_APPLY: "/careers-apply.php",
+       CAREERS_JOBS: "/careers-jobs.php"
+     }
+   };
+   ```
+
+2. Upload the PHP files to your cPanel server. Sample PHP files are provided in the `PHP_BACKEND_SETUP.md` guide.
+
+3. Set up CORS headers on your cPanel server to allow requests from your frontend domain.
+
+4. Test each form submission to ensure data is being properly received by the PHP backend.
+
+For detailed instructions on setting up the PHP backend, refer to the `PHP_BACKEND_SETUP.md` file.
+
 ## Deployment Options
 
 ### Option 1: Server Deployment (e.g., DigitalOcean, AWS, etc.)
@@ -126,9 +155,15 @@ A professional, responsive corporate website for mquotient featuring comprehensi
 
 8. Set up a reverse proxy (Nginx or Apache) to serve your application.
 
-### Option 2: GitHub Pages Deployment (Static Frontend Only)
+### Option 2: GitHub Pages Deployment with PHP Backend Integration
 
-**Note**: GitHub Pages only supports static websites, so the backend functionality (contact form) will not work with this option without modifications. The project includes a GitHub Pages deployment helper script.
+GitHub Pages only supports static websites, but you can deploy the frontend on GitHub Pages while using the PHP backend on cPanel for form processing.
+
+1. Configure the API endpoints in `client/src/config/api.ts` to point to your cPanel PHP backend (as described in the PHP Backend Integration section).
+
+2. Update CORS settings on your cPanel server to allow requests from your GitHub Pages domain (typically `https://username.github.io/repo-name`).
+
+The project includes a GitHub Pages deployment helper script.
 
 1. Add these scripts to your `package.json`:
    ```json
