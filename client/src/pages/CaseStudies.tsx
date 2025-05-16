@@ -24,6 +24,7 @@ import microsoftLogo from "../assets/partners/Microsoft_logo.png";
 import uiPathLogo from "../assets/partners/UiPath_2019_Corporate_Logo.png";
 import automationAnywhereLogo from "@assets/AutomationAnywhereLogo.png";
 import mquotientLogo from "../assets/mquotient-logo-new.png";
+import mquotientLogoPNG from "/attached_assets/mquotient LOGO=removebackground.png";
 
 // Import updated Power Platform logos
 import powerPlatformLogo from "/attached_assets/PowerPlatform_scalable.png";
@@ -494,100 +495,193 @@ const CaseStudies = () => {
       // Create a new PDF document
       const pdf = new jsPDF();
       
-      // Add mQuotient logo as base64 image directly
-      // Since we're in a browser context, we need to use a different approach
-      // Let's just proceed with the text-based header for now
-      pdf.setFontSize(22);
-      pdf.setTextColor(1, 37, 125); // #01257D
-      pdf.text("MQUOTIENT", 20, 20);
-      
-      pdf.setFontSize(12);
-      pdf.setTextColor(100, 100, 100);
-      pdf.text("Case Study", 20, 28);
-      
-      // Add divider line
-      pdf.setDrawColor(1, 37, 125);
-      pdf.setLineWidth(0.5);
-      pdf.line(20, 32, 190, 32);
-      
-      // Add title and subtitle
-      pdf.setFontSize(18);
-      pdf.setTextColor(1, 37, 125);
-      pdf.text(study.title, 20, 45);
-      
-      pdf.setFontSize(13);
-      pdf.setTextColor(100, 100, 100);
-      pdf.text(study.subtitle, 20, 55);
-      
-      // Add challenge section
-      pdf.setFontSize(15);
-      pdf.setTextColor(1, 37, 125);
-      pdf.text("The Challenge", 20, 70);
-      
-      pdf.setFontSize(11);
-      pdf.setTextColor(0, 0, 0);
-      const challengeLines = pdf.splitTextToSize(study.challenge, 170);
-      pdf.text(challengeLines, 20, 78);
-      
-      // Add solution section
-      let yPos = 80 + (challengeLines.length * 6);
-      pdf.setFontSize(15);
-      pdf.setTextColor(1, 37, 125);
-      pdf.text("Our Solution", 20, yPos);
-      
-      pdf.setFontSize(11);
-      pdf.setTextColor(0, 0, 0);
-      const solutionLines = pdf.splitTextToSize(study.solution, 170);
-      pdf.text(solutionLines, 20, yPos + 8);
-      
-      // Add implementation process
-      yPos = yPos + 12 + (solutionLines.length * 5.5);
-      pdf.setFontSize(15);
-      pdf.setTextColor(1, 37, 125);
-      pdf.text("Implementation Process", 20, yPos);
-      
-      // Add process steps
-      pdf.setFontSize(11);
-      pdf.setTextColor(0, 0, 0);
-      yPos += 8;
-      study.process.forEach((step, index) => {
-        const stepLines = pdf.splitTextToSize(`${index + 1}. ${step}`, 165);
-        pdf.text(stepLines, 20, yPos);
-        yPos += stepLines.length * 6;
-      });
-      
-      // Add results section
-      yPos += 5;
-      pdf.setFontSize(15);
-      pdf.setTextColor(1, 37, 125);
-      pdf.text("Results & Impact", 20, yPos);
-      
-      // Add results items
-      pdf.setFontSize(11);
-      yPos += 8;
-      study.results.forEach((result, index) => {
-        pdf.setTextColor(1, 37, 125);
-        pdf.text(`• ${result.title}`, 20, yPos);
+      // Convert the imported PNG to a base64 string
+      const createLogo = () => {
+        // Create a canvas element
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const img = new Image();
         
-        pdf.setTextColor(60, 60, 60);
-        const descLines = pdf.splitTextToSize(result.description, 160);
-        pdf.text(descLines, 30, yPos + 6);
-        yPos += 8 + (descLines.length * 5);
-      });
+        // Set the image source
+        img.src = mquotientLogoPNG;
+        
+        img.onload = function() {
+          // Set canvas dimensions
+          canvas.width = img.width;
+          canvas.height = img.height;
+          
+          // Draw image on canvas
+          ctx?.drawImage(img, 0, 0);
+          
+          // Get base64 data
+          const dataURL = canvas.toDataURL('image/png');
+          
+          // Add logo to PDF
+          pdf.addImage(dataURL, 'PNG', 20, 10, 60, 15);
+          
+          // Continue with the rest of the PDF generation
+          continuePdfGeneration();
+        };
+        
+        // Add a fallback in case the image fails to load
+        img.onerror = function() {
+          // If image loading fails, use text instead
+          pdf.setFontSize(22);
+          pdf.setTextColor(1, 37, 125); // #01257D
+          pdf.text("MQUOTIENT", 20, 20);
+          continuePdfGeneration();
+        };
+      };
       
-      // Add footer with divider line
-      pdf.setDrawColor(200, 200, 200);
-      pdf.setLineWidth(0.2);
-      pdf.line(20, 275, 190, 275);
+      // Function to continue with PDF generation after logo is added
+      const continuePdfGeneration = () => {
+        pdf.setFontSize(12);
+        pdf.setTextColor(100, 100, 100);
+        pdf.text("Case Study", 20, 30); // Adjusted position for better spacing
+        
+        // Add divider line
+        pdf.setDrawColor(1, 37, 125);
+        pdf.setLineWidth(0.5);
+        pdf.line(20, 34, 190, 34); // Adjusted position
+        
+        // Add title and subtitle
+        pdf.setFontSize(18);
+        pdf.setTextColor(1, 37, 125);
+        pdf.text(study.title, 20, 47); // Adjusted position
+        
+        pdf.setFontSize(13);
+        pdf.setTextColor(100, 100, 100);
+        pdf.text(study.subtitle, 20, 57); // Adjusted position
+        
+        // Add challenge section
+        pdf.setFontSize(15);
+        pdf.setTextColor(1, 37, 125);
+        pdf.text("The Challenge", 20, 72); // Adjusted position
+        
+        pdf.setFontSize(11);
+        pdf.setTextColor(0, 0, 0);
+        const challengeLines = pdf.splitTextToSize(study.challenge, 170);
+        pdf.text(challengeLines, 20, 80); // Adjusted position
+        
+        // Check if we need to add a new page based on content length
+        let yPos = 82 + (challengeLines.length * 5);
+        
+        // Add solution section
+        if (yPos > 230) { // If position is too low, add new page
+          pdf.addPage();
+          yPos = 20;
+        }
+        
+        pdf.setFontSize(15);
+        pdf.setTextColor(1, 37, 125);
+        pdf.text("Our Solution", 20, yPos);
+        
+        pdf.setFontSize(11);
+        pdf.setTextColor(0, 0, 0);
+        const solutionLines = pdf.splitTextToSize(study.solution, 170);
+        pdf.text(solutionLines, 20, yPos + 8);
+        
+        // Add implementation process
+        yPos = yPos + 12 + (solutionLines.length * 4.5);
+        
+        // Check if we need to add a new page
+        if (yPos > 230) {
+          pdf.addPage();
+          yPos = 20;
+        }
+        
+        pdf.setFontSize(15);
+        pdf.setTextColor(1, 37, 125);
+        pdf.text("Implementation Process", 20, yPos);
+        
+        // Add process steps
+        pdf.setFontSize(11);
+        pdf.setTextColor(0, 0, 0);
+        yPos += 8;
+        
+        for (let i = 0; i < study.process.length; i++) {
+          const step = study.process[i];
+          const stepLines = pdf.splitTextToSize(`${i + 1}. ${step}`, 165);
+          
+          // Check if we need to add a new page
+          if (yPos + (stepLines.length * 5) > 250) {
+            pdf.addPage();
+            yPos = 20;
+          }
+          
+          pdf.text(stepLines, 20, yPos);
+          yPos += stepLines.length * 5;
+        }
+        
+        // Add results section
+        yPos += 5;
+        
+        // Check if we need to add a new page
+        if (yPos > 230) {
+          pdf.addPage();
+          yPos = 20;
+        }
+        
+        pdf.setFontSize(15);
+        pdf.setTextColor(1, 37, 125);
+        pdf.text("Results & Impact", 20, yPos);
+        
+        // Add results items
+        pdf.setFontSize(11);
+        yPos += 8;
+        
+        for (let i = 0; i < study.results.length; i++) {
+          const result = study.results[i];
+          
+          // Check if we need to add a new page
+          if (yPos > 250) {
+            pdf.addPage();
+            yPos = 20;
+          }
+          
+          pdf.setTextColor(1, 37, 125);
+          pdf.text(`• ${result.title}`, 20, yPos);
+          
+          pdf.setTextColor(60, 60, 60);
+          const descLines = pdf.splitTextToSize(result.description, 160);
+          pdf.text(descLines, 30, yPos + 6);
+          yPos += 8 + (descLines.length * 4.5);
+        }
+        
+        // Add footer on the last page
+        const currentPage = pdf.internal.getCurrentPageInfo().pageNumber;
+        pdf.setPage(currentPage);
+        
+        pdf.setDrawColor(200, 200, 200);
+        pdf.setLineWidth(0.2);
+        pdf.line(20, 275, 190, 275);
+        
+        pdf.setFontSize(9);
+        pdf.setTextColor(100, 100, 100);
+        pdf.text(`© ${new Date().getFullYear()} MQUOTIENT | Generated: ${new Date().toLocaleDateString()}`, 20, 280);
+        pdf.text("Contact: hi@mquotient.net | www.mquotient.net", 20, 285);
+        
+        // Fix the insecure download issue by generating a blob URL
+        const pdfOutput = pdf.output('blob');
+        const blobUrl = URL.createObjectURL(pdfOutput);
+        
+        // Create temporary link and trigger download
+        const link = document.createElement('a');
+        link.href = blobUrl;
+        link.download = `mquotient-case-study-${study.id}.pdf`;
+        link.target = '_blank';
+        document.body.appendChild(link);
+        link.click();
+        
+        // Clean up
+        setTimeout(() => {
+          URL.revokeObjectURL(blobUrl);
+          document.body.removeChild(link);
+        }, 100);
+      };
       
-      pdf.setFontSize(9);
-      pdf.setTextColor(100, 100, 100);
-      pdf.text(`© ${new Date().getFullYear()} MQUOTIENT | Generated: ${new Date().toLocaleDateString()}`, 20, 280);
-      pdf.text("Contact: hi@mquotient.net | www.mquotient.net", 20, 285);
-      
-      // Fix the insecure download issue by generating a blob URL
-      const pdfOutput = pdf.output('blob');
-      const blobUrl = URL.createObjectURL(pdfOutput);
+      // Start the process by creating the logo
+      createLogo();
       
       // Create temporary link and trigger download
       const link = document.createElement('a');

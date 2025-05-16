@@ -11,8 +11,8 @@ import azureLogo from "../assets/partners/azure-logo.png";
 import uiPathIcon from "/attached_assets/uipathICON.png";
 import automationAnywhereIcon from "/attached_assets/automation-anywhere-Icon.avif";
 import huggingfaceLogo from "/attached_assets/huggingface-color.logo.png";
-import awsLogo from "/attached_assets/Amazon_Web_Services-Icon.png";
-import googleCloudLogo from "/attached_assets/new_google_cloud_logo.webp";
+import awsLogo from "/attached_assets/amazon-web-services-1-logo-png-transparent.png";
+import googleCloudLogo from "/attached_assets/Google_Cloud_logo.svg.png";
 import bluePrismLogo from "/attached_assets/Blue-Prism-Logo-What-is-Blue-Prism-Edureka.png";
 
 // Import updated Power Platform logos
@@ -58,8 +58,8 @@ const Services = () => {
     ],
     "cloud": [
       { src: azureLogo, alt: "Microsoft Azure", width: 100 },
-      { src: awsLogo, alt: "Amazon Web Services", width: 32 },
-      { src: googleCloudLogo, alt: "Google Cloud Platform", width: 32 }
+      { src: awsLogo, alt: "Amazon Web Services", width: 100 },
+      { src: googleCloudLogo, alt: "Google Cloud Platform", width: 100 }
     ]
   };
   
