@@ -64,18 +64,6 @@ const downloadFormSchema = z.object({
   name: z.string().min(2, {
     message: "Name must be at least 2 characters.",
   }),
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }).refine((email) => {
-    // Validate that it's a company email (not common email providers like gmail, yahoo, etc.)
-    const commonEmailProviders = [
-      "@gmail.com", "@yahoo.com", "@hotmail.com", "@outlook.com", 
-      "@aol.com", "@icloud.com", "@me.com", "@mail.com", "@protonmail.com"
-    ];
-    return !commonEmailProviders.some(provider => email.toLowerCase().endsWith(provider));
-  }, {
-    message: "Please use your company email. Personal email addresses are not accepted.",
-  }),
 });
 
 type DownloadFormValues = z.infer<typeof downloadFormSchema>;
@@ -635,7 +623,7 @@ const CaseStudies = () => {
     tempDiv.appendChild(preparedForTitle);
     
     const preparedFor = document.createElement('p');
-    preparedFor.textContent = `${userData.name} (${userData.email})`;
+    preparedFor.textContent = userData.name;
     preparedFor.style.marginBottom = '20px';
     preparedFor.style.fontSize = '14px';
     tempDiv.appendChild(preparedFor);
