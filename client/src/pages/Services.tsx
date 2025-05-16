@@ -15,16 +15,16 @@ import awsLogo from "/attached_assets/Amazon_Web_Services-Icon.png";
 import googleCloudLogo from "/attached_assets/new_google_cloud_logo.webp";
 import bluePrismLogo from "/attached_assets/Blue-Prism-Logo-What-is-Blue-Prism-Edureka.png";
 
-// Import new Power Platform logos
-import powerPlatformLogo from "../assets/power-platform/PowerPlatform_scalable.png";
-import powerAppsLogo from "../assets/power-platform/PowerApps_scalable.png";
-import powerAutomate2Logo from "../assets/power-platform/PowerAutomate_scalable.png";
-import powerBILogo from "../assets/power-platform/PowerBI_scalable.png";
-import dataverseLogo from "../assets/power-platform/Dataverse_scalable.png";
-import copilotStudioLogo from "../assets/power-platform/CopilotStudio_scalable.png";
-import powerPagesLogo from "@assets/PowerPages_scalable.png";
-import powerFxLogo from "@assets/PowerFx_scalable.png";
-import aiBuilderLogo from "@assets/AIBuilder_scalable.png";
+// Import updated Power Platform logos
+import powerPlatformLogo from "/attached_assets/PowerPlatform_scalable.png";
+import powerAppsLogo from "/attached_assets/PowerApps_scalable.png";
+import powerAutomate2Logo from "/attached_assets/PowerAutomate_scalable.png";
+import powerBILogo from "/attached_assets/PowerBI_scalable.png";
+import dataverseLogo from "/attached_assets/Dataverse_scalable.png";
+import copilotStudioLogo from "/attached_assets/CopilotStudio_scalable.png";
+import powerPagesLogo from "/attached_assets/PowerPages_scalable.png";
+import powerFxLogo from "/attached_assets/PowerFx_scalable_1747370012300.png";
+import aiBuilderLogo from "/attached_assets/AIBuilder_scalable.png";
 
 const Services = () => {
   // Update page title for SEO

@@ -18,6 +18,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { 
   Select, 
   SelectContent, 
@@ -25,6 +26,7 @@ import {
   SelectTrigger, 
   SelectValue 
 } from "@/components/ui/select";
+import { X } from "lucide-react";
 
 // Validation schema for the application form
 const applicationFormSchema = z.object({
@@ -34,6 +36,7 @@ const applicationFormSchema = z.object({
   phone: z.string().min(5, { message: "Please enter a valid phone number" }),
   position: z.string().min(1, { message: "Position is required" }),
   message: z.string().min(10, { message: "Cover letter must be at least 10 characters" }).max(1000, { message: "Cover letter must not exceed 1000 characters" }),
+  sendCopy: z.boolean().optional(),
 });
 
 type ApplicationFormValues = z.infer<typeof applicationFormSchema>;
@@ -45,6 +48,7 @@ interface ApplicationFormProps {
 const ApplicationForm = ({ job }: ApplicationFormProps) => {
   const { toast } = useToast();
   const [resume, setResume] = useState<File | null>(null);
+  const [resumeName, setResumeName] = useState<string>("");
   const [customCountryCode, setCustomCountryCode] = useState("");
   
   const countryCodes = [
