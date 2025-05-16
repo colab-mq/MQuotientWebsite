@@ -10,6 +10,7 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Checkbox } from "@/components/ui/checkbox";
 import { FaArrowRight, FaCheck, FaChartLine, FaClipboardCheck, FaFileAlt, FaRocket, FaUserClock, FaBrain, FaRobot, FaBolt, FaDownload } from "react-icons/fa";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import jsPDF from "jspdf";
@@ -88,7 +89,6 @@ const CaseStudies = () => {
     resolver: zodResolver(downloadFormSchema),
     defaultValues: {
       name: "",
-      email: "",
     },
   });
 
@@ -501,7 +501,6 @@ const CaseStudies = () => {
       // Optional: Store the lead information in your database
       console.log("Lead captured:", {
         name: data.name,
-        email: data.email,
         caseStudy: selectedStudy.title,
         timestamp: new Date().toISOString()
       });
@@ -900,26 +899,15 @@ const CaseStudies = () => {
                 )}
               />
               
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Company Email</FormLabel>
-                    <FormControl>
-                      <Input 
-                        type="email" 
-                        placeholder="you@yourcompany.com" 
-                        {...field} 
-                      />
-                    </FormControl>
-                    <FormMessage />
-                    <p className="text-xs text-muted-foreground mt-1">
-                      Please use your work email. Personal email domains (gmail.com, etc.) are not accepted.
-                    </p>
-                  </FormItem>
-                )}
-              />
+              <div className="flex items-center space-x-2">
+                <Checkbox id="human-verification" />
+                <label
+                  htmlFor="human-verification"
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >
+                  I am a human and not a robot
+                </label>
+              </div>
               
               <DialogFooter className="flex flex-col-reverse sm:flex-row sm:justify-between sm:space-x-2">
                 <Button

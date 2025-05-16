@@ -3,10 +3,17 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
 
 // Import partner icons
-import microsoftIcon from "/attached_assets/microsoft-icon-2048x2048-xtoxrveo.png";
 import uipathIcon from "/attached_assets/uipathICON.png";
-import powerAutomateIcon from "/attached_assets/PowerAutomate-2020-icon-1024x1024.png";
 import automationAnywhereIcon from "/attached_assets/automation-anywhere-Icon.avif";
+import powerPlatformLogo from "@assets/PowerPlatform_scalable.png";
+import powerAppsLogo from "@assets/PowerApps_scalable.png";
+import powerAutomateLogo from "@assets/PowerAutomate_scalable.png";
+import powerBILogo from "@assets/PowerBI_scalable.png";
+import powerPagesLogo from "@assets/PowerPages_scalable.png";
+import powerFxLogo from "@assets/PowerFx_scalable.png";
+import aiBuilderLogo from "@assets/AIBuilder_scalable.png";
+import dataverseLogo from "@assets/Dataverse_scalable.png";
+import copilotStudioLogo from "@assets/CopilotStudio_scalable.png";
 
 const HeroSection = () => {
   // Animation variants
@@ -63,14 +70,14 @@ const HeroSection = () => {
               className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6"
               variants={itemVariants}
             >
-              Design the Future of Your Business <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">—</span> Powered by Automation and AI
+              Architect the Future of Your Enterprise <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">—</span> Unified, Scalable, AI-Ready
             </motion.h1>
             
             <motion.p 
               className="text-base md:text-lg mb-8 text-muted-foreground max-w-2xl"
               variants={itemVariants}
             >
-              Expertise you can trust. Innovation you can measure.
+              Reduce automation costs by up to 80% while building a resilient, AI-ready foundation with proven, platform-agnostic execution
             </motion.p>
             
             <motion.div 
@@ -93,21 +100,49 @@ const HeroSection = () => {
               variants={itemVariants}
             >
               <p className="text-sm text-muted-foreground mb-5 relative inline-block">
-                <span>Activating the True Potential of Leading Technologies</span>
+                <span>Activating Enterprise-Grade Platforms to Deliver Scalable, Intelligent Outcomes</span>
                 <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary"></span>
               </p>
-              <div className="flex items-center gap-6 flex-wrap">
-                <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
-                  <img src={microsoftIcon} alt="Microsoft" className="w-8 h-8 object-contain" />
-                </div>
+              
+              <div className="flex items-center gap-4 mb-4">
                 <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
                   <img src={uipathIcon} alt="UiPath" className="w-8 h-8 object-contain" />
                 </div>
                 <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
-                  <img src={powerAutomateIcon} alt="Power Automate" className="w-8 h-8 object-contain" />
-                </div>
-                <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center shadow-sm border border-border">
                   <img src={automationAnywhereIcon} alt="Automation Anywhere" className="w-8 h-8 object-contain" />
+                </div>
+              </div>
+              
+              <div className="w-full overflow-hidden relative">
+                <p className="text-xs text-muted-foreground mb-2">Microsoft Power Platform</p>
+                <div className="flex gap-4 py-2 overflow-x-auto scrollbar-hide snap-x">
+                  <div className="w-12 h-12 rounded-full bg-background flex-shrink-0 flex items-center justify-center shadow-sm border border-border snap-start">
+                    <img src={powerPlatformLogo} alt="Power Platform" className="w-8 h-8 object-contain" />
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-background flex-shrink-0 flex items-center justify-center shadow-sm border border-border snap-start">
+                    <img src={powerAppsLogo} alt="Power Apps" className="w-8 h-8 object-contain" />
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-background flex-shrink-0 flex items-center justify-center shadow-sm border border-border snap-start">
+                    <img src={powerAutomateLogo} alt="Power Automate" className="w-8 h-8 object-contain" />
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-background flex-shrink-0 flex items-center justify-center shadow-sm border border-border snap-start">
+                    <img src={powerBILogo} alt="Power BI" className="w-8 h-8 object-contain" />
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-background flex-shrink-0 flex items-center justify-center shadow-sm border border-border snap-start">
+                    <img src={powerPagesLogo} alt="Power Pages" className="w-8 h-8 object-contain" />
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-background flex-shrink-0 flex items-center justify-center shadow-sm border border-border snap-start">
+                    <img src={powerFxLogo} alt="Power Fx" className="w-8 h-8 object-contain" />
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-background flex-shrink-0 flex items-center justify-center shadow-sm border border-border snap-start">
+                    <img src={aiBuilderLogo} alt="AI Builder" className="w-8 h-8 object-contain" />
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-background flex-shrink-0 flex items-center justify-center shadow-sm border border-border snap-start">
+                    <img src={dataverseLogo} alt="Dataverse" className="w-8 h-8 object-contain" />
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-background flex-shrink-0 flex items-center justify-center shadow-sm border border-border snap-start">
+                    <img src={copilotStudioLogo} alt="Copilot Studio" className="w-8 h-8 object-contain" />
+                  </div>
                 </div>
               </div>
             </motion.div>
