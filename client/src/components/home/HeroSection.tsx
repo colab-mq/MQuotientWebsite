@@ -9,15 +9,15 @@ import huggingfaceLogo from "/attached_assets/huggingface-color.logo.png";
 import awsLogo from "/attached_assets/Amazon_Web_Services-Icon.png";
 import googleCloudLogo from "/attached_assets/new_google_cloud_logo.webp";
 import bluePrismLogo from "/attached_assets/Blue-Prism-Logo-What-is-Blue-Prism-Edureka.png";
-import powerPlatformLogo from "@assets/PowerPlatform_scalable.png";
-import powerAppsLogo from "@assets/PowerApps_scalable.png";
-import powerAutomateLogo from "@assets/PowerAutomate_scalable.png";
-import powerBILogo from "@assets/PowerBI_scalable.png";
-import powerPagesLogo from "@assets/PowerPages_scalable.png";
-import powerFxLogo from "@assets/PowerFx_scalable.png";
-import aiBuilderLogo from "@assets/AIBuilder_scalable.png";
-import dataverseLogo from "@assets/Dataverse_scalable.png";
-import copilotStudioLogo from "@assets/CopilotStudio_scalable.png";
+import powerPlatformLogo from "/attached_assets/PowerPlatform_scalable.png";
+import powerAppsLogo from "/attached_assets/PowerApps_scalable.png";
+import powerAutomateLogo from "/attached_assets/PowerAutomate_scalable.png";
+import powerBILogo from "/attached_assets/PowerBI_scalable.png";
+import powerPagesLogo from "/attached_assets/PowerPages_scalable.png";
+import powerFxLogo from "/attached_assets/PowerFx_scalable_1747370012300.png";
+import aiBuilderLogo from "/attached_assets/AIBuilder_scalable.png";
+import dataverseLogo from "/attached_assets/Dataverse_scalable.png";
+import copilotStudioLogo from "/attached_assets/CopilotStudio_scalable.png";
 
 const HeroSection = () => {
   // Animation variants

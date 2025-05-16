@@ -21,11 +21,20 @@ import { useToast } from "@/hooks/use-toast";
 import bluePrismLogo from "../assets/partners/Blue_Prism_Logo-700x126.png";
 import glyphXLogo from "../assets/partners/GLYPHX.png";
 import microsoftLogo from "../assets/partners/Microsoft_logo.png";
-import powerPlatformLogo from "../assets/partners/Microsoft_Power_Platform_logo.svg.png";
 import uiPathLogo from "../assets/partners/UiPath_2019_Corporate_Logo.png";
-import powerAutomateLogo from "@assets/PowerAutomate-2020-icon-1024x1024.png";
 import automationAnywhereLogo from "@assets/AutomationAnywhereLogo.png";
 import mquotientLogo from "../assets/mquotient-logo-new.png";
+
+// Import updated Power Platform logos
+import powerPlatformLogo from "/attached_assets/PowerPlatform_scalable.png";
+import powerAppsLogo from "/attached_assets/PowerApps_scalable.png";
+import powerAutomateLogo from "/attached_assets/PowerAutomate_scalable.png";
+import powerBILogo from "/attached_assets/PowerBI_scalable.png";
+import powerPagesLogo from "/attached_assets/PowerPages_scalable.png";
+import powerFxLogo from "/attached_assets/PowerFx_scalable_1747370012300.png";
+import aiBuilderLogo from "/attached_assets/AIBuilder_scalable.png";
+import dataverseLogo from "/attached_assets/Dataverse_scalable.png";
+import copilotStudioLogo from "/attached_assets/CopilotStudio_scalable.png";
 
 // Define types
 interface CaseStudyResult {
@@ -480,55 +489,119 @@ const CaseStudies = () => {
     });
   };
   
-  // Simple function to create a basic PDF without requiring user data
+  // Enhanced function to create a comprehensive PDF case study
   const createSimplePDF = (study: CaseStudy) => {
     try {
       // Create a new PDF document
       const pdf = new jsPDF();
       
-      // Add title and subtitle
-      pdf.setFontSize(20);
+      // Add m·quotient company header
+      pdf.setFontSize(22);
       pdf.setTextColor(1, 37, 125); // #01257D
-      pdf.text(study.title, 20, 30);
-      
-      pdf.setFontSize(14);
-      pdf.setTextColor(100, 100, 100);
-      pdf.text(study.subtitle, 20, 40);
-      
-      // Add challenge section
-      pdf.setFontSize(16);
-      pdf.setTextColor(1, 37, 125);
-      pdf.text("The Challenge", 20, 60);
+      pdf.text("m·quotient", 20, 20);
       
       pdf.setFontSize(12);
+      pdf.setTextColor(100, 100, 100);
+      pdf.text("Case Study", 20, 28);
+      
+      // Add divider line
+      pdf.setDrawColor(1, 37, 125);
+      pdf.setLineWidth(0.5);
+      pdf.line(20, 32, 190, 32);
+      
+      // Add title and subtitle
+      pdf.setFontSize(18);
+      pdf.setTextColor(1, 37, 125);
+      pdf.text(study.title, 20, 45);
+      
+      pdf.setFontSize(13);
+      pdf.setTextColor(100, 100, 100);
+      pdf.text(study.subtitle, 20, 55);
+      
+      // Add challenge section
+      pdf.setFontSize(15);
+      pdf.setTextColor(1, 37, 125);
+      pdf.text("The Challenge", 20, 70);
+      
+      pdf.setFontSize(11);
       pdf.setTextColor(0, 0, 0);
       const challengeLines = pdf.splitTextToSize(study.challenge, 170);
-      pdf.text(challengeLines, 20, 70);
+      pdf.text(challengeLines, 20, 78);
       
       // Add solution section
-      let yPos = 70 + (challengeLines.length * 7);
-      pdf.setFontSize(16);
+      let yPos = 80 + (challengeLines.length * 6);
+      pdf.setFontSize(15);
       pdf.setTextColor(1, 37, 125);
       pdf.text("Our Solution", 20, yPos);
       
-      pdf.setFontSize(12);
+      pdf.setFontSize(11);
       pdf.setTextColor(0, 0, 0);
       const solutionLines = pdf.splitTextToSize(study.solution, 170);
-      pdf.text(solutionLines, 20, yPos + 10);
+      pdf.text(solutionLines, 20, yPos + 8);
       
-      // Add results summary
-      yPos = yPos + 10 + (solutionLines.length * 7);
-      pdf.setFontSize(16);
+      // Add implementation process
+      yPos = yPos + 12 + (solutionLines.length * 5.5);
+      pdf.setFontSize(15);
       pdf.setTextColor(1, 37, 125);
-      pdf.text("Results", 20, yPos);
+      pdf.text("Implementation Process", 20, yPos);
       
-      // Add footer
-      pdf.setFontSize(10);
+      // Add process steps
+      pdf.setFontSize(11);
+      pdf.setTextColor(0, 0, 0);
+      yPos += 8;
+      study.process.forEach((step, index) => {
+        const stepLines = pdf.splitTextToSize(`${index + 1}. ${step}`, 165);
+        pdf.text(stepLines, 20, yPos);
+        yPos += stepLines.length * 6;
+      });
+      
+      // Add results section
+      yPos += 5;
+      pdf.setFontSize(15);
+      pdf.setTextColor(1, 37, 125);
+      pdf.text("Results & Impact", 20, yPos);
+      
+      // Add results items
+      pdf.setFontSize(11);
+      yPos += 8;
+      study.results.forEach((result, index) => {
+        pdf.setTextColor(1, 37, 125);
+        pdf.text(`• ${result.title}`, 20, yPos);
+        
+        pdf.setTextColor(60, 60, 60);
+        const descLines = pdf.splitTextToSize(result.description, 160);
+        pdf.text(descLines, 30, yPos + 6);
+        yPos += 8 + (descLines.length * 5);
+      });
+      
+      // Add footer with divider line
+      pdf.setDrawColor(200, 200, 200);
+      pdf.setLineWidth(0.2);
+      pdf.line(20, 275, 190, 275);
+      
+      pdf.setFontSize(9);
       pdf.setTextColor(100, 100, 100);
-      pdf.text("© " + new Date().getFullYear() + " m·quotient | hi@mquotient.net | mquotient.net", 20, 280);
+      pdf.text(`© ${new Date().getFullYear()} m·quotient | Generated: ${new Date().toLocaleDateString()}`, 20, 280);
+      pdf.text("Contact: hi@mquotient.net | www.mquotient.net", 20, 285);
       
-      // Save the PDF
-      pdf.save(`mquotient-case-study-${study.id}.pdf`);
+      // Fix the insecure download issue by generating a blob URL
+      const pdfOutput = pdf.output('blob');
+      const blobUrl = URL.createObjectURL(pdfOutput);
+      
+      // Create temporary link and trigger download
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = `mquotient-case-study-${study.id}.pdf`;
+      link.target = '_blank';
+      document.body.appendChild(link);
+      link.click();
+      
+      // Clean up
+      setTimeout(() => {
+        URL.revokeObjectURL(blobUrl);
+        document.body.removeChild(link);
+      }, 100);
+      
     } catch (error) {
       console.error('Error generating PDF:', error);
       toast({
