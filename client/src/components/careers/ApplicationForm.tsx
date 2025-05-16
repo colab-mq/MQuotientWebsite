@@ -80,6 +80,7 @@ const ApplicationForm = ({ job }: ApplicationFormProps) => {
       phone: "",
       position: job.title,
       message: "",
+      sendCopy: true,
     },
   });
 
@@ -97,6 +98,7 @@ const ApplicationForm = ({ job }: ApplicationFormProps) => {
       formData.append("phone", data.phone);
       formData.append("position", data.position);
       formData.append("message", data.message);
+      formData.append("sendCopy", data.sendCopy ? "true" : "false");
       
       if (resume) {
         formData.append("resume", resume);
@@ -141,7 +143,20 @@ const ApplicationForm = ({ job }: ApplicationFormProps) => {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setResume(e.target.files[0]);
+      const file = e.target.files[0];
+      setResume(file);
+      setResumeName(file.name);
+    }
+  };
+  
+  const handleRemoveResume = () => {
+    setResume(null);
+    setResumeName("");
+    
+    // Reset the file input by recreating it
+    const fileInput = document.getElementById("resume") as HTMLInputElement;
+    if (fileInput) {
+      fileInput.value = "";
     }
   };
 
@@ -281,16 +296,59 @@ const ApplicationForm = ({ job }: ApplicationFormProps) => {
             
             <div>
               <FormLabel htmlFor="resume">Resume/CV (Optional)</FormLabel>
-              <Input
-                id="resume"
-                type="file"
-                accept=".pdf,.doc,.docx"
-                onChange={handleFileChange}
-                className="mt-1"
-              />
+              {resume ? (
+                <div className="flex items-center gap-2 p-2 border rounded-md mt-1">
+                  <div className="flex-1 text-sm truncate">
+                    {resumeName}
+                  </div>
+                  <Button 
+                    type="button" 
+                    variant="ghost" 
+                    size="sm" 
+                    onClick={handleRemoveResume}
+                    className="h-8 w-8 p-0"
+                  >
+                    <X className="h-4 w-4" />
+                    <span className="sr-only">Remove file</span>
+                  </Button>
+                </div>
+              ) : (
+                <Input
+                  id="resume"
+                  type="file"
+                  accept=".pdf,.doc,.docx"
+                  onChange={handleFileChange}
+                  className="mt-1"
+                />
+              )}
               <FormDescription>
                 Upload your resume in PDF, DOC, or DOCX format (max 5MB).
               </FormDescription>
+            </div>
+            
+            <div className="flex items-center space-x-2 my-4">
+              <FormField
+                control={form.control}
+                name="sendCopy"
+                render={({ field }) => (
+                  <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                    <FormControl>
+                      <Checkbox
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                      />
+                    </FormControl>
+                    <div className="space-y-1 leading-none">
+                      <FormLabel>
+                        Send me a copy of this application
+                      </FormLabel>
+                      <FormDescription>
+                        We'll email a copy of your submission to the email address you provided.
+                      </FormDescription>
+                    </div>
+                  </FormItem>
+                )}
+              />
             </div>
             
             <Button

@@ -116,6 +116,7 @@ export const mailService = {
     position: string;
     message: string;
     resumeFilename?: string;
+    sendCopy?: boolean;
   }): Promise<boolean> => {
     if (CAREERS_EMAIL_RECIPIENTS.length === 0) {
       console.warn('No career email recipients configured. Notification not sent.');
@@ -133,12 +134,51 @@ export const mailService = {
       ${data.resumeFilename ? `<p><strong>Resume Attached:</strong> ${data.resumeFilename}</p>` : ''}
     `;
 
-    return mailService.sendEmail({
-      from: `"mquotient Careers" <${EMAIL_USER}>`,
+    const success = await mailService.sendEmail({
+      from: `"m·quotient Careers" <${EMAIL_USER}>`,
       to: CAREERS_EMAIL_RECIPIENTS,
       subject: `New Job Application: ${data.position}`,
       html,
     });
+    
+    // Send a copy to the applicant if requested
+    if (data.sendCopy && success) {
+      try {
+        const applicantHtml = `
+          <h2>Your m·quotient Job Application</h2>
+          <p>Dear ${data.name},</p>
+          <p>Thank you for applying for the <strong>${data.position}</strong> position at m·quotient. We've received your application and our team will review your qualifications soon.</p>
+          
+          <h3>Application Details:</h3>
+          <p><strong>Name:</strong> ${data.name}</p>
+          <p><strong>Email:</strong> ${data.email}</p>
+          <p><strong>Phone:</strong> ${data.phone}</p>
+          
+          <h3>Your Message to Us:</h3>
+          <p>${data.message.replace(/\n/g, '<br>')}</p>
+          
+          ${data.resumeFilename ? `<p><strong>Resume Attached:</strong> ${data.resumeFilename}</p>` : '<p>No resume attached</p>'}
+          
+          <p>What's next? Our team will review your application and reach out if your qualifications match our requirements.</p>
+          
+          <p>We appreciate your interest in joining the m·quotient team!</p>
+          
+          <p>Best regards,<br>m·quotient Careers Team</p>
+        `;
+        
+        await mailService.sendEmail({
+          from: `"m·quotient Careers" <${EMAIL_USER}>`,
+          to: [data.email],
+          subject: `Your Application for ${data.position} at m·quotient`,
+          html: applicantHtml,
+        });
+      } catch (error) {
+        console.error('Failed to send copy to applicant:', error);
+        // Continue execution even if sending the copy fails
+      }
+    }
+    
+    return success;
   },
 
   /**
