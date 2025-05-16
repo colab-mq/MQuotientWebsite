@@ -209,13 +209,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       // Send email notification - continue even if it fails
       try {
+        // Check if user requested a copy of their application
+        const sendCopy = req.body.sendCopy === 'true';
+        
         const emailSent = await mailService.sendCareerApplicationNotification({
           name: validatedData.name,
           email: validatedData.email,
           phone: validatedData.phone,
           position: validatedData.position,
           message: validatedData.message,
-          resumeFilename: resumeFile?.originalname
+          resumeFilename: resumeFile?.originalname,
+          sendCopy: sendCopy
         });
         console.log('Career application email notification sent:', emailSent);
       } catch (emailError) {

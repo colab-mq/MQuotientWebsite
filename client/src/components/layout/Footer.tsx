@@ -31,19 +31,19 @@ const Footer = () => {
               <li>
                 <Link href="/services" className="text-white/90 hover:text-secondary transition-colors duration-200 inline-flex items-center">
                   <span className="w-1.5 h-1.5 rounded-full bg-secondary mr-2"></span>
+                  Intelligent Business Automation: AI + RPA
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="text-white/90 hover:text-secondary transition-colors duration-200 inline-flex items-center">
+                  <span className="w-1.5 h-1.5 rounded-full bg-secondary mr-2"></span>
+                  Microsoft Power Platform Solutions
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="text-white/90 hover:text-secondary transition-colors duration-200 inline-flex items-center">
+                  <span className="w-1.5 h-1.5 rounded-full bg-secondary mr-2"></span>
                   AI-Powered Data Entry Workforce
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-white/90 hover:text-secondary transition-colors duration-200 inline-flex items-center">
-                  <span className="w-1.5 h-1.5 rounded-full bg-secondary mr-2"></span>
-                  RPA Solutions
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-white/90 hover:text-secondary transition-colors duration-200 inline-flex items-center">
-                  <span className="w-1.5 h-1.5 rounded-full bg-secondary mr-2"></span>
-                  Microsoft Power Platform
                 </Link>
               </li>
               <li>
@@ -55,13 +55,7 @@ const Footer = () => {
               <li>
                 <Link href="/services" className="text-white/90 hover:text-secondary transition-colors duration-200 inline-flex items-center">
                   <span className="w-1.5 h-1.5 rounded-full bg-secondary mr-2"></span>
-                  AI & Intelligent Automation
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-white/90 hover:text-secondary transition-colors duration-200 inline-flex items-center">
-                  <span className="w-1.5 h-1.5 rounded-full bg-secondary mr-2"></span>
-                  Managed Services
+                  Managed Automation Services
                 </Link>
               </li>
             </ul>

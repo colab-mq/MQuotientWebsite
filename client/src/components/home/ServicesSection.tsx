@@ -7,18 +7,6 @@ import { Badge } from "@/components/ui/badge";
 const ServicesSection = () => {
   const services = [
     {
-      title: "AI-Powered Data Entry Workforce",
-      description: "Break free from manual data entry bottlenecks with our intelligent document processing solution that automatically extracts and validates data from both structured and unstructured documents.",
-      icon: <FaBrain />,
-      features: [
-        "99%+ accuracy with automated validation",
-        "80% reduction in manual processing tasks",
-        "Seamless integration with existing systems",
-        "Process analysis and optimization",
-        "System integration services"
-      ]
-    },
-    {
       title: "Intelligent Business Automation: AI + RPA",
       description: "We help businesses unlock operational efficiency and innovation through AI-enabled automation and RPA. From eliminating repetitive tasks to scaling intelligent decision-making, our solutions are platform-agnostic and tailored to your environment.",
       icon: <FaRobot />,
@@ -28,18 +16,6 @@ const ServicesSection = () => {
         "AI-enhanced automation (OCR, NLP, ML)",
         "Automation consolidation & migration",
         "Future-ready automation programs"
-      ]
-    },
-    {
-      title: "Managed Services",
-      description: "We provide comprehensive implementation services and ongoing support to ensure your automation solutions continue to deliver value.",
-      icon: <FaHeadset />,
-      features: [
-        "Solution implementation and deployment",
-        "User training and knowledge transfer",
-        "Ongoing maintenance and support",
-        "Performance monitoring and support",
-        "System upgrades and enhancements"
       ]
     },
     {
@@ -55,6 +31,18 @@ const ServicesSection = () => {
       ]
     },
     {
+      title: "AI-Powered Data Entry Workforce",
+      description: "Break free from manual data entry bottlenecks with our intelligent document processing solution that automatically extracts and validates data from both structured and unstructured documents.",
+      icon: <FaBrain />,
+      features: [
+        "99%+ accuracy with automated validation",
+        "80% reduction in manual processing tasks",
+        "Seamless integration with existing systems",
+        "Process analysis and optimization",
+        "System integration services"
+      ]
+    },
+    {
       title: "Cloud Services",
       description: "Harness the power of cloud computing to transform, streamline, and secure your business with our tailored solutions supporting Azure, AWS, and Google Cloud.",
       icon: <FaCloud />,
@@ -64,6 +52,18 @@ const ServicesSection = () => {
         "Cloud Security & Governance",
         "Database & DevOps Support",
         "Industry-Focused Cloud Solutions"
+      ]
+    },
+    {
+      title: "Managed Automation Services",
+      description: "We provide comprehensive implementation services and ongoing support to ensure your automation solutions continue to deliver value.",
+      icon: <FaHeadset />,
+      features: [
+        "Solution implementation and deployment",
+        "User training and knowledge transfer",
+        "Ongoing maintenance and support",
+        "Performance monitoring and support",
+        "System upgrades and enhancements"
       ]
     }
   ];
