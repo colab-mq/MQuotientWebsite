@@ -80,8 +80,7 @@ const CaseStudies = () => {
   // State for service tabs
   const [activeServiceTab, setActiveServiceTab] = useState("ai-data-entry");
   
-  // We're no longer using a download dialog - direct downloads only
-  const [selectedStudy, setSelectedStudy] = useState<CaseStudy | null>(null);
+  // No state needed for direct downloads
 
   // AI-Powered Data Entry Workforce case studies
   const aiDataEntryCaseStudies: CaseStudy[] = [
@@ -469,10 +468,10 @@ const CaseStudies = () => {
     }
   };
 
-  // Function to handle download button click - direct download without requiring user details
+  // Function to handle direct download without requiring user details
   const handleDownloadClick = (study: CaseStudy) => {
-    // Directly generate the PDF without opening a dialog
-    generatePDF(study);
+    // Create a simple PDF directly without complex HTML conversion
+    createSimplePDF(study);
     
     // Show success message
     toast({
@@ -480,12 +479,63 @@ const CaseStudies = () => {
       description: "Your case study is being downloaded.",
     });
   };
-
-  // The legacy form submission function is kept for reference but will not be used
-  const onSubmit = async (data: DownloadFormValues) => {
-    // Not used anymore as we're doing direct downloads
-    if (selectedStudy) {
-      await generatePDF(selectedStudy);
+  
+  // Simple function to create a basic PDF without requiring user data
+  const createSimplePDF = (study: CaseStudy) => {
+    try {
+      // Create a new PDF document
+      const pdf = new jsPDF();
+      
+      // Add title and subtitle
+      pdf.setFontSize(20);
+      pdf.setTextColor(1, 37, 125); // #01257D
+      pdf.text(study.title, 20, 30);
+      
+      pdf.setFontSize(14);
+      pdf.setTextColor(100, 100, 100);
+      pdf.text(study.subtitle, 20, 40);
+      
+      // Add challenge section
+      pdf.setFontSize(16);
+      pdf.setTextColor(1, 37, 125);
+      pdf.text("The Challenge", 20, 60);
+      
+      pdf.setFontSize(12);
+      pdf.setTextColor(0, 0, 0);
+      const challengeLines = pdf.splitTextToSize(study.challenge, 170);
+      pdf.text(challengeLines, 20, 70);
+      
+      // Add solution section
+      let yPos = 70 + (challengeLines.length * 7);
+      pdf.setFontSize(16);
+      pdf.setTextColor(1, 37, 125);
+      pdf.text("Our Solution", 20, yPos);
+      
+      pdf.setFontSize(12);
+      pdf.setTextColor(0, 0, 0);
+      const solutionLines = pdf.splitTextToSize(study.solution, 170);
+      pdf.text(solutionLines, 20, yPos + 10);
+      
+      // Add results summary
+      yPos = yPos + 10 + (solutionLines.length * 7);
+      pdf.setFontSize(16);
+      pdf.setTextColor(1, 37, 125);
+      pdf.text("Results", 20, yPos);
+      
+      // Add footer
+      pdf.setFontSize(10);
+      pdf.setTextColor(100, 100, 100);
+      pdf.text("© " + new Date().getFullYear() + " m·quotient | hi@mquotient.net | mquotient.net", 20, 280);
+      
+      // Save the PDF
+      pdf.save(`mquotient-case-study-${study.id}.pdf`);
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+      toast({
+        title: "Error generating PDF",
+        description: "There was a problem creating your PDF. Please try again.",
+        variant: "destructive"
+      });
     }
   };
 
@@ -594,20 +644,20 @@ const CaseStudies = () => {
     });
     tempDiv.appendChild(resultsList);
     
-    // Add prepared for section with user's information
-    const preparedForTitle = document.createElement('h2');
-    preparedForTitle.textContent = 'Prepared For';
-    preparedForTitle.style.fontSize = '18px';
-    preparedForTitle.style.fontWeight = 'bold';
-    preparedForTitle.style.marginBottom = '10px';
-    preparedForTitle.style.color = '#01257D';
-    tempDiv.appendChild(preparedForTitle);
+    // Add generation date
+    const generatedTitle = document.createElement('h2');
+    generatedTitle.textContent = 'Generated';
+    generatedTitle.style.fontSize = '18px';
+    generatedTitle.style.fontWeight = 'bold';
+    generatedTitle.style.marginBottom = '10px';
+    generatedTitle.style.color = '#01257D';
+    tempDiv.appendChild(generatedTitle);
     
-    const preparedFor = document.createElement('p');
-    preparedFor.textContent = userData.name;
-    preparedFor.style.marginBottom = '20px';
-    preparedFor.style.fontSize = '14px';
-    tempDiv.appendChild(preparedFor);
+    const generatedDate = document.createElement('p');
+    generatedDate.textContent = new Date().toLocaleDateString();
+    generatedDate.style.marginBottom = '20px';
+    generatedDate.style.fontSize = '14px';
+    tempDiv.appendChild(generatedDate);
     
     // Add copyright and contact
     const footer = document.createElement('div');
@@ -853,69 +903,102 @@ const CaseStudies = () => {
 
   return (
     <div className="pt-16 pb-16">
-      {/* ... existing return JSX ... */}
-      
-      {/* Download Form Dialog */}
-      <Dialog open={isDownloadDialogOpen} onOpenChange={setIsDownloadDialogOpen}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle>Download Case Study</DialogTitle>
-            <DialogDescription>
-              Please provide your information to download the case study. We'll send you similar relevant case studies in the future.
-            </DialogDescription>
-          </DialogHeader>
-          
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 py-4">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Your full name" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              
-              <div className="flex items-center space-x-2">
-                <Checkbox id="human-verification" />
-                <label
-                  htmlFor="human-verification"
-                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+      <div className="bg-gradient-to-r from-primary to-primary-dark text-white py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Case Studies</h1>
+          <p className="text-xl max-w-3xl">
+            A closer look at how we've solved complex challenges, streamlined operations, and delivered measurable impact—one project at a time.
+          </p>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold mb-4">Success Stories by Service Area</h2>
+          <p className="text-xl max-w-3xl mx-auto text-muted-foreground">
+            See how we've applied automation where it matters—boosting accuracy, speeding up workflows, and making operations smarter across industries.
+          </p>
+        </div>
+
+        <Tabs 
+          defaultValue="ai-data-entry" 
+          value={activeServiceTab}
+          onValueChange={setActiveServiceTab}
+          className="w-full mb-12"
+        >
+          <div className="flex justify-center mb-12">
+            <TabsList className="flex flex-col sm:grid sm:grid-cols-3 w-full max-w-2xl gap-2">
+              {Object.keys(serviceData).map((serviceKey) => (
+                <TabsTrigger 
+                  key={serviceKey} 
+                  value={serviceKey}
+                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary/80 data-[state=active]:to-secondary/80 data-[state=active]:text-white gap-2 p-4 h-full flex items-center justify-center"
                 >
-                  I am a human and not a robot
-                </label>
+                  <div className="flex items-center justify-center gap-2 flex-wrap">
+                    <span className="flex-shrink-0">{serviceData[serviceKey].icon}</span>
+                    <span className="whitespace-nowrap text-center min-w-[110px]">{serviceData[serviceKey].title}</span>
+                  </div>
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </div>
+
+          {Object.keys(serviceData).map((serviceKey) => (
+            <TabsContent key={serviceKey} value={serviceKey} className="focus-visible:outline-none focus-visible:ring-0">
+              <div className={`bg-gradient-to-r ${serviceData[serviceKey].color} text-white p-8 rounded-lg mb-10`}>
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                  <div>
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="bg-white/20 p-3 rounded-full">
+                        {serviceData[serviceKey].icon}
+                      </div>
+                      <h2 className="text-2xl font-bold">{serviceData[serviceKey].title}</h2>
+                    </div>
+                    <p className="text-lg">{serviceData[serviceKey].description}</p>
+                  </div>
+                  
+                  {/* Partner logos */}
+                  <div className="flex flex-wrap gap-4">
+                    {serviceData[serviceKey].partners.map((partner: PartnerLogo, idx: number) => (
+                      <div key={idx} className="bg-white rounded-md p-2 shadow-sm">
+                        <img 
+                          src={partner.logo} 
+                          alt={partner.name} 
+                          className="object-contain h-8" 
+                          style={{ width: `${partner.width}px`, maxHeight: '40px' }}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
               
-              <DialogFooter className="flex flex-col-reverse sm:flex-row sm:justify-between sm:space-x-2">
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={() => setIsDownloadDialogOpen(false)}
-                >
-                  Cancel
-                </Button>
-                <Button 
-                  type="submit"
-                  className="gap-2"
-                  disabled={form.formState.isSubmitting}
-                >
-                  {form.formState.isSubmitting ? (
-                    <div className="animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full mr-1" />
-                  ) : (
-                    <FaDownload className="h-4 w-4" />
-                  )}
-                  Download PDF
-                </Button>
-              </DialogFooter>
-            </form>
-          </Form>
-        </DialogContent>
-      </Dialog>
+              <div className="space-y-6">
+                {serviceData[serviceKey].studies.map((study: CaseStudy) => renderCaseStudy(study))}
+              </div>
+            </TabsContent>
+          ))}
+        </Tabs>
+        
+        <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-10 rounded-lg mt-16 shadow-md border border-primary/10">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+              Ready to Transform Your Business?
+            </h2>
+            <p className="text-lg max-w-3xl mx-auto">
+              Contact us today to discuss how our solutions can help your organization automate processes, reduce manual effort, and improve accuracy.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
+              Contact Us <FaArrowRight className="h-4 w-4" />
+            </Link>
+            <Link href="/services" className="btn-outline">
+              Learn More About Our Services
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
