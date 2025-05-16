@@ -11,8 +11,8 @@ interface SEOHeadProps {
 }
 
 const SEOHead: React.FC<SEOHeadProps> = ({
-  title = "m·quotient - Hyperautomation and Digital Solutions",
-  description = "m·quotient delivers enterprise-grade hyperautomation and digital transformation services with expertise in AI-powered document processing, RPA, Microsoft Power Platform, and custom solutions.",
+  title = "mquotient - Hyperautomation and Digital Solutions",
+  description = "mquotient delivers enterprise-grade hyperautomation and digital transformation services with expertise in AI-powered document processing, RPA, Microsoft Power Platform, and custom solutions.",
   keywords = "hyperautomation, digital transformation, AI document processing, RPA solutions, Power Platform, workflow automation, automated data entry, intelligent document processing, business process automation",
   canonicalUrl,
   image = "https://www.mquotient.net/logo.png",
@@ -31,10 +31,10 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     const organizationSchema = {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "m·quotient",
+      "name": "mquotient",
       "url": "https://www.mquotient.net",
       "logo": "https://www.mquotient.net/logo.png",
-      "description": "m·quotient delivers enterprise-grade hyperautomation and digital transformation services.",
+      "description": "mquotient delivers enterprise-grade hyperautomation and digital transformation services.",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "C-61/3, Okhla Industrial Area, Phase II",
@@ -59,7 +59,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       "serviceType": "Digital Transformation Services",
       "provider": {
         "@type": "Organization",
-        "name": "m·quotient"
+        "name": "mquotient"
       },
       "areaServed": "Worldwide",
       "description": "Enterprise-grade hyperautomation and digital transformation services including AI-powered document processing, RPA, Microsoft Power Platform, and custom solutions.",
