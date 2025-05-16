@@ -20,6 +20,9 @@ import powerAutomate2Logo from "../assets/power-platform/PowerAutomate_scalable.
 import powerBILogo from "../assets/power-platform/PowerBI_scalable.png";
 import dataverseLogo from "../assets/power-platform/Dataverse_scalable.png";
 import copilotStudioLogo from "../assets/power-platform/CopilotStudio_scalable.png";
+import powerPagesLogo from "@assets/PowerPages_scalable.png";
+import powerFxLogo from "@assets/PowerFx_scalable.png";
+import aiBuilderLogo from "@assets/AIBuilder_scalable.png";
 
 const Services = () => {
   // Update page title for SEO
@@ -44,7 +47,10 @@ const Services = () => {
       { src: powerAutomate2Logo, alt: "Power Automate", width: 50 },
       { src: powerBILogo, alt: "Power BI", width: 50 },
       { src: dataverseLogo, alt: "Dataverse", width: 50 },
-      { src: copilotStudioLogo, alt: "Copilot Studio", width: 50 }
+      { src: copilotStudioLogo, alt: "Copilot Studio", width: 50 },
+      { src: powerPagesLogo, alt: "Power Pages", width: 50 },
+      { src: powerFxLogo, alt: "Power Fx", width: 50 },
+      { src: aiBuilderLogo, alt: "AI Builder", width: 50 }
     ],
     "cloud": [
       { src: azureLogo, alt: "Microsoft Azure", width: 100 },

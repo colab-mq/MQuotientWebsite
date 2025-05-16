@@ -92,13 +92,68 @@ const About = () => {
           <motion.div variants={itemVariants}>
             <h2 className="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Our Story</h2>
             <p className="mb-4 text-muted-foreground">
-              At mquotient, we started with a clear goal: help businesses make the most of automation and digital technology to work better, not harder.
+              At mquotient, we started with a clear goal: help businesses work smarter—not harder—by making the most of automation and digital technology.
             </p>
             <p className="mb-4 text-muted-foreground">
-              Since then, we've delivered over 80 projects across a range of industries—solving tough problems, improving day-to-day operations, and helping our clients save time and resources where it really counts.
+              Since then, we've delivered over 80 successful projects across industries, solving complex challenges, streamlining operations, and reducing costs where it matters most.
             </p>
-            <p className="text-muted-foreground">
-              We're a hands-on team of developers, problem-solvers, and tech enthusiasts who genuinely care about getting it right. We listen first, build second, and stick around to make sure what we deliver actually works for the people using it. That's how we've earned the trust of our clients—and why we love what we do.
+            <p className="mb-4 text-muted-foreground">
+              Today, we bring that same hands-on, problem-solving mindset to a new era of opportunity: unified automation that's leaner, smarter, and AI-ready.
+            </p>
+            <p className="mb-4 text-muted-foreground">
+              With our Automation Consolidation & Migration Services, we help forward-thinking teams:
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+              <div className="bg-muted/30 p-4 rounded-lg border border-border/50">
+                <h3 className="font-semibold mb-2 flex items-center gap-2">
+                  <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center text-primary text-sm">
+                    <FaCheck className="h-3 w-3" />
+                  </div>
+                  Unify & Simplify
+                </h3>
+                <p className="text-sm text-muted-foreground">Fragmented systems into a single streamlined platform</p>
+              </div>
+              
+              <div className="bg-muted/30 p-4 rounded-lg border border-border/50">
+                <h3 className="font-semibold mb-2 flex items-center gap-2">
+                  <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center text-primary text-sm">
+                    <FaCheck className="h-3 w-3" />
+                  </div>
+                  Slash Costs
+                </h3>
+                <p className="text-sm text-muted-foreground">Cutting license and maintenance overhead by up to 80%</p>
+              </div>
+              
+              <div className="bg-muted/30 p-4 rounded-lg border border-border/50">
+                <h3 className="font-semibold mb-2 flex items-center gap-2">
+                  <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center text-primary text-sm">
+                    <FaCheck className="h-3 w-3" />
+                  </div>
+                  Scale Smarter
+                </h3>
+                <p className="text-sm text-muted-foreground">With a resilient automation foundation built for AI integration</p>
+              </div>
+              
+              <div className="bg-muted/30 p-4 rounded-lg border border-border/50">
+                <h3 className="font-semibold mb-2 flex items-center gap-2">
+                  <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center text-primary text-sm">
+                    <FaCheck className="h-3 w-3" />
+                  </div>
+                  Maximize ROI
+                </h3>
+                <p className="text-sm text-muted-foreground">By eliminating inefficiencies and unlocking intelligent workflows</p>
+              </div>
+            </div>
+            
+            <p className="mb-4 text-muted-foreground">
+              Whether you're a CIO driving enterprise-wide transformation or an operations leader focused on agility, we don't experiment with your business—we implement what's proven to work, faster.
+            </p>
+            <p className="mb-4 text-muted-foreground">
+              We believe companies that embrace AI will outpace those that don't—and our job is to make sure you're ready.
+            </p>
+            <p className="mb-4 text-muted-foreground">
+              Let's cut costs, boost scalability, and unlock the next phase of your automation journey—together.
             </p>
             
             <div className="flex items-center gap-4 mt-8 bg-muted/50 p-4 rounded-lg border border-border/50">
