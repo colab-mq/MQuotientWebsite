@@ -5,10 +5,9 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 // Import partner icons
 import uipathIcon from "/attached_assets/uipathICON.png";
 import automationAnywhereIcon from "/attached_assets/automation-anywhere-Icon.avif";
-import llamaLogo from "/attached_assets/LLAMAMETA.jpeg";
 import huggingfaceLogo from "/attached_assets/huggingface-color.logo.png";
 import awsLogo from "/attached_assets/Amazon_Web_Services-Icon.png";
-import googleCloudLogo from "/attached_assets/Logo-google-cloud-icon-vector-PNG.png";
+import googleCloudLogo from "/attached_assets/new_google_cloud_logo.webp";
 import bluePrismLogo from "/attached_assets/Blue-Prism-Logo-What-is-Blue-Prism-Edureka.png";
 import powerPlatformLogo from "@assets/PowerPlatform_scalable.png";
 import powerAppsLogo from "@assets/PowerApps_scalable.png";
@@ -119,9 +118,6 @@ const HeroSection = () => {
                   </div>
                   <div className="w-14 h-14 rounded-full bg-background flex-shrink-0 flex items-center justify-center shadow-sm border border-border snap-start">
                     <img src={bluePrismLogo} alt="Blue Prism" className="w-8 h-8 object-contain" />
-                  </div>
-                  <div className="w-14 h-14 rounded-full bg-background flex-shrink-0 flex items-center justify-center shadow-sm border border-border snap-start">
-                    <img src={llamaLogo} alt="Meta Llama" className="w-8 h-8 object-contain" />
                   </div>
                   <div className="w-14 h-14 rounded-full bg-background flex-shrink-0 flex items-center justify-center shadow-sm border border-border snap-start">
                     <img src={huggingfaceLogo} alt="Hugging Face" className="w-8 h-8 object-contain" />
