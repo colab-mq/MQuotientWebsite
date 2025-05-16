@@ -29,7 +29,7 @@ import aiBuilderLogo from "/attached_assets/AIBuilder_scalable.png";
 const Services = () => {
   // Update page title for SEO
   useEffect(() => {
-    document.title = "m·quotient Services | AI Document Processing, RPA & Power Platform Solutions";
+    document.title = "mquotient Services | AI Document Processing, RPA & Power Platform Solutions";
   }, []);
 
   // Partner logos for each service

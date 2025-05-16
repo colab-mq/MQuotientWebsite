@@ -495,41 +495,16 @@ const CaseStudies = () => {
       // Create a new PDF document
       const pdf = new jsPDF();
       
-      // Load the mquotient logo as a data URL for the PDF
-      const logoData = '/attached_assets/mquotient LOGO.png';
-      
-      // Add an image loader for the logo
-      const img = new Image();
-      img.src = logoData;
-      
-      // Create a canvas to convert the logo to a data URL
+      // Create a canvas to convert image to data URL
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
+      const img = new Image();
       
-      // Once the image is loaded, add it to the PDF
-      img.onload = function() {
-        canvas.width = img.width;
-        canvas.height = img.height;
-        ctx?.drawImage(img, 0, 0);
-        
-        try {
-          // Try to add the logo image
-          const dataUrl = canvas.toDataURL('image/png');
-          pdf.addImage(dataUrl, 'PNG', 20, 10, 60, 15);
-        } catch (e) {
-          // Fallback to text if image loading fails
-          pdf.setFontSize(22);
-          pdf.setTextColor(1, 37, 125); // #01257D
-          pdf.text("mquotient", 20, 20);
-        }
-      };
-      
-      // Fallback to text in case the image doesn't load
-      img.onerror = function() {
-        pdf.setFontSize(22);
-        pdf.setTextColor(1, 37, 125); // #01257D
-        pdf.text("mquotient", 20, 20);
-      };
+      // We're using a simpler approach - just use the text for now
+      // Since embedding the image is causing problems
+      pdf.setFontSize(22);
+      pdf.setTextColor(236, 0, 140); // Use the pink color from the mquotient logo
+      pdf.text("mquotient", 20, 20);
       
       pdf.setFontSize(12);
       pdf.setTextColor(100, 100, 100);

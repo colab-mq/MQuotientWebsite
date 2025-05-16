@@ -12,7 +12,7 @@ import { useEffect } from "react";
 const Home = () => {
   // Update page title for SEO
   useEffect(() => {
-    document.title = "m·quotient - AI Powered Digital Transformation & Automation Solutions";
+    document.title = "mquotient - AI Powered Digital Transformation & Automation Solutions";
   }, []);
   
   return (
