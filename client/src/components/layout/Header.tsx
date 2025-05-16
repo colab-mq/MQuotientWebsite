@@ -42,7 +42,7 @@ const Header = () => {
             <Link href="/" className="flex items-center">
               <img 
                 src={logoPath} 
-                alt="m·quotient Logo" 
+                alt="mquotient Logo" 
                 className={`transition-all duration-300 ${scrolled ? 'h-8' : 'h-10'}`} 
               />
             </Link>
