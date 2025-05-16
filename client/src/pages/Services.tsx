@@ -3,15 +3,17 @@ import { useEffect } from "react";
 import { FaRobot, FaBolt, FaCode, FaHeadset, FaCheckCircle, FaArrowRight, FaBrain, FaCloud, FaCog } from "react-icons/fa";
 
 // Import partner logos
-import bluePrismLogo from "../assets/partners/Blue_Prism_Logo-700x126.png";
 import glyphXLogo from "../assets/partners/GLYPHX.png";
 import microsoftLogo from "../assets/partners/Microsoft_logo.png";
-import uiPathLogo from "../assets/partners/UiPath_2019_Corporate_Logo.png";
-import automationAnywhereLogo from "../assets/partners/automation-anywhere-logo.png";
-import powerAutomateLogo from "../assets/partners/power-automate-logo.png";
-import awsLogo from "../assets/partners/aws-logo-new.png";
 import azureLogo from "../assets/partners/azure-logo.png";
-import gcpLogo from "../assets/partners/gcp-logo-new.png";
+
+// Import RPA and cloud partner logos from attached assets
+import uiPathIcon from "/attached_assets/uipathICON.png";
+import automationAnywhereIcon from "/attached_assets/automation-anywhere-Icon.avif";
+import huggingfaceLogo from "/attached_assets/huggingface-color.logo.png";
+import awsLogo from "/attached_assets/Amazon_Web_Services-Icon.png";
+import googleCloudLogo from "/attached_assets/new_google_cloud_logo.webp";
+import bluePrismLogo from "/attached_assets/Blue-Prism-Logo-What-is-Blue-Prism-Edureka.png";
 
 // Import new Power Platform logos
 import powerPlatformLogo from "../assets/power-platform/PowerPlatform_scalable.png";
@@ -36,10 +38,12 @@ const Services = () => {
       { src: glyphXLogo, alt: "GlyphX", width: 160 }
     ],
     "intelligent-automation": [
-      { src: uiPathLogo, alt: "UiPath", width: 80 },
-      { src: bluePrismLogo, alt: "Blue Prism", width: 80 },
-      { src: automationAnywhereLogo, alt: "Automation Anywhere", width: 100 },
-      { src: powerAutomateLogo, alt: "Power Automate", width: 80 }
+      { src: uiPathIcon, alt: "UiPath", width: 32 },
+      { src: automationAnywhereIcon, alt: "Automation Anywhere", width: 32 },
+      { src: bluePrismLogo, alt: "Blue Prism", width: 32 },
+      { src: huggingfaceLogo, alt: "Hugging Face", width: 32 },
+      { src: awsLogo, alt: "Amazon Web Services", width: 32 },
+      { src: googleCloudLogo, alt: "Google Cloud", width: 32 }
     ],
     "power-platform": [
       { src: powerPlatformLogo, alt: "Power Platform", width: 50 },
@@ -54,8 +58,8 @@ const Services = () => {
     ],
     "cloud": [
       { src: azureLogo, alt: "Microsoft Azure", width: 100 },
-      { src: awsLogo, alt: "Amazon Web Services", width: 100 },
-      { src: gcpLogo, alt: "Google Cloud Platform", width: 120 }
+      { src: awsLogo, alt: "Amazon Web Services", width: 32 },
+      { src: googleCloudLogo, alt: "Google Cloud Platform", width: 32 }
     ]
   };
   
@@ -217,16 +221,28 @@ const Services = () => {
                           ))}
                         </div>
                       </div>
+                    ) : service.title === "Intelligent Business Automation: AI + RPA" ? (
+                      <div className="w-full overflow-hidden relative">
+                        <div className="flex gap-4 py-2 overflow-x-auto scrollbar-hide snap-x">
+                          {partnerLogos["intelligent-automation"].map((logo: { src: string; alt: string; width: number }, i: number) => (
+                            <div key={i} className="w-14 h-14 rounded-full bg-background flex-shrink-0 flex items-center justify-center shadow-sm border border-border snap-start">
+                              <img 
+                                src={logo.src} 
+                                alt={logo.alt} 
+                                className="w-8 h-8 object-contain"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     ) : (
                       <div className={`flex items-center ${
-                        service.title === "Cloud Services" || service.title === "Intelligent Business Automation: AI + RPA" 
+                        service.title === "Cloud Services" 
                           ? "justify-between w-full max-w-md flex-wrap" 
                           : "flex-wrap gap-6"
                       }`}>
                         {partnerLogos[
-                          service.title === "AI-Powered Data Entry Workforce" ? "ai-data-entry" : 
-                          service.title === "Intelligent Business Automation: AI + RPA" ? "intelligent-automation" : 
-                          "cloud"
+                          service.title === "AI-Powered Data Entry Workforce" ? "ai-data-entry" : "cloud"
                         ].map((logo: { src: string; alt: string; width: number }, i: number) => (
                           <div key={i} className="bg-white p-2 rounded-md shadow-sm border border-gray-100">
                             <img 
