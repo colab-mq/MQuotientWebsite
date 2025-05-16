@@ -5,6 +5,8 @@ import { z } from "zod";
 import { useMutation } from "@tanstack/react-query";
 import { JobListing } from "@/types/careers";
 import { useToast } from "@/hooks/use-toast";
+import { uploadFormData } from "@/utils/externalApi";
+import { API_CONFIG } from "@/config/api";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -104,19 +106,8 @@ const ApplicationForm = ({ job }: ApplicationFormProps) => {
         formData.append("resume", resume);
       }
       
-      // Using fetch directly since we need to handle FormData differently than JSON
-      const response = await fetch("/api/careers/apply", {
-        method: "POST",
-        body: formData,
-        credentials: "include"
-      });
-      
-      if (!response.ok) {
-        const text = await response.text() || response.statusText;
-        throw new Error(`${response.status}: ${text}`);
-      }
-      
-      return response;
+      // Using our uploadFormData utility to send to the PHP backend
+      return await uploadFormData(API_CONFIG.ENDPOINTS.CAREERS_APPLY, formData);
     },
     onSuccess: () => {
       toast({

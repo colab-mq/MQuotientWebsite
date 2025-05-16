@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { apiRequest } from "@/lib/queryClient";
+import { externalApiRequest } from "@/utils/externalApi";
+import { API_CONFIG } from "@/config/api";
 import { JobListing } from "@/types/careers";
 import JobListingCard from "@/components/careers/JobListingCard";
 import JobDetails from "@/components/careers/JobDetails";
@@ -28,7 +30,11 @@ const Careers = () => {
   ];
 
   const { data: fetchedJobs, isLoading, error } = useQuery<JobListing[]>({
-    queryKey: ['/api/careers/jobs'],
+    queryKey: ['careers/jobs'],
+    queryFn: async () => {
+      // Use the PHP backend API instead of the local API
+      return await externalApiRequest('GET', API_CONFIG.ENDPOINTS.CAREERS_JOBS);
+    }
   });
   
   // Sort jobs based on the predefined order
