@@ -188,7 +188,7 @@ const ContactSection = () => {
           <div className="section-divider"></div>
           <p className="section-subtitle max-w-3xl mx-auto">
             Ready to unlock the full potential of automation and AI?<br/>
-            Whether you're starting your transformation journey or accelerating your next breakthrough, m·quotient is here to make it real — and make it extraordinary.<br/>
+            Whether you're starting your transformation journey or accelerating your next breakthrough, mquotient is here to make it real — and make it extraordinary.<br/>
             Let's create smarter, faster, future-proof solutions — tailored just for you.
           </p>
         </div>

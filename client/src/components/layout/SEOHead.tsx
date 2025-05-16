@@ -132,11 +132,11 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       pageSpecificSchema = {
         "@context": "https://schema.org",
         "@type": "JobPosting",
-        "title": "Join Our Team at m·quotient",
+        "title": "Join Our Team at mquotient",
         "description": "Explore career opportunities in automation, AI, and digital transformation",
         "hiringOrganization": {
           "@type": "Organization",
-          "name": "m·quotient"
+          "name": "mquotient"
         },
         "jobLocation": {
           "@type": "Place",
@@ -217,7 +217,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     // Basic meta tags
     ensureMetaTag('description', description);
     ensureMetaTag('keywords', keywords);
-    ensureMetaTag('author', 'm·quotient');
+    ensureMetaTag('author', 'mquotient');
     ensureMetaTag('robots', 'index, follow');
     ensureMetaTag('viewport', 'width=device-width, initial-scale=1.0');
     
@@ -236,7 +236,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     ensurePropertyTag('og:url', currentUrl);
     ensurePropertyTag('og:type', type);
     ensurePropertyTag('og:image', image);
-    ensurePropertyTag('og:site_name', 'm·quotient');
+    ensurePropertyTag('og:site_name', 'mquotient');
     ensurePropertyTag('og:locale', 'en_US');
     
     // Twitter Card meta tags
