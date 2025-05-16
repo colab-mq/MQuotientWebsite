@@ -13,7 +13,7 @@ export interface EmailConfig {
 const EMAIL_USER = process.env.EMAIL_USER;
 const EMAIL_APP_PASSWORD = process.env.EMAIL_APP_PASSWORD;
 const CONTACT_EMAIL_RECIPIENTS = process.env.CONTACT_EMAIL_RECIPIENTS?.split(',') || ['hi@mquotient.net'];
-const CAREERS_EMAIL_RECIPIENTS = process.env.CAREERS_EMAIL_RECIPIENTS?.split(',') || ['hi@mquotient.net'];
+const CAREERS_EMAIL_RECIPIENTS = process.env.CAREERS_EMAIL_RECIPIENTS?.split(',') || ['careers@mquotient.net'];
 
 // Create a mock transporter for development if credentials aren't available
 const createTransporter = () => {

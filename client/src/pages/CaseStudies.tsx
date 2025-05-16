@@ -478,37 +478,28 @@ const CaseStudies = () => {
     }
   };
 
-  // Function to handle download button click
+  // Function to handle download button click - direct download without requiring user details
   const handleDownloadClick = (study: CaseStudy) => {
-    setSelectedStudy(study);
-    setIsDownloadDialogOpen(true);
-    // Reset form when opening dialog
-    form.reset();
+    // Directly generate the PDF without opening a dialog
+    generatePDF(study);
+    
+    // Show success message
+    toast({
+      title: "Download Started",
+      description: "Your case study is being downloaded.",
+    });
   };
 
-  // Function to handle form submission
+  // The legacy form submission function is kept for reference but will not be used
   const onSubmit = async (data: DownloadFormValues) => {
+    // Not used anymore as we're doing direct downloads
     if (selectedStudy) {
-      await generatePDF(selectedStudy, data);
-      
-      // Close dialog and show success message
-      setIsDownloadDialogOpen(false);
-      toast({
-        title: "Thank you!",
-        description: "Your case study has been downloaded successfully.",
-      });
-      
-      // Optional: Store the lead information in your database
-      console.log("Lead captured:", {
-        name: data.name,
-        caseStudy: selectedStudy.title,
-        timestamp: new Date().toISOString()
-      });
+      await generatePDF(selectedStudy);
     }
   };
 
   // Function to generate PDF from a case study
-  const generatePDF = async (study: CaseStudy, userData: DownloadFormValues) => {
+  const generatePDF = async (study: CaseStudy) => {
     // Create a temporary div to render the case study content for PDF
     const tempDiv = document.createElement('div');
     tempDiv.style.width = '800px';
