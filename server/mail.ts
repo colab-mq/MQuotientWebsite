@@ -99,7 +99,7 @@ export const mailService = {
     `;
 
     return mailService.sendEmail({
-      from: `"mquotient" <${EMAIL_USER}>`,
+      from: `"m·quotient" <${EMAIL_USER}>`,
       to: CONTACT_EMAIL_RECIPIENTS,
       subject: `New Contact Form: ${data.serviceArea}`,
       html,

@@ -86,8 +86,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
           name: validatedData.name,
           email: validatedData.email,
           company: validatedData.company || undefined,
-          subject: validatedData.subject,
-          message: validatedData.message
+          serviceArea: validatedData.serviceArea,
+          message: validatedData.message,
+          countryCode: validatedData.countryCode || undefined,
+          phone: validatedData.phone || undefined
         });
         console.log('Email notification sent:', emailSent);
       } catch (emailError) {

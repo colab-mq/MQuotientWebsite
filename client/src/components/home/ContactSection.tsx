@@ -117,16 +117,16 @@ const ContactSection = () => {
   }
 
   const services = [
+    "Intelligent Business Automation: AI + RPA",
+    "Microsoft Power Platform Solutions",
     "AI-Powered Data Entry Workforce",
-    "Robotic Process Automation",
-    "Microsoft Power Platform",
-    "Cloud & AI Services",
-    "Implementation & Support"
+    "Cloud Services",
+    "Managed Automation Services"
   ];
   
   const serviceAreas = [
     ...services,
-    "Something Else"
+    "Other (Please specify in message)"
   ];
   
   const countryCodes = [
