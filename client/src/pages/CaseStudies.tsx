@@ -495,7 +495,7 @@ const CaseStudies = () => {
       // Create a new PDF document
       const pdf = new jsPDF();
       
-      // Add MQUOTIENT text as header since we can't reliably add image
+      // Add MQUOTIENT in capital letters
       pdf.setFontSize(22);
       pdf.setTextColor(1, 37, 125); // #01257D
       pdf.text("MQUOTIENT", 20, 20);
@@ -509,21 +509,23 @@ const CaseStudies = () => {
       pdf.setLineWidth(0.5);
       pdf.line(20, 34, 190, 34);
       
-      // Add title and subtitle with word wrapping for long titles
+      // Calculate positions dynamically to prevent overlap
+      
+      // Title with word wrap for long titles
       pdf.setFontSize(18);
       pdf.setTextColor(1, 37, 125);
       const titleLines = pdf.splitTextToSize(study.title, 170);
       pdf.text(titleLines, 20, 47);
       
+      // Subtitle
       pdf.setFontSize(13);
       pdf.setTextColor(100, 100, 100);
       const subtitleLines = pdf.splitTextToSize(study.subtitle, 170);
-      pdf.text(subtitleLines, 20, 60 + (titleLines.length - 1) * 10);
+      let yPos = 47 + (titleLines.length * 7); // Position below title with spacing
+      pdf.text(subtitleLines, 20, yPos);
       
-      // Calculate dynamic position based on title/subtitle length
-      let yPos = 65 + (titleLines.length - 1) * 10 + (subtitleLines.length - 1) * 7;
-      
-      // Add challenge section
+      // Challenge section
+      yPos += (subtitleLines.length * 7) + 10; // Move down after subtitle
       pdf.setFontSize(15);
       pdf.setTextColor(1, 37, 125);
       pdf.text("The Challenge", 20, yPos);
@@ -533,14 +535,13 @@ const CaseStudies = () => {
       const challengeLines = pdf.splitTextToSize(study.challenge, 170);
       pdf.text(challengeLines, 20, yPos + 8);
       
-      // Move to next section, add page if needed
+      // Add solution section, with page break if needed
       yPos = yPos + 12 + (challengeLines.length * 5);
-      if (yPos > 230) {
+      if (yPos > 220) {
         pdf.addPage();
         yPos = 20;
       }
       
-      // Add solution section
       pdf.setFontSize(15);
       pdf.setTextColor(1, 37, 125);
       pdf.text("Our Solution", 20, yPos);
@@ -550,14 +551,13 @@ const CaseStudies = () => {
       const solutionLines = pdf.splitTextToSize(study.solution, 170);
       pdf.text(solutionLines, 20, yPos + 8);
       
-      // Move to next section, add page if needed
+      // Add implementation process section
       yPos = yPos + 12 + (solutionLines.length * 5);
-      if (yPos > 230) {
+      if (yPos > 220) {
         pdf.addPage();
         yPos = 20;
       }
       
-      // Add implementation process section
       pdf.setFontSize(15);
       pdf.setTextColor(1, 37, 125);
       pdf.text("Implementation Process", 20, yPos);
@@ -571,24 +571,23 @@ const CaseStudies = () => {
         const step = study.process[i];
         const stepLines = pdf.splitTextToSize(`${i + 1}. ${step}`, 165);
         
-        // Check if we need to add a new page
+        // Add page break if needed
         if (yPos + (stepLines.length * 5) > 240) {
           pdf.addPage();
           yPos = 20;
         }
         
         pdf.text(stepLines, 20, yPos);
-        yPos += stepLines.length * 5;
+        yPos += stepLines.length * 5 + 2; // Added more spacing
       }
       
-      // Move to results section, add page if needed
+      // Add results section
       yPos += 5;
-      if (yPos > 230) {
+      if (yPos > 220) {
         pdf.addPage();
         yPos = 20;
       }
       
-      // Add results section
       pdf.setFontSize(15);
       pdf.setTextColor(1, 37, 125);
       pdf.text("Results & Impact", 20, yPos);
@@ -600,8 +599,8 @@ const CaseStudies = () => {
       for (let i = 0; i < study.results.length; i++) {
         const result = study.results[i];
         
-        // Check if we need to add a new page
-        if (yPos > 240) {
+        // Add page break if needed
+        if (yPos > 235) {
           pdf.addPage();
           yPos = 20;
         }
@@ -615,20 +614,21 @@ const CaseStudies = () => {
         yPos += 8 + (descLines.length * 5);
       }
       
-      // Add footer to all pages with proper spacing
-      const totalPages = pdf.internal.pages.length - 1;
+      // Add footer with proper spacing to all pages
+      const pageCount = pdf.internal.getNumberOfPages();
       
-      for (let i = 1; i <= totalPages; i++) {
+      for (let i = 1; i <= pageCount; i++) {
         pdf.setPage(i);
         
+        // Add footer only if there's enough space (at least 20px from bottom content)
         pdf.setDrawColor(200, 200, 200);
         pdf.setLineWidth(0.2);
-        pdf.line(20, 275, 190, 275);
+        pdf.line(20, 265, 190, 265);
         
         pdf.setFontSize(9);
         pdf.setTextColor(100, 100, 100);
-        pdf.text(`© ${new Date().getFullYear()} MQUOTIENT | Generated: ${new Date().toLocaleDateString()}`, 20, 280);
-        pdf.text("Contact: hi@mquotient.net | www.mquotient.net", 20, 285);
+        pdf.text(`© ${new Date().getFullYear()} MQUOTIENT | Generated: ${new Date().toLocaleDateString()}`, 20, 270);
+        pdf.text("Contact: hi@mquotient.net | www.mquotient.net", 20, 275);
       }
       
       // Download the PDF
