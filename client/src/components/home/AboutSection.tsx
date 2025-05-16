@@ -109,10 +109,13 @@ const AboutSection = () => {
               <span className="absolute bottom-0 left-0 w-full h-1 bg-primary/20 rounded-full"></span>
             </h3>
             <p className="mb-6 text-foreground/80 leading-relaxed">
-              We specialize in intelligent automation powered by AI — from Intelligent Document Processing (IDP) and Robotic Process Automation (RPA) to building custom tools that drive end-to-end digital transformation.
+              We design and deliver unified automation solutions that are scalable, platform-agnostic, and built for the AI-driven enterprise.
             </p>
             <p className="mb-6 text-foreground/80 leading-relaxed">
-              Our AI-infused solutions make your processes faster, more accurate, and more cost-effective — delivering real, measurable growth where it matters most.
+              From Robotic Process Automation (RPA) and Intelligent Document Processing (IDP) to custom-built AI tools, we streamline operations, eliminate inefficiencies, and lay the foundation for intelligent, enterprise-wide transformation.
+            </p>
+            <p className="mb-6 text-foreground/80 leading-relaxed">
+              Our approach blends proven execution with future-ready design—so your business doesn't just keep up, it leads.
             </p>
           </motion.div>
         </motion.div>
