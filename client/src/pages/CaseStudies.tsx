@@ -495,162 +495,131 @@ const CaseStudies = () => {
       // Create a new PDF document
       const pdf = new jsPDF();
       
-      // Convert the imported PNG to a base64 string
-      const createLogo = () => {
-        // Create a canvas element
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        const img = new Image();
-        
-        // Set the image source
-        img.src = mquotientLogoPNG;
-        
-        img.onload = function() {
-          // Set canvas dimensions
-          canvas.width = img.width;
-          canvas.height = img.height;
-          
-          // Draw image on canvas
-          ctx?.drawImage(img, 0, 0);
-          
-          // Get base64 data
-          const dataURL = canvas.toDataURL('image/png');
-          
-          // Add logo to PDF
-          pdf.addImage(dataURL, 'PNG', 20, 10, 60, 15);
-          
-          // Continue with the rest of the PDF generation
-          continuePdfGeneration();
-        };
-        
-        // Add a fallback in case the image fails to load
-        img.onerror = function() {
-          // If image loading fails, use text instead
-          pdf.setFontSize(22);
-          pdf.setTextColor(1, 37, 125); // #01257D
-          pdf.text("MQUOTIENT", 20, 20);
-          continuePdfGeneration();
-        };
-      };
+      // Add MQUOTIENT text as header since we can't reliably add image
+      pdf.setFontSize(22);
+      pdf.setTextColor(1, 37, 125); // #01257D
+      pdf.text("MQUOTIENT", 20, 20);
       
-      // Function to continue with PDF generation after logo is added
-      const continuePdfGeneration = () => {
-        pdf.setFontSize(12);
-        pdf.setTextColor(100, 100, 100);
-        pdf.text("Case Study", 20, 30); // Adjusted position for better spacing
-        
-        // Add divider line
-        pdf.setDrawColor(1, 37, 125);
-        pdf.setLineWidth(0.5);
-        pdf.line(20, 34, 190, 34); // Adjusted position
-        
-        // Add title and subtitle
-        pdf.setFontSize(18);
-        pdf.setTextColor(1, 37, 125);
-        pdf.text(study.title, 20, 47); // Adjusted position
-        
-        pdf.setFontSize(13);
-        pdf.setTextColor(100, 100, 100);
-        pdf.text(study.subtitle, 20, 57); // Adjusted position
-        
-        // Add challenge section
-        pdf.setFontSize(15);
-        pdf.setTextColor(1, 37, 125);
-        pdf.text("The Challenge", 20, 72); // Adjusted position
-        
-        pdf.setFontSize(11);
-        pdf.setTextColor(0, 0, 0);
-        const challengeLines = pdf.splitTextToSize(study.challenge, 170);
-        pdf.text(challengeLines, 20, 80); // Adjusted position
-        
-        // Check if we need to add a new page based on content length
-        let yPos = 82 + (challengeLines.length * 5);
-        
-        // Add solution section
-        if (yPos > 230) { // If position is too low, add new page
-          pdf.addPage();
-          yPos = 20;
-        }
-        
-        pdf.setFontSize(15);
-        pdf.setTextColor(1, 37, 125);
-        pdf.text("Our Solution", 20, yPos);
-        
-        pdf.setFontSize(11);
-        pdf.setTextColor(0, 0, 0);
-        const solutionLines = pdf.splitTextToSize(study.solution, 170);
-        pdf.text(solutionLines, 20, yPos + 8);
-        
-        // Add implementation process
-        yPos = yPos + 12 + (solutionLines.length * 4.5);
-        
-        // Check if we need to add a new page
-        if (yPos > 230) {
-          pdf.addPage();
-          yPos = 20;
-        }
-        
-        pdf.setFontSize(15);
-        pdf.setTextColor(1, 37, 125);
-        pdf.text("Implementation Process", 20, yPos);
-        
-        // Add process steps
-        pdf.setFontSize(11);
-        pdf.setTextColor(0, 0, 0);
-        yPos += 8;
-        
-        for (let i = 0; i < study.process.length; i++) {
-          const step = study.process[i];
-          const stepLines = pdf.splitTextToSize(`${i + 1}. ${step}`, 165);
-          
-          // Check if we need to add a new page
-          if (yPos + (stepLines.length * 5) > 250) {
-            pdf.addPage();
-            yPos = 20;
-          }
-          
-          pdf.text(stepLines, 20, yPos);
-          yPos += stepLines.length * 5;
-        }
-        
-        // Add results section
-        yPos += 5;
+      pdf.setFontSize(12);
+      pdf.setTextColor(100, 100, 100);
+      pdf.text("Case Study", 20, 30);
+      
+      // Add divider line
+      pdf.setDrawColor(1, 37, 125);
+      pdf.setLineWidth(0.5);
+      pdf.line(20, 34, 190, 34);
+      
+      // Add title and subtitle with word wrapping for long titles
+      pdf.setFontSize(18);
+      pdf.setTextColor(1, 37, 125);
+      const titleLines = pdf.splitTextToSize(study.title, 170);
+      pdf.text(titleLines, 20, 47);
+      
+      pdf.setFontSize(13);
+      pdf.setTextColor(100, 100, 100);
+      const subtitleLines = pdf.splitTextToSize(study.subtitle, 170);
+      pdf.text(subtitleLines, 20, 60 + (titleLines.length - 1) * 10);
+      
+      // Calculate dynamic position based on title/subtitle length
+      let yPos = 65 + (titleLines.length - 1) * 10 + (subtitleLines.length - 1) * 7;
+      
+      // Add challenge section
+      pdf.setFontSize(15);
+      pdf.setTextColor(1, 37, 125);
+      pdf.text("The Challenge", 20, yPos);
+      
+      pdf.setFontSize(11);
+      pdf.setTextColor(0, 0, 0);
+      const challengeLines = pdf.splitTextToSize(study.challenge, 170);
+      pdf.text(challengeLines, 20, yPos + 8);
+      
+      // Move to next section, add page if needed
+      yPos = yPos + 12 + (challengeLines.length * 5);
+      if (yPos > 230) {
+        pdf.addPage();
+        yPos = 20;
+      }
+      
+      // Add solution section
+      pdf.setFontSize(15);
+      pdf.setTextColor(1, 37, 125);
+      pdf.text("Our Solution", 20, yPos);
+      
+      pdf.setFontSize(11);
+      pdf.setTextColor(0, 0, 0);
+      const solutionLines = pdf.splitTextToSize(study.solution, 170);
+      pdf.text(solutionLines, 20, yPos + 8);
+      
+      // Move to next section, add page if needed
+      yPos = yPos + 12 + (solutionLines.length * 5);
+      if (yPos > 230) {
+        pdf.addPage();
+        yPos = 20;
+      }
+      
+      // Add implementation process section
+      pdf.setFontSize(15);
+      pdf.setTextColor(1, 37, 125);
+      pdf.text("Implementation Process", 20, yPos);
+      
+      // Add process steps
+      pdf.setFontSize(11);
+      pdf.setTextColor(0, 0, 0);
+      yPos += 8;
+      
+      for (let i = 0; i < study.process.length; i++) {
+        const step = study.process[i];
+        const stepLines = pdf.splitTextToSize(`${i + 1}. ${step}`, 165);
         
         // Check if we need to add a new page
-        if (yPos > 230) {
+        if (yPos + (stepLines.length * 5) > 240) {
           pdf.addPage();
           yPos = 20;
         }
         
-        pdf.setFontSize(15);
-        pdf.setTextColor(1, 37, 125);
-        pdf.text("Results & Impact", 20, yPos);
+        pdf.text(stepLines, 20, yPos);
+        yPos += stepLines.length * 5;
+      }
+      
+      // Move to results section, add page if needed
+      yPos += 5;
+      if (yPos > 230) {
+        pdf.addPage();
+        yPos = 20;
+      }
+      
+      // Add results section
+      pdf.setFontSize(15);
+      pdf.setTextColor(1, 37, 125);
+      pdf.text("Results & Impact", 20, yPos);
+      
+      // Add results items
+      pdf.setFontSize(11);
+      yPos += 8;
+      
+      for (let i = 0; i < study.results.length; i++) {
+        const result = study.results[i];
         
-        // Add results items
-        pdf.setFontSize(11);
-        yPos += 8;
-        
-        for (let i = 0; i < study.results.length; i++) {
-          const result = study.results[i];
-          
-          // Check if we need to add a new page
-          if (yPos > 250) {
-            pdf.addPage();
-            yPos = 20;
-          }
-          
-          pdf.setTextColor(1, 37, 125);
-          pdf.text(`• ${result.title}`, 20, yPos);
-          
-          pdf.setTextColor(60, 60, 60);
-          const descLines = pdf.splitTextToSize(result.description, 160);
-          pdf.text(descLines, 30, yPos + 6);
-          yPos += 8 + (descLines.length * 4.5);
+        // Check if we need to add a new page
+        if (yPos > 240) {
+          pdf.addPage();
+          yPos = 20;
         }
         
-        // Add footer on the last page
-        const currentPage = pdf.internal.getCurrentPageInfo().pageNumber;
-        pdf.setPage(currentPage);
+        pdf.setTextColor(1, 37, 125);
+        pdf.text(`• ${result.title}`, 20, yPos);
+        
+        pdf.setTextColor(60, 60, 60);
+        const descLines = pdf.splitTextToSize(result.description, 160);
+        pdf.text(descLines, 30, yPos + 6);
+        yPos += 8 + (descLines.length * 5);
+      }
+      
+      // Add footer to all pages with proper spacing
+      const totalPages = pdf.internal.pages.length - 1;
+      
+      for (let i = 1; i <= totalPages; i++) {
+        pdf.setPage(i);
         
         pdf.setDrawColor(200, 200, 200);
         pdf.setLineWidth(0.2);
@@ -660,42 +629,16 @@ const CaseStudies = () => {
         pdf.setTextColor(100, 100, 100);
         pdf.text(`© ${new Date().getFullYear()} MQUOTIENT | Generated: ${new Date().toLocaleDateString()}`, 20, 280);
         pdf.text("Contact: hi@mquotient.net | www.mquotient.net", 20, 285);
-        
-        // Fix the insecure download issue by generating a blob URL
-        const pdfOutput = pdf.output('blob');
-        const blobUrl = URL.createObjectURL(pdfOutput);
-        
-        // Create temporary link and trigger download
-        const link = document.createElement('a');
-        link.href = blobUrl;
-        link.download = `mquotient-case-study-${study.id}.pdf`;
-        link.target = '_blank';
-        document.body.appendChild(link);
-        link.click();
-        
-        // Clean up
-        setTimeout(() => {
-          URL.revokeObjectURL(blobUrl);
-          document.body.removeChild(link);
-        }, 100);
-      };
+      }
       
-      // Start the process by creating the logo
-      createLogo();
+      // Download the PDF
+      pdf.save(`mquotient-case-study-${study.id}.pdf`);
       
-      // Create temporary link and trigger download
-      const link = document.createElement('a');
-      link.href = blobUrl;
-      link.download = `mquotient-case-study-${study.id}.pdf`;
-      link.target = '_blank';
-      document.body.appendChild(link);
-      link.click();
-      
-      // Clean up
-      setTimeout(() => {
-        URL.revokeObjectURL(blobUrl);
-        document.body.removeChild(link);
-      }, 100);
+      // Show success message
+      toast({
+        title: "Download Started",
+        description: "Your case study PDF is being downloaded.",
+      });
       
     } catch (error) {
       console.error('Error generating PDF:', error);
@@ -706,6 +649,8 @@ const CaseStudies = () => {
       });
     }
   };
+      
+
 
   // Function to generate PDF from a case study
   const generatePDF = async (study: CaseStudy) => {
