@@ -17,4 +17,17 @@ export interface CareerApplication {
   position: string;
   message: string;
   resume?: File;
+  countryCode: string;
+  sendResume: boolean;
+
+}
+
+export interface ContactUs {
+  name: string;
+  email: string;
+  company: string;
+  countryCode: string;
+  phone: string;
+  serviceArea: string;
+  message: string;
 }

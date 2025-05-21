@@ -1,13 +1,11 @@
-// Configuration for external PHP backend (cPanel)
 export const API_CONFIG = {
-  // Base URL for the PHP backend - update this with your actual cPanel PHP server URL
-  BASE_URL: "https://your-domain.com/api",
-  
-  // Endpoints
+  BASE_URL: import.meta.env.VITE_API_BASE_URL,
+
   ENDPOINTS: {
-    CONTACT: "/contact.php",
-    CAREERS_APPLY: "/careers-apply.php",
-    CAREERS_JOBS: "/careers-jobs.php",
-    CASE_STUDIES: "/case-studies.php"
+    PUBLIC: {
+      CONTACT: "public/contact-us/",
+      CAREERS_APPLY: "public/careers/",
+      CAREERS_JOBS: "public/jobs/",
+    },
   }
 };

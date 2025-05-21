@@ -39,6 +39,7 @@ const applicationFormSchema = z.object({
   position: z.string().min(1, { message: "Position is required" }),
   message: z.string().min(10, { message: "Cover letter must be at least 10 characters" }).max(1000, { message: "Cover letter must not exceed 1000 characters" }),
   sendCopy: z.boolean().optional(),
+  jobId: z.string(),
 });
 
 type ApplicationFormValues = z.infer<typeof applicationFormSchema>;
@@ -48,6 +49,7 @@ interface ApplicationFormProps {
 }
 
 const ApplicationForm = ({ job }: ApplicationFormProps) => {
+
   const { toast } = useToast();
   const [resume, setResume] = useState<File | null>(null);
   const [resumeName, setResumeName] = useState<string>("");
@@ -83,6 +85,7 @@ const ApplicationForm = ({ job }: ApplicationFormProps) => {
       position: job.title,
       message: "",
       sendCopy: true,
+      jobId: job.id,
     },
   });
 
@@ -96,18 +99,19 @@ const ApplicationForm = ({ job }: ApplicationFormProps) => {
       const formData = new FormData();
       formData.append("name", data.name);
       formData.append("email", data.email);
-      formData.append("countryCode", data.countryCode || "");
+      formData.append("country_code", data.countryCode || "");
       formData.append("phone", data.phone);
       formData.append("position", data.position);
       formData.append("message", data.message);
-      formData.append("sendCopy", data.sendCopy ? "true" : "false");
+      formData.append("send_copy", data.sendCopy ? "1" : "0");
+      formData.append("job_id", data.jobId);
       
       if (resume) {
         formData.append("resume", resume);
       }
       
       // Using our uploadFormData utility to send to the PHP backend
-      return await uploadFormData(API_CONFIG.ENDPOINTS.CAREERS_APPLY, formData);
+      return await uploadFormData(API_CONFIG.ENDPOINTS.PUBLIC.CAREERS_APPLY, formData);
     },
     onSuccess: () => {
       toast({

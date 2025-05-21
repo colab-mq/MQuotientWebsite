@@ -20,27 +20,15 @@ const Careers = () => {
   const [selectedJob, setSelectedJob] = useState<JobListing | null>(null);
   const [showApplicationForm, setShowApplicationForm] = useState(false);
 
-  // Define the correct order for job IDs as specified
-  const jobOrder = [
-    "technical-presales-lead-001",
-    "business-analyst-001",
-    "developer-001", // Now labeled as "Automation Solutions Consultant"
-    "csharp-engineer-001",
-    "ml-intern-001"
-  ];
-
   const { data: fetchedJobs, isLoading, error } = useQuery<JobListing[]>({
     queryKey: ['careers/jobs'],
     queryFn: async () => {
       // Use the PHP backend API instead of the local API
-      return await externalApiRequest('GET', API_CONFIG.ENDPOINTS.CAREERS_JOBS);
+      return await externalApiRequest('GET', API_CONFIG.ENDPOINTS.PUBLIC.CAREERS_JOBS);
     }
   });
-  
-  // Sort jobs based on the predefined order
-  const jobs = fetchedJobs ? [...fetchedJobs].sort((a, b) => {
-    return jobOrder.indexOf(a.id) - jobOrder.indexOf(b.id);
-  }) : undefined;
+  // Only filter active jobs, keep backend order
+  const jobs = fetchedJobs?.data
 
   const handleJobClick = (job: JobListing) => {
     setSelectedJob(job);
@@ -78,7 +66,6 @@ const Careers = () => {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 }
   };
-
   return (
     <div className="pt-16 pb-16 min-h-screen">
       {/* Hero Section */}

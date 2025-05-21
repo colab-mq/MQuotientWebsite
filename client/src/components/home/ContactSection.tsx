@@ -28,6 +28,7 @@ import {
 } from "@/components/ui/select";
 import { FaMapMarkerAlt, FaEnvelope, FaLinkedinIn, FaCheck } from "react-icons/fa";
 import { Send, ArrowRight } from "lucide-react";
+import { mapContactFormToApiPayload } from "@/utils/mapper";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, {
@@ -90,9 +91,9 @@ const ContactSection = () => {
       if (data.countryCode === 'custom' && customCountryCode) {
         data = { ...data, countryCode: customCountryCode };
       }
-      
+      const mappedData = mapContactFormToApiPayload(data);
       // Use the external PHP backend instead of the local API
-      return await externalApiRequest("POST", API_CONFIG.ENDPOINTS.CONTACT, data);
+      return await externalApiRequest("POST", API_CONFIG.ENDPOINTS.PUBLIC.CONTACT, mappedData);
     },
     onSuccess: (data) => {
       toast({
