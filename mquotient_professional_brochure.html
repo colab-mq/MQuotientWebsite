@@ -20,13 +20,21 @@
         
         .page {
             page-break-after: always;
-            min-height: 100vh;
+            height: 100vh;
             padding: 20px;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
         }
         
         .page:last-child {
             page-break-after: avoid;
+        }
+        
+        .page-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .cover-page {
@@ -266,85 +274,118 @@
 
 <!-- Page 1: About mquotient -->
 <div class="page">
-    <h1>About mquotient</h1>
-    
-    <h2>Who We Are</h2>
-    <p>At <strong>mquotient</strong>, we bring automation to life — combining intelligent automation with AI-driven solutions to transform complex business processes into simple, scalable systems.</p>
-    
-    <div class="stats-grid">
-        <div class="stat-item">
-            <span class="stat-number">7+</span>
-            <div class="stat-label">Years of Experience</div>
+    <div class="page-content">
+        <h1>About mquotient</h1>
+        
+        <h2>Who We Are</h2>
+        <p>At <strong>mquotient</strong>, we bring automation to life — combining intelligent automation with AI-driven solutions to transform complex business processes into simple, scalable systems.</p>
+        
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">7+</span>
+                <div class="stat-label">Years of Experience</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">80+</span>
+                <div class="stat-label">Successful Projects</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">95%</span>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">80%</span>
+                <div class="stat-label">Average Cost Reduction</div>
+            </div>
         </div>
-        <div class="stat-item">
-            <span class="stat-number">80+</span>
-            <div class="stat-label">Successful Projects</div>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">95%</span>
-            <div class="stat-label">Client Satisfaction</div>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">80%</span>
-            <div class="stat-label">Average Cost Reduction</div>
-        </div>
+        
+        <h2>Our Mission</h2>
+        <p>We design and deliver unified automation solutions that are scalable, platform-agnostic, and built for the AI-driven enterprise. From Robotic Process Automation (RPA) and Intelligent Document Processing (IDP) to custom-built AI tools, we streamline operations, eliminate inefficiencies, and lay the foundation for intelligent, enterprise-wide transformation.</p>
+        
+        <h2>Why Choose mquotient?</h2>
+        <ul class="checklist">
+            <li><strong>Process Excellence</strong> - We don't settle. From strategy to execution, we aim to deliver work we're proud of—every time.</li>
+            <li><strong>Technical Mastery</strong> - Deep expertise across leading automation platforms and AI technologies.</li>
+            <li><strong>Relentless Innovation</strong> - We stay curious and forward-thinking, always looking for smarter ways to solve real problems.</li>
+            <li><strong>True Client Partnership</strong> - We listen closely, build thoughtfully, and stay focused on what matters most: your success.</li>
+        </ul>
     </div>
-    
-    <h2>Our Mission</h2>
-    <p>We design and deliver unified automation solutions that are scalable, platform-agnostic, and built for the AI-driven enterprise. From Robotic Process Automation (RPA) and Intelligent Document Processing (IDP) to custom-built AI tools, we streamline operations, eliminate inefficiencies, and lay the foundation for intelligent, enterprise-wide transformation.</p>
-    
-    <h2>Why Choose mquotient?</h2>
-    <ul class="checklist">
-        <li><strong>Process Excellence</strong> - We don't settle. From strategy to execution, we aim to deliver work we're proud of—every time.</li>
-        <li><strong>Technical Mastery</strong> - Deep expertise across leading automation platforms and AI technologies.</li>
-        <li><strong>Relentless Innovation</strong> - We stay curious and forward-thinking, always looking for smarter ways to solve real problems.</li>
-        <li><strong>True Client Partnership</strong> - We listen closely, build thoughtfully, and stay focused on what matters most: your success.</li>
-    </ul>
 </div>
 
 <!-- Page 2: Services -->
 <div class="page">
-    <h1>Our Services</h1>
-    
-    <h2><span class="service-icon">🧠</span>AI-Powered Data Entry Workforce</h2>
-    <p><strong>Intelligent Document Processing That Actually Works</strong></p>
-    <p>Transform the way you handle documents and data by eliminating manual data entry with our AI-powered automation solutions.</p>
-    
-    <div class="benefit-item">
-        <strong>Key Benefits:</strong>
-        <ul>
-            <li>85% reduction in manual processing time</li>
-            <li>95%+ data extraction accuracy</li>
-            <li>70% cost savings compared to manual data entry</li>
-            <li>Multi-language document processing capabilities</li>
-        </ul>
+    <div class="page-content">
+        <h1>Our Services</h1>
+        
+        <h2><span class="service-icon">🧠</span>AI-Powered Data Entry Workforce</h2>
+        <p><strong>Intelligent Document Processing That Actually Works</strong></p>
+        <p>Transform the way you handle documents and data by eliminating manual data entry with our AI-powered automation solutions.</p>
+        
+        <div class="benefit-item">
+            <strong>Key Benefits:</strong>
+            <ul>
+                <li>85% reduction in manual processing time</li>
+                <li>95%+ data extraction accuracy</li>
+                <li>70% cost savings compared to manual data entry</li>
+                <li>Multi-language document processing capabilities</li>
+            </ul>
+        </div>
+        
+        <h2><span class="service-icon">🤖</span>Robotic Process Automation (RPA)</h2>
+        <p><strong>Platform-Agnostic RPA Excellence</strong></p>
+        <p>We design, implement, and optimize RPA solutions using leading platforms including UiPath, Blue Prism, Automation Anywhere, and Microsoft Power Automate.</p>
+        
+        <div class="benefit-item">
+            <strong>Business Impact:</strong>
+            <ul>
+                <li>40-70% reduction in processing time</li>
+                <li>Improved data accuracy and consistency</li>
+                <li>Enhanced compliance through standardized workflows</li>
+                <li>Scalable automation that grows with your business</li>
+            </ul>
+        </div>
     </div>
-    
-    <h2><span class="service-icon">🤖</span>Robotic Process Automation (RPA)</h2>
-    <p><strong>Platform-Agnostic RPA Excellence</strong></p>
-    <p>We design, implement, and optimize RPA solutions using leading platforms including UiPath, Blue Prism, Automation Anywhere, and Microsoft Power Automate.</p>
-    
-    <div class="benefit-item">
-        <strong>Business Impact:</strong>
-        <ul>
-            <li>40-70% reduction in processing time</li>
-            <li>Improved data accuracy and consistency</li>
-            <li>Enhanced compliance through standardized workflows</li>
-            <li>Scalable automation that grows with your business</li>
-        </ul>
-    </div>
-    
-    <h2><span class="service-icon">⚡</span>Microsoft Power Platform Solutions</h2>
-    <p><strong>Custom Business Applications Without the Complexity</strong></p>
-    <p>Unlock the full potential of Microsoft Power Platform to create transformative business solutions without extensive coding.</p>
-    
-    <div class="benefit-item">
-        <strong>Results:</strong>
-        <ul>
-            <li>70%+ faster development vs. traditional methods</li>
-            <li>Significant cost savings over custom development</li>
-            <li>Seamless Microsoft 365 integration</li>
-        </ul>
+</div>
+
+<!-- Page 3: More Services -->
+<div class="page">
+    <div class="page-content">
+        <h2><span class="service-icon">⚡</span>Microsoft Power Platform Solutions</h2>
+        <p><strong>Custom Business Applications Without the Complexity</strong></p>
+        <p>Unlock the full potential of Microsoft Power Platform to create transformative business solutions without extensive coding.</p>
+        
+        <div class="benefit-item">
+            <strong>Our Expertise:</strong>
+            <ul>
+                <li>Power Apps: Custom business applications</li>
+                <li>Power Automate: Intelligent workflow automation</li>
+                <li>Power BI: Real-time analytics and dashboards</li>
+                <li>Power Virtual Agents: Intelligent chatbots</li>
+            </ul>
+        </div>
+        
+        <div class="benefit-item">
+            <strong>Results:</strong>
+            <ul>
+                <li>70%+ faster development vs. traditional methods</li>
+                <li>Significant cost savings over custom development</li>
+                <li>Seamless Microsoft 365 integration</li>
+            </ul>
+        </div>
+        
+        <h2><span class="service-icon">☁️</span>Cloud Services & Managed Automation</h2>
+        <p><strong>Secure, Scalable Solutions</strong></p>
+        <p>Expert cloud migration and comprehensive managed services to ensure your automation solutions continue delivering value.</p>
+        
+        <div class="benefit-item">
+            <strong>Services Include:</strong>
+            <ul>
+                <li>Cloud migration across Azure, AWS, and Google Cloud</li>
+                <li>24/7 monitoring and support</li>
+                <li>Performance optimization and maintenance</li>
+                <li>Continuous improvement and enhancement</li>
+            </ul>
+        </div>
     </div>
 </div>
 
