@@ -1,11 +1,7 @@
 import HeroSection from "@/components/home/HeroSection";
-import AboutSection from "@/components/home/AboutSection";
-import ServicesSection from "@/components/home/ServicesSection";
-import ProcessSection from "@/components/home/ProcessSection";
+import ValuePropositionSection from "@/components/home/ValuePropositionSection";
+import ResultsSection from "@/components/home/ResultsSection";
 import ClientsSection from "@/components/home/ClientsSection";
-import CaseStudiesSection from "@/components/home/CaseStudiesSection";
-import TrustSection from "@/components/home/TrustSection";
-import SecuritySection from "@/components/home/SecuritySection";
 import ContactSection from "@/components/home/ContactSection";
 import { useEffect } from "react";
 
@@ -18,13 +14,9 @@ const Home = () => {
   return (
     <article>
       <HeroSection />
-      <AboutSection />
-      <CaseStudiesSection />
-      <ServicesSection />
+      <ValuePropositionSection />
+      <ResultsSection />
       <ClientsSection />
-      <SecuritySection />
-      <ProcessSection />
-      <TrustSection />
       <ContactSection />
     </article>
   );
