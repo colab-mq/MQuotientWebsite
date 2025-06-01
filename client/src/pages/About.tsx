@@ -92,13 +92,27 @@ const About = () => {
           <motion.div variants={itemVariants}>
             <h2 className="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Our Story</h2>
             <p className="mb-4 text-muted-foreground">
-              At mquotient, we started with a clear goal: help businesses work smarter—not harder—by making the most of automation and digital technology.
+              At mquotient, we bring automation to life — combining intelligent automation with AI-driven solutions to transform complex business processes into simple, scalable systems.
+            </p>
+            <p className="mb-4 text-muted-foreground">
+              With deep expertise and a passion for innovation, we help you move faster, work smarter, and grow stronger. We started with a clear goal: help businesses work smarter—not harder—by making the most of automation and digital technology.
             </p>
             <p className="mb-4 text-muted-foreground">
               Since then, we've delivered over 80 successful projects across industries, solving complex challenges, streamlining operations, and reducing costs where it matters most.
             </p>
             <p className="mb-4 text-muted-foreground">
               Today, we bring that same hands-on, problem-solving mindset to a new era of opportunity: unified automation that's leaner, smarter, and AI-ready.
+            </p>
+            
+            <h3 className="text-xl font-semibold mb-4 mt-8">How We Work</h3>
+            <p className="mb-4 text-muted-foreground">
+              At mquotient, we begin with you — understanding your goals, your challenges, and what success looks like for your business.
+            </p>
+            <p className="mb-4 text-muted-foreground">
+              We design solutions that are the perfect fit — blending automation and AI to cut costs, improve control, reduce turnaround times, and deliver immediate, visible ROI.
+            </p>
+            <p className="mb-4 text-muted-foreground">
+              We're not here just to make a sale. We're here to make you succeed. By identifying high-impact opportunities and applying the right blend of automation and AI with precision, we deliver results you can see, feel, and scale.
             </p>
             <p className="mb-4 text-muted-foreground">
               With our Automation Consolidation & Migration Services, we help forward-thinking teams:
