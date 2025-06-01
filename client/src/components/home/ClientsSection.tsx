@@ -95,7 +95,7 @@ const ClientsSection = () => {
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="section-heading">
           <h2 className="section-title">
-            Companies We <span className="gradient-text">Work With</span>
+            <span className="gradient-text">TRUSTED BY</span>
           </h2>
           <div className="section-divider"></div>
           <p className="section-subtitle max-w-3xl mx-auto">
