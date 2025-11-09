@@ -57,9 +57,9 @@ const Services = () => {
       { src: aiBuilderLogo, alt: "AI Builder", width: 50 }
     ],
     "cloud": [
-      { src: azureLogo, alt: "Microsoft Azure", width: 100 },
-      { src: awsLogo, alt: "Amazon Web Services", width: 100 },
-      { src: googleCloudLogo, alt: "Google Cloud Platform", width: 100 }
+      { src: awsLogo, alt: "Amazon Web Services", width: 100, link: "/services/aws" },
+      { src: azureLogo, alt: "Microsoft Azure", width: 100, link: "/services/azure" },
+      { src: googleCloudLogo, alt: "Google Cloud Platform", width: 100, link: "/services/google-cloud" }
     ]
   };
   
@@ -82,6 +82,26 @@ const Services = () => {
         "Future-ready systems designed for enterprise-scale AI integration",
         "Hands-on, committed team that listens first and delivers with precision",
         "Improved compliance and customer satisfaction through intelligent workflows"
+      ]
+    },
+    {
+      title: "Cloud Services",
+      description: "Harness the power of cloud computing with mquotient to transform, streamline, and secure your enterprise operations. We deliver tailored solutions across AWS, Azure, and Google Cloud, empowering your organization with scalable, compliant, and innovative cloud strategies.",
+      icon: <FaCloud />,
+      features: [
+        "Comprehensive Cloud Assessment & Readiness Evaluation",
+        "Seamless Multi-Cloud Migration & Modernization",
+        "Robust Cloud Security, Compliance, & Governance",
+        "Scalable Deployment, Network & Infrastructure Services",
+        "Database Management & DevOps Automation",
+        "Industry-Specific Cloud Solutions Tailored to Your Needs"
+      ],
+      benefits: [
+        "Significant Reductions in Infrastructure Costs",
+        "Enhanced Cloud Scalability and Operational Flexibility",
+        "Enterprise-Grade Security with Comprehensive Compliance",
+        "Accelerated Innovation Cycles and Reduced Time-to-Market",
+        "Minimal Disruption for a Smooth Cloud Transition"
       ]
     },
     {
@@ -142,26 +162,6 @@ const Services = () => {
         "Enable continuous improvement through data-driven insights and refinement",
         "Stay scalable and AI-ready with architecture designed for what's next",
         "Work with a team that listens, adapts, and delivers—long after the build is done"
-      ]
-    },
-    {
-      title: "Cloud Services",
-      description: "Harness the power of cloud computing with mquotient to transform, streamline, and secure your enterprise operations. We deliver tailored solutions across AWS, Azure, and Google Cloud, empowering your organization with scalable, compliant, and innovative cloud strategies.",
-      icon: <FaCloud />,
-      features: [
-        "Comprehensive Cloud Assessment & Readiness Evaluation",
-        "Seamless Multi-Cloud Migration & Modernization",
-        "Robust Cloud Security, Compliance, & Governance",
-        "Scalable Deployment, Network & Infrastructure Services",
-        "Database Management & DevOps Automation",
-        "Industry-Specific Cloud Solutions Tailored to Your Needs"
-      ],
-      benefits: [
-        "Significant Reductions in Infrastructure Costs",
-        "Enhanced Cloud Scalability and Operational Flexibility",
-        "Enterprise-Grade Security with Comprehensive Compliance",
-        "Accelerated Innovation Cycles and Reduced Time-to-Market",
-        "Minimal Disruption for a Smooth Cloud Transition"
       ]
     }
   ];
@@ -235,15 +235,38 @@ const Services = () => {
                           ))}
                         </div>
                       </div>
+                    ) : service.title === "Cloud Services" ? (
+                      <div className="flex items-center justify-between w-full max-w-md flex-wrap gap-4">
+                        {partnerLogos["cloud"].map((logo: { src: string; alt: string; width: number; link?: string }, i: number) => (
+                          logo.link ? (
+                            <Link 
+                              key={i} 
+                              href={logo.link}
+                              className="bg-white p-2 rounded-md shadow-sm border border-gray-100 hover:shadow-md hover:border-primary/30 transition-all cursor-pointer"
+                              data-testid={`link-cloud-${logo.alt.toLowerCase().replace(/\s+/g, '-')}`}
+                            >
+                              <img 
+                                src={logo.src} 
+                                alt={logo.alt} 
+                                className="object-contain h-8"
+                                style={{ width: `${logo.width}px`, maxHeight: '36px' }}
+                              />
+                            </Link>
+                          ) : (
+                            <div key={i} className="bg-white p-2 rounded-md shadow-sm border border-gray-100">
+                              <img 
+                                src={logo.src} 
+                                alt={logo.alt} 
+                                className="object-contain h-8"
+                                style={{ width: `${logo.width}px`, maxHeight: '36px' }}
+                              />
+                            </div>
+                          )
+                        ))}
+                      </div>
                     ) : (
-                      <div className={`flex items-center ${
-                        service.title === "Cloud Services" 
-                          ? "justify-between w-full max-w-md flex-wrap" 
-                          : "flex-wrap gap-6"
-                      }`}>
-                        {partnerLogos[
-                          service.title === "AI-Powered Data Entry Workforce" ? "ai-data-entry" : "cloud"
-                        ].map((logo: { src: string; alt: string; width: number }, i: number) => (
+                      <div className="flex-wrap gap-6">
+                        {partnerLogos["ai-data-entry"].map((logo: { src: string; alt: string; width: number }, i: number) => (
                           <div key={i} className="bg-white p-2 rounded-md shadow-sm border border-gray-100">
                             <img 
                               src={logo.src} 

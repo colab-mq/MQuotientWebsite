@@ -13,6 +13,9 @@ import Services from "@/pages/Services";
 import Contact from "@/pages/Contact";
 import Careers from "@/pages/Careers";
 import CaseStudies from "@/pages/CaseStudies";
+import AWS from "@/pages/cloud/AWS";
+import Azure from "@/pages/cloud/Azure";
+import GoogleCloud from "@/pages/cloud/GoogleCloud";
 
 function Router() {
   return (
@@ -20,6 +23,9 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/services" component={Services} />
+      <Route path="/services/aws" component={AWS} />
+      <Route path="/services/azure" component={Azure} />
+      <Route path="/services/google-cloud" component={GoogleCloud} />
       <Route path="/careers" component={Careers} />
       <Route path="/case-studies" component={CaseStudies} />
       <Route path="/contact" component={Contact} />
