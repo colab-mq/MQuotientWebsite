@@ -146,22 +146,22 @@ const Services = () => {
     },
     {
       title: "Cloud Services",
-      description: "Harness the power of cloud computing to transform, streamline, and secure your business with our tailored solutions supporting Azure, AWS, and Google Cloud.",
+      description: "Harness the power of cloud computing with mquotient to transform, streamline, and secure your enterprise operations. We deliver tailored solutions across AWS, Azure, and Google Cloud, empowering your organization with scalable, compliant, and innovative cloud strategies.",
       icon: <FaCloud />,
       features: [
-        "Cloud Assessment as a Service",
-        "Seamless Cloud Migration",
-        "Cloud Security & Governance",
-        "Deployment & Network Services",
-        "Database & DevOps Support",
-        "Industry-Focused Cloud Solutions"
+        "Comprehensive Cloud Assessment & Readiness Evaluation",
+        "Seamless Multi-Cloud Migration & Modernization",
+        "Robust Cloud Security, Compliance, & Governance",
+        "Scalable Deployment, Network & Infrastructure Services",
+        "Database Management & DevOps Automation",
+        "Industry-Specific Cloud Solutions Tailored to Your Needs"
       ],
       benefits: [
-        "Reduced infrastructure costs",
-        "Enhanced scalability and flexibility",
-        "Comprehensive data protection & compliance",
-        "Accelerated innovation and time-to-market",
-        "Minimized disruption during transitions"
+        "Significant Reductions in Infrastructure Costs",
+        "Enhanced Cloud Scalability and Operational Flexibility",
+        "Enterprise-Grade Security with Comprehensive Compliance",
+        "Accelerated Innovation Cycles and Reduced Time-to-Market",
+        "Minimal Disruption for a Smooth Cloud Transition"
       ]
     }
   ];
