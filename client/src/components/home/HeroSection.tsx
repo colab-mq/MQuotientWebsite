@@ -6,7 +6,7 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import uipathIcon from "/attached_assets/uipathICON.png";
 import automationAnywhereIcon from "/attached_assets/automation-anywhere-Icon.avif";
 import huggingfaceLogo from "/attached_assets/huggingface-color.logo.png";
-import awsLogo from "/attached_assets/Amazon_Web_Services-Icon.png";
+import awsLogo from "/attached_assets/Amazon_Web_Services_Logo.svg_1762768620937.png";
 import googleCloudLogo from "/attached_assets/new_google_cloud_logo.webp";
 import bluePrismLogo from "/attached_assets/Blue-Prism-Logo-What-is-Blue-Prism-Edureka.png";
 import powerPlatformLogo from "/attached_assets/PowerPlatform_scalable.png";
@@ -122,12 +122,12 @@ const HeroSection = () => {
                   <div className="w-14 h-14 rounded-full bg-background flex-shrink-0 flex items-center justify-center shadow-sm border border-border snap-start">
                     <img src={huggingfaceLogo} alt="Hugging Face" className="w-8 h-8 object-contain" />
                   </div>
-                  <div className="w-14 h-14 rounded-full bg-background flex-shrink-0 flex items-center justify-center shadow-sm border border-border snap-start">
+                  <Link href="/services/aws" className="w-14 h-14 rounded-full bg-background flex-shrink-0 flex items-center justify-center shadow-sm border border-border hover:border-primary/50 hover:shadow-md transition-all snap-start" data-testid="link-aws-home">
                     <img src={awsLogo} alt="Amazon Web Services" className="w-8 h-8 object-contain" />
-                  </div>
-                  <div className="w-14 h-14 rounded-full bg-background flex-shrink-0 flex items-center justify-center shadow-sm border border-border snap-start">
+                  </Link>
+                  <Link href="/services/google-cloud" className="w-14 h-14 rounded-full bg-background flex-shrink-0 flex items-center justify-center shadow-sm border border-border hover:border-primary/50 hover:shadow-md transition-all snap-start" data-testid="link-google-cloud-home">
                     <img src={googleCloudLogo} alt="Google Cloud" className="w-8 h-8 object-contain" />
-                  </div>
+                  </Link>
                 </div>
               </div>
               

@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { useEffect } from "react";
 import { FaCloud, FaArrowLeft, FaCheckCircle } from "react-icons/fa";
-import awsLogo from "/attached_assets/amazon-web-services-1-logo-png-transparent.png";
+import awsLogo from "/attached_assets/Amazon_Web_Services_Logo.svg_1762768620937.png";
 
 const AWS = () => {
   useEffect(() => {

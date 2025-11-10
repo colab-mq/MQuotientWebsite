@@ -11,7 +11,7 @@ import azureLogo from "../assets/partners/azure-logo.png";
 import uiPathIcon from "/attached_assets/uipathICON.png";
 import automationAnywhereIcon from "/attached_assets/automation-anywhere-Icon.avif";
 import huggingfaceLogo from "/attached_assets/huggingface-color.logo.png";
-import awsLogo from "/attached_assets/amazon-web-services-1-logo-png-transparent.png";
+import awsLogo from "/attached_assets/Amazon_Web_Services_Logo.svg_1762768620937.png";
 import googleCloudLogo from "/attached_assets/Google_Cloud_logo.svg.png";
 import bluePrismLogo from "/attached_assets/Blue-Prism-Logo-What-is-Blue-Prism-Edureka.png";
 
@@ -94,7 +94,8 @@ const Services = () => {
         "Robust Cloud Security, Compliance, & Governance",
         "Scalable Deployment, Network & Infrastructure Services",
         "Database Management & DevOps Automation",
-        "Industry-Specific Cloud Solutions Tailored to Your Needs"
+        "Industry-Specific Cloud Solutions Tailored to Your Needs",
+        "Comprehensive multi-cloud helpdesk support providing expert L1 to L3 technical assistance to ensure uninterrupted cloud operations"
       ],
       benefits: [
         "Significant Reductions in Infrastructure Costs",
